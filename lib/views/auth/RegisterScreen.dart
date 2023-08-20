@@ -93,6 +93,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 16),
                 CustomButton(
+                  backcolor: AppColor.primaryBlackColor,
                   text: 'Sign up',
                   onPressed: () {
                     Get.to(()=>MainScreen());

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
-
 import 'AddressesScreen.dart';
 
 class AddAddressScreen extends StatelessWidget {
@@ -145,7 +144,8 @@ class AddAddressScreen extends StatelessWidget {
               const SizedBox(height: 32),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: CustomButton(onPressed: () {
+                child: CustomButton(
+                  backcolor:AppColor.primaryBlackColor,onPressed: () {
                   Get.to(()=>const AdressesScreen());
                 }, text: 'Save',),
               ),

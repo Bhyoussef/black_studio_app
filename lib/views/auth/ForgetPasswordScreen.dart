@@ -91,6 +91,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 ),
                 const SizedBox(height: 50),
                 CustomButton(
+                  backcolor: AppColor.primaryBlackColor,
                   onPressed: () {
                     Get.to(()=>EmailConfirmationScreen());
                   }, text: 'Send',

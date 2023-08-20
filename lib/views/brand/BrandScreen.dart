@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
-import 'package:linkia_ecommerce/views/main/CustomAppBar.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
 
 class BrandScreen extends StatefulWidget {
@@ -71,15 +70,28 @@ class _BrandScreenState extends State<BrandScreen> {
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
 
-      appBar: CustomAppBar(
-          title: 'Brands',
-          onMenuPressed: () {
+
+      appBar: AppBar(
+        backgroundColor: AppColor.primaryWhiteColor,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Image.asset(
+            'assets/imgs/List.png',
+            color: AppColor.primaryBlackColor,
+          ),
+          onPressed: () {
             _scaffoldKey.currentState?.openDrawer();
           },
-          onFavoritePressed: (null) ,
-          onNotificationPressed: (null)
+        ),
+        title: Text(
+          'Brands',
+          style: GoogleFonts.beVietnamPro(
+            color: AppColor.primaryBlackColor,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
-
       body: Column(
         children: [
           Padding(

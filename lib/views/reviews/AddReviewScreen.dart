@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/widget/CustomButton.dart';
 
 class AddReviewScreen extends StatelessWidget {
   const AddReviewScreen({Key? key}) : super(key: key);
@@ -87,26 +88,7 @@ class AddReviewScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            SizedBox(
-              height: 50,
-              width: MediaQuery.of(context).size.width,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                        8), // Set your desired corner radius
-                  ),
-                ),
-                onPressed: () {},
-                child: Text('Submit',
-                    style: GoogleFonts.beVietnamPro(
-                        color: AppColor.primaryWhiteColor,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400)),
-              ),
-            ),
+            CustomButton(onPressed: () {  }, text: 'Submit',backcolor: AppColor.primaryBlackColor,),
           ],
         ),
       ),

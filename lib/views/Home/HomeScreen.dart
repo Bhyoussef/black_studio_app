@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
-import 'package:linkia_ecommerce/views/main/CustomAppBar.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
 import 'package:linkia_ecommerce/views/product/AllProduct.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
@@ -25,17 +24,46 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
-      appBar: CustomAppBar(
-        title: 'Linkia',
-        onMenuPressed: () {
-          _scaffoldKey.currentState?.openDrawer();
-        },
-        onFavoritePressed: () {
-          // Handle favorite button press
-        },
-        onNotificationPressed: (){
-
-        }
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: AppColor.primaryWhiteColor,
+        leading: IconButton(
+          icon: Image.asset(
+            'assets/imgs/List.png',
+            color: AppColor.primaryBlackColor,
+          ),
+          onPressed: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
+        ),
+        automaticallyImplyLeading: false,
+        title: Text(
+          'Linkia',
+          style: GoogleFonts.beVietnamPro(
+            color: AppColor.primaryBlackColor,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Image.asset(
+              'assets/imgs/Heart.png',
+              color: Colors.black,
+            ),
+            onPressed: () {
+              // Handle favorite button press
+            },
+          ),
+          IconButton(
+            icon: Image.asset(
+              'assets/imgs/Bell.png',
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Get.to(() => const NotificationScreen());
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),

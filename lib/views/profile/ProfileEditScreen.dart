@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -22,8 +21,8 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
   File? _image;
 
   void _pickImage() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? pickedFile = await _picker.pickImage(
+    final ImagePicker picker = ImagePicker();
+    final XFile? pickedFile = await picker.pickImage(
       source: ImageSource.gallery,
       imageQuality: 50, // Adjust the image quality as needed
     );
@@ -123,6 +122,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
             ),
             const SizedBox(height: 20),
             CustomButton(
+              backcolor: AppColor.primaryBlackColor,
               onPressed: () {
                 // TODO: Implement the logic for updating the profile
               },

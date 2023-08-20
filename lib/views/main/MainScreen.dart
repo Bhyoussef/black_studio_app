@@ -5,7 +5,7 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/controllers/MainController.dart';
 import 'package:linkia_ecommerce/views/Home/HomeScreen.dart';
 import 'package:linkia_ecommerce/views/bag/BagScreen.dart';
-import 'package:linkia_ecommerce/views/brand/BranScreen.dart';
+import 'package:linkia_ecommerce/views/brand/BrandScreen.dart';
 import 'package:linkia_ecommerce/views/category/CategoryScreen.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
 import 'package:linkia_ecommerce/views/profile/ProfileScreen.dart';

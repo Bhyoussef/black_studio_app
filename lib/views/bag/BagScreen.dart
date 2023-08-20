@@ -5,13 +5,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
 import 'package:linkia_ecommerce/views/bag/widget/CustomCartItem.dart';
+import 'package:linkia_ecommerce/widget/CustomButton.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
 
 import 'ChekoutScreen.dart';
 
 class BagScreen extends StatefulWidget {
-  final  bool? isHome;
-  const BagScreen({Key? key,  this.isHome}) : super(key: key);
+  final bool? isHome;
+  const BagScreen({Key? key, this.isHome}) : super(key: key);
 
   @override
   State<BagScreen> createState() => _BagScreenState();
@@ -31,20 +32,25 @@ class _BagScreenState extends State<BagScreen> {
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
       appBar: AppBar(
-        leading: widget.isHome == true?IconButton(
-          icon: Icon(Icons.arrow_back,color: Colors.black,),
-          onPressed: () {
-         Get.back();
-          },
-        ):IconButton(
-          icon: Image.asset(
-            'assets/imgs/List.png',
-            color: AppColor.primaryBlackColor,
-          ),
-          onPressed: () {
-            _scaffoldKey.currentState?.openDrawer();
-          },
-        ),
+        leading: widget.isHome == true
+            ? IconButton(
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                ),
+                onPressed: () {
+                  Get.back();
+                },
+              )
+            : IconButton(
+                icon: Image.asset(
+                  'assets/imgs/List.png',
+                  color: AppColor.primaryBlackColor,
+                ),
+                onPressed: () {
+                  _scaffoldKey.currentState?.openDrawer();
+                },
+              ),
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,
         title: Text(
@@ -135,31 +141,12 @@ class _BagScreenState extends State<BagScreen> {
                 // TODO: Implement the total amount section
 
                 const SizedBox(height: 32),
-                SizedBox(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white, backgroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          8,
-                        ),
-                      ),
-                    ),
+                CustomButton(
+                  backcolor: AppColor.primaryBlackColor,
                     onPressed: () {
-                    Get.to(()=>const ChekoutScreen());
+                      Get.to(() => const ChekoutScreen());
                     },
-                    child: Text(
-                      'Checkout',
-                      style: GoogleFonts.beVietnamPro(
-                        color: AppColor.primaryWhiteColor,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                ),
+                    text: 'Checkout'),
               ],
             ),
           ),
@@ -168,5 +155,3 @@ class _BagScreenState extends State<BagScreen> {
     );
   }
 }
-
-

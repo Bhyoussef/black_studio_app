@@ -7,8 +7,9 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
+  final Color backcolor;
 
-  const CustomButton({required this.onPressed, required this.text});
+  const CustomButton({required this.onPressed, required this.text, required this.backcolor});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +18,7 @@ class CustomButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.black,
-          onPrimary: Colors.white,
+          foregroundColor: Colors.white, backgroundColor: backcolor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),

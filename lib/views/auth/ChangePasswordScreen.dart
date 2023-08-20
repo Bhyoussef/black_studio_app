@@ -87,7 +87,10 @@ class ChangePasswordScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            CustomButton(onPressed: () {
+            CustomButton(
+              backcolor: AppColor.primaryBlackColor,
+              onPressed: () {
+
               // TODO: Implement the logic for updating the password
 
             }, text: 'Update Password',

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
-
 import 'OrderSummaryScreen.dart';
 
 class MyOrdersScreen extends StatelessWidget {
