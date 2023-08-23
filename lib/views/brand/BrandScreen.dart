@@ -12,21 +12,14 @@ class BrandScreen extends StatefulWidget {
 
 class _BrandScreenState extends State<BrandScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  List<String> brands = [
-    'Apple',
-    'Amazon',
-    'Google',
-    'Microsoft',
-    'Facebook',
-    'Samsung',
-    'Toyota',
-    'Nike',
-    'Coca-Cola',
-    'McDonald\'s',
-    // Add more brands here
+  List<Map<String, String>> brands = [
+    {'name': 'Urbanic', 'image': 'assets/demo/image 19 (1).png'},
+    {'name': 'Puma', 'image': 'assets/demo/puma-logo 1 (1).png'},
+    {'name': 'Zara', 'image': 'assets/demo/zara-logo-1 1 (1).png'},
+    // Add other brands and their images here
   ];
 
-  List<String> filteredBrands = [];
+  List<Map<String, String>> filteredBrands = [];
   final ScrollController _scrollController = ScrollController();
   List<String> alphabets = [
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
@@ -38,22 +31,24 @@ class _BrandScreenState extends State<BrandScreen> {
   void initState() {
     super.initState();
     // Sort the brands alphabetically
-    brands.sort();
+    brands.sort((a, b) => a['name']!.compareTo(b['name']!));
     filteredBrands = List.from(brands);
   }
 
   void filterBrands(String query) {
     setState(() {
-      filteredBrands = brands.where((brand) {
-        final lowerCaseBrand = brand.toLowerCase();
+      filteredBrands = brands.where((brandData) {
+        final lowerCaseBrand = brandData['name']!.toLowerCase();
         final lowerCaseQuery = query.toLowerCase();
-        return lowerCaseBrand.contains(lowerCaseQuery);
+        return lowerCaseBrand!.contains(lowerCaseQuery);
       }).toList();
     });
   }
 
   void scrollToIndex(int index) {
-    final scrollIndex = brands.indexWhere((brand) => brand.startsWith(alphabets[index]));
+    final scrollIndex = brands.indexWhere(
+            (brandData) => brandData['name']!.startsWith(alphabets[index])
+    );
     if (scrollIndex != -1) {
       _scrollController.animateTo(
         scrollIndex.toDouble() * 56.0,
@@ -69,7 +64,6 @@ class _BrandScreenState extends State<BrandScreen> {
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
-
 
       appBar: AppBar(
         backgroundColor: AppColor.primaryWhiteColor,
@@ -97,12 +91,19 @@ class _BrandScreenState extends State<BrandScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              height: 40,
+              height: 50,
               child: TextFormField(
+                cursorColor: AppColor.primaryBlackColor,
                 onChanged: filterBrands,
                 decoration: InputDecoration(
-                  labelText: 'Search',
-                  prefixIcon: const Icon(Icons.search),
+                  //labelText: 'Search',
+                  labelStyle: TextStyle(
+                    color: AppColor.primaryBlackColor
+                  ),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    color: AppColor.primaryBlackColor,
+                  ),
                   filled: true,
                   fillColor: AppColor.secondaryGreyColor,
                   border: OutlineInputBorder(
@@ -121,38 +122,35 @@ class _BrandScreenState extends State<BrandScreen> {
                     controller: _scrollController,
                     itemCount: filteredBrands.length,
                     itemBuilder: (context, index) {
-                      final brand = filteredBrands[index];
-                      final firstLetter = brand.substring(0, 1).toUpperCase();
-                      final isDividerNeeded =
-                          index == 0 || firstLetter != filteredBrands[index - 1].substring(0, 1).toUpperCase();
+                      final brandData = filteredBrands[index];
+                      final brandName = brandData['name'];
+                      final brandImage = brandData['image'];
 
-                      return Column(
-                        children: [
-                          if (isDividerNeeded)
-                            Container(
-                              height: 30,
-                              width: MediaQuery.of(context).size.width,
-                              color: AppColor.secondaryGreyColor,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                        firstLetter,
-                                        style: GoogleFonts.beVietnamPro(
-                                          color: AppColor.primaryBlackColor,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w500
-                                        ),
-                                      ),
-                                  ],
-                                ),
+                      final firstLetter = brandName?.substring(0, 1).toUpperCase();
+                      final isDividerNeeded =
+                          index == 0 ||
+                              firstLetter !=
+                                  filteredBrands[index - 1]['name']?.substring(0, 1).toUpperCase();
+
+                      return Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: Image.asset(
+                                brandImage!,
+                                width: 40,
+                                height: 40,
                               ),
+                              title: Text(brandName!),
                             ),
-                          ListTile(
-                            title: Text(brand),
-                          ),
-                        ],
+                            const Divider(
+                              height: 1,
+                              thickness: 0.09,
+                              color: AppColor.primaryGreyColor,
+                            )
+                          ],
+                        ),
                       );
                     },
                   ),
@@ -169,8 +167,7 @@ class _BrandScreenState extends State<BrandScreen> {
                           style: GoogleFonts.beVietnamPro(
                               color: AppColor.primaryBlackColor,
                               fontSize: 12,
-                              fontWeight: FontWeight.w500
-                          ),
+                              fontWeight: FontWeight.w500),
                         ),
                         onTap: () {
                           scrollToIndex(index);

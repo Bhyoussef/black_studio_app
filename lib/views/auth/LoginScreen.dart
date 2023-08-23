@@ -91,6 +91,7 @@ class LoginScreen extends StatelessWidget {
                         fontWeight: FontWeight.w400)),
                 const SizedBox(height: 10),
                 SocialButton(
+                  backcolor: Colors.blueAccent,
                   icon: Icons.facebook,
                   text: 'Continue with Facebook',
                   onPressed: () {
@@ -99,6 +100,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 SocialButton(
+                  backcolor: Colors.red,
                   icon: Icons.email,
                   text: 'Continue with Google',
                   onPressed: () {
@@ -112,6 +114,7 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     // Implement Apple login functionality here
                   },
+                  backcolor: Colors.black,
                 ),
                 const SizedBox(height: 10),
                 TextButton(

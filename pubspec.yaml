@@ -45,6 +45,7 @@ dependencies:
   flutter_svg: ^0.22.0
   image_picker: ^1.0.1
   flutter_switch: ^0.3.2
+  badges: ^2.0.1
 
 
 dev_dependencies:
@@ -74,6 +75,7 @@ flutter:
     - assets/
     - assets/imgs/
     - assets/svg/
+    - assets/demo/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -15,7 +15,7 @@ class PrivacyScreen extends StatelessWidget {
         backgroundColor: AppColor.primaryWhiteColor,
         leading: IconButton(onPressed: () {
           Get.back();
-        }, icon:const Icon(Icons.arrow_back,color: AppColor.primaryBlackColor,),
+        }, icon:const Icon(Icons.close,color: AppColor.primaryBlackColor,size: 30,),
 
         ),
         title: Text('Privacy Policy',style: GoogleFonts.beVietnamPro(
@@ -47,6 +47,16 @@ class PrivacyScreen extends StatelessWidget {
               height: 50,
               color: AppColor.primaryBlackColor,
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child:  Text(style: GoogleFonts.beVietnamPro(
+                  fontSize: 15, fontWeight: FontWeight.w400,color: AppColor.primaryBlackColor),"Introduction What Personal Information We Collect And How We Use It Receiving And Unsubscribing From The Black Studio Updates Who We Share Your Personal Information With Your Rights In Relation To Your Personal Information Retention And Deletion Of Personal Information Security And Third Party Links In-Application Virtual Activation Changes To This Privacy Policy Contacting The Black Studio"),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(style: GoogleFonts.beVietnamPro(
+                  fontSize: 15, fontWeight: FontWeight.w400,color: AppColor.primaryBlackColor),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultrices elit a, magna magna pretium quam ac leo. Dui praesent consectetur vestibulum est. Quis facilisis netus odio ultricies netus urna tortor, venenatis. Tristique quis arcu bibendum gravida sem libero at sit. Adipiscing non est duis mi arcu, eget pharetra, accumsan. Egestas tincidunt ullamcorper arcu.'),
+            )
 
           ],
         ),

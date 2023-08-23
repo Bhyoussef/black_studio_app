@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
 import 'OrderSummaryScreen.dart';
 
@@ -218,7 +219,7 @@ class MyOrdersScreen extends StatelessWidget {
                       ColumnBuilder(
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
-                        itemCount: 2,
+                        itemCount: dummyProducts.length,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.all(5.0),

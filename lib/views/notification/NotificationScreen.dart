@@ -58,7 +58,7 @@ class NotificationScreen extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Image.asset('assets/imgs/Bell.png'),
-                  title: Text('Acivity',style: GoogleFonts.beVietnamPro(
+                  title: Text('Activity',style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryBlackColor,
                       fontWeight: FontWeight.w600,
                       fontSize: 15

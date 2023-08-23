@@ -5,9 +5,18 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 
-class NotificationSetting extends StatelessWidget {
+class NotificationSetting extends StatefulWidget {
   const NotificationSetting({Key? key}) : super(key: key);
 
+  @override
+  State<NotificationSetting> createState() => _NotificationSettingState();
+}
+
+class _NotificationSettingState extends State<NotificationSetting> {
+  bool pushNotification = false;
+  bool offersUpdate = false;
+  bool payment = false;
+  bool orderUpdate = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,12 +60,14 @@ class NotificationSetting extends StatelessWidget {
                 trailing: Container(
                   height: 25,
                   width: 45,
-                  child: FlutterSwitch(
+                  child:   FlutterSwitch(
                     activeColor: Colors.black,
                     inactiveColor: Colors.grey,
-
-                    value: true, // Set the initial value for the switch button
+                    value: pushNotification,
                     onToggle: (value) {
+                      setState(() {
+                        pushNotification = value;
+                      });
                       // TODO: Implement the logic for enabling/disabling push notifications
                     },
                   ),
@@ -77,9 +88,11 @@ class NotificationSetting extends StatelessWidget {
                   child: FlutterSwitch(
                     activeColor: Colors.black,
                     inactiveColor: Colors.grey,
-
-                    value: true, // Set the initial value for the switch button
+                    value: offersUpdate,
                     onToggle: (value) {
+                      setState(() {
+                        offersUpdate = value;
+                      });
                       // TODO: Implement the logic for enabling/disabling push notifications
                     },
                   ),
@@ -100,9 +113,11 @@ class NotificationSetting extends StatelessWidget {
                   child: FlutterSwitch(
                     activeColor: Colors.black,
                     inactiveColor: Colors.grey,
-
-                    value: true, // Set the initial value for the switch button
+                    value: payment,
                     onToggle: (value) {
+                      setState(() {
+                        payment = value;
+                      });
                       // TODO: Implement the logic for enabling/disabling push notifications
                     },
                   ),
@@ -123,9 +138,11 @@ class NotificationSetting extends StatelessWidget {
                   child: FlutterSwitch(
                     activeColor: Colors.black,
                     inactiveColor: Colors.grey,
-
-                    value: true, // Set the initial value for the switch button
+                    value: orderUpdate,
                     onToggle: (value) {
+                      setState(() {
+                        orderUpdate = value;
+                      });
                       // TODO: Implement the logic for enabling/disabling push notifications
                     },
                   ),

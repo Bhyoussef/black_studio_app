@@ -5,9 +5,16 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
 import 'AddressesScreen.dart';
 
-class AddAddressScreen extends StatelessWidget {
+class AddAddressScreen extends StatefulWidget {
   const AddAddressScreen({Key? key}) : super(key: key);
 
+  @override
+  State<AddAddressScreen> createState() => _AddAddressScreenState();
+}
+
+class _AddAddressScreenState extends State<AddAddressScreen> {
+  bool defaultSipping = false;
+  bool defaultBilling = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +28,8 @@ class AddAddressScreen extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,
-        title: Text('Add Address',    style: GoogleFonts.beVietnamPro(
-          fontSize: 20,
+        title: Text('Add Address',style: GoogleFonts.beVietnamPro(
+          fontSize: 18,
           fontWeight: FontWeight.w600,
           color: AppColor.primaryBlackColor,
         ),),
@@ -40,7 +47,7 @@ class AddAddressScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Contact Details',
                         style: GoogleFonts.tenorSans(
@@ -51,29 +58,45 @@ class AddAddressScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: TextField(
+                  cursorColor: AppColor.primaryBlackColor,
                   decoration: InputDecoration(
                     labelText: 'First Name',
+                    labelStyle: GoogleFonts.beVietnamPro(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.primaryGreyColor,
+                  )
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
                     labelText: 'Last Name',
+                      labelStyle: GoogleFonts.beVietnamPro(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      )
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
                     labelText: 'Mobile Phone',
+                      labelStyle: GoogleFonts.beVietnamPro(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      )
                   ),
                 ),
               ),
@@ -86,7 +109,7 @@ class AddAddressScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Address Details',
                         style: GoogleFonts.tenorSans(
@@ -97,51 +120,116 @@ class AddAddressScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
                     labelText: 'Address 1',
+                      labelStyle: GoogleFonts.beVietnamPro(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      )
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
                     labelText: 'Address 2',
+                      labelStyle: GoogleFonts.beVietnamPro(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      )
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
                     labelText: 'City',
+                      labelStyle: GoogleFonts.beVietnamPro(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      )
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
                     labelText: 'ZIP Code',
+                      labelStyle: GoogleFonts.beVietnamPro(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      )
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
                     labelText: 'Country',
+                      labelStyle: GoogleFonts.beVietnamPro(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      )
                   ),
                 ),
               ),
               const SizedBox(height: 32),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Checkbox(
+                    checkColor: AppColor.primaryWhiteColor,
+                    activeColor: AppColor.primaryBlackColor,
+                    value: defaultSipping,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        defaultSipping = value!;
+                      });
+                    },
+                  ),
+                  Text('Set as Default Shipping Address',style: GoogleFonts.beVietnamPro(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.primaryBlackColor,
+                  )),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Checkbox(
+                    checkColor: AppColor.primaryWhiteColor,
+                    activeColor: AppColor.primaryBlackColor,
+                    value: defaultBilling,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        defaultBilling = value!;
+                      });
+                    },
+                  ),
+                  Text('Set as Default Billing Address',style: GoogleFonts.beVietnamPro(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.primaryBlackColor,
+                  ),),
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CustomButton(

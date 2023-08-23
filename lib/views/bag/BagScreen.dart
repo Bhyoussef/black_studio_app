@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/controllers/CartController/CartController.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
 import 'package:linkia_ecommerce/views/bag/widget/CustomCartItem.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
-
 import 'ChekoutScreen.dart';
 
 class BagScreen extends StatefulWidget {
@@ -20,13 +19,12 @@ class BagScreen extends StatefulWidget {
 
 class _BagScreenState extends State<BagScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  List<String> products = [
-    'Product 1',
-    'Product 2',
-  ];
+
 
   @override
   Widget build(BuildContext context) {
+    final bagController = Get.find<CartController>();
+
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
@@ -63,30 +61,65 @@ class _BagScreenState extends State<BagScreen> {
         ),
       ),
       body: SafeArea(
-        child: Padding(
+        child:    bagController.items.isEmpty
+            ?  Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset('assets/imgs/Group 1000002688.png'), // Replace with your first image path
+                  Image.asset('assets/imgs/document-text.png'), // Replace with your second image path
+                ],
+              ),
+              Image.asset(
+                'assets/imgs/divider.png',
+                width: 150,
+                height: 50,
+                color: AppColor.primaryBlackColor,
+              ),
+              Text(
+                'Currently, you don\'t have any item in your Bag.',
+                style: GoogleFonts.beVietnamPro(
+                    fontSize: 12, fontWeight: FontWeight.w400,
+                    color: AppColor.primaryGreyColor),
+              ),
+            ],
+          ),
+        )
+            :Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 16),
-                ColumnBuilder(
-                  shrinkWrap: true,
-                  itemCount: products.length,
-                  itemBuilder: (context, index) {
-                    return CartItem(
-                      productName: products[index],
-                      price: 19.99,
-                      category: 'Electronics',
-                      imageUrl: 'https://via.placeholder.com/100',
-                      onPlusPressed: () {
-                        // TODO: Implement the logic for increasing the quantity
-                      },
-                      onMinusPressed: () {
-                        // TODO: Implement the logic for decreasing the quantity
-                      },
-                      onRemovePressed: () {
-                        // TODO: Implement the logic for removing the product
+              GetBuilder<CartController>(
+                  builder: (_) {
+                    return ColumnBuilder(
+                      shrinkWrap: true,
+                      itemCount: bagController.items.length,
+                      itemBuilder: (context, index) {
+                        final product = bagController.items[index];
+
+                        return CartItem(
+                          productName: product.product.name,
+                          price: product.product.price,
+                          category: product.product.category,
+                          imageUrl: product.product.imageAssets[0],
+                          onPlusPressed: () {
+                            Get.find<CartController>().addQuantity(product);
+                          },
+                          onMinusPressed: () {
+                            Get.find<CartController>().lowQuantity(product);
+                          },
+                          onRemovePressed: () {
+                            //bagController.removeProduct(index);
+                          },
+                          quantity: product.quantity.toString(),
+                        );
                       },
                     );
                   },
@@ -134,19 +167,36 @@ class _BagScreenState extends State<BagScreen> {
                 // TODO: Implement the price details section
 
                 const SizedBox(height: 16),
-                Text('Total Amount',
-                    style: GoogleFonts.beVietnamPro(
-                        color: AppColor.primaryGreyColor,
-                        fontWeight: FontWeight.w400)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Total Amount',
+                        style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryGreyColor,
+                            fontWeight: FontWeight.w400)),
+                    GetBuilder<CartController>(
+                      builder: (controller) {
+                        return Text(
+                          ' ${controller.total.toStringAsFixed(2)}',
+                          style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryGreyColor,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
                 // TODO: Implement the total amount section
 
                 const SizedBox(height: 32),
                 CustomButton(
-                  backcolor: AppColor.primaryBlackColor,
+                    backcolor: AppColor.primaryBlackColor,
                     onPressed: () {
-                      Get.to(() => const ChekoutScreen());
+                      Get.to(() =>  ChekoutScreen(products: bagController.items));
                     },
-                    text: 'Checkout'),
+                    text: 'Checkout'
+                ),
               ],
             ),
           ),

@@ -37,7 +37,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   Expanded(
                     flex: 6,
                     child: SizedBox(
-                      height: 45,
+                      height: 50,
                       child: TextFormField(
                         cursorColor: AppColor.primaryBlackColor,
                         controller: _searchController,

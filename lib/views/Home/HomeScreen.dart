@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
 import 'package:linkia_ecommerce/views/product/AllProduct.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
 import 'package:linkia_ecommerce/views/search/SearchScreen.dart';
+import 'package:linkia_ecommerce/views/tailored/TailoredScreen.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,8 +17,12 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
+
+
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -104,8 +110,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Stack(
                   children: [
-                    Image.network(
-                      'https://via.placeholder.com/400x200',
+                    Image.asset(
+                      'assets/demo/Rectangle 1133.png',
                       fit: BoxFit.cover,
                       height: 260,
                       width: double.infinity,
@@ -163,9 +169,95 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(children: [
+
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => AllProduct(title: 'READY TO WEAR'));
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 200,
+                      width: 180,
+                      decoration: BoxDecoration(
+                        color: AppColor.primaryBlackColor,
+                        borderRadius: BorderRadius.circular(0),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Image.asset(
+                            'assets/imgs/Frame.png', // Replace with your image asset
+                            fit: BoxFit.contain,
+                            height: 80,
+                            width: double.infinity,
+                          ),
+                          Text(
+                            'Ready to Wear',
+                            style: GoogleFonts.beVietnamPro(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            maxLines: 2,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 30),
+
+                  // Container for "Tailor"
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => const TailoredScreen());
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 200,
+                      width: 180,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(0),
+                        border: Border.all(color: Colors.grey),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Image.asset(
+                            'assets/imgs/Frame (1).png', // Replace with your image asset
+                            fit: BoxFit.contain,
+                            height: 80,
+                            width: double.infinity,
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Text(
+                              'Tailored',
+                              style: GoogleFonts.beVietnamPro(
+                                color: AppColor.secondaryBlackColor,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                              maxLines: 2,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                ],),
+              ),
+              const SizedBox(height: 20),
               GestureDetector(
-                onTap: (){
-                  Get.to(()=>AllProduct(title:'NEW ARRIVALS'));
+                onTap: () {
+                  Get.to(() => AllProduct(title: 'NEW ARRIVALS'));
                 },
                 child: Text(
                   'NEW ARRIVALS',
@@ -185,21 +277,24 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 8),
               SizedBox(
                 height: 280,
-                child:ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: GestureDetector(
-                            onTap: (){
-                              Get.to(()=>ProductDetail());
-                            },
-                            child: buildProductCard()),
-                      );
-                    },
-                  ),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: dummyProducts.length,
+                  itemBuilder: (context, index) {
+                    final product = dummyProducts[index];
+                    return Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.to(() => ProductDetail(product: product));
+                        },
+                        child: buildProductCard(product),
+                      ),
+                    );
+                  },
                 ),
+              ),
+              SizedBox(height: 16),
               Container(
                 height: 260,
                 decoration: BoxDecoration(
@@ -212,8 +307,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                child: Image.network(
-                  'https://via.placeholder.com/400x200',
+                child: Image.asset(
+                  'assets/demo/Group 761.png',
                   fit: BoxFit.cover,
                   height: 260,
                   width: double.infinity,
@@ -221,8 +316,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: 16),
               GestureDetector(
-                onTap: (){
-                  Get.to(()=>AllProduct(title:'BEST SELLERS'));
+                onTap: () {
+                  Get.to(() => AllProduct(title: 'BEST SELLERS'));
                 },
                 child: Text(
                   'BEST SELLERS',
@@ -242,22 +337,23 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 8),
               SizedBox(
                 height: 280,
-                child:ListView.builder(
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 10,
+                  itemCount: dummyProducts.length,
                   itemBuilder: (context, index) {
+                    final product = dummyProducts[index];
                     return Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: GestureDetector(
-                          onTap: (){
-                            Get.to(()=>ProductDetail());
-                          },
-                          child: buildProductCard()),
+                        onTap: () {
+                          Get.to(() => ProductDetail(product: product));
+                        },
+                        child: buildProductCard(product),
+                      ),
                     );
                   },
                 ),
               ),
-
             ],
           ),
         ),
@@ -265,20 +361,20 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget buildProductCard() {
+  Widget buildProductCard(Product product) {
     return Container(
-      height: 150,
-      width: 180,
+      height: 200,
+      width: 200,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(0),
       ),
       child: Column(
         children: [
-          Image.network(
-            'https://via.placeholder.com/100',
-            height: 180,
-            width: 150,
-            fit: BoxFit.cover,
+          Image.asset(
+            product.imageAssets[0], // Use the first image from the list
+            height: 200,
+            width: 165,
+            fit: BoxFit.contain,
           ),
           const SizedBox(height: 10),
           Expanded(
@@ -286,14 +382,14 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Product Name',
+                  product.name,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 Text(
-                  'Category',
+                  product.category,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 12,
                     color: AppColor.primaryGreyColor,
@@ -302,7 +398,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 5,),
                 Text(
-                  '200 QAR',
+                  '${product.price.toString()} QAR',
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,

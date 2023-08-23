@@ -107,6 +107,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         fontWeight: FontWeight.w400)),
                 const SizedBox(height: 10),
                 SocialButton(
+                  backcolor: Colors.blueAccent,
                   icon: Icons.facebook,
                   text: 'Continue with Facebook',
                   onPressed: () {
@@ -115,6 +116,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 10),
                 SocialButton(
+                  backcolor: Colors.red,
                   icon: Icons.email,
                   text: 'Continue with Google',
                   onPressed: () {
@@ -123,6 +125,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 10),
                 SocialButton(
+                  backcolor: Colors.black,
                   icon: Icons.apple,
                   text: 'Continue with Apple',
                   onPressed: () {

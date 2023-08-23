@@ -1,12 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
 
-class ChekoutScreen extends StatelessWidget {
-  const ChekoutScreen({super.key});
+class ChekoutScreen extends StatefulWidget {
+  final List<CartItem> products;
+  const ChekoutScreen({super.key, required this.products});
+
+  @override
+  State<ChekoutScreen> createState() => _ChekoutScreenState();
+}
+
+class _ChekoutScreenState extends State<ChekoutScreen> {
+  List<String> selectedPaymentMethods = [];
+
+  void _onPaymentMethodSelected(String method, bool selected) {
+    setState(() {
+      if (selected) {
+        selectedPaymentMethods.add(method);
+      } else {
+        selectedPaymentMethods.remove(method);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,22 +56,19 @@ class ChekoutScreen extends StatelessWidget {
           child: Column(
             children: [
               ColumnBuilder(
-                itemCount: 2,
+                itemCount: widget.products.length,
                 itemBuilder: (context, index) {
+                  final product = widget.products[index];
+
                   return Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: GestureDetector(
                       onTap: () {},
                       child: _buildOrderCard(
-                        image: NetworkImage('https://via.placeholder.com/100'),
-                        status: 'Ongoing',
-                        date: 'July 15, 2023',
-                        time: '10:00 AM',
-                        price: 'QAR 50.00',
-                        productName: 'Product 1',
-                        quantity: '2',
-                        showReview: false,
-                        buttonText: 'Track Order',
+                        image: AssetImage(product.product.imageAssets[0]),
+                        price: product.product.price.toString(),
+                        productName: product.product.name,
+                        quantity: product.product.quantity.toString(),
                       ),
                     ),
                   );
@@ -67,7 +82,7 @@ class ChekoutScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'SHIPPING ADDRESS',
                         style: GoogleFonts.tenorSans(
@@ -100,7 +115,7 @@ class ChekoutScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'PAYMENT METHOD',
                         style: GoogleFonts.tenorSans(
@@ -112,45 +127,93 @@ class ChekoutScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              ListTile(
-                title: Text('PayPal',  style: GoogleFonts.beVietnamPro(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),),
-                leading: Icon(Icons.payment),
-                onTap: () {
-                  _showOrderPlacementSuccessBottomSheet(context);
-                },
-              ),
-              ListTile(
-                title: Text('Apple Pay', style: GoogleFonts.beVietnamPro(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                )),
-                leading: Icon(Icons.payment),
-                onTap: () {
-                  _showPaymentFailureBottomSheet(context);
-                },
-              ),
-              ListTile(
-                title: Text('Credit/Debit Card', style: GoogleFonts.beVietnamPro(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                )),
-                leading: Icon(Icons.payment),
-                onTap: () {
-                  _showPaymentFailureBottomSheet(context);
-                },
-              ),
-              ListTile(
-                title: Text('Bank Transfer', style: GoogleFonts.beVietnamPro(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                )),
-                leading: Icon(Icons.payment),
-                onTap: () {
-                  _showPaymentFailureBottomSheet(context);
-                },
+              Column(
+                children: [
+                  Theme(
+                    data: ThemeData(
+                      unselectedWidgetColor: Colors.black, // Customize the checkbox color
+                      checkboxTheme: CheckboxThemeData(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0), // Customize the border radius
+                        ),
+                      ),
+                    ),
+                    child: CheckboxListTile(
+                      title: Text('PayPal', style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      )),
+                      value: selectedPaymentMethods.contains('PayPal'),
+                      onChanged: (value) {
+                        _onPaymentMethodSelected('PayPal', value!);
+                      },
+                      controlAffinity: ListTileControlAffinity.leading,
+                    ),
+                  ),
+                  Theme(
+                    data: ThemeData(
+                      unselectedWidgetColor: Colors.black, // Customize the checkbox color
+                      checkboxTheme: CheckboxThemeData(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0), // Customize the border radius
+                        ),
+                      ),
+                    ),
+                    child: CheckboxListTile(
+                      title: Text('Apple Pay', style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      )),
+                      value: selectedPaymentMethods.contains('Apple Pay'),
+                      onChanged: (value) {
+                        _onPaymentMethodSelected('Apple Pay', value!);
+                      },
+                      controlAffinity: ListTileControlAffinity.leading,
+                    ),
+                  ),
+                  Theme(
+                    data: ThemeData(
+                      unselectedWidgetColor: Colors.black, // Customize the checkbox color
+                      checkboxTheme: CheckboxThemeData(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0), // Customize the border radius
+                        ),
+                      ),
+                    ),
+                    child: CheckboxListTile(
+                      title: Text('Credit/Debit Card', style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      )),
+                      value: selectedPaymentMethods.contains('Credit/Debit Card'),
+                      onChanged: (value) {
+                        _onPaymentMethodSelected('Credit/Debit Card', value!);
+                      },
+                      controlAffinity: ListTileControlAffinity.leading,
+                    ),
+                  ),
+                  Theme(
+                    data: ThemeData(
+                      unselectedWidgetColor: Colors.black,// Customize the checkbox color
+                      checkboxTheme: CheckboxThemeData(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0), // Customize the border radius
+                        ),
+                      ),
+                    ),
+                    child: CheckboxListTile(
+                      title: Text('Bank Transfer', style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      )),
+                      value: selectedPaymentMethods.contains('Bank Transfer'),
+                      onChanged: (value) {
+                        _onPaymentMethodSelected('Bank Transfer', value!);
+                      },
+                      controlAffinity: ListTileControlAffinity.leading,
+                    ),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -256,7 +319,7 @@ class ChekoutScreen extends StatelessWidget {
   }
 
   Widget _buildOrderCard({
-    NetworkImage? image,
+    AssetImage? image,
     String? status,
     String? date,
     String? time,
@@ -276,8 +339,8 @@ class ChekoutScreen extends StatelessWidget {
             children: [
               Image(
                 image: image!,
-                width: 100,
-                height: 120,
+                width: 120,
+                height: 150,
                 fit: BoxFit.cover,
               ),
               SizedBox(width: 8),
@@ -319,8 +382,6 @@ class ChekoutScreen extends StatelessWidget {
       ),
     );
   }
-
-
 
   void _showPaymentFailureBottomSheet(BuildContext context) {
     showModalBottomSheet(

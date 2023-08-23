@@ -13,10 +13,10 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Category> categories = [
-    Category('Category ', 'https://via.placeholder.com/150'),
-    Category('Category ', 'https://via.placeholder.com/150'),
-    Category('Category ', 'https://via.placeholder.com/150'),
-    Category('Category ', 'https://via.placeholder.com/150'),
+    Category('Category A ', 'assets/demo/pngegg (5) 1.png'),
+    Category('Category B ', 'assets/demo/pngegg (4) 1.png'),
+    Category('Category C ', 'assets/demo/pngegg (3) 1.png'),
+    Category('Category D ', 'assets/demo/pngegg (5) 1.png'),
   ];
 
   @override
@@ -51,13 +51,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
               decoration: BoxDecoration(
                 color: AppColor.secondaryGreyColor,
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black26,
-                    offset: Offset(0, 2),
-                    blurRadius: 8.0,
-                  ),
-                ],
+
               ),
               padding: const EdgeInsets.all(16),
               child: Row(
@@ -70,7 +64,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     )),
                   ),
                   const SizedBox(width: 16),
-                  Image.network(
+                  Image.asset(
                     category.imageURL,
                     height: 60,
                     width: 60,

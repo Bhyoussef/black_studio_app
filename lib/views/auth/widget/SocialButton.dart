@@ -7,11 +7,12 @@ class SocialButton extends StatelessWidget {
   final IconData icon;
   final String text;
   final VoidCallback onPressed;
+  final Color backcolor;
 
   const SocialButton({
     required this.icon,
     required this.text,
-    required this.onPressed,
+    required this.onPressed, required this.backcolor,
   });
 
   @override
@@ -19,23 +20,16 @@ class SocialButton extends StatelessWidget {
     return SizedBox(
       height: 50,
       width: MediaQuery.of(context).size.width,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: Colors.white,
-          onPrimary: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            side: BorderSide(
-              color: AppColor.primaryGreyColor,
-            ),
-          ),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(10)
         ),
-        onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon,  color: AppColor.primaryBlackColor),
-            SizedBox(width: 8),
+            Icon(icon,  color: backcolor),
+            const SizedBox(width: 8),
             Text(
               text,
               style: GoogleFonts.beVietnamPro(

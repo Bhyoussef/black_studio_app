@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
 
 class SearchScreenResult extends StatelessWidget {
@@ -28,7 +29,7 @@ class SearchScreenResult extends StatelessWidget {
                   Expanded(
                     flex: 6,
                     child: SizedBox(
-                      height: 45,
+                      height: 50,
                       child: TextFormField(
                         cursorColor: AppColor.primaryBlackColor,
                         decoration: InputDecoration(
@@ -98,7 +99,7 @@ class SearchScreenResult extends StatelessWidget {
                             width: 5,
                           ),
                           const Icon(
-                            Icons.arrow_downward,
+                            Icons.arrow_drop_down,
                             color: AppColor.primaryBlackColor,
                             size: 15,
                           )
@@ -127,7 +128,7 @@ class SearchScreenResult extends StatelessWidget {
                             width: 5,
                           ),
                           const Icon(
-                            Icons.arrow_downward,
+                            Icons.arrow_drop_down,
                             color: AppColor.primaryBlackColor,
                             size: 15,
                           )
@@ -177,15 +178,16 @@ class SearchScreenResult extends StatelessWidget {
                   crossAxisCount: 2,
                   childAspectRatio: 0.7,
                 ),
-                itemCount: 10,
+                itemCount: dummyProducts.length,
                 itemBuilder: (context, index) {
+                 Product product=dummyProducts[index];
                   return Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(() => const ProductDetail());
+                        Get.to(() =>  ProductDetail(product: product,));
                       },
-                      child: buildProductCard(),
+                      child: buildProductCard(product),
                     ),
                   );
                 },
@@ -197,7 +199,7 @@ class SearchScreenResult extends StatelessWidget {
     );
   }
 
-  Widget buildProductCard() {
+  Widget buildProductCard(Product product) {
     return Container(
       height: 150,
       width: 180,
@@ -206,8 +208,8 @@ class SearchScreenResult extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Image.network(
-            'https://via.placeholder.com/100',
+          Image.asset(
+           product.imageAssets[0],
             height: 180,
             width: 150,
             fit: BoxFit.cover,
@@ -218,14 +220,14 @@ class SearchScreenResult extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Product Name',
+                 product.name,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
-                  'Category',
+                 product.category,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 14,
                     color: AppColor.primaryGreyColor,
@@ -233,7 +235,7 @@ class SearchScreenResult extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '200 QAR',
+                  '${product.price.toString()} QAR',
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/controllers/CartController/CartController.dart';
 import 'package:linkia_ecommerce/controllers/MainController.dart';
 import 'package:linkia_ecommerce/views/Home/HomeScreen.dart';
 import 'package:linkia_ecommerce/views/bag/BagScreen.dart';
@@ -45,7 +46,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       drawer: const DrawerWidget(),
       body: Obx(
-            () => pages[controller.currentIndex.value],
+        () => pages[controller.currentIndex.value],
       ),
       bottomNavigationBar: GetBuilder<MainController>(
         builder: (_) => BottomNavigationBar(
@@ -82,13 +83,21 @@ class _MainScreenState extends State<MainScreen> {
               label: 'Category',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/imgs/Tote.png',
-                height: 30,
-                width: 30,
-                color: controller.currentIndex.value == 2
-                    ? Colors.black
-                    : Colors.grey,
+              icon: Badge(
+
+                label: Obx(
+                  () => Text(
+                    Get.find<CartController>().items.length.toString(),
+                  ),
+                ),
+                child: Image.asset(
+                  'assets/imgs/Tote.png',
+                  height: 30,
+                  width: 30,
+                  color: controller.currentIndex.value == 2
+                      ? Colors.black
+                      : Colors.grey,
+                ),
               ),
               label: 'Bag',
             ),
@@ -120,16 +129,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

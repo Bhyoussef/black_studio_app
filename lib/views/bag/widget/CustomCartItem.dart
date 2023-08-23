@@ -8,6 +8,7 @@ class CartItem extends StatelessWidget {
   final double price;
   final String category;
   final String imageUrl;
+  final String quantity;
   final VoidCallback? onPlusPressed;
   final VoidCallback? onMinusPressed;
   final VoidCallback? onRemovePressed;
@@ -18,6 +19,7 @@ class CartItem extends StatelessWidget {
     required this.price,
     required this.category,
     required this.imageUrl,
+    required this.quantity,
     this.onPlusPressed,
     this.onMinusPressed,
     this.onRemovePressed,
@@ -31,36 +33,50 @@ class CartItem extends StatelessWidget {
       children: [
         Column(
           children: [
-            Image.network(
+            Image.asset(
               imageUrl,
               width: 150,
               height: 180,
               fit: BoxFit.fill,
             ),
+            const SizedBox(
+              height: 5,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: onMinusPressed,
-                    icon: const Icon(Icons.remove, size: 15),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Text(
-                      '1', // Replace with the actual quantity
-                      style: GoogleFonts.beVietnamPro(
-                          color: AppColor.primaryBlackColor,
-                          fontWeight: FontWeight.w600),
+              child: Container(
+                height: 30,
+                decoration: BoxDecoration(
+                  border:
+                      Border.all(color: AppColor.primaryGreyColor, width: 0.5),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: onMinusPressed,
+                      icon: const Icon(Icons.remove, size: 15),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: onPlusPressed,
-                    icon: const Icon(Icons.add, size: 15),
-                  ),
-                ],
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Text(
+                        quantity,
+                        style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryBlackColor,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: onPlusPressed,
+                      icon: const Icon(Icons.add, size: 15),
+                    ),
+                  ],
+                ),
               ),
             ),
+
           ],
         ),
         const SizedBox(width: 16),
@@ -71,25 +87,30 @@ class CartItem extends StatelessWidget {
               Text(
                 productName,
                 style: GoogleFonts.beVietnamPro(
-                    color: AppColor.primaryGreyColor,
-                    fontWeight: FontWeight.w600),
+                  color: AppColor.primaryGreyColor,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 8),
-              Text(category,
-                  style: GoogleFonts.beVietnamPro(
-                      color: AppColor.primaryGreyColor,
-                      fontWeight: FontWeight.w600)),
+              Text(
+                category,
+                style: GoogleFonts.beVietnamPro(
+                  color: AppColor.primaryGreyColor,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
               const SizedBox(height: 8),
               Row(
                 children: [
                   Text(
-                    'QAR ${price.toStringAsFixed(2)}',
+                    'QAR $price',
                     style: GoogleFonts.beVietnamPro(
-                        color: AppColor.primaryBlackColor,
-                        fontWeight: FontWeight.w600),
+                      color: AppColor.primaryBlackColor,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   const SizedBox(width: 8),
-                  TextButton(
+                  /* TextButton(
                     onPressed: onRemovePressed,
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
@@ -97,10 +118,11 @@ class CartItem extends StatelessWidget {
                     child: Text(
                       'Remove',
                       style: GoogleFonts.beVietnamPro(
-                          color: AppColor.primaryBlackColor,
-                          fontWeight: FontWeight.w600),
+                        color: AppColor.primaryBlackColor,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
+                  ), */
                 ],
               ),
             ],

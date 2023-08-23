@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
 
 class AllProduct extends StatelessWidget {
@@ -38,15 +39,16 @@ class AllProduct extends StatelessWidget {
                   crossAxisCount: 2,
                   childAspectRatio: 0.7,
                 ),
-                itemCount: 10,
+                itemCount: dummyProducts.length,
                 itemBuilder: (context, index) {
+                  final product = dummyProducts[index];
                   return Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(() => const ProductDetail());
+                        Get.to(() =>  ProductDetail(product: product,));
                       },
-                      child: buildProductCard(),
+                      child: buildProductCard(product),
                     ),
                   );
                 },
@@ -58,7 +60,7 @@ class AllProduct extends StatelessWidget {
     );
   }
 
-  Widget buildProductCard() {
+  Widget buildProductCard(Product product) {
     return Container(
       height: 150,
       width: 180,
@@ -67,8 +69,8 @@ class AllProduct extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Image.network(
-            'https://via.placeholder.com/100',
+          Image.asset(
+            product.imageAssets[0],
             height: 180,
             width: 150,
             fit: BoxFit.cover,
@@ -79,14 +81,14 @@ class AllProduct extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Product Name',
+                  product.name,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
-                  'Category',
+                  product.category,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 14,
                     color: AppColor.primaryGreyColor,
@@ -94,7 +96,7 @@ class AllProduct extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '200 QAR',
+                  '${product.price.toString()} QAR',
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
