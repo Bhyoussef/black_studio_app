@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
 
 class OrderSummary extends StatelessWidget {
@@ -39,30 +40,39 @@ class OrderSummary extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      const Row(
+                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "Order № : 1947034",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: GoogleFonts.beVietnamPro(
+                                fontWeight: FontWeight.w600,
+                            color: AppColor.primaryBlackColor,
+                            fontSize: 16),
                           ),
-                          Text("July 15, 2023"),
+                          Text("July 15, 2023", style: GoogleFonts.beVietnamPro(
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.primaryGreyColor,
+                              fontSize: 14),),
                         ],
                       ),
                       const SizedBox(height: 25,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
+                           Text(
                             "IW3475453455",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: GoogleFonts.beVietnamPro(
+                                fontWeight: FontWeight.w600,
+                                color: AppColor.primaryBlackColor,
+                                fontSize: 14),
                           ),
                           Text(
                             "Delivered",
                             style: GoogleFonts.beVietnamPro(
                               color: Colors.green,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
                             ),
                           ),
                         ],
@@ -72,26 +82,29 @@ class OrderSummary extends StatelessWidget {
                 ),
               ),
               ColumnBuilder(
-                itemCount: 2,
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: dummyProducts.length,
                 itemBuilder: (context, index) {
+                  final product = dummyProducts[index];
                   return Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.to(() => const OrderSummary());
-                      },
-                      child: _buildOrderCard(
-                        image: const NetworkImage('https://via.placeholder.com/100'),
-                        status: 'Ongoing',
-                        date: 'July 15, 2023',
-                        time: '10:00 AM',
-                        price: 'QAR 50.00',
-                        productName: 'Product 1',
-                        quantity: '2',
-                        showReview: false,
-                        buttonText: 'Track Order',
-                      ),
-                    ),
+                      padding: const EdgeInsets.all(5.0),
+                      child: GestureDetector(
+                        onTap: (){
+                          Get.to(()=>const OrderSummary());
+                        },
+                        child: _buildOrderCard(
+                          image:  AssetImage(product.imageAssets[0]),
+                          status: 'Delivered',
+                          date: 'July 12, 2023',
+                          time: '9:45 AM',
+                          price: product.price.toString(),
+                          productName: product.name,
+                          quantity: product.quantity.toString(),
+                          showReview: true,
+                          buttonText: 'Reorder',
+                        ),
+                      )
                   );
                 },
               ),
@@ -111,7 +124,7 @@ class OrderSummary extends StatelessWidget {
                       style: GoogleFonts.tenorSans(
                         color: AppColor.primaryBlackColor,
                         fontWeight: FontWeight.w400,
-                        fontSize: 15,
+                        fontSize: 14,
                       ),
                     ),
                   ],
@@ -119,9 +132,9 @@ class OrderSummary extends StatelessWidget {
               ),
               ListTile(
                 title: Text('Shipping Address',  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryBlackColor,
+                  color: AppColor.primaryGreyColor,
                   fontWeight: FontWeight.w400,
-                  fontSize: 13,
+                  fontSize: 14,
                 )),
                 trailing: Text('1234 Main St, City, Country',  style: GoogleFonts.beVietnamPro(
                   color: AppColor.primaryBlackColor,
@@ -131,9 +144,9 @@ class OrderSummary extends StatelessWidget {
               ),
               ListTile(
                 title: Text('Payment Method',  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryBlackColor,
+                  color: AppColor.primaryGreyColor,
                   fontWeight: FontWeight.w400,
-                  fontSize: 13,
+                  fontSize: 14,
                 )),
                 trailing: Text('Credit Card',  style: GoogleFonts.beVietnamPro(
                   color: AppColor.primaryBlackColor,
@@ -143,9 +156,9 @@ class OrderSummary extends StatelessWidget {
               ),
               ListTile(
                 title: Text('Delivery Method',  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryBlackColor,
+                  color: AppColor.primaryGreyColor,
                   fontWeight: FontWeight.w400,
-                  fontSize: 13,
+                  fontSize: 14,
                 )),
                 trailing: Text('Standard Delivery',  style: GoogleFonts.beVietnamPro(
                   color: AppColor.primaryBlackColor,
@@ -155,9 +168,9 @@ class OrderSummary extends StatelessWidget {
               ),
               ListTile(
                 title: Text('Discount',  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryBlackColor,
+                  color: AppColor.primaryGreyColor,
                   fontWeight: FontWeight.w400,
-                  fontSize: 13,
+                  fontSize: 14,
                 )),
                 trailing: Text('QAR 10.00',  style: GoogleFonts.beVietnamPro(
                   color: AppColor.primaryBlackColor,
@@ -168,9 +181,9 @@ class OrderSummary extends StatelessWidget {
               ListTile(
                 title: Text(
                   'Total Payment',  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryBlackColor,
+                  color: AppColor.primaryGreyColor,
                   fontWeight: FontWeight.w400,
-                  fontSize: 13,
+                  fontSize: 14,
                 )
                 ),
                 trailing: Text(
@@ -183,31 +196,53 @@ class OrderSummary extends StatelessWidget {
                 ),
               ),
               Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColor.primaryBlackColor,
-                        width: 1,
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    MaterialButton(
+                      height: 50,
+                      minWidth: 180,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        side: BorderSide(color: AppColor.primaryBlackColor, width: 1),
                       ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: MaterialButton(
                       onPressed: () {
-
+                        // Handle reorder button press
                       },
                       child: Text(
                         'Reorder',
                         style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryBlackColor,
                           fontSize: 16,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
-                  )),
+                    MaterialButton(
+                      height: 50,
+                      minWidth: 180,
+                      color: AppColor.primaryBlackColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      onPressed: () {
+                        // Handle leave feedback button press
+                      },
+                      child: Text(
+                        'Leave Feedback',
+                        style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryWhiteColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+
 
             ],
           ),
@@ -217,7 +252,7 @@ class OrderSummary extends StatelessWidget {
   }
 
   Widget _buildOrderCard({
-    NetworkImage? image,
+    AssetImage? image,
     String? status,
     String? date,
     String? time,
@@ -237,19 +272,62 @@ class OrderSummary extends StatelessWidget {
             children: [
               Image(
                 image: image!,
-                width: 100,
-                height: 120,
+                width: 95,
+                height: 124,
                 fit: BoxFit.cover,
               ),
               const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(productName!, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 10,),
-                  Text('Price: $price'),
-                  const SizedBox(height: 10,),
-                  Text('Quantity: $quantity'),
+                  Text('Price: ${price}',  style:  GoogleFonts.beVietnamPro
+                    (fontWeight: FontWeight.w700,
+                      color: AppColor.primaryBlackColor,
+                      fontSize: 14),),
+                  const SizedBox(height: 8),
+                  Text(productName!,
+                    style:  GoogleFonts.beVietnamPro
+                      (fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                        fontSize: 14),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,),
+                  const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Text('Qty:',   style:  GoogleFonts.beVietnamPro
+                        (fontWeight: FontWeight.w400,
+                          color: AppColor.primaryGreyColor,
+                          fontSize: 14)) ,Text(quantity!,   style:  GoogleFonts.beVietnamPro
+                        (fontWeight: FontWeight.w600,
+                          color: AppColor.primaryBlackColor,
+                          fontSize: 14)),
+                      const SizedBox(width: 40),
+                      Row(
+                        children: [
+                          Text('Color:',   style:  GoogleFonts.beVietnamPro
+                            (fontWeight: FontWeight.w400,
+                              color: AppColor.primaryGreyColor,
+                              fontSize: 14)),Text('Yellow',   style:  GoogleFonts.beVietnamPro
+                            (fontWeight: FontWeight.w600,
+                              color: AppColor.primaryBlackColor,
+                              fontSize: 14)),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Text('Size:',   style:  GoogleFonts.beVietnamPro
+                        (fontWeight: FontWeight.w400,
+                          color: AppColor.primaryGreyColor,
+                          fontSize: 14))  , Text('L',   style:  GoogleFonts.beVietnamPro
+                        (fontWeight: FontWeight.w600,
+                          color: AppColor.primaryBlackColor,
+                          fontSize: 14)),
+                    ],
+                  ),
                 ],
               ),
             ],

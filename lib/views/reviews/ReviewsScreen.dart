@@ -35,7 +35,7 @@ class ReviewsScreen extends StatelessWidget {
           color: Colors.black,
         ),
         actions: [
-          TextButton(
+        /*  TextButton(
             onPressed: () {
               Get.to(() => const AddReviewScreen());
             },
@@ -46,7 +46,7 @@ class ReviewsScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-          ),
+          ),*/
         ],
       ),
       body: SingleChildScrollView(

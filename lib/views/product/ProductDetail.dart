@@ -481,13 +481,16 @@ Widget buildColorOption(Color color, bool isSelected) {
       height: 40,
       width: 40,
       decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
         border: Border.all(
           color: isSelected ? AppColor.primaryGreyColor : Colors.transparent,
           width: 1,
         ),
+        shape: BoxShape.circle,
+      ),
+      child: CircleAvatar(
+        backgroundColor: color,
       ),
     ),
   );
 }
+
