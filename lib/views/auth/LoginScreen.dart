@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 40,),
                 Text('HAVE AN ACCOUNT',
                     style: GoogleFonts.tenorSans(
-                        fontSize: 20, fontWeight: FontWeight.w400)),
+                        fontSize: 18, fontWeight: FontWeight.w400)),
                 Image.asset(
                   'assets/imgs/divider.png',
                   width: 125,
@@ -78,6 +78,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 CustomButton(
+                  textcolor: AppColor.primaryWhiteColor,
                   backcolor: AppColor.primaryBlackColor,
                   onPressed: () {
                     Get.to(()=>MainScreen());

@@ -79,6 +79,7 @@ class EmptyWidget extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         CustomButton(
+          textcolor: AppColor.primaryWhiteColor,
           backcolor: AppColor.primaryBlackColor,
           onPressed: () {
           Get.to(()=>const AddAddressScreen());

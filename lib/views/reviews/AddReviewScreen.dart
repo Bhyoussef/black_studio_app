@@ -88,7 +88,9 @@ class AddReviewScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            CustomButton(onPressed: () {  }, text: 'Submit',backcolor: AppColor.primaryBlackColor,),
+            CustomButton(
+              textcolor: AppColor.primaryWhiteColor,
+              onPressed: () {  }, text: 'Submit',backcolor: AppColor.primaryBlackColor,),
           ],
         ),
       ),

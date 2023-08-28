@@ -139,6 +139,8 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                       ),
                     ),
                     child: CheckboxListTile(
+                      checkColor: AppColor.primaryWhiteColor,
+                      activeColor: AppColor.primaryBlackColor,
                       title: Text('PayPal', style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -160,6 +162,8 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                       ),
                     ),
                     child: CheckboxListTile(
+                      checkColor: AppColor.primaryWhiteColor,
+                      activeColor: AppColor.primaryBlackColor,
                       title: Text('Apple Pay', style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -181,6 +185,8 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                       ),
                     ),
                     child: CheckboxListTile(
+                      checkColor: AppColor.primaryWhiteColor,
+                      activeColor: AppColor.primaryBlackColor,
                       title: Text('Credit/Debit Card', style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -202,6 +208,8 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                       ),
                     ),
                     child: CheckboxListTile(
+                      checkColor: AppColor.primaryWhiteColor,
+                      activeColor: AppColor.primaryBlackColor,
                       title: Text('Bank Transfer', style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,

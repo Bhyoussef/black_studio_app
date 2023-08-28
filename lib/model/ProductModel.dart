@@ -20,22 +20,22 @@ class Product {
 List<Product> dummyProducts = [
   Product(
     id: '1',
-    name: 'Product 1',
-    category: 'Category A',
+    name: 'Women Grey Lace Empire Top',
+    category: 'Athena',
     price: 1500,
     imageAssets: ['assets/demo/Rectangle 1137.png','assets/demo/Rectangle 1137.png','assets/demo/Rectangle 1137.png'], // Replace with actual asset paths
   ),
   Product(
     id: '2',
-    name: 'Product 2',
-    category: 'Category B',
+    name: 'Ruched Skirt Two-Piece Outfits pack of 2',
+    category: 'Athena',
     price: 2000,
     imageAssets: ['assets/demo/Rectangle 1134.png','assets/demo/Rectangle 1134.png'], // Replace with actual asset paths
   ),
   Product(
     id:'3',
-    name: 'Product 3',
-    category: 'Category C',
+    name: 'Patchwork Pullover Blouse',
+    category: 'Athena',
     price: 2000,
     imageAssets: ['assets/demo/Rectangle 1135.png','assets/demo/Rectangle 1134.png'], // Replace with actual asset paths
   ),

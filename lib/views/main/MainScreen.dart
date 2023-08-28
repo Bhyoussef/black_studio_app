@@ -84,7 +84,6 @@ class _MainScreenState extends State<MainScreen> {
             ),
             BottomNavigationBarItem(
               icon: Badge(
-
                 label: Obx(
                   () => Text(
                     Get.find<CartController>().items.length.toString(),

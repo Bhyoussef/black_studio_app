@@ -11,52 +11,132 @@ class AllProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColor.primaryWhiteColor,
-      appBar: AppBar(
-        elevation: 0,
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
         backgroundColor: AppColor.primaryWhiteColor,
-        title: Text(title!,style:  GoogleFonts.beVietnamPro(
-          color: AppColor.primaryBlackColor,
-          fontSize: 20,
-          fontWeight: FontWeight.w500,
-        ),),
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: const Icon(Icons.arrow_back,color: AppColor.primaryBlackColor,),
-        ),
-      ),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: GridView.builder(
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.7,
-                ),
-                itemCount: dummyProducts.length,
-                itemBuilder: (context, index) {
-                  final product = dummyProducts[index];
-                  return Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.to(() =>  ProductDetail(product: product,));
-                      },
-                      child: buildProductCard(product),
-                    ),
-                  );
-                },
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: AppColor.primaryWhiteColor,
+          title: Text(title!,style:  GoogleFonts.beVietnamPro(
+            color: AppColor.primaryBlackColor,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),),
+          leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(Icons.arrow_back,color: AppColor.primaryBlackColor,),
+          ),
+          bottom: TabBar(
+
+            tabs: [
+              Tab(
+                text: 'Ready to Wear',
               ),
+              Tab(
+                text: 'Tailored',
+              ),
+            ],
+            labelStyle: GoogleFonts.beVietnamPro(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              color: AppColor.primaryBlackColor, // Customize the selected text color
             ),
-          ],
+            labelColor: AppColor.primaryBlackColor,
+            unselectedLabelStyle: GoogleFonts.beVietnamPro(
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
+              color: AppColor.primaryGreyColor, // Customize the unselected text color
+            ),
+            indicatorColor:AppColor.primaryBlackColor,
+
+          ),
+
+
+        ),
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30.0, 0, 15.0, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('1254 Items',  style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryBlackColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),),
+                    MaterialButton(
+                      height: 40,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      onPressed: () {
+                        _showSortByDialog(context);
+                      },
+                      child: Row(
+                        children: [
+                          Text(
+                            'Sort by',
+                            style: GoogleFonts.beVietnamPro(
+                              color: AppColor.primaryBlackColor,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          const Icon(
+                            Icons.arrow_drop_down,
+                            color: AppColor.primaryBlackColor,
+                            size: 15,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                  child: TabBarView(
+                children: [
+                  buildGridView(context,1),
+                  buildGridView(context,2)
+                ],
+
+              )),
+
+            ],
+          ),
         ),
       ),
+    );
+  }
+  Widget buildGridView(BuildContext context,int tabNumber) {
+    return GridView.builder(
+      shrinkWrap: true,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 0.7,
+      ),
+      itemCount: dummyProducts.length,
+      itemBuilder: (context, index) {
+        final product = dummyProducts[index];
+        return Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: GestureDetector(
+            onTap: () {
+              Get.to(() => ProductDetail(product: product));
+            },
+            child: buildProductCard(product),
+          ),
+        );
+      },
     );
   }
 
@@ -83,9 +163,11 @@ class AllProduct extends StatelessWidget {
                 Text(
                   product.name,
                   style: GoogleFonts.beVietnamPro(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
                 Text(
                   product.category,
@@ -98,7 +180,7 @@ class AllProduct extends StatelessWidget {
                 Text(
                   '${product.price.toString()} QAR',
                   style: GoogleFonts.beVietnamPro(
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: FontWeight.w700,
                     color: AppColor.primaryBlackColor,
                   ),
@@ -108,6 +190,54 @@ class AllProduct extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+  void _showSortByDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'Sort By',
+            style: GoogleFonts.beVietnamPro(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title: const Text('Price: High to Low'),
+                onTap: () {
+                  // Handle sort by price: high to low
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Text('Price: Low to High'),
+                onTap: () {
+                  // Handle sort by price: low to high
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Text('New Arrival'),
+                onTap: () {
+                  // Handle sort by new arrival
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Text('Best Seller'),
+                onTap: () {
+                  // Handle sort by best seller
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

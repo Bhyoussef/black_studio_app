@@ -13,10 +13,10 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Category> categories = [
-    Category('Category A ', 'assets/demo/pngegg (5) 1.png'),
-    Category('Category B ', 'assets/demo/pngegg (4) 1.png'),
-    Category('Category C ', 'assets/demo/pngegg (3) 1.png'),
-    Category('Category D ', 'assets/demo/pngegg (5) 1.png'),
+    Category('TOPS', 'assets/demo/pngegg (5) 1.png'),
+    Category('BOTTOMS', 'assets/demo/pngegg (4) 1.png'),
+    Category('DRESSES & SKIRT', 'assets/demo/pngegg (3) 1.png'),
+    Category('CO-ORDS', 'assets/demo/pngegg (5) 1.png'),
   ];
 
   @override
@@ -36,7 +36,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,
         title: Text('Category',style: GoogleFonts.beVietnamPro(
-          fontSize: 20,
+          fontSize: 18,
           fontWeight: FontWeight.w600,
           color: AppColor.primaryBlackColor
         ),),
@@ -48,6 +48,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Container(
+              height: 92,
               decoration: BoxDecoration(
                 color: AppColor.secondaryGreyColor,
                 borderRadius: BorderRadius.circular(10),
@@ -58,7 +59,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 children: [
                   Expanded(
                     child: Text(category.name,style: GoogleFonts.beVietnamPro(
-                        fontSize: 15,
+                        fontSize: 16,
                         fontWeight:FontWeight.normal,
                         color: AppColor.primaryBlackColor
                     )),

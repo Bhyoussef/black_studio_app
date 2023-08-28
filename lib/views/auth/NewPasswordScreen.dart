@@ -123,6 +123,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                 ),
                 const SizedBox(height: 16),
                 CustomButton(
+                  textcolor: AppColor.primaryWhiteColor,
                   backcolor: AppColor.primaryBlackColor,
                   onPressed: () {
                     Get.to(()=>MainScreen());

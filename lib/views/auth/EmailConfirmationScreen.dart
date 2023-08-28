@@ -66,7 +66,7 @@ class EmailConfirmationScreen extends StatelessWidget {
                 ),
                 Text('CHECK YOUR EMAIL',
                     style: GoogleFonts.tenorSans(
-                        fontSize: 22, fontWeight: FontWeight.w400)),
+                        fontSize: 18, fontWeight: FontWeight.w400)),
                 const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.all(16.0),

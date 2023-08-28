@@ -233,6 +233,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CustomButton(
+                  textcolor: AppColor.primaryWhiteColor,
                   backcolor:AppColor.primaryBlackColor,onPressed: () {
                   Get.to(()=>const AdressesScreen());
                 }, text: 'Save',),

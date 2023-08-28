@@ -9,9 +9,15 @@ import 'package:linkia_ecommerce/widget/drawer.dart';
 
 import 'ProfileEditScreen.dart';
 
-class ProfileScreen extends StatelessWidget {
-   ProfileScreen({Key? key}) : super(key: key);
+class ProfileScreen extends StatefulWidget {
+  final bool? isHome;
+   ProfileScreen({Key? key, this.isHome}) : super(key: key);
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -21,7 +27,17 @@ class ProfileScreen extends StatelessWidget {
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
       appBar: AppBar(
-        leading: IconButton(
+        leading: widget.isHome == true
+            ? IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Get.back();
+          },
+        )
+            : IconButton(
           icon: Image.asset(
             'assets/imgs/List.png',
             color: AppColor.primaryBlackColor,
@@ -35,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
         title: Text(
           'Profile',
           style: GoogleFonts.beVietnamPro(
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.w600,
               color: AppColor.primaryBlackColor),
         ),
@@ -48,7 +64,7 @@ class ProfileScreen extends StatelessWidget {
             Text(
               'ACCOUNT',
               style: GoogleFonts.tenorSans(
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.w400,
                   color: AppColor.primaryBlackColor),
             ),
@@ -60,7 +76,7 @@ class ProfileScreen extends StatelessWidget {
                 'Edit Profile',
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
-                    fontWeight: FontWeight.w300,
+                    fontWeight: FontWeight.w400,
                     color: AppColor.primaryBlackColor),
               ),
               trailing: const Icon(
@@ -78,7 +94,7 @@ class ProfileScreen extends StatelessWidget {
                 'Change Password',
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
-                    fontWeight: FontWeight.w300,
+                    fontWeight: FontWeight.w400,
                     color: AppColor.primaryBlackColor),
               ),
               trailing: const Icon(
@@ -96,7 +112,7 @@ class ProfileScreen extends StatelessWidget {
                 'Push Notifications',
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
-                    fontWeight: FontWeight.w300,
+                    fontWeight: FontWeight.w400,
                     color: AppColor.primaryBlackColor),
               ),
               trailing: const Icon(
@@ -114,7 +130,7 @@ class ProfileScreen extends StatelessWidget {
                 'My Address',
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
-                    fontWeight: FontWeight.w300,
+                    fontWeight: FontWeight.w400,
                     color: AppColor.primaryBlackColor),
               ),
               trailing: const Icon(
@@ -128,7 +144,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 32),
             Text('PREFERENCES',
                 style: GoogleFonts.tenorSans(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w400,
                     color: AppColor.primaryBlackColor)),
             const SizedBox(height: 16),
@@ -145,7 +161,7 @@ class ProfileScreen extends StatelessWidget {
                 'Keep History Saved',
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 15,
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.w400,
                   color: AppColor.primaryBlackColor,
                 ),
               ),
@@ -163,7 +179,7 @@ class ProfileScreen extends StatelessWidget {
                 'Clear Saved Data',
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
-                    fontWeight: FontWeight.w300,
+                    fontWeight: FontWeight.w400,
                     color: AppColor.primaryBlackColor),
               ),
               onTap: () {

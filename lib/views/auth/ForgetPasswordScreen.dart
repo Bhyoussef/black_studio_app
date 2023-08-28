@@ -66,7 +66,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 const SizedBox(height: 50),
                 Text('FORGET YOUR PASSWORD ?',
                     style: GoogleFonts.tenorSans(
-                        fontSize: 22, fontWeight: FontWeight.w400)),
+                        fontSize: 18, fontWeight: FontWeight.w400)),
                 const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -95,6 +95,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   onPressed: () {
                     Get.to(()=>EmailConfirmationScreen());
                   }, text: 'Send',
+                  textcolor: AppColor.primaryBlackColor,
                 ),
 
                 const SizedBox(height: 100),

@@ -122,6 +122,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
             ),
             const SizedBox(height: 20),
             CustomButton(
+              textcolor: AppColor.primaryWhiteColor,
               backcolor: AppColor.primaryBlackColor,
               onPressed: () {
                 // TODO: Implement the logic for updating the profile

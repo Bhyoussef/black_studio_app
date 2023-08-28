@@ -94,6 +94,7 @@ class ChangePasswordScreen extends StatelessWidget {
               // TODO: Implement the logic for updating the password
 
             }, text: 'Update Password',
+              textcolor: AppColor.primaryBlackColor,
 
             ),
           ],

@@ -7,6 +7,13 @@ import 'package:linkia_ecommerce/controllers/CartController/CartController.dart'
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/bag/BagScreen.dart';
 import 'package:linkia_ecommerce/views/reviews/ReviewsScreen.dart';
+import 'package:share/share.dart';
+
+import 'componement/BestOffersSection.dart';
+import 'componement/DeliveryOption.dart';
+import 'componement/ProductDetailSection.dart';
+import 'componement/ReviewsSection.dart';
+import 'componement/SizeSection.dart';
 
 class ProductDetail extends StatefulWidget {
   final Product product;
@@ -21,327 +28,40 @@ class ProductDetail extends StatefulWidget {
 }
 
 class _ProductDetailState extends State<ProductDetail> {
+  List<Color> colorOptions = [
+
+    Colors.purple,
+    Colors.pink,
+
+  ];
   int selectedImageIndex = 0;
   final bagController = Get.find<CartController>();
   final RxInt bagItemCount = 0.obs;
-
 
   @override
   void initState() {
     super.initState();
   }
+
   void _showSizeDialog(BuildContext context) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
-        return  SafeArea(
-            child: SingleChildScrollView(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.8,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              Get.back();
-                            },
-                            child: Container(
-                              width: 40,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: AppColor.primaryGreyColor,
-                                  width: .2,
-                                ),
-                              ),
-                              child: const CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 12,
-                                foregroundColor: Colors.black,
-                                child: Icon(
-                                  Icons.close,
-                                  size: 20,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding:  EdgeInsets.all(8.0),
-                          child: Text('Size Guide',style: GoogleFonts.beVietnamPro(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600
-                          ),),
-                        ),
-
-
-                      ],
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child: Table(
-                        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                        border: TableBorder.all(
-                          color: AppColor.secondaryGreyColor,
-                          width: 1.0,
-                        ),
-
-                        children: [
-                          TableRow(
-                            children: [
-                              TableCell(child: Container(
-                                height: 50,
-                                color: AppColor.secondaryGreyColor,
-                                child: const Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text('Product'),
-                                    Text('Size'),
-                                  ],
-                                ),
-                              )), // Empty cell
-                              const TableCell(
-                                child: Center(
-                                  child: Text('Bust'),
-                                ),
-                              ),
-                              const TableCell(
-                                child: Center(
-                                  child: Text('Length'),
-                                ),
-                              ),
-                              const TableCell(
-                                child: Center(
-                                  child: Text('Waist'),
-                                ),
-                              ),
-                            ],
-                          ),
-                          TableRow(
-                            children: [
-                              Container(
-                                height: 80,
-                                width: 150,
-                                color: AppColor.secondaryGreyColor,
-                                child: const TableCell(
-                                  child: Center(
-                                    child: Text('XS'),
-                                  ),
-                                ),
-                              ),
-                              const TableCell(
-                                child: Center(
-                                  child: Text('30"'),
-                                ),
-                              ),
-                              const TableCell(
-                                child: Center(
-                                  child: Text('34"'),
-                                ),
-                              ),
-                              const TableCell(
-                                child: Center(
-                                  child: Text('28"'),
-                                ),
-                              ),
-                            ],
-                          ),
-                          TableRow(
-                            children: [
-                              Container(
-                                height: 80,
-                                width: 150,
-                                color: AppColor.secondaryGreyColor,
-                                child: const TableCell(
-                                  child: Center(
-                                    child: Text('S'),
-                                  ),
-                                ),
-                              ),
-                              const TableCell(
-                                child: Center(
-                                  child: Text('32"'),
-                                ),
-                              ),
-                              const TableCell(
-                                child: Center(
-                                  child: Text('36"'),
-                                ),
-                              ),
-                              const TableCell(
-                                child: Center(
-                                  child: Text('30"'),
-                                ),
-                              ),
-                            ],
-                          ),
-                          TableRow(
-                            children: [
-                              Container(
-                                height: 80,
-                                width: 150,
-                                color: AppColor.secondaryGreyColor,
-                                child: TableCell(
-                                  child: Center(
-                                    child: Text('M'),
-                                  ),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('34"'),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('38"'),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('32"'),
-                                ),
-                              ),
-                            ],
-                          ),
-                          TableRow(
-                            children: [
-                              Container(
-                                height: 80,
-                                width: 150,
-                                color: AppColor.secondaryGreyColor,
-                                child: TableCell(
-                                  child: Center(
-                                    child: Text('L'),
-                                  ),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('34"'),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('38"'),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('32"'),
-                                ),
-                              ),
-                            ],
-                          ),
-                          TableRow(
-                            children: [
-                              Container(
-                                height: 80,
-                                width: 150,
-                                color: AppColor.secondaryGreyColor,
-                                child: TableCell(
-                                  child: Center(
-                                    child: Text('XL'),
-                                  ),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('34"'),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('38"'),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('32"'),
-                                ),
-                              ),
-                            ],
-                          ),
-                          TableRow(
-                            children: [
-                              Container(
-                                height: 80,
-                                width: 150,
-                                color: AppColor.secondaryGreyColor,
-                                child: TableCell(
-                                  child: Center(
-                                    child: Text('XXL'),
-                                  ),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('34"'),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('38"'),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('32"'),
-                                ),
-                              ),
-                            ],
-                          ),
-                          TableRow(
-                            children: [
-                              Container(
-                                height: 80,
-                                width: 150,
-                                color: AppColor.secondaryGreyColor,
-                                child: TableCell(
-                                  child: Center(
-                                    child: Text('XXXL'),
-                                  ),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('34"'),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('38"'),
-                                ),
-                              ),
-                              TableCell(
-                                child: Center(
-                                  child: Text('32"'),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          // Add more TableRow widgets for other sizes
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ));
-
+        return const SizeSection();
       },
     );
   }
+  void _shareProduct() {
+    final String productName = widget.product.name;
+    final String productImageUrl = widget.product.imageAssets[0];
 
+    Share.share(
+      'Check out this amazing product: $productName',
+      subject: 'Product Share',
+      sharePositionOrigin: Rect.fromLTWH(0, 0, 100, 100),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -362,24 +82,21 @@ class _ProductDetailState extends State<ProductDetail> {
           'Product Detail',
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              // Handle share button press
-            },
+            onPressed:_shareProduct,
             icon: Image.asset(
               'assets/imgs/ShareNetwork.png',
               color: Colors.black,
             ),
           ),
           IconButton(
-
             constraints: const BoxConstraints(),
-            onPressed: () => Get.to(() => BagScreen(isHome: true)),
+            onPressed: () => Get.to(() => const BagScreen(isHome: true)),
             icon: Badge(
               label: Obx(
                 () => Text(
@@ -403,11 +120,11 @@ class _ProductDetailState extends State<ProductDetail> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  height: 350, // Adjust the height as needed
-                  width: MediaQuery.of(context).size.width,
+                  height: 400, // Adjust the height as needed
+                  width: 500,
                   child: Image.asset(
                     widget.product.imageAssets[selectedImageIndex],
-                    fit: BoxFit.fill,
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
               ),
@@ -472,108 +189,118 @@ class _ProductDetailState extends State<ProductDetail> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Text(
-                      widget.product.category,
-                      style: GoogleFonts.beVietnamPro(
+                      widget.product.category.toUpperCase(),
+                      style: GoogleFonts.tenorSans(
                         color: Colors.grey,
                         fontSize: 14,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       widget.product.name,
                       style: GoogleFonts.beVietnamPro(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                  ],
-                ),
-              ),
-
-              // Rating and Number of Ratings
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: AppColor.primaryGreyColor,
-                          width: 0.5,
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: AppColor.primaryGreyColor,
+                              width: 0.5,
+                            ),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                '5.0',
+                                style: GoogleFonts.beVietnamPro(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const Icon(
+                                Icons.star,
+                                color: Colors.yellow,
+                                size: 16,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Container(
+                                width: 1,
+                                height: 15,
+                                color: Colors.grey,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                '5 ratings',
+                                style: GoogleFonts.beVietnamPro(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            '5.0',
-                            style: GoogleFonts.beVietnamPro(
-                              color: Colors.grey,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const Icon(
-                            Icons.star,
-                            color: Colors.yellow,
-                            size: 16,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            width: 1,
-                            height: 15,
-                            color: Colors.grey,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            '5 ratings',
-                            style: GoogleFonts.beVietnamPro(
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ],
-                      ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'QAR ${widget.product.price.toInt()}',
+                      style: GoogleFonts.beVietnamPro(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: AppColor.primaryBlackColor),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      'inclusive of all taxes',
+                      style: GoogleFonts.beVietnamPro(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.thirdGreyColor),
                     ),
                   ],
                 ),
               ),
-
-              // Product Price
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  '${widget.product.price} QAR',
-                  style: GoogleFonts.beVietnamPro(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+              const SizedBox(
+                height: 20,
               ),
 
               // Add to Cart Button
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
                       height: 50,
-                      width: 300,
+                      width: 280,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.black,
-                          onPrimary: Colors.white,
+                          foregroundColor: Colors.white, backgroundColor: Colors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
                                 8), // Set your desired corner radius
@@ -583,8 +310,8 @@ class _ProductDetailState extends State<ProductDetail> {
                           bagController.addToCart(widget.product);
                           Get.snackbar('Success', 'Product added to cart',
                               snackPosition: SnackPosition.BOTTOM,
-                          backgroundColor: Colors.green,
-                          colorText: CupertinoColors.white);
+                              backgroundColor: Colors.green,
+                              colorText: CupertinoColors.white);
                         },
                         child: Text('Add to Cart',
                             style: GoogleFonts.beVietnamPro(
@@ -598,67 +325,119 @@ class _ProductDetailState extends State<ProductDetail> {
                     ),
                     IconButton(
                         onPressed: () {},
-                        icon: Image.asset('assets/imgs/Heart.png'))
+                        icon: Image.asset(
+                          'assets/imgs/Heart.png',
+                          height: 28,
+                          width: 28,
+                          color: AppColor.primaryBlackColor,
+                        ))
                   ],
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                height: 50,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: colorOptions.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: buildColorOption(colorOptions[index], true),
+                      );
+                    },
+                  ),
                 ),
               ),
               // Divider
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Divider(
-                  thickness: 1,
+                  thickness: 3,
                   height: 1,
                   color: AppColor.secondaryGreyColor,
                 ),
               ),
               Padding(
-                padding:  EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     Text('SELECT SIZE',style: GoogleFonts.tenorSans(
-                         color: AppColor.primaryBlackColor,
-                         fontSize: 15,
-                         fontWeight: FontWeight.w400)),
-                    TextButton(onPressed: (){
-
-                      _showSizeDialog(context);
-                    },
-                        child:  Text('Edit Size',style:GoogleFonts.beVietnamPro(
-                          color: AppColor.primaryBlackColor
-                              ,fontWeight: FontWeight.w500,
-                          fontSize: 16
-
-                        ),))
+                    Text('SELECT SIZE',
+                        style: GoogleFonts.tenorSans(
+                            color: AppColor.primaryBlackColor,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400)),
+                    TextButton(
+                        onPressed: () {
+                          _showSizeDialog(context);
+                        },
+                        child: Text(
+                          'Edit Size',
+                          style: GoogleFonts.beVietnamPro(
+                              color: AppColor.primaryBlackColor,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16),
+                        ))
                   ],
                 ),
               ),
-
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'PRODUCT DETAILS',
-                  style: GoogleFonts.tenorSans(
-                      fontSize: 12, fontWeight: FontWeight.w400),
-                ),
-              ),
-              // Divider
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Divider(
-                  thickness: 1,
+                  thickness: 3,
                   height: 1,
                   color: AppColor.secondaryGreyColor,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'REVIEWS',
-                  style: GoogleFonts.tenorSans(
-                      fontSize: 12, fontWeight: FontWeight.w400),
+              //DELIVERY OPTIONS
+              const DeleveryOption(),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Divider(
+                  thickness: 3,
+                  height: 1,
+                  color: AppColor.secondaryGreyColor,
                 ),
               ),
+              //best offers
+              const BestOffesrSection(),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Divider(
+                  thickness: 3,
+                  height: 1,
+                  color: AppColor.secondaryGreyColor,
+                ),
+              ),
+
+              //Product Details
+              const ProductDetailSection(),
+
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Text(
+                      'REVIEWS',
+                      style: GoogleFonts.tenorSans(
+                          fontSize: 14, fontWeight: FontWeight.w400),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Image.asset('assets/imgs/star.png'),
+                  ],
+                ),
+              ),
+
+              //Reviews
+              const ReviewsSection(),
+
               Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
@@ -673,7 +452,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     ),
                     child: MaterialButton(
                       onPressed: () {
-                        Get.to(() => ReviewsScreen());
+                        Get.to(() => const ReviewsScreen());
                       },
                       child: Text(
                         'View All Reviews',
@@ -691,4 +470,24 @@ class _ProductDetailState extends State<ProductDetail> {
       ),
     );
   }
+}
+
+Widget buildColorOption(Color color, bool isSelected) {
+  return GestureDetector(
+    onTap: () {
+      // Handle color selection
+    },
+    child: Container(
+      height: 40,
+      width: 40,
+      decoration: BoxDecoration(
+        color: color,
+        shape: BoxShape.circle,
+        border: Border.all(
+          color: isSelected ? AppColor.primaryGreyColor : Colors.transparent,
+          width: 1,
+        ),
+      ),
+    ),
+  );
 }

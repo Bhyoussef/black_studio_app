@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/views/brand/BrandScreen.dart';
 import 'package:linkia_ecommerce/views/myorders/MyOrdersScreen.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
 import 'package:linkia_ecommerce/views/privacy/PrivacyScreen.dart';
 import 'package:linkia_ecommerce/views/product/AllProduct.dart';
+import 'package:linkia_ecommerce/views/profile/ProfileScreen.dart';
+import 'package:linkia_ecommerce/views/tailored/TailoredScreen.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -65,6 +68,21 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             DrawerListItem(
+              leadingAsset: 'assets/imgs/category-2.png',
+              title: 'Brands',
+              onTap: () {
+                Get.back();
+                Get.to(()=>BrandScreen(isHome: true));
+              },
+            ), DrawerListItem(
+              leadingAsset: 'assets/imgs/Group.png',
+              title: 'Tailored',
+              onTap: () {
+                Get.back();
+                Get.to(()=>TailoredScreen(isHome: true));
+              },
+            ),
+            DrawerListItem(
               leadingAsset: 'assets/imgs/receipt-2.png',
               title: 'Sale',
               onTap: () {},
@@ -89,6 +107,13 @@ class DrawerWidget extends StatelessWidget {
                 Get.back();
                 Get.to(() => MyOrdersScreen());
               },
+            ),DrawerListItem(
+              leadingAsset: 'assets/imgs/CircleWavyQuestion.png',
+              title: 'Settings',
+              onTap: () {
+                Get.back();
+                Get.to(() => ProfileScreen(isHome: true));
+              },
             ),
             DrawerListItem(
               leadingAsset: 'assets/imgs/CircleWavyQuestion.png',
@@ -98,6 +123,10 @@ class DrawerWidget extends StatelessWidget {
             DrawerListItem(
               leadingAsset: 'assets/imgs/Headset.png',
               title: 'Help and Support',
+              onTap: () {},
+            ), DrawerListItem(
+              leadingAsset: 'assets/imgs/UserCirclePlus.png',
+              title: 'Refer a Friend',
               onTap: () {},
             ),
             DrawerListItem(

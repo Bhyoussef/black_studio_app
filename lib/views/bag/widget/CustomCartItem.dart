@@ -103,7 +103,7 @@ class CartItem extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'QAR $price',
+                    'QAR ${price.toInt()}',
                     style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryBlackColor,
                       fontWeight: FontWeight.w600,

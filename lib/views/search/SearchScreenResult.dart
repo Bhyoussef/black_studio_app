@@ -52,7 +52,7 @@ class SearchScreenResult extends StatelessWidget {
                     child: Text(
                       'Search',
                       style: GoogleFonts.beVietnamPro(
-                          fontSize: 10,
+                          fontSize: 12,
                           color: AppColor.primaryBlackColor,
                           fontWeight: FontWeight.w400),
                     ),
@@ -88,11 +88,11 @@ class SearchScreenResult extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            'Product',
+                            'Category',
                             style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryBlackColor,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
+                              color: AppColor.primaryGreyColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                           const SizedBox(
@@ -119,9 +119,38 @@ class SearchScreenResult extends StatelessWidget {
                           Text(
                             'Sort by',
                             style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryBlackColor,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
+                              color: AppColor.primaryGreyColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          const Icon(
+                            Icons.arrow_drop_down,
+                            color: AppColor.primaryBlackColor,
+                            size: 15,
+                          )
+                        ],
+                      ),
+                    ),
+                    MaterialButton(
+                      height: 40,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      onPressed: () {
+                        //_showFilterModal(context);
+                      },
+                      child: Row(
+                        children: [
+                          Text(
+                            'Size',
+                            style: GoogleFonts.beVietnamPro(
+                              color: AppColor.primaryGreyColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                           const SizedBox(
@@ -148,9 +177,9 @@ class SearchScreenResult extends StatelessWidget {
                           Text(
                             'Filter',
                             style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryBlackColor,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
+                              color: AppColor.primaryGreyColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                           const SizedBox(
@@ -164,6 +193,7 @@ class SearchScreenResult extends StatelessWidget {
                         ],
                       ),
                     ),
+
                   ],
                 ),
               ),
@@ -222,9 +252,11 @@ class SearchScreenResult extends StatelessWidget {
                 Text(
                  product.name,
                   style: GoogleFonts.beVietnamPro(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
                 Text(
                  product.category,
@@ -235,9 +267,9 @@ class SearchScreenResult extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '${product.price.toString()} QAR',
+                  '${product.price.toInt()} QAR',
                   style: GoogleFonts.beVietnamPro(
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: FontWeight.w700,
                     color: AppColor.primaryBlackColor,
                   ),
@@ -254,126 +286,99 @@ class SearchScreenResult extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              child: Column(
-                children: [
-                  Text(
-                    'Price Range',
-                    style: GoogleFonts.beVietnamPro(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  Slider(
-                    activeColor: AppColor.primaryBlackColor,
-                    inactiveColor: AppColor.secondaryGreyColor,
-                    value: 0.0,
-                    // Add your slider configuration here
-                    onChanged: (double value) {
-                      // Handle slider value change
-                    },
-                  ),
-                ],
-              ),
-            ),
-            // Category Wrap
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Category',
-                    style: GoogleFonts.beVietnamPro(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  Wrap(
-                    spacing: 8,
+        return  SingleChildScrollView(
+          child: Column(
+              children: [
+                const ListTileWithOptions(
+                  title: 'Category',
+                  options: ['Category 1', 'Category 2', 'Category 3'],
+                ),
+                const ListTileWithOptions(
+                  title: 'Color',
+                  options: ['Color 1', 'Color 2', 'Color 3'],
+                ),
+                const ListTileWithOptions(
+                  title: 'Size',
+                  options: ['Size 1', 'Size 2', 'Size 3'],
+                ),
+                const ListTileWithOptions(
+                  title: 'Length',
+                  options: ['Length 1', 'Length 2', 'Length 3'],
+                ),
+                const ListTileWithOptions(
+                  title: 'Pattern',
+                  options: ['Pattern 1', 'Pattern 2', 'Pattern 3'],
+                ),
+                const ListTileWithOptions(
+                  title: 'Pattern',
+                  options: ['Pattern 1', 'Pattern 2', 'Pattern 3'],
+                ),
+                const ListTileWithOptions(
+                  title: 'Style',
+                  options: ['Style 1', 'Style 2', 'Style 3'],
+                ),
+                // Add more ListTileWithOptions widgets for other parameters
+                const ListTileWithOptions(
+                  title: 'Price',
+                  isPriceSlider: true,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      FilterChip(
-                        label: const Text('Category'),
-                        onSelected: (bool selected) {
-                          // Handle chip selection
-                        },
+                      SizedBox(
+                        height: 50,
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('Clear',
+                              style: GoogleFonts.beVietnamPro(
+                                  color: AppColor.primaryBlackColor,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400)),
+                        ),
                       ),
-                      FilterChip(
-                        label: const Text('Category '),
-                        onSelected: (bool selected) {
-                          // Handle chip selection
-                        },
+                      SizedBox(
+                        height: 50,
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('Apply',
+                              style: GoogleFonts.beVietnamPro(
+                                  color: AppColor.primaryWhiteColor,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400)),
+                        ),
                       ),
-                      FilterChip(
-                        label: const Text('Category '),
-                        onSelected: (bool selected) {
-                          // Handle chip selection
-                        },
-                      ),
-                      // Add more FilterChip widgets as needed
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    height: 50,
-                    width: 150,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white, backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              8), // Set your desired corner radius
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text('Clear',
-                          style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryBlackColor,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400)),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 50,
-                    width: 150,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white, backgroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              8), // Set your desired corner radius
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text('Apply',
-                          style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryWhiteColor,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400)),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
         );
       },
     );
   }
+
 
   void _showSortByDialog(BuildContext context) {
     showDialog(
@@ -458,4 +463,89 @@ class SearchScreenResult extends StatelessWidget {
       },
     );
   }
+
+
+
 }
+
+class ListTileWithOptions extends StatefulWidget {
+  final String title;
+  final List<String>? options;
+  final bool isPriceSlider;
+
+  const ListTileWithOptions({
+    required this.title,
+    this.options,
+    this.isPriceSlider = false,
+  });
+
+  @override
+  _ListTileWithOptionsState createState() => _ListTileWithOptionsState();
+}
+
+class _ListTileWithOptionsState extends State<ListTileWithOptions> {
+  bool _isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          title: Text(
+            widget.title,
+            style: GoogleFonts.beVietnamPro(
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+                color: AppColor.primaryBlackColor),
+          ),
+          trailing: _isExpanded
+              ? Icon(Icons.arrow_drop_up)
+              : Icon(Icons.arrow_drop_down),
+          onTap: () {
+            setState(() {
+              _isExpanded = !_isExpanded;
+            });
+          },
+        ),
+        if (_isExpanded)
+          Column(
+            children: [
+              if (widget.isPriceSlider)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Slider(
+                    activeColor: AppColor.primaryBlackColor,
+                    inactiveColor: AppColor.secondaryGreyColor,
+                    value: 0.0,
+                    // Add your slider configuration here
+                    onChanged: (double value) {
+                      // Handle slider value change
+                    },
+                  ),
+                ),
+              if (!widget.isPriceSlider && widget.options != null)
+                Row(
+                  children: widget.options!.map((option) {
+                    return GestureDetector(
+                      onTap: () {
+                        // Handle option selection
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(option),
+                      ),
+                    );
+                  }).toList(),
+                ),
+            ],
+          ),
+      ],
+    );
+  }
+}
+

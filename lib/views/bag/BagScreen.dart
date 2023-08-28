@@ -54,7 +54,7 @@ class _BagScreenState extends State<BagScreen> {
         title: Text(
           'Bag',
           style: GoogleFonts.beVietnamPro(
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.w600,
             color: AppColor.primaryBlackColor,
           ),
@@ -177,7 +177,7 @@ class _BagScreenState extends State<BagScreen> {
                     GetBuilder<CartController>(
                       builder: (controller) {
                         return Text(
-                          ' ${controller.total.toStringAsFixed(2)}',
+                          ' ${controller.total.toInt()}',
                           style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor,
                             fontWeight: FontWeight.w400,
@@ -191,6 +191,7 @@ class _BagScreenState extends State<BagScreen> {
 
                 const SizedBox(height: 32),
                 CustomButton(
+                  textcolor: AppColor.primaryWhiteColor,
                     backcolor: AppColor.primaryBlackColor,
                     onPressed: () {
                       Get.to(() =>  ChekoutScreen(products: bagController.items));

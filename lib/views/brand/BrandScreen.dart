@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
 
 class BrandScreen extends StatefulWidget {
-  const BrandScreen({super.key});
+  final bool? isHome;
+  const BrandScreen({super.key, this.isHome});
 
   @override
   State<BrandScreen> createState() => _BrandScreenState();
@@ -19,7 +22,10 @@ class _BrandScreenState extends State<BrandScreen> {
     // Add other brands and their images here
   ];
 
+
   List<Map<String, String>> filteredBrands = [];
+
+
   final ScrollController _scrollController = ScrollController();
   List<String> alphabets = [
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
@@ -69,7 +75,16 @@ class _BrandScreenState extends State<BrandScreen> {
         backgroundColor: AppColor.primaryWhiteColor,
         elevation: 0,
         automaticallyImplyLeading: false,
-        leading: IconButton(
+        leading: widget.isHome == true
+            ? IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Get.back();
+          },
+        ): IconButton(
           icon: Image.asset(
             'assets/imgs/List.png',
             color: AppColor.primaryBlackColor,
@@ -83,6 +98,7 @@ class _BrandScreenState extends State<BrandScreen> {
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontWeight: FontWeight.w600,
+            fontSize: 18
           ),
         ),
       ),

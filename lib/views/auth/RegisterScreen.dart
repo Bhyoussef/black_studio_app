@@ -29,7 +29,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 Text('New to the black studio',
                     style: GoogleFonts.tenorSans(
-                        fontSize: 24, fontWeight: FontWeight.w400)),
+                        fontSize: 18, fontWeight: FontWeight.w400)),
                 Image.asset(
                   'assets/imgs/divider.png',
                   width: 125,
@@ -93,6 +93,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 16),
                 CustomButton(
+                  textcolor: AppColor.primaryWhiteColor,
                   backcolor: AppColor.primaryBlackColor,
                   text: 'Sign up',
                   onPressed: () {
