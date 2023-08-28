@@ -5,6 +5,8 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
 
+import '../reviews/AddReviewScreen.dart';
+
 class OrderSummary extends StatelessWidget {
   const OrderSummary({super.key});
 
@@ -227,7 +229,7 @@ class OrderSummary extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       onPressed: () {
-                        // Handle leave feedback button press
+                        Get.to(() => const AddReviewScreen());
                       },
                       child: Text(
                         'Leave Feedback',

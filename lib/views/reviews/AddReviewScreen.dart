@@ -4,8 +4,21 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
 
-class AddReviewScreen extends StatelessWidget {
+class AddReviewScreen extends StatefulWidget {
   const AddReviewScreen({Key? key}) : super(key: key);
+
+  @override
+  State<AddReviewScreen> createState() => _AddReviewScreenState();
+}
+
+class _AddReviewScreenState extends State<AddReviewScreen> {
+
+  int _rating = 0;
+  void _setRating(int value) {
+    setState(() {
+      _rating = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,37 +53,53 @@ class AddReviewScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 8),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.star,
-                  color: AppColor.primaryBlackColor,
-                  size: 40,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(
+                    _rating >= 1 ? Icons.star : Icons.star_outline  ,
+                    size: 48,
+                    color: Colors.black,
+                  ),
+                  onPressed: () => _setRating(1),
                 ),
-                Icon(
-                  Icons.star,
-                  color: AppColor.primaryBlackColor,
-                  size: 40,
+                IconButton(
+                  icon: Icon(
+                    _rating >= 2 ? Icons.star : Icons.star_outline,
+                    size: 48,
+                    color: Colors.black,
+                  ),
+                  onPressed: () => _setRating(2),
                 ),
-                Icon(
-                  Icons.star,
-                  color: AppColor.primaryBlackColor,
-                  size: 40,
+                IconButton(
+                  icon: Icon(
+                    _rating >= 3 ? Icons.star : Icons.star_outline,
+                    size: 48,
+                    color: Colors.black,
+                  ),
+                  onPressed: () => _setRating(3),
                 ),
-                Icon(
-                  Icons.star,
-                  color: AppColor.primaryBlackColor,
-                  size: 40,
+                IconButton(
+                  icon: Icon(
+                    _rating >= 4 ? Icons.star : Icons.star_outline,
+                    size: 48,
+                    color: Colors.black,
+                  ),
+                  onPressed: () => _setRating(4),
                 ),
-                Icon(
-                  Icons.star,
-                  color: AppColor.primaryBlackColor,
-                  size: 40,
+                IconButton(
+                  icon: Icon(
+                    _rating >= 5 ? Icons.star : Icons.star_outline,
+                    size: 48,
+                    color: Colors.black,
+                  ),
+                  onPressed: () => _setRating(5),
                 ),
               ],
             ),
+
+
             const SizedBox(height: 16),
             const Padding(
               padding: EdgeInsets.all(8.0),
