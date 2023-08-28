@@ -14,9 +14,16 @@ class AddReviewScreen extends StatefulWidget {
 class _AddReviewScreenState extends State<AddReviewScreen> {
 
   int _rating = 0;
+  int _size = 1;
+
   void _setRating(int value) {
     setState(() {
       _rating = value;
+    });
+  }
+  void _setSize(int value) {
+    setState(() {
+      _size = value;
     });
   }
 
@@ -119,7 +126,58 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                 const Text("Size:",style: TextStyle()),
               ],
             ),
-
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () => _setSize(1),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _size == 1 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("1",style: TextStyle(color: _size == 1 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setSize(2),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _size == 2 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("2",style: TextStyle(color: _size == 2 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setSize(3),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _size == 3 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("3",style: TextStyle(color: _size == 3 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setSize(4),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _size == 4 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("4",style: TextStyle(color: _size == 4 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setSize(5),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _size == 5 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("5",style: TextStyle(color: _size == 5 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Image.asset(
