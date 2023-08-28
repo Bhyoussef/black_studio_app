@@ -98,8 +98,6 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                 ),
               ],
             ),
-
-
             const SizedBox(height: 16),
             const Padding(
               padding: EdgeInsets.all(8.0),
@@ -108,6 +106,39 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                 height: 1,
                 color: AppColor.secondaryGreyColor,
               ),
+            ),
+            const SizedBox(height: 8),
+            const Text("Customer Rating",style: TextStyle()),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icons/size.png',
+                  width: 16,
+                ),
+                const SizedBox(width: 8),
+                const Text("Size:",style: TextStyle()),
+              ],
+            ),
+
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icons/comfort.png',
+                  width: 16,
+                ),
+                const SizedBox(width: 8),
+                const Text("Comfort:",style: TextStyle()),
+              ],
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icons/quality.png',
+                  width: 16,
+                ),
+                const SizedBox(width: 8),
+                const Text("Quality:",style: TextStyle()),
+              ],
             ),
             const SizedBox(height: 8),
             TextFormField(
