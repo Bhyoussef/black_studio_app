@@ -15,6 +15,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
 
   int _rating = 0;
   int _size = 1;
+  int _comfort = 1;
 
   void _setRating(int value) {
     setState(() {
@@ -24,6 +25,11 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
   void _setSize(int value) {
     setState(() {
       _size = value;
+    });
+  }
+  void _setComfort(int value) {
+    setState(() {
+      _comfort = value;
     });
   }
 
@@ -116,6 +122,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
             ),
             const SizedBox(height: 8),
             const Text("Customer Rating",style: TextStyle()),
+            const SizedBox(height: 16),
             Row(
               children: [
                 Image.asset(
@@ -177,6 +184,103 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                 ),
               ],
             ),
+            const SizedBox(height: 10),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Runs Small"),
+                Text("Runs Large"),
+              ],
+            ),
+            const SizedBox(height: 16),
+
+
+
+
+
+
+
+
+            Row(
+              children: [
+                Image.asset(
+                  'assets/icons/comfort.png',
+                  width: 16,
+                ),
+                const SizedBox(width: 8),
+                const Text("Comfort:",style: TextStyle()),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () => _setComfort(1),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _comfort == 1 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("1",style: TextStyle(color: _comfort == 1 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setComfort(2),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _comfort == 2 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("2",style: TextStyle(color: _comfort == 2 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setComfort(3),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _comfort == 3 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("3",style: TextStyle(color: _comfort == 3 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setComfort(4),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _comfort == 4 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("4",style: TextStyle(color: _comfort == 4 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setComfort(5),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _comfort == 5 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("5",style: TextStyle(color: _comfort == 5 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Uncomfortable"),
+                Text("Comfortable"),
+              ],
+            ),
+
+
+
+
+
+
+
+
+
+
+
             const SizedBox(height: 10),
             Row(
               children: [
