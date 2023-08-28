@@ -16,6 +16,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
   int _rating = 0;
   int _size = 1;
   int _comfort = 1;
+  int _quality = 1;
 
   void _setRating(int value) {
     setState(() {
@@ -30,6 +31,11 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
   void _setComfort(int value) {
     setState(() {
       _comfort = value;
+    });
+  }
+  void _setQuality(int value) {
+    setState(() {
+      _quality = value;
     });
   }
 
@@ -270,28 +276,8 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                 Text("Comfortable"),
               ],
             ),
-
-
-
-
-
-
-
-
-
-
-
             const SizedBox(height: 10),
-            Row(
-              children: [
-                Image.asset(
-                  'assets/icons/comfort.png',
-                  width: 16,
-                ),
-                const SizedBox(width: 8),
-                const Text("Comfort:",style: TextStyle()),
-              ],
-            ),
+
             Row(
               children: [
                 Image.asset(
@@ -302,6 +288,71 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                 const Text("Quality:",style: TextStyle()),
               ],
             ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () => _setQuality(1),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _quality == 1 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("1",style: TextStyle(color: _quality == 1 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setQuality(2),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _quality == 2 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("2",style: TextStyle(color: _quality == 2 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setQuality(3),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _quality == 3 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("3",style: TextStyle(color: _quality == 3 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setQuality(4),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _quality == 4 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("4",style: TextStyle(color: _quality == 4 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => _setQuality(5),
+                  child: Container(
+                    width: (MediaQuery.of(context).size.width - 40) / 5,
+                    height: 30,
+                    color: _quality == 5 ? AppColor.primaryBlackColor : AppColor.fourthGreyColor,
+                    child: Center(child: Text("5",style: TextStyle(color: _quality == 5 ? AppColor.primaryWhiteColor : AppColor.primaryGreyColor ),)),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Poor"),
+                Text("Great"),
+              ],
+            ),
+
+
+
+
+
+
             const SizedBox(height: 8),
             TextFormField(
               maxLines: 2,
