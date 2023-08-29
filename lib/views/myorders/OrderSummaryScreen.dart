@@ -98,7 +98,7 @@ class OrderSummary extends StatelessWidget {
                           status: 'Delivered',
                           date: 'July 12, 2023',
                           time: '9:45 AM',
-                          price: product.price.toString(),
+                          price: product.price,
                           productName: product.name,
                           quantity: product.quantity.toString(),
                           showReview: true,
@@ -256,7 +256,7 @@ class OrderSummary extends StatelessWidget {
     String? status,
     String? date,
     String? time,
-    String? price,
+    double? price,
     String? productName,
     String? quantity,
     bool? showReview,
@@ -280,7 +280,7 @@ class OrderSummary extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Price: ${price}',  style:  GoogleFonts.beVietnamPro
+                  Text('${price?.toInt()} QAR',  style:  GoogleFonts.beVietnamPro
                     (fontWeight: FontWeight.w700,
                       color: AppColor.primaryBlackColor,
                       fontSize: 14),),

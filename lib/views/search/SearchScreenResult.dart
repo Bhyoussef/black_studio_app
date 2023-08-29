@@ -528,14 +528,18 @@ class _ListTileWithOptionsState extends State<ListTileWithOptions> {
                   children: widget.options!.map((option) {
                     return GestureDetector(
                       onTap: () {
-                        // Handle option selection
+
                       },
                       child: Container(
+                        height: 26,
+                        width: 65,
                         margin: EdgeInsets.all(8),
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(8),
+                          color: AppColor.primaryWhiteColor,
+                          border: Border.all(
+                            color: AppColor.primaryGreyColor
+                          )
                         ),
                         child: Text(option),
                       ),
@@ -548,4 +552,6 @@ class _ListTileWithOptionsState extends State<ListTileWithOptions> {
     );
   }
 }
+
+
 

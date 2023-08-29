@@ -19,6 +19,7 @@ class BagScreen extends StatefulWidget {
 
 class _BagScreenState extends State<BagScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  bool isSelected = false; // Initialize with your desired value
 
 
   @override
@@ -89,119 +90,303 @@ class _BagScreenState extends State<BagScreen> {
             ],
           ),
         )
-            :Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 16),
-              GetBuilder<CartController>(
-                  builder: (_) {
-                    return ColumnBuilder(
-                      shrinkWrap: true,
-                      itemCount: bagController.items.length,
-                      itemBuilder: (context, index) {
-                        final product = bagController.items[index];
+            :SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 60,
+                    width: double.infinity,
+                    color: AppColor.secondaryGreyColor,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Image.asset('assets/imgs/CircleWavyWarning.png'),
+                            SizedBox(width: 10,),
+                            Flexible(
+                              child: Text(
+                                'Spend QAR 165 and get 10% off everything with code: GET 10 some exclusions may apply.',
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.beVietnamPro(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.primaryGreyColor
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
 
-                        return CartItem(
-                          productName: product.product.name,
-                          price: product.product.price,
-                          category: product.product.category,
-                          imageUrl: product.product.imageAssets[0],
-                          onPlusPressed: () {
-                            Get.find<CartController>().addQuantity(product);
+                  SizedBox(
+                    height: 46,
+                    width: double.infinity,
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            '2 Items: Total (excluding delivery)',
+                            style: GoogleFonts.beVietnamPro(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.primaryGreyColor,
+                            ),
+                          ),
+                          Text(
+                            '\$453.20',
+                            style: GoogleFonts.beVietnamPro(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: AppColor.primaryBlackColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+
+          Container(
+          height: 46,
+          width: double.infinity,
+          color: AppColor.secondaryGreyColor,
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+              children: [
+                Row(
+                  children: [
+                    Checkbox(
+                      checkColor: AppColor.primaryWhiteColor,
+                      activeColor: AppColor.primaryBlackColor,
+                      value: isSelected,
+                      onChanged: (newValue) {
+                        setState(() {
+                          isSelected = newValue!;
+                        });
+                      },
+                    ),
+                    Text(
+                      '0/2 ITEMS SELECTED',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.beVietnamPro(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      ),
+
+                    ),
+                  ],
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Image.asset('assets/imgs/Trash (2).png'),
+                      SizedBox(width: 10,),
+                      Image.asset('assets/imgs/heart-search.png')
+
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+
+
+
+
+          const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GetBuilder<CartController>(
+                      builder: (_) {
+                        return ColumnBuilder(
+                          shrinkWrap: true,
+                          itemCount: bagController.items.length,
+                          itemBuilder: (context, index) {
+                            final product = bagController.items[index];
+
+                            return CartItem(
+                              productName: product.product.name,
+                              price: product.product.price,
+                              category: product.product.category,
+                              imageUrl: product.product.imageAssets[0],
+                              onPlusPressed: () {
+                                Get.find<CartController>().addQuantity(product);
+                              },
+                              onMinusPressed: () {
+                                Get.find<CartController>().lowQuantity(product);
+                              },
+                              onRemovePressed: () {
+                                //bagController.removeProduct(index);
+                              },
+                              quantity: product.quantity.toString(),
+                            );
                           },
-                          onMinusPressed: () {
-                            Get.find<CartController>().lowQuantity(product);
-                          },
-                          onRemovePressed: () {
-                            //bagController.removeProduct(index);
-                          },
-                          quantity: product.quantity.toString(),
                         );
                       },
-                    );
-                  },
-                ),
-                const SizedBox(height: 16),
-                Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: AppColor.primaryGreyColor,
-                      width: 0.5,
                     ),
-                    borderRadius: BorderRadius.circular(5),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        labelText: 'Promo Code',
-                        labelStyle: GoogleFonts.beVietnamPro(
-                            color: AppColor.primaryGreyColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12),
-                        suffixIcon: TextButton(
-                          onPressed: () {
-                            // TODO: Implement the logic for applying the promo code
-                          },
-                          child: Text(
-                            'Apply',
-                            style: GoogleFonts.beVietnamPro(
-                                color: AppColor.primaryBlackColor,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Divider(
+                      thickness: 3,
+                      height: 1,
+                      color: AppColor.secondaryGreyColor,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: AppColor.primaryGreyColor,
+                          width: 0.5,
+                        ),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            labelText: 'Promo Code',
+                            labelStyle: GoogleFonts.beVietnamPro(
+                                color: AppColor.primaryGreyColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12),
+                            suffixIcon: TextButton(
+                              onPressed: () {
+                                // TODO: Implement the logic for applying the promo code
+                              },
+                              child: Text(
+                                'Apply',
+                                style: GoogleFonts.beVietnamPro(
+                                    color: AppColor.primaryBlackColor,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 16),
-
-                const SizedBox(height: 16),
-                // TODO: Implement the price details section
-
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Total Amount',
-                        style: GoogleFonts.beVietnamPro(
-                            color: AppColor.primaryGreyColor,
-                            fontWeight: FontWeight.w400)),
-                    GetBuilder<CartController>(
-                      builder: (controller) {
-                        return Text(
-                          ' ${controller.total.toInt()}',
-                          style: GoogleFonts.beVietnamPro(
-                            color: AppColor.primaryGreyColor,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        );
-                      },
+                  const SizedBox(height: 10),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Divider(
+                      thickness: 3,
+                      height: 1,
+                      color: AppColor.secondaryGreyColor,
                     ),
-                  ],
-                ),
-                // TODO: Implement the total amount section
+                  ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('price details(2 items)'.toUpperCase(),style: GoogleFonts.tenorSans(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: AppColor.primaryBlackColor
+                    ),),
+                  ),
 
-                const SizedBox(height: 32),
-                CustomButton(
-                  textcolor: AppColor.primaryWhiteColor,
-                    backcolor: AppColor.primaryBlackColor,
-                    onPressed: () {
-                      Get.to(() =>  ChekoutScreen(products: bagController.items));
-                    },
-                    text: 'Checkout'
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+
+                      Text('Total MRP :',
+                          style: TextStyle(
+                            color: AppColor.primaryBlackColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                          )),
+                      const SizedBox(height: 8),
+                      Text('Discount on MRP: \$XX.XX',
+                          style: TextStyle(
+                            color: AppColor.primaryBlackColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                          )),
+                      const SizedBox(height: 8),
+                      Text('Coupon Discount: \$XX.XX',
+                          style: TextStyle(
+                            color: AppColor.primaryBlackColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                          )),
+                      const SizedBox(height: 8),
+                      Text('Tax: \$XX.XX',
+                          style: TextStyle(
+                            color: AppColor.primaryBlackColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                          )),
+                    ],
+                  ),
                 ),
-              ],
+
+
+                  const SizedBox(height: 16),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Total Amount',
+                            style: GoogleFonts.beVietnamPro(
+                                color: AppColor.primaryGreyColor,
+                                fontWeight: FontWeight.w400)),
+                        GetBuilder<CartController>(
+                          builder: (controller) {
+                            return Text(
+                              ' ${controller.total.toInt()} QAR',
+                              style: GoogleFonts.beVietnamPro(
+                                color: AppColor.primaryGreyColor,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  // TODO: Implement the total amount section
+
+                  const SizedBox(height: 32),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CustomButton(
+                      textcolor: AppColor.primaryWhiteColor,
+                        backcolor: AppColor.primaryBlackColor,
+                        onPressed: () {
+                          Get.to(() =>  ChekoutScreen(products: bagController.items));
+                        },
+                        text: 'Checkout'
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ),
       ),
     );
   }

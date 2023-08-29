@@ -27,106 +27,163 @@ class CartItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
+    return Column(
       children: [
-        Column(
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset(
-              imageUrl,
-              width: 150,
-              height: 180,
-              fit: BoxFit.fill,
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 30,
-                decoration: BoxDecoration(
-                  border:
-                      Border.all(color: AppColor.primaryGreyColor, width: 0.5),
-                  borderRadius: BorderRadius.circular(5),
+            Column(
+              children: [
+                Image.asset(
+                  imageUrl,
+                  width: 105,
+                  height: 124,
+                  fit: BoxFit.fill,
                 ),
-                child: Row(
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
+            SizedBox(width: 10,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
                   children: [
-                    IconButton(
-                      onPressed: onMinusPressed,
-                      icon: const Icon(Icons.remove, size: 15),
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Text(
-                        quantity,
-                        style: GoogleFonts.beVietnamPro(
+                    Text(
+                      'QAR ${price.toInt()}',
+                      style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryBlackColor,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: onPlusPressed,
-                      icon: const Icon(Icons.add, size: 15),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 15),
                     ),
                   ],
                 ),
-              ),
+                const SizedBox(height: 8),
+                Text(
+                  productName,
+                  style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryGreyColor,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+                const SizedBox(height: 35),
+                Row(
+                  children: [
+                    Text(
+                      'Color : ',
+                      style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryGreyColor,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14),
+                    ),
+                    Text(
+                      'Red',
+                      style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryBlackColor,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    Text(
+                      'Size : ',
+                      style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryGreyColor,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14),
+                    ),
+                    Text(
+                      'L',
+                      style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryBlackColor,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14),
+                    ),
+                  ],
+                ),
+              ],
             ),
 
           ],
         ),
-        const SizedBox(width: 16),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                productName,
-                style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w600,
-                ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              height: 30,
+              decoration: BoxDecoration(
+                border:
+                Border.all(color: AppColor.secondaryGreyColor, width: 1),
+                borderRadius: BorderRadius.circular(5),
               ),
-              const SizedBox(height: 8),
-              Text(
-                category,
-                style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Row(
+              child: Row(
                 children: [
-                  Text(
-                    'QAR ${price.toInt()}',
-                    style: GoogleFonts.beVietnamPro(
-                      color: AppColor.primaryBlackColor,
-                      fontWeight: FontWeight.w600,
-                    ),
+                  IconButton(
+                    onPressed: onMinusPressed,
+                    icon: const Icon(Icons.remove, size: 12),
                   ),
-                  const SizedBox(width: 8),
-                  /* TextButton(
-                    onPressed: onRemovePressed,
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
                     child: Text(
-                      'Remove',
+                      quantity,
                       style: GoogleFonts.beVietnamPro(
-                        color: AppColor.primaryBlackColor,
-                        fontWeight: FontWeight.w600,
+                          color: AppColor.primaryBlackColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14
                       ),
                     ),
-                  ), */
+                  ),
+                  IconButton(
+                    onPressed: onPlusPressed,
+                    icon: const Icon(Icons.add, size: 12),
+                  ),
                 ],
               ),
-            ],
-          ),
+            ),
+
+
+            Row(
+              children: [
+                TextButton(
+                  onPressed: () {
+                    // Handle "Remove" button click
+                  },
+                  child: Text(
+                    'Remove',
+                    style: GoogleFonts.beVietnamPro(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.primaryGreyColor,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10), // Add spacing between buttons
+                TextButton(
+                  onPressed: () {
+                    // Handle "Save for Later" button click
+                  },
+                  child: Text(
+                    'Save for Later',
+                    style: GoogleFonts.beVietnamPro(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.primaryGreyColor,
+                    ),
+                  ),
+                ),
+              ],
+            )
+
+          ],
         ),
       ],
     );
