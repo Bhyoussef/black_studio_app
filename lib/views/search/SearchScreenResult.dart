@@ -4,9 +4,28 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
+import 'package:linkia_ecommerce/views/search/FilterScreen.dart';
 
-class SearchScreenResult extends StatelessWidget {
+class SearchScreenResult extends StatefulWidget {
   const SearchScreenResult({Key? key}) : super(key: key);
+
+  @override
+  State<SearchScreenResult> createState() => _SearchScreenResultState();
+}
+
+class _SearchScreenResultState extends State<SearchScreenResult> {
+
+
+
+  void _showFilter(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return const FilterScreen();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +189,8 @@ class SearchScreenResult extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       onPressed: () {
-                        _showFilterModal(context);
+                        _showFilter(context);
+
                       },
                       child: Row(
                         children: [
@@ -282,102 +302,6 @@ class SearchScreenResult extends StatelessWidget {
     );
   }
 
-  void _showFilterModal(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return  SingleChildScrollView(
-          child: Column(
-              children: [
-                const ListTileWithOptions(
-                  title: 'Category',
-                  options: ['Category 1', 'Category 2', 'Category 3'],
-                ),
-                const ListTileWithOptions(
-                  title: 'Color',
-                  options: ['Color 1', 'Color 2', 'Color 3'],
-                ),
-                const ListTileWithOptions(
-                  title: 'Size',
-                  options: ['Size 1', 'Size 2', 'Size 3'],
-                ),
-                const ListTileWithOptions(
-                  title: 'Length',
-                  options: ['Length 1', 'Length 2', 'Length 3'],
-                ),
-                const ListTileWithOptions(
-                  title: 'Pattern',
-                  options: ['Pattern 1', 'Pattern 2', 'Pattern 3'],
-                ),
-                const ListTileWithOptions(
-                  title: 'Pattern',
-                  options: ['Pattern 1', 'Pattern 2', 'Pattern 3'],
-                ),
-                const ListTileWithOptions(
-                  title: 'Style',
-                  options: ['Style 1', 'Style 2', 'Style 3'],
-                ),
-                // Add more ListTileWithOptions widgets for other parameters
-                const ListTileWithOptions(
-                  title: 'Price',
-                  isPriceSlider: true,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(
-                        height: 50,
-                        width: 150,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text('Clear',
-                              style: GoogleFonts.beVietnamPro(
-                                  color: AppColor.primaryBlackColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400)),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 50,
-                        width: 150,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor: Colors.black,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text('Apply',
-                              style: GoogleFonts.beVietnamPro(
-                                  color: AppColor.primaryWhiteColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400)),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-        );
-      },
-    );
-  }
 
 
   void _showSortByDialog(BuildContext context) {
@@ -463,95 +387,9 @@ class SearchScreenResult extends StatelessWidget {
       },
     );
   }
-
-
-
 }
 
-class ListTileWithOptions extends StatefulWidget {
-  final String title;
-  final List<String>? options;
-  final bool isPriceSlider;
 
-  const ListTileWithOptions({
-    required this.title,
-    this.options,
-    this.isPriceSlider = false,
-  });
-
-  @override
-  _ListTileWithOptionsState createState() => _ListTileWithOptionsState();
-}
-
-class _ListTileWithOptionsState extends State<ListTileWithOptions> {
-  bool _isExpanded = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          title: Text(
-            widget.title,
-            style: GoogleFonts.beVietnamPro(
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
-                color: AppColor.primaryBlackColor),
-          ),
-          trailing: _isExpanded
-              ? Icon(Icons.arrow_drop_up)
-              : Icon(Icons.arrow_drop_down),
-          onTap: () {
-            setState(() {
-              _isExpanded = !_isExpanded;
-            });
-          },
-        ),
-        if (_isExpanded)
-          Column(
-            children: [
-              if (widget.isPriceSlider)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Slider(
-                    activeColor: AppColor.primaryBlackColor,
-                    inactiveColor: AppColor.secondaryGreyColor,
-                    value: 0.0,
-                    // Add your slider configuration here
-                    onChanged: (double value) {
-                      // Handle slider value change
-                    },
-                  ),
-                ),
-              if (!widget.isPriceSlider && widget.options != null)
-                Row(
-                  children: widget.options!.map((option) {
-                    return GestureDetector(
-                      onTap: () {
-
-                      },
-                      child: Container(
-                        height: 26,
-                        width: 65,
-                        margin: EdgeInsets.all(8),
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: AppColor.primaryWhiteColor,
-                          border: Border.all(
-                            color: AppColor.primaryGreyColor
-                          )
-                        ),
-                        child: Text(option),
-                      ),
-                    );
-                  }).toList(),
-                ),
-            ],
-          ),
-      ],
-    );
-  }
-}
 
 
 

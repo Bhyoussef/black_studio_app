@@ -54,10 +54,9 @@ class ChangePasswordScreen extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'Current Password',
                 labelStyle: GoogleFonts.beVietnamPro(
-                  fontSize: 12,
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                ),
+                    fontSize: 15,
+                    color: AppColor.primaryGreyColor,
+                    fontWeight: FontWeight.w400),
               ),
             ),
             const SizedBox(height: 10),
@@ -67,10 +66,9 @@ class ChangePasswordScreen extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'New Password',
                 labelStyle: GoogleFonts.beVietnamPro(
-                  fontSize: 12,
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                ),
+                    fontSize: 15,
+                    color: AppColor.primaryGreyColor,
+                    fontWeight: FontWeight.w400),
               ),
             ),
             const SizedBox(height: 10),
@@ -80,10 +78,9 @@ class ChangePasswordScreen extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'Confirm Password',
                 labelStyle: GoogleFonts.beVietnamPro(
-                  fontSize: 12,
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                ),
+                    fontSize: 15,
+                    color: AppColor.primaryGreyColor,
+                    fontWeight: FontWeight.w400),
               ),
             ),
             const SizedBox(height: 20),

@@ -170,7 +170,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                               )),
                           Positioned(
                               top: 1,
-                              right: 70,
+                              right: 65,
                               child: Row(
                                 children: [
                                   Image.asset('assets/imgs/Line 52.png'),

@@ -12,65 +12,71 @@ class ReviewsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
-          Row(children: [
-            Text(
-              'Reviews',
-              style: GoogleFonts.tenorSans(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
+          Row(
+            children: [
+              Text(
+                'Reviews',
+                style: GoogleFonts.tenorSans(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-            ),
-            SizedBox(width: 10,),
-            Text(
-              '(34 Reviews)',
-              style: GoogleFonts.tenorSans(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: Colors.grey,
+              SizedBox(
+                width: 10,
               ),
-            ),
-            SizedBox(width: 10,),
-            Row(
-              children: [
-                Text(
-                  '4.0',
-                  style: GoogleFonts.tenorSans(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.primaryBlackColor,
+              Text(
+                '(34 Reviews)',
+                style: GoogleFonts.tenorSans(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.grey,
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Row(
+                children: [
+                  Text(
+                    '4.0',
+                    style: GoogleFonts.tenorSans(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.primaryBlackColor,
+                    ),
                   ),
-                ),
-                SizedBox(width: 10,),
-                Icon(
-                  Icons.star,
-                  color: AppColor.primaryBlackColor,
-                  size: 16,
-                ),
-                Icon(
-                  Icons.star,
-                  color: AppColor.primaryBlackColor,
-                  size: 16,
-                ),
-                Icon(
-                  Icons.star,
-                  color: AppColor.primaryBlackColor,
-                  size: 16,
-                ),
-                Icon(
-                  Icons.star,
-                  color: AppColor.primaryBlackColor,
-                  size: 16,
-                ),
-                Icon(
-                  Icons.star_outline,
-                  color: AppColor.primaryBlackColor,
-                  size: 16,
-                ),
-              ],
-            ),
-
-          ],),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: AppColor.primaryBlackColor,
+                    size: 16,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: AppColor.primaryBlackColor,
+                    size: 16,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: AppColor.primaryBlackColor,
+                    size: 16,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: AppColor.primaryBlackColor,
+                    size: 16,
+                  ),
+                  Icon(
+                    Icons.star_outline,
+                    color: AppColor.primaryBlackColor,
+                    size: 16,
+                  ),
+                ],
+              ),
+            ],
+          ),
           SizedBox(height: 15),
 
           Text(
@@ -84,16 +90,20 @@ class ReviewsSection extends StatelessWidget {
           SizedBox(height: 15),
           Text(
             'Customer Rating',
-            style: GoogleFonts.tenorSans(
+            style: GoogleFonts.beVietnamPro(
               fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
           ),
           SizedBox(height: 15),
+          //Size
           Row(
             children: [
-              Image.asset('assets/imgs/Search results for Measuring tape - Flaticon-2 1.png'),
-              SizedBox(width: 10,),
+              Image.asset(
+                  'assets/imgs/Search results for Measuring tape - Flaticon-2 1.png'),
+              SizedBox(
+                width: 10,
+              ),
               Text(
                 'Size:',
                 style: GoogleFonts.beVietnamPro(
@@ -101,33 +111,81 @@ class ReviewsSection extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(width: 10),
-          /*    Text(
-                'Runs Small',
-                style: GoogleFonts.tenorSans(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: AppColor.primaryBlackColor,
-                ),
-              ),
-              SizedBox(width: 10),
-              Text(
-                'Runs Large',
-                style: GoogleFonts.tenorSans(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: AppColor.primaryBlackColor,
-                ),
-              ),*/
             ],
           ),
           SizedBox(height: 20),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.primaryBlackColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Runs Small",style: GoogleFonts.beVietnamPro(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              )),
+              Text("Runs Large",style: GoogleFonts.beVietnamPro(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              )),
+            ],
+          ),
+
+          SizedBox(height: 20),
+
           Row(
             children: [
               Row(
                 children: [
-                  Image.asset('assets/imgs/Search results for Leaf - Flaticon-2 1.png'),
-                  SizedBox(width: 10,),
+                  Image.asset(
+                      'assets/imgs/Search results for Leaf - Flaticon-2 1.png'),
+                  SizedBox(
+                    width: 10,
+                  ),
                   Text(
                     'Comfort:',
                     style: GoogleFonts.beVietnamPro(
@@ -137,31 +195,80 @@ class ReviewsSection extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(width: 10),
-            /*  Text(
-                'Uncomfortable',
-                style: GoogleFonts.tenorSans(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: AppColor.primaryBlackColor,
-                ),
-              ),
-              SizedBox(width: 10),
-              Text(
-                'Comfortable',
-                style: GoogleFonts.tenorSans(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: AppColor.primaryBlackColor,
-                ),
-              ),*/
             ],
           ),
           SizedBox(height: 20),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.primaryBlackColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+            ],
+          ),
+
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Unconfortable",style: GoogleFonts.beVietnamPro(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              )),
+              Text("Confortable",style: GoogleFonts.beVietnamPro(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              )),
+            ],
+          ),
+
+
+          SizedBox(height: 20),
           Row(
             children: [
-              Image.asset('assets/imgs/Search results for Diamond - Flaticon-2 (1) 1.png'),
-              SizedBox(width: 10,),
+              Image.asset(
+                  'assets/imgs/Search results for Diamond - Flaticon-2 (1) 1.png'),
+              SizedBox(
+                width: 10,
+              ),
               Text(
                 'Quality',
                 style: GoogleFonts.beVietnamPro(
@@ -169,29 +276,74 @@ class ReviewsSection extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(width: 10),
-          /*    Text(
-                'Poor',
-                style: GoogleFonts.tenorSans(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
+
+            ],
+          ),
+          SizedBox(height: 20),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
+                  color: AppColor.fourthGreyColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: (MediaQuery.of(context).size.width - 40) / 5,
+                  height: 10,
                   color: AppColor.primaryBlackColor,
                 ),
               ),
-              SizedBox(width: 10),
-              Text(
-                'Great',
-                style: GoogleFonts.tenorSans(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: AppColor.primaryBlackColor,
-                ),
-              ),*/
             ],
           ),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Poor",style: GoogleFonts.beVietnamPro(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              )),
+              Text("Great",style: GoogleFonts.beVietnamPro(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              )),
+            ],
+          ),
+          SizedBox(height: 10),
+
         ],
       ),
     );
-
   }
 }

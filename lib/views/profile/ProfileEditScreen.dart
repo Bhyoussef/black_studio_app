@@ -85,15 +85,15 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
               ),
             ),
             const SizedBox(height: 20),
+
             TextFormField(
               controller: _nameController,
               decoration: InputDecoration(
                 labelText: 'Name',
                 labelStyle: GoogleFonts.beVietnamPro(
-                  fontSize: 12,
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                ),
+                    fontSize: 15,
+                    color: AppColor.primaryGreyColor,
+                    fontWeight: FontWeight.w400),
               ),
             ),
             const SizedBox(height: 10),
@@ -102,10 +102,9 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
               decoration: InputDecoration(
                 labelText: 'Email',
                 labelStyle: GoogleFonts.beVietnamPro(
-                  fontSize: 12,
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                ),
+                    fontSize: 15,
+                    color: AppColor.primaryGreyColor,
+                    fontWeight: FontWeight.w400),
               ),
             ),
             const SizedBox(height: 10),
@@ -114,10 +113,9 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
               decoration: InputDecoration(
                 labelText: 'Phone Number',
                 labelStyle: GoogleFonts.beVietnamPro(
-                  fontSize: 12,
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                ),
+                    fontSize: 15,
+                    color: AppColor.primaryGreyColor,
+                    fontWeight: FontWeight.w400),
               ),
             ),
             const SizedBox(height: 20),

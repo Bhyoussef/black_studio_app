@@ -27,9 +27,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('New to the black studio',
+                const SizedBox(height: 40,),
+                Text('New to the black studio'.toUpperCase(),
                     style: GoogleFonts.tenorSans(
-                        fontSize: 18, fontWeight: FontWeight.w400)),
+                        fontSize: 20, fontWeight: FontWeight.w400)),
+                const SizedBox(height: 20),
                 Image.asset(
                   'assets/imgs/divider.png',
                   width: 125,
@@ -52,7 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                     labelText: 'Email',
                     labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 12,
+                        fontSize: 15,
                         color: AppColor.primaryGreyColor,
                         fontWeight: FontWeight.w400),
                   ),
@@ -62,7 +64,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                     labelText: 'Password',
                     labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 12,
+                        fontSize: 15,
                         color: AppColor.primaryGreyColor,
                         fontWeight: FontWeight.w400),
                   ),
@@ -72,7 +74,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                     labelText: 'Confirm Password',
                     labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 12,
+                        fontSize: 15,
                         color: AppColor.primaryGreyColor,
                         fontWeight: FontWeight.w400),
                   ),

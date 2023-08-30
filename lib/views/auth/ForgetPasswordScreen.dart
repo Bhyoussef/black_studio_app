@@ -60,8 +60,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               children: [
                 Image.asset(
                   'assets/imgs/forgetpassword.png',
-                  width: 100,
-                  height: 100,
+                  width: 150,
+                  height: 150,
                 ),
                 const SizedBox(height: 50),
                 Text('FORGET YOUR PASSWORD ?',
@@ -84,7 +84,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   decoration: InputDecoration(
                     labelText: 'Email',
                     labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 12,
+                        fontSize: 15,
                         color: AppColor.primaryGreyColor,
                         fontWeight: FontWeight.w400),
                   ),

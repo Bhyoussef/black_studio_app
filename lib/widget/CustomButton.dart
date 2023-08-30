@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 
 
-
 class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;

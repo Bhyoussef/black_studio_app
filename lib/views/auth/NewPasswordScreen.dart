@@ -62,8 +62,8 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                 const SizedBox(height: 30),
                 Image.asset(
                   'assets/imgs/forgetpassword.png',
-                  width: 100,
-                  height: 100,
+                  width: 150,
+                  height: 150,
                 ),
                 const SizedBox(height: 50),
                 Text('CREATE NEW PASSWORD',
@@ -92,7 +92,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                   decoration: InputDecoration(
                     labelText: 'Password',
                     labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 12,
+                        fontSize: 15,
                         color: AppColor.primaryGreyColor,
                         fontWeight: FontWeight.w400),
                   ),
@@ -102,7 +102,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                   decoration: InputDecoration(
                     labelText: 'Confirm Password',
                     labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 12,
+                        fontSize: 15,
                         color: AppColor.primaryGreyColor,
                         fontWeight: FontWeight.w400),
                   ),

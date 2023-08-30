@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -24,14 +25,15 @@ class DrawerWidget extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.topLeft,
-              padding: const EdgeInsets.only(left: 10, top: 30),
+
+              padding: const EdgeInsets.only(left: 10, top: 50),
               child: GestureDetector(
                 onTap: () {
                   Get.back();
                 },
                 child: Container(
-                  width: 25,
-                  height: 25,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
@@ -45,14 +47,14 @@ class DrawerWidget extends StatelessWidget {
                     foregroundColor: AppColor.primaryBlackColor,
                     child: Icon(
                       Icons.close,
-                      size: 15,
+                      size: 20,
                     ),
                   ),
                 ),
               ),
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/bag-happy.png',
+              leadingAsset: 'assets/drawer/bag-tick.svg',
               title: 'New Arrivals',
               onTap: () {
                 Get.back();
@@ -60,7 +62,7 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/Tag.png',
+              leadingAsset: 'assets/drawer/Tag.svg',
               title: 'Best Sellers',
               onTap: () {
                 Get.back();
@@ -68,14 +70,14 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/category-2.png',
+              leadingAsset: 'assets/drawer/brand.svg',
               title: 'Brands',
               onTap: () {
                 Get.back();
                 Get.to(()=>BrandScreen(isHome: true));
               },
             ), DrawerListItem(
-              leadingAsset: 'assets/imgs/Group.png',
+              leadingAsset: 'assets/drawer/tailored.svg',
               title: 'Tailored',
               onTap: () {
                 Get.back();
@@ -83,17 +85,17 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/receipt-2.png',
+              leadingAsset: 'assets/drawer/receipt-2.svg',
               title: 'Sale',
               onTap: () {},
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/Heart.png',
+              leadingAsset: 'assets/drawer/Heart.svg',
               title: 'Favourite',
               onTap: () {},
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/Bell.png',
+              leadingAsset: 'assets/drawer/Bell.svg',
               title: 'Notification',
               onTap: () {
                 Get.back();
@@ -101,14 +103,14 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/bag-tick.png',
+              leadingAsset: 'assets/drawer/bag-tick.svg',
               title: 'My Orders',
               onTap: () {
                 Get.back();
                 Get.to(() => MyOrdersScreen());
               },
             ),DrawerListItem(
-              leadingAsset: 'assets/imgs/CircleWavyQuestion.png',
+              leadingAsset: 'assets/drawer/Gear.svg',
               title: 'Settings',
               onTap: () {
                 Get.back();
@@ -116,21 +118,21 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/CircleWavyQuestion.png',
+              leadingAsset: 'assets/drawer/CircleWavyQuestion.svg',
               title: 'FAQs',
               onTap: () {},
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/Headset.png',
+              leadingAsset: 'assets/drawer/Headset.svg',
               title: 'Help and Support',
               onTap: () {},
             ), DrawerListItem(
-              leadingAsset: 'assets/imgs/UserCirclePlus.png',
+              leadingAsset: 'assets/drawer/UserCirclePlus.svg',
               title: 'Refer a Friend',
               onTap: () {},
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/privacy.png',
+              leadingAsset: 'assets/drawer/Note.svg',
               title: 'Privacy Policy',
               onTap: () {
                 Get.back();
@@ -138,7 +140,7 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             DrawerListItem(
-              leadingAsset: 'assets/imgs/UploadSimple.png',
+              leadingAsset: 'assets/drawer/UploadSimple.svg',
               title: 'Logout',
               onTap: () {
                 showDialog(
@@ -218,12 +220,12 @@ class DrawerListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Image.asset(leadingAsset),
+      leading: SvgPicture.asset(leadingAsset), // Use SvgPicture.asset for SVG images
       title: Text(
         title,
         style: GoogleFonts.beVietnamPro(
           color: AppColor.primaryBlackColor,
-          fontSize: 12,
+          fontSize: 16,
           fontWeight: FontWeight.w400,
         ),
       ),
@@ -231,3 +233,4 @@ class DrawerListItem extends StatelessWidget {
     );
   }
 }
+

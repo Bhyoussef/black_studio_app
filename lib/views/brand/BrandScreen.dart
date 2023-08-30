@@ -149,7 +149,7 @@ class _BrandScreenState extends State<BrandScreen> {
                                   filteredBrands[index - 1]['name']?.substring(0, 1).toUpperCase();
 
                       return Padding(
-                        padding: const EdgeInsets.all(6.0),
+                        padding:  EdgeInsets.all(6.0),
                         child: Column(
                           children: [
                             ListTile(
@@ -158,7 +158,10 @@ class _BrandScreenState extends State<BrandScreen> {
                                 width: 40,
                                 height: 40,
                               ),
-                              title: Text(brandName!),
+                              title: Text(brandName!,style:GoogleFonts.beVietnamPro(
+                                  color: AppColor.primaryBlackColor,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400),),
                             ),
                             const Divider(
                               height: 1,

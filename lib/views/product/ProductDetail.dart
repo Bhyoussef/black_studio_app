@@ -124,7 +124,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   width: 500,
                   child: Image.asset(
                     widget.product.imageAssets[selectedImageIndex],
-                    fit: BoxFit.fitWidth,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
@@ -161,6 +161,8 @@ class _ProductDetailState extends State<ProductDetail> {
                               child: Image.asset(
                                 widget.product.imageAssets[index],
                                 fit: BoxFit.fill,
+                                height: 77,
+                                width: 77,
                               ),
                             ),
                             if (selectedImageIndex == index)
@@ -190,7 +192,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      height: 10,
+                      height: 8,
                     ),
                     Text(
                       widget.product.category.toUpperCase(),

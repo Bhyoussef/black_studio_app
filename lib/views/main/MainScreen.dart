@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -61,8 +62,8 @@ class _MainScreenState extends State<MainScreen> {
           type: BottomNavigationBarType.fixed, // Set type to fixed
           items: [
             BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/imgs/HouseSimple.png',
+              icon: SvgPicture.asset(
+                'assets/menu/HouseSimple.svg',
                 height: 30,
                 width: 30,
                 color: controller.currentIndex.value == 0
@@ -72,8 +73,8 @@ class _MainScreenState extends State<MainScreen> {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/imgs/SquaresFour.png',
+              icon: SvgPicture.asset(
+                'assets/menu/SquaresFour.svg',
                 height: 30,
                 width: 30,
                 color: controller.currentIndex.value == 1
@@ -89,8 +90,8 @@ class _MainScreenState extends State<MainScreen> {
                     Get.find<CartController>().items.length.toString(),
                   ),
                 ),
-                child: Image.asset(
-                  'assets/imgs/Tote.png',
+                child: SvgPicture.asset(
+                  'assets/menu/Tote.svg',
                   height: 30,
                   width: 30,
                   color: controller.currentIndex.value == 2
@@ -101,8 +102,8 @@ class _MainScreenState extends State<MainScreen> {
               label: 'Bag',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/imgs/sticker.png',
+              icon: SvgPicture.asset(
+                'assets/menu/sticker.svg',
                 height: 30,
                 width: 30,
                 color: controller.currentIndex.value == 3
@@ -112,8 +113,8 @@ class _MainScreenState extends State<MainScreen> {
               label: 'Brand',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/imgs/Smiley.png',
+              icon: SvgPicture.asset(
+                'assets/menu/Smiley.svg',
                 height: 30,
                 width: 30,
                 color: controller.currentIndex.value == 4

@@ -54,8 +54,8 @@ class EmailConfirmationScreen extends StatelessWidget {
                 const SizedBox(height: 50),
                 Image.asset(
                   'assets/imgs/email.png',
-                  width: 100,
-                  height: 100,
+                  width: 150,
+                  height: 150,
                 ),
 
                 Image.asset(

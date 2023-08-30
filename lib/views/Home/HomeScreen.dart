@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -34,8 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,
         leading: IconButton(
-          icon: Image.asset(
-            'assets/imgs/List.png',
+          icon: SvgPicture.asset(
+            'assets/menu/List.svg',
             color: AppColor.primaryBlackColor,
           ),
           onPressed: () {
@@ -53,8 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            icon: Image.asset(
-              'assets/imgs/Heart.png',
+            icon: SvgPicture.asset(
+              'assets/drawer/Heart.svg',
               color: Colors.black,
             ),
             onPressed: () {
@@ -62,8 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           IconButton(
-            icon: Image.asset(
-              'assets/imgs/Bell.png',
+            icon: SvgPicture.asset(
+              'assets/drawer/Bell.svg',
               color: Colors.black,
             ),
             onPressed: () {
@@ -124,26 +125,32 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'SPRING/SUMMER 2022 collection',
-                          style: GoogleFonts.beVietnamPro(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w800,
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'SPRING/SUMMER 2022 collection',
+                            style: GoogleFonts.beVietnamPro(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w800,
+                            ),
+                            maxLines: 2,
+                            textAlign: TextAlign.center,
                           ),
-                          maxLines: 2,
-                          textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 8),
-                        Text(
-                          'Find your desired product that you want to buy easily',
-                          style: GoogleFonts.beVietnamPro(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Find your desired product that you want to buy easily',
+                            style: GoogleFonts.beVietnamPro(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            maxLines: 2,
+                            textAlign: TextAlign.center,
                           ),
-                          maxLines: 2,
-                          textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 16),
                         MaterialButton(
@@ -229,8 +236,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'assets/imgs/Frame (1).png', // Replace with your image asset
+                      SvgPicture.asset(
+                        'assets/menu/Frame.svg',
                         fit: BoxFit.contain,
                         height: 65,
                         width: 58,
@@ -255,10 +262,10 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
-                Get.to(() => const AllProduct(title: 'NEW ARRIVALS'));
+                Get.to(() => const AllProduct(title: 'NEW ARRIVAL'));
               },
               child: Text(
-                'NEW ARRIVALS',
+                'NEW ARRIVAL',
                 style: GoogleFonts.tenorSans(
                   color: AppColor.primaryBlackColor,
                   fontSize: 18,

@@ -68,12 +68,16 @@ class BestOffesrSection extends StatelessWidget {
                   SizedBox(
                     width: 10,
                   ),
-                  Text(
-                    'Coupon discount: \$120 off (check cart for final savings)',
-                    style: GoogleFonts.beVietnamPro(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.primaryGreyColor,
+                  Flexible(
+                    child: Text(
+                      'Coupon discount: \$120 off (check cart for final savings)',
+                      style: GoogleFonts.beVietnamPro(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
                     ),
                   ),
                 ],

@@ -25,7 +25,8 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 40,),
                 Text('HAVE AN ACCOUNT',
                     style: GoogleFonts.tenorSans(
-                        fontSize: 18, fontWeight: FontWeight.w400)),
+                        fontSize: 20, fontWeight: FontWeight.w400)),
+                SizedBox(height: 20),
                 Image.asset(
                   'assets/imgs/divider.png',
                   width: 125,
@@ -85,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                   }, text: 'Sign In',
                 ),
                 const SizedBox(height: 10),
-                Text('Or',
+                Text('OR',
                     style: GoogleFonts.beVietnamPro(
                         color: AppColor.primaryBlackColor,
                         fontSize: 16,
