@@ -105,19 +105,19 @@ class ReviewsScreen extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Divider(
-                  thickness: 2,
+                  thickness: 1,
                   height: 2,
                   color: AppColor.secondaryGreyColor,
                 ),
               ),
 
               Padding(
-                padding: const EdgeInsets.all(0.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
 
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('5 stars',style: GoogleFonts.beVietnamPro(
                           fontSize: 14,
@@ -139,7 +139,7 @@ class ReviewsScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 20,),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('4 stars',style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
@@ -159,8 +159,9 @@ class ReviewsScreen extends StatelessWidget {
 
                       ],
                     ),
-                    SizedBox(height: 20,),Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    SizedBox(height: 20,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('3 stars',style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
@@ -181,7 +182,7 @@ class ReviewsScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 20,),Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('2 stars',style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
@@ -203,7 +204,7 @@ class ReviewsScreen extends StatelessWidget {
 
                     ),
                     SizedBox(height: 20,),Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('1 stars',style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
@@ -229,7 +230,7 @@ class ReviewsScreen extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Divider(
-                  thickness: 2,
+                  thickness: 1,
                   height: 2,
                   color: AppColor.secondaryGreyColor,
                 ),

@@ -72,7 +72,6 @@ flutter:
   assets:
     - assets/
     - assets/imgs/
-    - assets/svg/
     - assets/demo/
     - assets/icons/
     - assets/drawer/

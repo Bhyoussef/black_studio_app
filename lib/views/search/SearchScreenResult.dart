@@ -189,7 +189,7 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       onPressed: () {
-                        _showFilter(context);
+                       Get.to(()=>FilterScreen());
 
                       },
                       child: Row(

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
+import 'package:linkia_ecommerce/views/favorite/FavoriteScreen.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
 import 'package:linkia_ecommerce/views/product/AllProduct.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
@@ -18,12 +19,8 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-
-
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(
           'THE BLACK STUDIO',
           style: GoogleFonts.beVietnamPro(
-            color: AppColor.primaryBlackColor,
-            fontWeight: FontWeight.w600,
-            fontSize: 18
-          ),
+              color: AppColor.primaryBlackColor,
+              fontWeight: FontWeight.w600,
+              fontSize: 18),
         ),
         actions: [
           IconButton(
@@ -59,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.black,
             ),
             onPressed: () {
-              // Handle favorite button press
+              Get.to(()=>FavoriteScreen());
             },
           ),
           IconButton(
@@ -183,82 +179,84 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 GestureDetector(
-                onTap: () {
-                  Get.to(() => AllProduct(title: 'READY TO WEAR'));
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 175,
-                  width: 165,
-                  decoration: BoxDecoration(
-                    color: AppColor.primaryBlackColor,
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-
-                    children: [
-                      Image.asset(
-                        'assets/imgs/Frame.png', // Replace with your image asset
-                        fit: BoxFit.contain,
-                        height: 65,
-                        width: 58,
-                      ),
-                      SizedBox(height: 20,),
-                      Text(
-                        'Ready to Wear',
-                        style: GoogleFonts.beVietnamPro(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400,
+                  onTap: () {
+                    Get.to(() => AllProduct(title: 'READY TO WEAR'));
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 175,
+                    width: 165,
+                    decoration: BoxDecoration(
+                      color: AppColor.primaryBlackColor,
+                      borderRadius: BorderRadius.circular(0),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          'assets/drawer/Frame2.svg', // Replace with your image asset
+                          fit: BoxFit.contain,
+                          height: 65,
+                          width: 58,
                         ),
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Ready to Wear',
+                          style: GoogleFonts.beVietnamPro(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          maxLines: 2,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => const TailoredScreen());
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 175,
-                  width: 165,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(0),
-                    border: Border.all(color: Colors.grey),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        'assets/menu/Frame.svg',
-                        fit: BoxFit.contain,
-                        height: 65,
-                        width: 58,
-                      ),
-                      SizedBox(height: 20,),
-                      Text(
-                        'Tailored',
-                        style: GoogleFonts.beVietnamPro(
-                          color: AppColor.secondaryBlackColor,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400,
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => const TailoredScreen());
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 175,
+                    width: 165,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(0),
+                      border: Border.all(color: Colors.grey),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          'assets/menu/Frame.svg',
+                          fit: BoxFit.contain,
+                          height: 65,
+                          width: 58,
                         ),
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Tailored',
+                          style: GoogleFonts.beVietnamPro(
+                            color: AppColor.secondaryBlackColor,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          maxLines: 2,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-
-            ],),
+              ],
+            ),
             const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
@@ -282,21 +280,22 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 8),
             SizedBox(
               height: 280,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 2, // Show only the first two elements
-                itemBuilder: (context, index) {
-                  final product = dummyProducts[index]; // Access elements from the beginning of the list
-                  return Padding(
-                    padding: const EdgeInsets.fromLTRB(5.0, 0, 10.0, 0),
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.to(() => ProductDetail(product: product));
-                      },
-                      child: buildProductCard(product),
-                    ),
-                  );
-                },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => ProductDetail(product: dummyProducts[0]));
+                    },
+                    child: buildProductCard(dummyProducts[0]),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => ProductDetail(product: dummyProducts[0]));
+                    },
+                    child: buildProductCard(dummyProducts[0]),
+                  )
+                ],
               ),
             ),
             const SizedBox(height: 16),
@@ -342,23 +341,26 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 8),
             SizedBox(
               height: 280,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 2, // Show only the first two elements
-                itemBuilder: (context, index) {
-                  final product = dummyProducts[index]; // Access elements from the beginning of the list
-                  return Padding(
-                    padding: const EdgeInsets.fromLTRB(5.0, 0, 10.0, 0),
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.to(() => ProductDetail(product: product));
-                      },
-                      child: buildProductCard(product),
-                    ),
-                  );
-                },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => ProductDetail(product: dummyProducts[0]));
+                    },
+                    child: buildProductCard(dummyProducts[0]),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => ProductDetail(product: dummyProducts[0]));
+                    },
+                    child: buildProductCard(dummyProducts[0]),
+                  )
+                ],
               ),
             ),
+
           ],
         ),
       ),
@@ -366,56 +368,50 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildProductCard(Product product) {
-    return Container(
-      height: 200,
-      width: 200,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(0),
-      ),
-      child: Column(
-        children: [
-          Image.asset(
-            product.imageAssets[0], // Use the first image from the list
-            height: 200,
-            width: 165,
-            fit: BoxFit.contain,
+    return Column(
+      children: [
+        Image.asset(
+          product.imageAssets[0], // Use the first image from the list
+          height: 200,
+          width: 165,
+          fit: BoxFit.contain,
+        ),
+        const SizedBox(height: 10),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                product.name,
+                style: GoogleFonts.beVietnamPro(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+              Text(
+                product.category,
+                style: GoogleFonts.beVietnamPro(
+                  fontSize: 12,
+                  color: AppColor.primaryGreyColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Text(
+                '${product.price.toInt()} QAR',
+                style: GoogleFonts.beVietnamPro(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  color: AppColor.primaryBlackColor,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  product.name,
-                  style: GoogleFonts.beVietnamPro(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Text(
-                  product.category,
-                  style: GoogleFonts.beVietnamPro(
-                    fontSize: 12,
-                    color: AppColor.primaryGreyColor,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                const SizedBox(height: 5,),
-                Text(
-                  '${product.price.toInt()} QAR',
-                  style: GoogleFonts.beVietnamPro(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
-                    color: AppColor.primaryBlackColor,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

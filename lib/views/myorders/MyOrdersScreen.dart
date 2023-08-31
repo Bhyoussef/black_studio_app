@@ -36,28 +36,44 @@ class MyOrdersScreen extends StatelessWidget {
         length: 2, // Number of tabs
         child: Column(
           children: [
-            TabBar(
-              indicatorColor: AppColor.primaryBlackColor,
-              labelStyle: GoogleFonts.beVietnamPro(
-                color: AppColor.primaryBlackColor,
-                fontWeight: FontWeight.w500,
-                fontSize: 15,
-              ),
-              labelColor: AppColor.primaryBlackColor,
-              unselectedLabelStyle: GoogleFonts.beVietnamPro(
-                color: AppColor.primaryBlackColor,
-                fontWeight: FontWeight.w400,
-                fontSize: 15,
-              ),
-              unselectedLabelColor: AppColor.primaryBlackColor.withOpacity(0.5),
-              tabs: const [
-                Tab(
-                  text: 'Ongoing ',
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: AppColor.secondaryGreyColor, // Customize the border color
+                    width: 1.0, // Customize the border width
+                  ),
+                  top: BorderSide(
+                    color: AppColor.secondaryGreyColor, // Customize the border color
+                    width: 1.0, // Customize the border width
+                  ),
+
                 ),
-                Tab(
-                  text: 'Completed ',
+
+              ),
+              child: TabBar(
+                indicatorColor: AppColor.primaryBlackColor,
+                labelStyle: GoogleFonts.beVietnamPro(
+                  color: AppColor.primaryBlackColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15,
                 ),
-              ],
+                labelColor: AppColor.primaryBlackColor,
+                unselectedLabelStyle: GoogleFonts.beVietnamPro(
+                  color: AppColor.primaryBlackColor,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 15,
+                ),
+                unselectedLabelColor: AppColor.primaryBlackColor.withOpacity(0.5),
+                tabs: const [
+                  Tab(
+                    text: 'Ongoing ',
+                  ),
+                  Tab(
+                    text: 'Completed ',
+                  ),
+                ],
+              ),
             ),
             Expanded(
               child: TabBarView(

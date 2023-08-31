@@ -35,16 +35,6 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
 
           ),
-          child: Center(
-            child: Text(
-              'THE BLACK STUDIO',
-              style: GoogleFonts.beVietnamPro(
-                color: AppColor.primaryBlackColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 30
-              ),
-            ),
-          ),
         ),
       ),
     );

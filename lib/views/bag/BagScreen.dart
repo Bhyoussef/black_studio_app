@@ -104,7 +104,7 @@ class _BagScreenState extends State<BagScreen> {
                         child: Row(
                           children: [
                             Image.asset('assets/imgs/CircleWavyWarning.png'),
-                            SizedBox(width: 10,),
+                            const SizedBox(width: 10,),
                             Flexible(
                               child: Text(
                                 'Spend QAR 165 and get 10% off everything with code: GET 10 some exclusions may apply.',
@@ -192,7 +192,7 @@ class _BagScreenState extends State<BagScreen> {
                   child: Row(
                     children: [
                       Image.asset('assets/imgs/Trash (2).png'),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       Image.asset('assets/imgs/heart-search.png')
 
                     ],
@@ -306,61 +306,111 @@ class _BagScreenState extends State<BagScreen> {
                   ),
 
 
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                 Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      Text('Total MRP :',
-                          style: TextStyle(
-                            color: AppColor.primaryBlackColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                          )),
-                      const SizedBox(height: 8),
-                      Text('Discount on MRP: \$XX.XX',
-                          style: TextStyle(
-                            color: AppColor.primaryBlackColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                          )),
-                      const SizedBox(height: 8),
-                      Text('Coupon Discount: \$XX.XX',
-                          style: TextStyle(
-                            color: AppColor.primaryBlackColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                          )),
-                      const SizedBox(height: 8),
-                      Text('Tax: \$XX.XX',
-                          style: TextStyle(
-                            color: AppColor.primaryBlackColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                          )),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Total MRP :',
+                              style: TextStyle(
+                                color: AppColor.primaryGreyColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 15,
+                              )), Text('2500 QAR',
+                              style: TextStyle(
+                                color: AppColor.primaryBlackColor,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Discount on MRP:',
+                              style: TextStyle(
+                                color: AppColor.primaryGreyColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 15,
+                              ))  ,  Text('1000 QAR',
+                              style: TextStyle(
+                                color: AppColor.primaryBlackColor,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Coupon Discount:',
+                              style: TextStyle(
+                                color: AppColor.primaryGreyColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                              )),Text("Apply Coupon",
+                              style: TextStyle(
+                                color: AppColor.primaryBlackColor,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15,
+                                decoration: TextDecoration.underline
+                              )),
+                        ],),
+                      SizedBox(height: 8),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Tax:',
+                              style: TextStyle(
+                                color: AppColor.primaryGreyColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                              )),Text('400 QAR',
+                              style: TextStyle(
+                                  color: AppColor.primaryBlackColor,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                              )),
+                        ],
+                      ),
                     ],
                   ),
                 ),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Divider(
+                      thickness: 3,
+                      height: 1,
+                      color: AppColor.secondaryGreyColor,
+                    ),
+                  ),
 
 
-                  const SizedBox(height: 16),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Total Amount',
-                            style: GoogleFonts.beVietnamPro(
-                                color: AppColor.primaryGreyColor,
-                                fontWeight: FontWeight.w400)),
+                        const Text('Total Amount',
+                            style: TextStyle(
+                              color: AppColor.primaryGreyColor,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15,
+                            )),
                         GetBuilder<CartController>(
                           builder: (controller) {
                             return Text(
                               ' ${controller.total.toInt()} QAR',
                               style: GoogleFonts.beVietnamPro(
-                                color: AppColor.primaryGreyColor,
+                                color: AppColor.primaryBlackColor,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16
                               ),

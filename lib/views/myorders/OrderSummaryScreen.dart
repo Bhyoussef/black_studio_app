@@ -202,41 +202,46 @@ class OrderSummary extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MaterialButton(
-                      height: 50,
-                      minWidth: 180,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        side: BorderSide(color: AppColor.primaryBlackColor, width: 1),
-                      ),
-                      onPressed: () {
-                        // Handle reorder button press
-                      },
-                      child: Text(
-                        'Reorder',
-                        style: GoogleFonts.beVietnamPro(
-                          color: AppColor.primaryBlackColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
+                    Expanded(
+                      child: MaterialButton(
+                        height: 50,
+                        minWidth: 180,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          side: BorderSide(color: AppColor.primaryBlackColor, width: 1),
+                        ),
+                        onPressed: () {
+                          // Handle reorder button press
+                        },
+                        child: Text(
+                          'Reorder',
+                          style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryBlackColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ),
-                    MaterialButton(
-                      height: 50,
-                      minWidth: 180,
-                      color: AppColor.primaryBlackColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      onPressed: () {
-                        Get.to(() => const AddReviewScreen());
-                      },
-                      child: Text(
-                        'Leave Feedback',
-                        style: GoogleFonts.beVietnamPro(
-                          color: AppColor.primaryWhiteColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
+                    SizedBox(width: 5,),
+                    Expanded(
+                      child: MaterialButton(
+                        height: 50,
+                        minWidth: 180,
+                        color: AppColor.primaryBlackColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        onPressed: () {
+                          Get.to(() => const AddReviewScreen());
+                        },
+                        child: Text(
+                          'Leave Feedback',
+                          style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryWhiteColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -38,6 +39,9 @@ class _ProductDetailState extends State<ProductDetail> {
   final bagController = Get.find<CartController>();
   final RxInt bagItemCount = 0.obs;
 
+  List<String> sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+  List<double> prices = [200, 250, 300, 350, 400];
+  bool isSelected = false;
   @override
   void initState() {
     super.initState();
@@ -66,6 +70,7 @@ class _ProductDetailState extends State<ProductDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.primaryWhiteColor,
       appBar: AppBar(
         backgroundColor: AppColor.primaryWhiteColor,
         elevation: 0,
@@ -89,9 +94,9 @@ class _ProductDetailState extends State<ProductDetail> {
         actions: [
           IconButton(
             onPressed:_shareProduct,
-            icon: Image.asset(
-              'assets/imgs/ShareNetwork.png',
-              color: Colors.black,
+            icon: SvgPicture.asset(
+              'assets/menu/ShareNetwork.svg',
+              color: AppColor.primaryGreyColor,
             ),
           ),
           IconButton(
@@ -103,8 +108,8 @@ class _ProductDetailState extends State<ProductDetail> {
                   Get.find<CartController>().items.length.toString(),
                 ),
               ),
-              child: Image.asset(
-                'assets/imgs/Tote.png',
+              child: SvgPicture.asset(
+                'assets/menu/Tote.svg',
                 color: Colors.black,
               ),
             ),
@@ -170,11 +175,11 @@ class _ProductDetailState extends State<ProductDetail> {
                                 bottom: -2,
                                 left: 0,
                                 right: 0,
-                                child: Image.asset(
-                                  'assets/imgs/divider.png',
+                                child: SvgPicture.asset(
+                                  'assets/menu/3.svg',
                                   height: 20,
                                   width: 98,
-                                  color: Colors.black,
+                                  color: AppColor.primaryBlackColor,
                                 ),
                               ),
                           ],
@@ -297,42 +302,46 @@ class _ProductDetailState extends State<ProductDetail> {
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
-                    SizedBox(
-                      height: 50,
-                      width: 280,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                8), // Set your desired corner radius
+                    Expanded(
+                      flex: 7,
+                      child: Container(
+                        height: 50,
+                        child: ElevatedButton(
+
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white, backgroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  8), // Set your desired corner radius
+                            ),
                           ),
+                          onPressed: () {
+                            bagController.addToCart(widget.product);
+                            Get.snackbar('Success', 'Product added to cart',
+                                snackPosition: SnackPosition.BOTTOM,
+                                backgroundColor: Colors.green,
+                                colorText: CupertinoColors.white);
+                          },
+                          child: Text('Add to Cart',
+                              style: GoogleFonts.beVietnamPro(
+                                  color: AppColor.primaryWhiteColor,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400)),
                         ),
-                        onPressed: () {
-                          bagController.addToCart(widget.product);
-                          Get.snackbar('Success', 'Product added to cart',
-                              snackPosition: SnackPosition.BOTTOM,
-                              backgroundColor: Colors.green,
-                              colorText: CupertinoColors.white);
-                        },
-                        child: Text('Add to Cart',
-                            style: GoogleFonts.beVietnamPro(
-                                color: AppColor.primaryWhiteColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400)),
                       ),
                     ),
-                    const SizedBox(
-                      width: 40,
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          'assets/imgs/Heart.png',
-                          height: 28,
-                          width: 28,
-                          color: AppColor.primaryBlackColor,
-                        ))
+
+                    Expanded(
+                      flex: 2,
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: SvgPicture.asset(
+                            'assets/drawer/Heart.svg',
+                            height: 28,
+                            width: 28,
+                            color: AppColor.primaryGreyColor,
+                          )),
+                    )
                   ],
                 ),
               ),
@@ -359,7 +368,7 @@ class _ProductDetailState extends State<ProductDetail> {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Divider(
-                  thickness: 3,
+                  thickness: 1,
                   height: 1,
                   color: AppColor.secondaryGreyColor,
                 ),
@@ -388,10 +397,66 @@ class _ProductDetailState extends State<ProductDetail> {
                   ],
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Wrap(
+                  spacing: 15,
+                  runSpacing: 15,
+                  direction: Axis.horizontal,
+                  children: List.generate(sizes.length, (index) {
+                    final size = sizes[index];
+                    final price = prices[index];
+                    return Container(
+                      width: 80,
+                      height: 60,
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: AppColor.primaryWhiteColor,
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
+                          color: isSelected
+                              ? AppColor.thirdGreyColor
+                              : AppColor.thirdGreyColor,
+                        ),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            size,
+                            style: GoogleFonts.beVietnamPro(
+                              fontWeight: FontWeight.w800,
+                              fontSize: 16,
+                              color: isSelected
+                                  ? AppColor.primaryBlackColor
+                                  : AppColor.primaryBlackColor,
+                            ),
+                          ),
+
+                          Text(
+                            '\QAR ${price.toInt()}',
+                            style: GoogleFonts.beVietnamPro(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12,
+                              color: isSelected
+                                  ? AppColor.primaryGreyColor
+                                  : AppColor.primaryGreyColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
+                ),
+              ),
+
+
+
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Divider(
-                  thickness: 3,
+                  thickness: 1,
                   height: 1,
                   color: AppColor.secondaryGreyColor,
                 ),
@@ -401,7 +466,7 @@ class _ProductDetailState extends State<ProductDetail> {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Divider(
-                  thickness: 3,
+                  thickness: 1,
                   height: 1,
                   color: AppColor.secondaryGreyColor,
                 ),
@@ -480,18 +545,23 @@ Widget buildColorOption(Color color, bool isSelected) {
       // Handle color selection
     },
     child: Container(
-      height: 40,
+      padding: EdgeInsets.all(2),
+      height: 50,
       width: 40,
       decoration: BoxDecoration(
         border: Border.all(
-          color: isSelected ? AppColor.primaryGreyColor : Colors.transparent,
+          color: isSelected ? AppColor.primaryBlackColor : AppColor.primaryBlackColor,
           width: 1,
         ),
         shape: BoxShape.circle,
       ),
-      child: CircleAvatar(
-        backgroundColor: color,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+        color: color,
+        shape: BoxShape.circle,
       ),
+
+      )
     ),
   );
 }

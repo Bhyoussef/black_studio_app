@@ -554,15 +554,15 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                       children: [
                         Image.asset(
                           'assets/icons/rectangle.png',
-                          width: 50,
-                          height: 50,
+                          width: 100,
+                          height: 100,
                         ),
                         const Positioned(
-                            left: 13,
-                            top: 13,
+                            left: 35,
+                            top: 35,
                             child: Icon(
                               Icons.add,
-                              size: 25,
+                              size: 35,
                             ))
                       ],
                     ),

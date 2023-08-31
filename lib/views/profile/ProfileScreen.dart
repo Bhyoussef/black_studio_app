@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -68,10 +69,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   fontWeight: FontWeight.w400,
                   color: AppColor.primaryBlackColor),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 10),
             ListTile(
-              leading: Image.asset('assets/imgs/User.png',
-                  height: 30, width: 30, color: Colors.black),
+              leading: SvgPicture.asset('assets/menu/User.svg',
+                  height: 30, width: 30, color: AppColor.primaryGreyColor),
               title: Text(
                 'Edit Profile',
                 style: GoogleFonts.beVietnamPro(
@@ -88,8 +89,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
             ),
             ListTile(
-              leading: Image.asset('assets/imgs/LockSimple.png',
-                  height: 30, width: 30, color: Colors.black),
+              leading: SvgPicture.asset('assets/menu/LockSimple.svg',
+                  height: 30, width: 30, color: AppColor.primaryGreyColor),
               title: Text(
                 'Change Password',
                 style: GoogleFonts.beVietnamPro(
@@ -106,8 +107,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
             ),
             ListTile(
-              leading: Image.asset('assets/imgs/BellSimpleRinging.png',
-                  height: 30, width: 30, color: Colors.black),
+              leading: SvgPicture.asset('assets/menu/BellSimpleRinging.svg',
+                  height: 30, width: 30, color: AppColor.primaryGreyColor),
               title: Text(
                 'Push Notifications',
                 style: GoogleFonts.beVietnamPro(
@@ -124,8 +125,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
             ),
             ListTile(
-              leading: Image.asset('assets/imgs/MapPin.png',
-                  height: 30, width: 30, color: Colors.black),
+              leading: SvgPicture.asset('assets/menu/MapPin.svg',
+                  height: 30, width: 30, color: AppColor.primaryGreyColor),
               title: Text(
                 'My Address',
                 style: GoogleFonts.beVietnamPro(
@@ -172,7 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ListTile(
               trailing: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.asset('assets/imgs/Trash.png',
+                child: SvgPicture.asset('assets/menu/Trash.svg',
                     height: 30, width: 30, color: Colors.red),
               ),
               title: Text(

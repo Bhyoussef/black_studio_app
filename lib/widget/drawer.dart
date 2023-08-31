@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/views/brand/BrandScreen.dart';
+import 'package:linkia_ecommerce/views/favorite/FavoriteScreen.dart';
 import 'package:linkia_ecommerce/views/myorders/MyOrdersScreen.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
 import 'package:linkia_ecommerce/views/privacy/PrivacyScreen.dart';
@@ -92,7 +93,9 @@ class DrawerWidget extends StatelessWidget {
             DrawerListItem(
               leadingAsset: 'assets/drawer/Heart.svg',
               title: 'Favourite',
-              onTap: () {},
+              onTap: () {
+                Get.to(()=>FavoriteScreen());
+              },
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/Bell.svg',

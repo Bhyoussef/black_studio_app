@@ -46,7 +46,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
           'Chekout',
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -66,7 +66,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                       onTap: () {},
                       child: _buildOrderCard(
                         image: AssetImage(product.product.imageAssets[0]),
-                        price: product.product.price.toString(),
+                        price: product.product.price,
                         productName: product.product.name,
                         quantity: product.product.quantity.toString(),
                       ),
@@ -88,6 +88,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                         style: GoogleFonts.tenorSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
+                          color: AppColor.primaryBlackColor
                         ),
                       ),
                     ),
@@ -99,10 +100,14 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('P.O.Box 1618, Shaksy Bldg, Al Romailah St'),
+                    Text('P.O.Box 1618, Shaksy Bldg, Al Romailah St',   style: GoogleFonts.beVietnamPro(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor
+                    ),),
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.arrow_forward_ios, size: 15),
+                      icon: Icon(Icons.arrow_forward_ios, size: 20,color: AppColor.primaryGreyColor,),
                     ),
                   ],
                 ),
@@ -121,6 +126,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                         style: GoogleFonts.tenorSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
+                          color: AppColor.primaryBlackColor
                         ),
                       ),
                     ),
@@ -131,20 +137,24 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 children: [
                   Theme(
                     data: ThemeData(
-                      unselectedWidgetColor: Colors.black, // Customize the checkbox color
+                      unselectedWidgetColor:
+                          Colors.black, // Customize the checkbox color
                       checkboxTheme: CheckboxThemeData(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0), // Customize the border radius
+                          borderRadius: BorderRadius.circular(
+                              10.0), // Customize the border radius
                         ),
                       ),
                     ),
                     child: CheckboxListTile(
                       checkColor: AppColor.primaryWhiteColor,
                       activeColor: AppColor.primaryBlackColor,
-                      title: Text('PayPal', style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      )),
+                      title: Text('PayPal',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor
+                          )),
                       value: selectedPaymentMethods.contains('PayPal'),
                       onChanged: (value) {
                         _onPaymentMethodSelected('PayPal', value!);
@@ -154,20 +164,24 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   ),
                   Theme(
                     data: ThemeData(
-                      unselectedWidgetColor: Colors.black, // Customize the checkbox color
+                      unselectedWidgetColor:
+                          Colors.black, // Customize the checkbox color
                       checkboxTheme: CheckboxThemeData(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0), // Customize the border radius
+                          borderRadius: BorderRadius.circular(
+                              10.0), // Customize the border radius
                         ),
                       ),
                     ),
                     child: CheckboxListTile(
                       checkColor: AppColor.primaryWhiteColor,
                       activeColor: AppColor.primaryBlackColor,
-                      title: Text('Apple Pay', style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      )),
+                      title: Text('Apple Pay',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor
+                          )),
                       value: selectedPaymentMethods.contains('Apple Pay'),
                       onChanged: (value) {
                         _onPaymentMethodSelected('Apple Pay', value!);
@@ -177,21 +191,26 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   ),
                   Theme(
                     data: ThemeData(
-                      unselectedWidgetColor: Colors.black, // Customize the checkbox color
+                      unselectedWidgetColor:
+                          Colors.black, // Customize the checkbox color
                       checkboxTheme: CheckboxThemeData(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0), // Customize the border radius
+                          borderRadius: BorderRadius.circular(
+                              10.0), // Customize the border radius
                         ),
                       ),
                     ),
                     child: CheckboxListTile(
                       checkColor: AppColor.primaryWhiteColor,
                       activeColor: AppColor.primaryBlackColor,
-                      title: Text('Credit/Debit Card', style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      )),
-                      value: selectedPaymentMethods.contains('Credit/Debit Card'),
+                      title: Text('Credit/Debit Card',
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.primaryGreyColor
+                          )),
+                      value:
+                          selectedPaymentMethods.contains('Credit/Debit Card'),
                       onChanged: (value) {
                         _onPaymentMethodSelected('Credit/Debit Card', value!);
                       },
@@ -200,20 +219,24 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   ),
                   Theme(
                     data: ThemeData(
-                      unselectedWidgetColor: Colors.black,// Customize the checkbox color
+                      unselectedWidgetColor:
+                          Colors.black, // Customize the checkbox color
                       checkboxTheme: CheckboxThemeData(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0), // Customize the border radius
+                          borderRadius: BorderRadius.circular(
+                              10.0), // Customize the border radius
                         ),
                       ),
                     ),
                     child: CheckboxListTile(
                       checkColor: AppColor.primaryWhiteColor,
                       activeColor: AppColor.primaryBlackColor,
-                      title: Text('Bank Transfer', style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      )),
+                      title: Text('Bank Transfer',
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.primaryGreyColor
+                          )),
                       value: selectedPaymentMethods.contains('Bank Transfer'),
                       onChanged: (value) {
                         _onPaymentMethodSelected('Bank Transfer', value!);
@@ -243,8 +266,8 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                         labelText: 'Promo Code',
                         labelStyle: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14),
                         suffixIcon: TextButton(
                           onPressed: () {
                             // TODO: Implement the logic for applying the promo code
@@ -273,17 +296,17 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                       Text(
                         'PRICE DETAILS',
                         style: GoogleFonts.tenorSans(
-                          fontSize: 18,
+                          fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                       SizedBox(height: 20),
-                      _buildPriceDetailRow('Total', 'QAR 100.00'),
-                      _buildPriceDetailRow('Discount', '-QAR 10.00'),
-                      _buildPriceDetailRow('Coupon Discount', '-QAR 5.00'),
-                      _buildPriceDetailRow('Tax', 'QAR 2.50'),
+                      _buildPriceDetailRow('Total', ' 1000 QAR'),
+                      _buildPriceDetailRow('Discount', '-100 QAR'),
+                      _buildPriceDetailRow('Coupon Discount', '50 QAR'),
+                      _buildPriceDetailRow('Tax', '25 QAR'),
                       Divider(),
-                      _buildPriceDetailRow('Total Payment', 'QAR 87.50'),
+                      _buildPriceDetailRow('Total Payment', '900 QAR'),
                     ],
                   ),
                 ),
@@ -331,7 +354,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
     String? status,
     String? date,
     String? time,
-    String? price,
+    double? price,
     String? productName,
     String? quantity,
     bool? showReview,
@@ -355,11 +378,36 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(productName!, style: TextStyle(fontWeight: FontWeight.bold)),
-                  SizedBox(height: 10,),
-                  Text('Price: $price'),
-                  SizedBox(height: 10,),
-                  Text('Quantity: $quantity'),
+                  Text(
+                    'Price: ${price?.toInt()}',
+                    style: GoogleFonts.beVietnamPro(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                        color: AppColor.primaryBlackColor),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(productName!,
+                      style: GoogleFonts.beVietnamPro(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          color: AppColor.primaryGreyColor)),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Text('Qty:',style: GoogleFonts.beVietnamPro(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          color: AppColor.primaryGreyColor)),
+                      Text(quantity!,style: GoogleFonts.beVietnamPro(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                          color: AppColor.primaryBlackColor)),
+                    ],
+                  ),
                 ],
               ),
             ],
@@ -380,12 +428,13 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
             style: GoogleFonts.beVietnamPro(
                 color: AppColor.primaryGreyColor,
                 fontWeight: FontWeight.w400,
-                fontSize: 14),
+                fontSize: 15),
           ),
-          Text(value,style:GoogleFonts.beVietnamPro(
-              color: AppColor.primaryGreyColor,
-              fontWeight: FontWeight.w400,
-              fontSize: 12)),
+          Text(value,
+              style: GoogleFonts.beVietnamPro(
+                  color: AppColor.primaryBlackColor,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14)),
         ],
       ),
     );
@@ -436,8 +485,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                           primary: Colors.white,
                           onPrimary: Colors.white,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                8),
+                            borderRadius: BorderRadius.circular(8),
                             // Set your desired corner radius
                           ),
                         ),
@@ -503,13 +551,11 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 ),
               ),
               SizedBox(height: 16.0),
-              Text(
-                'Order Placed Successfully',
+              Text('Order Placed Successfully',
                   style: GoogleFonts.tenorSans(
                     fontSize: 20,
                     fontWeight: FontWeight.w400,
-                  )
-              ),
+                  )),
               SizedBox(height: 8.0),
               Image.asset(
                 'assets/imgs/divider.png',
@@ -518,10 +564,11 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 color: AppColor.primaryBlackColor,
               ),
               Text(
-                'Your Order has been successfully placed! For more details, go to My Orders.', style: GoogleFonts.beVietnamPro(
-                fontSize: 13,
-                fontWeight: FontWeight.w400,
-              ),
+                'Your Order has been successfully placed! For more details, go to My Orders.',
+                style: GoogleFonts.beVietnamPro(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w400,
+                ),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 16.0),
@@ -538,8 +585,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                           primary: Colors.white,
                           onPrimary: Colors.white,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                8),
+                            borderRadius: BorderRadius.circular(8),
                             side: BorderSide(color: Colors.black),
                             // Set your desired corner radius
                           ),
@@ -579,7 +625,6 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   ],
                 ),
               ),
-
             ],
           ),
         );

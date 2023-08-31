@@ -37,6 +37,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: AppColor.primaryWhiteColor,
       appBar: AppBar(
         leading: IconButton(

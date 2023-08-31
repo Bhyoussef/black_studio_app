@@ -29,30 +29,42 @@ class AllProduct extends StatelessWidget {
             },
             icon: const Icon(Icons.arrow_back,color: AppColor.primaryBlackColor,),
           ),
-          bottom: TabBar(
-
-            tabs: [
-              Tab(
-                text: 'Ready to Wear',
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(48), // Height of the TabBar
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: AppColor.secondaryGreyColor, // Customize the border color
+                    width: 1.0, // Customize the border width
+                  ),
+                  top: BorderSide(
+                    color: AppColor.secondaryGreyColor, // Customize the border color
+                    width: 1.0, // Customize the border width
+                  ),
+                ),
               ),
-              Tab(
-                text: 'Tailored',
+              child: TabBar(
+                tabs: [
+                  Tab(text: 'Ready to Wear'),
+                  Tab(text: 'Tailored'),
+                ],
+                labelStyle: GoogleFonts.beVietnamPro(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: AppColor.primaryBlackColor,
+                ),
+                labelColor: AppColor.primaryBlackColor,
+                unselectedLabelStyle: GoogleFonts.beVietnamPro(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
+                  color: AppColor.primaryGreyColor,
+                ),
+                indicatorColor: AppColor.primaryBlackColor,
               ),
-            ],
-            labelStyle: GoogleFonts.beVietnamPro(
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-              color: AppColor.primaryBlackColor, // Customize the selected text color
             ),
-            labelColor: AppColor.primaryBlackColor,
-            unselectedLabelStyle: GoogleFonts.beVietnamPro(
-              fontSize: 15,
-              fontWeight: FontWeight.w400,
-              color: AppColor.primaryGreyColor, // Customize the unselected text color
-            ),
-            indicatorColor:AppColor.primaryBlackColor,
-
           ),
+
 
 
         ),

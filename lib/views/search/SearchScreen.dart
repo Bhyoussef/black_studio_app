@@ -16,7 +16,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _searchController = TextEditingController();
-  final ImagePicker _imagePicker = ImagePicker(); // Create an instance of ImagePicker
+  final ImagePicker _imagePicker = ImagePicker();
 
   Future<void> _openCamera() async {
     final XFile? image = await _imagePicker.pickImage(source: ImageSource.camera);
@@ -25,15 +25,13 @@ class _SearchScreenState extends State<SearchScreen> {
     }
   }
 
-  // Function to open the gallery
+
   void _pickImage() async {
     final ImagePicker picker = ImagePicker();
     final XFile? pickedFile = await picker.pickImage(
       source: ImageSource.gallery,
-      imageQuality: 50, // Adjust the image quality as needed
+      imageQuality: 50,
     );
-
-
   }
 
   @override
@@ -55,7 +53,7 @@ class _SearchScreenState extends State<SearchScreen> {
               Row(
                 children: [
                   Expanded(
-                    flex: 6,
+                    flex: 5,
                     child: SizedBox(
                       height: 50,
                       child: TextFormField(
@@ -80,7 +78,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     flex: 1,
                     child: TextButton(
                       onPressed: () {
-                        Get.to(() => MainScreen());
+                        Get.to(() => const MainScreen());
                       },
                       child: Text(
                         'Cancel',
@@ -102,13 +100,13 @@ class _SearchScreenState extends State<SearchScreen> {
       bottomNavigationBar: BottomAppBar(
         color: AppColor.secondaryGreyColor,
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -130,79 +128,89 @@ class _SearchScreenState extends State<SearchScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: _pickImage,
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 90,
-                      width: 165,
-                      decoration: BoxDecoration(
-                        color: AppColor.primaryBlackColor,
-                        borderRadius: BorderRadius.circular(0),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/imgs/Camera.png', // Replace with your image asset
-                            fit: BoxFit.contain,
-                            height: 30,
-                            width: 58,
+              const SizedBox(height: 10,),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      flex: 5,
+                      child: GestureDetector(
+                        onTap: _pickImage,
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 100,
+
+                          decoration: BoxDecoration(
+                            color: AppColor.primaryBlackColor,
+                            borderRadius: BorderRadius.circular(0),
                           ),
-                          SizedBox(height: 5,),
-                          Text(
-                            'Camera',
-                            style: GoogleFonts.beVietnamPro(
-                              color: Colors.white,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            maxLines: 2,
-                            textAlign: TextAlign.center,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/imgs/Camera.png', // Replace with your image asset
+                                fit: BoxFit.contain,
+                                height: 30,
+                                width: 58,
+                              ),
+                              const SizedBox(height: 5,),
+                              Text(
+                                'Camera',
+                                style: GoogleFonts.beVietnamPro(
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: _pickImage,
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 90,
-                      width: 165,
-                      decoration: BoxDecoration(
-                        color: AppColor.primaryBlackColor,
-                        borderRadius: BorderRadius.circular(0),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/imgs/Image.png', // Replace with your image asset
-                            fit: BoxFit.contain,
-                            height: 30,
-                            width: 58,
-                          ),
-                          SizedBox(height: 5,),
-                          Text(
-                            'Image',
-                            style: GoogleFonts.beVietnamPro(
-                              color: Colors.white,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            maxLines: 2,
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    SizedBox(width: 10,),
+                    Expanded(
+                      flex: 5,
+                      child: GestureDetector(
+                        onTap: _pickImage,
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 100,
+
+                          decoration: BoxDecoration(
+                            color: AppColor.primaryBlackColor,
+                            borderRadius: BorderRadius.circular(0),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/imgs/Image.png', // Replace with your image asset
+                                fit: BoxFit.contain,
+                                height: 30,
+                                width: 58,
+                              ),
+                              const SizedBox(height: 5,),
+                              Text(
+                                'Image',
+                                style: GoogleFonts.beVietnamPro(
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

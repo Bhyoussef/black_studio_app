@@ -18,7 +18,7 @@ class NotificationScreen extends StatelessWidget {
         title: Text('Notification',style: GoogleFonts.beVietnamPro(
           color: AppColor.primaryBlackColor,
           fontWeight: FontWeight.w600,
-          fontSize: 20
+          fontSize: 18
         ),),
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,
