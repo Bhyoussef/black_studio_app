@@ -61,6 +61,10 @@ class _SearchScreenState extends State<SearchScreen> {
                         cursorColor: AppColor.primaryBlackColor,
                         controller: _searchController,
                         decoration: InputDecoration(
+                          prefixIcon: const Icon(
+                            Icons.search,
+                            color: AppColor.primaryGreyColor,
+                          ),
                           hintText: 'What can we help you find ?',
                           filled: true,
                           fillColor: AppColor.secondaryGreyColor,

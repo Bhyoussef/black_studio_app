@@ -152,9 +152,9 @@ class DrawerWidget extends StatelessWidget {
                     return AlertDialog(
                       title: Text(
                         'Logout',
-                        style: GoogleFonts.tenorSans(
+                        style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryBlackColor,
-                          fontSize: 20,
+                          fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
                       ),

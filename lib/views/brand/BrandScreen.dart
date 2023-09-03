@@ -17,9 +17,14 @@ class BrandScreen extends StatefulWidget {
 class _BrandScreenState extends State<BrandScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List<Map<String, String>> brands = [
-    {'name': 'Urbanic', 'image': 'assets/demo/image 19 (1).png'},
-    {'name': 'Puma', 'image': 'assets/demo/puma-logo 1 (1).png'},
-    {'name': 'Zara', 'image': 'assets/demo/zara-logo-1 1 (1).png'},
+    {'name': 'Puma', 'image': 'assets/demo/puma-logo 1.svg'},
+    {'name': 'Zara', 'image': 'assets/demo/zara-logo-1 1.svg'},
+    {'name': 'Cucci', 'image': 'assets/demo/gucci-logo-brandlogos.net_9cd06kvtk 1.svg'},
+    {'name': 'Nike', 'image': 'assets/demo/Group (2).svg'},
+    {'name': 'H & M', 'image': 'assets/demo/h-m 1.svg'},
+    {'name': 'Van heusen', 'image': 'assets/demo/Group (1).svg'},
+    {'name': 'Tommy Hilfiger', 'image': 'assets/demo/Vector (1).svg'},
+
     // Add other brands and their images here
   ];
 
@@ -106,20 +111,19 @@ class _BrandScreenState extends State<BrandScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16.0),
             child: SizedBox(
               height: 50,
               child: TextFormField(
                 cursorColor: AppColor.primaryBlackColor,
                 onChanged: filterBrands,
                 decoration: InputDecoration(
-                  //labelText: 'Search',
                   labelStyle: TextStyle(
                     color: AppColor.primaryBlackColor
                   ),
                   prefixIcon: const Icon(
                     Icons.search,
-                    color: AppColor.primaryBlackColor,
+                    color: AppColor.primaryGreyColor,
                   ),
                   filled: true,
                   fillColor: AppColor.secondaryGreyColor,
@@ -142,22 +146,24 @@ class _BrandScreenState extends State<BrandScreen> {
                       final brandData = filteredBrands[index];
                       final brandName = brandData['name'];
                       final brandImage = brandData['image'];
-
                       final firstLetter = brandName?.substring(0, 1).toUpperCase();
                       final isDividerNeeded =
                           index == 0 ||
                               firstLetter !=
                                   filteredBrands[index - 1]['name']?.substring(0, 1).toUpperCase();
-
                       return Padding(
                         padding:  EdgeInsets.all(6.0),
                         child: Column(
                           children: [
                             ListTile(
-                              leading: Image.asset(
-                                brandImage!,
-                                width: 40,
-                                height: 40,
+                              leading: Container(
+                                width: 65,
+                                height: 28,
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                    brandImage!,
+                                  ),
+                                ),
                               ),
                               title: Text(brandName!,style:GoogleFonts.beVietnamPro(
                                   color: AppColor.primaryBlackColor,

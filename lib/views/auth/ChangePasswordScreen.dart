@@ -32,9 +32,9 @@ class ChangePasswordScreen extends StatelessWidget {
         title: Text(
           'Change Password',
           style: GoogleFonts.beVietnamPro(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
+            color: AppColor.primaryBlackColor,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
           ),
         ),
         backgroundColor: Colors.white,

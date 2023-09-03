@@ -69,61 +69,64 @@ class AllProduct extends StatelessWidget {
 
         ),
         body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(30.0, 0, 15.0, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('1254 Items',  style: GoogleFonts.beVietnamPro(
-                      color: AppColor.primaryBlackColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),),
-                    MaterialButton(
-                      height: 40,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      onPressed: () {
-                        _showSortByDialog(context);
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            'Sort by',
-                            style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryBlackColor,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10.0, 0, 0.0, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('1254 Items',  style: GoogleFonts.beVietnamPro(
+                        color: AppColor.primaryBlackColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),),
+                      MaterialButton(
+                        height: 40,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        onPressed: () {
+                          _showSortByDialog(context);
+                        },
+                        child: Row(
+                          children: [
+                            Text(
+                              'Sort by',
+                              style: GoogleFonts.beVietnamPro(
+                                color: AppColor.primaryBlackColor,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Icon(
-                            Icons.arrow_drop_down,
-                            color: AppColor.primaryBlackColor,
-                            size: 15,
-                          )
-                        ],
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            const Icon(
+                              Icons.arrow_drop_down,
+                              color: AppColor.primaryBlackColor,
+                              size: 15,
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Expanded(
-                  child: TabBarView(
-                children: [
-                  buildGridView(context,1),
-                  buildGridView(context,2)
-                ],
+                Expanded(
+                    child: TabBarView(
+                  children: [
+                    buildGridView(context,1),
+                    buildGridView(context,2)
+                  ],
 
-              )),
+                )),
 
-            ],
+              ],
+            ),
           ),
         ),
       ),

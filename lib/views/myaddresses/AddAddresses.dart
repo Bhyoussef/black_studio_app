@@ -47,7 +47,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(left: 16),
                       child: Text(
                         'Contact Details',
                         style: GoogleFonts.tenorSans(
@@ -57,50 +57,58 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
-               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextField(
-                  cursorColor: AppColor.primaryBlackColor,
-                  decoration: InputDecoration(
-                    labelText: 'First Name',
-                    labelStyle: GoogleFonts.beVietnamPro(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.primaryGreyColor,
-                  )
-                  ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        cursorColor: AppColor.primaryBlackColor,
+                        decoration: InputDecoration(
+                            labelText: 'First Name',
+                            labelStyle: GoogleFonts.beVietnamPro(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.primaryGreyColor,
+                            )
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            labelText: 'Last Name',
+                            labelStyle: GoogleFonts.beVietnamPro(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.primaryGreyColor,
+                            )
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            labelText: 'Mobile Phone',
+                            labelStyle: GoogleFonts.beVietnamPro(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.primaryGreyColor,
+                            )
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+
+                  ],
                 ),
               ),
-              const SizedBox(height: 8),
-               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Last Name',
-                      labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.primaryGreyColor,
-                      )
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Mobile Phone',
-                      labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.primaryGreyColor,
-                      )
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24),
+
               Container(
                 height: 40,
                 width: MediaQuery.of(context).size.width,
@@ -109,7 +117,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(left: 16),
                       child: Text(
                         'Address Details',
                         style: GoogleFonts.tenorSans(
@@ -119,77 +127,88 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
+
                Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Address 1',
-                      labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.primaryGreyColor,
-                      )
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Address 2',
-                      labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.primaryGreyColor,
-                      )
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: 'City',
-                      labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.primaryGreyColor,
-                      )
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: 'ZIP Code',
-                      labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.primaryGreyColor,
-                      )
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Country',
-                      labelStyle: GoogleFonts.beVietnamPro(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.primaryGreyColor,
-                      )
-                  ),
-                ),
-              ),
-              const SizedBox(height: 32),
+                 padding: const EdgeInsets.all(8.0),
+                 child: Column(
+                   children: [
+
+                     Padding(
+                       padding: EdgeInsets.all(8.0),
+                       child: TextField(
+                         decoration: InputDecoration(
+                             labelText: 'Address 1',
+                             labelStyle: GoogleFonts.beVietnamPro(
+                               fontSize: 15,
+                               fontWeight: FontWeight.w400,
+                               color: AppColor.primaryGreyColor,
+                             )
+                         ),
+                       ),
+                     ),
+                     const SizedBox(height: 8),
+                     Padding(
+                       padding: EdgeInsets.all(8.0),
+                       child: TextField(
+                         decoration: InputDecoration(
+                             labelText: 'Address 2',
+                             labelStyle: GoogleFonts.beVietnamPro(
+                               fontSize: 15,
+                               fontWeight: FontWeight.w400,
+                               color: AppColor.primaryGreyColor,
+                             )
+                         ),
+                       ),
+                     ),
+                     const SizedBox(height: 8),
+                     Padding(
+                       padding: EdgeInsets.all(8.0),
+                       child: TextField(
+                         decoration: InputDecoration(
+                             labelText: 'City',
+                             labelStyle: GoogleFonts.beVietnamPro(
+                               fontSize: 15,
+                               fontWeight: FontWeight.w400,
+                               color: AppColor.primaryGreyColor,
+                             )
+                         ),
+                       ),
+                     ),
+                     const SizedBox(height: 8),
+                     Padding(
+                       padding: EdgeInsets.all(8.0),
+                       child: TextField(
+                         decoration: InputDecoration(
+                             labelText: 'ZIP Code',
+                             labelStyle: GoogleFonts.beVietnamPro(
+                               fontSize: 15,
+                               fontWeight: FontWeight.w400,
+                               color: AppColor.primaryGreyColor,
+                             )
+                         ),
+                       ),
+                     ),
+                     const SizedBox(height: 8),
+                     Padding(
+                       padding: EdgeInsets.all(8.0),
+                       child: TextField(
+                         decoration: InputDecoration(
+                             labelText: 'Country',
+                             labelStyle: GoogleFonts.beVietnamPro(
+                               fontSize: 15,
+                               fontWeight: FontWeight.w400,
+                               color: AppColor.primaryGreyColor,
+                             )
+                         ),
+                       ),
+                     ),
+                     const SizedBox(height: 32),
+
+                   ],
+                 ),
+               ),
+
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[

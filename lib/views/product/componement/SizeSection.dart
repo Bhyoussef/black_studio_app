@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 
@@ -18,7 +16,6 @@ class SizeSection extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -48,8 +45,9 @@ class SizeSection extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(width: 10,),
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Text(
                       'Size Guide',
                       style: GoogleFonts.beVietnamPro(
@@ -58,6 +56,7 @@ class SizeSection extends StatelessWidget {
                       ),
                     ),
                   ),
+
                 ],
               ),
               Padding(
@@ -85,17 +84,17 @@ class SizeSection extends StatelessWidget {
                             ),
                           ),
                         ), // Empty cell
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('Bust'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('Length'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('Waist'),
                           ),
@@ -110,22 +109,22 @@ class SizeSection extends StatelessWidget {
                             height: 60, // Specify the height here
                             width: 150,
                             color: AppColor.secondaryGreyColor,
-                            child: Center(
+                            child: const Center(
                               child: Text('XS'),
                             ),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('30"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('34"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('28"'),
                           ),
@@ -140,22 +139,22 @@ class SizeSection extends StatelessWidget {
                             height: 60, // Specify the height here
                             width: 150,
                             color: AppColor.secondaryGreyColor,
-                            child: Center(
+                            child: const Center(
                               child: Text('S'),
                             ),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('32"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('36"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('30"'),
                           ),
@@ -170,22 +169,22 @@ class SizeSection extends StatelessWidget {
                             height: 60, // Specify the height here
                             width: 150,
                             color: AppColor.secondaryGreyColor,
-                            child: Center(
+                            child: const Center(
                               child: Text('M'),
                             ),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('34"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('38"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('32"'),
                           ),
@@ -200,22 +199,22 @@ class SizeSection extends StatelessWidget {
                             height: 60, // Specify the height here
                             width: 150,
                             color: AppColor.secondaryGreyColor,
-                            child: Center(
+                            child: const Center(
                               child: Text('L'),
                             ),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('34"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('38"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('32"'),
                           ),
@@ -230,22 +229,22 @@ class SizeSection extends StatelessWidget {
                             height: 60, // Specify the height here
                             width: 150,
                             color: AppColor.secondaryGreyColor,
-                            child: Center(
+                            child: const Center(
                               child: Text('XL'),
                             ),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('34"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('38"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('32"'),
                           ),
@@ -260,22 +259,22 @@ class SizeSection extends StatelessWidget {
                             height: 60, // Specify the height here
                             width: 150,
                             color: AppColor.secondaryGreyColor,
-                            child: Center(
+                            child: const Center(
                               child: Text('XXL'),
                             ),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('34"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('38"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('32"'),
                           ),
@@ -290,22 +289,22 @@ class SizeSection extends StatelessWidget {
                             height: 60, // Specify the height here
                             width: 150,
                             color: AppColor.secondaryGreyColor,
-                            child: Center(
+                            child: const Center(
                               child: Text('XXXL'),
                             ),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('34"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('38"'),
                           ),
                         ),
-                        TableCell(
+                        const TableCell(
                           child: Center(
                             child: Text('32"'),
                           ),

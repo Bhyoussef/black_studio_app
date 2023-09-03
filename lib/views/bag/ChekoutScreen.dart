@@ -56,24 +56,27 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ColumnBuilder(
-                itemCount: widget.products.length,
-                itemBuilder: (context, index) {
-                  final product = widget.products[index];
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ColumnBuilder(
+                  itemCount: widget.products.length,
+                  itemBuilder: (context, index) {
+                    final product = widget.products[index];
 
-                  return Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: _buildOrderCard(
-                        image: AssetImage(product.product.imageAssets[0]),
-                        price: product.product.price,
-                        productName: product.product.name,
-                        quantity: product.product.quantity.toString(),
+                    return Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: _buildOrderCard(
+                          image: AssetImage(product.product.imageAssets[0]),
+                          price: product.product.price,
+                          productName: product.product.name,
+                          quantity: product.product.quantity.toString(),
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
               Container(
                 height: 40,
@@ -83,7 +86,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(left: 16),
                       child: Text(
                         'SHIPPING ADDRESS',
                         style: GoogleFonts.tenorSans(
@@ -121,7 +124,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(left: 16),
                       child: Text(
                         'PAYMENT METHOD',
                         style: GoogleFonts.tenorSans(
@@ -288,7 +291,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
               ),
               const SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Container(
                   padding: EdgeInsets.all(8.0),
                   child: Column(

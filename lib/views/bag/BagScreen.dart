@@ -90,8 +90,7 @@ class _BagScreenState extends State<BagScreen> {
               SizedBox(height: 20,),
               SvgPicture.asset(
                 'assets/icons/divider.svg',
-
-                height: 15,
+                height: 14,
                 color: AppColor.primaryBlackColor,
               ),
               SizedBox(height: 20,),
@@ -222,7 +221,7 @@ class _BagScreenState extends State<BagScreen> {
 
           const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: GetBuilder<CartController>(
                       builder: (_) {
                         return ColumnBuilder(
@@ -262,7 +261,7 @@ class _BagScreenState extends State<BagScreen> {
                   ),
                   const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Container(
                       height: 50,
                       width: MediaQuery.of(context).size.width,
@@ -311,7 +310,7 @@ class _BagScreenState extends State<BagScreen> {
                   ),
                   const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Text('price details(2 items)'.toUpperCase(),style: GoogleFonts.tenorSans(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -321,7 +320,7 @@ class _BagScreenState extends State<BagScreen> {
 
 
                  Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -409,7 +408,7 @@ class _BagScreenState extends State<BagScreen> {
 
 
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -438,7 +437,7 @@ class _BagScreenState extends State<BagScreen> {
 
                   const SizedBox(height: 32),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: CustomButton(
                       textcolor: AppColor.primaryWhiteColor,
                         backcolor: AppColor.primaryBlackColor,

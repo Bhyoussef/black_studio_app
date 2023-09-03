@@ -116,7 +116,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   text: 'Continue with Facebook',
                   onPressed: () {
                     // Implement Facebook login functionality here
-                  },
+                  }, svgAssetPath: 'assets/icons/bi_facebook.svg',
                 ),
                 const SizedBox(height: 10),
                 SocialButton(
@@ -125,7 +125,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   text: 'Continue with Google',
                   onPressed: () {
                     // Implement Google login functionality here
-                  },
+                  },  svgAssetPath: 'assets/icons/flat-color-icons_google.svg',
                 ),
                 const SizedBox(height: 10),
                 SocialButton(
@@ -134,7 +134,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   text: 'Continue with Apple',
                   onPressed: () {
                     // Implement Apple login functionality here
-                  },
+                  }, svgAssetPath: 'assets/icons/ant-design_apple-filled.svg',
                 ),
                 const SizedBox(height: 10),
                 TextButton(

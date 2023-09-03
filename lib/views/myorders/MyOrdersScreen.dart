@@ -41,16 +41,16 @@ class MyOrdersScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                    color: AppColor.secondaryGreyColor, // Customize the border color
+                    color: AppColor
+                        .secondaryGreyColor, // Customize the border color
                     width: 1.0, // Customize the border width
                   ),
                   top: BorderSide(
-                    color: AppColor.secondaryGreyColor, // Customize the border color
+                    color: AppColor
+                        .secondaryGreyColor, // Customize the border color
                     width: 1.0, // Customize the border width
                   ),
-
                 ),
-
               ),
               child: TabBar(
                 indicatorColor: AppColor.primaryBlackColor,
@@ -65,7 +65,8 @@ class MyOrdersScreen extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   fontSize: 15,
                 ),
-                unselectedLabelColor: AppColor.primaryBlackColor.withOpacity(0.5),
+                unselectedLabelColor:
+                    AppColor.primaryBlackColor.withOpacity(0.5),
                 tabs: const [
                   Tab(
                     text: 'Ongoing ',
@@ -81,32 +82,46 @@ class MyOrdersScreen extends StatelessWidget {
                 children: [
                   ListView(
                     children: [
-                       Padding(
-                        padding: EdgeInsets.all(0.0),
+                      Padding(
+                        padding: EdgeInsets.all(12.0),
                         child: Column(
                           children: [
                             ListTile(
-                              leading:
-                              SvgPicture.asset('assets/icons/box-time.svg',height: 30,),
-
+                              leading: Container(
+                                  decoration: BoxDecoration(
+                                    color: AppColor.secondaryGreyColor,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SvgPicture.asset(
+                                      'assets/icons/box-time.svg',
+                                      height: 30,
+                                    ),
+                                  )),
                               title: Text(
                                 "Ongoing",
                                 style: GoogleFonts.beVietnamPro(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15),
+                                    fontWeight: FontWeight.w500, fontSize: 15),
                               ),
                               subtitle: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("July 15, 2023",style: GoogleFonts.beVietnamPro(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12),),
+                                  Text(
+                                    "July 15, 2023",
+                                    style: GoogleFonts.beVietnamPro(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12),
+                                  ),
                                   const SizedBox(
                                     width: 10,
                                   ),
-                                  Text('10:00 AM',style: GoogleFonts.beVietnamPro(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12),),
+                                  Text(
+                                    '10:00 AM',
+                                    style: GoogleFonts.beVietnamPro(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12),
+                                  ),
                                 ],
                               ),
                             ),
@@ -114,7 +129,7 @@ class MyOrdersScreen extends StatelessWidget {
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(0.0),
                         child: Divider(
                           color: AppColor.secondaryGreyColor,
                           thickness: 1,
@@ -123,16 +138,15 @@ class MyOrdersScreen extends StatelessWidget {
                       ColumnBuilder(
                         itemCount: dummyProducts.length,
                         itemBuilder: (context, index) {
-                          final product=dummyProducts[index];
+                          final product = dummyProducts[index];
                           return Padding(
                             padding: const EdgeInsets.all(5.0),
                             child: GestureDetector(
-                              onTap: (){
-                                Get.to(()=>const OrderSummary());
-                                },
+                              onTap: () {
+                                Get.to(() => const OrderSummary());
+                              },
                               child: _buildOrderCard(
-                                image:
-                                AssetImage(product.imageAssets[0]),
+                                image: AssetImage(product.imageAssets[0]),
                                 status: 'Ongoing',
                                 date: 'July 15, 2023',
                                 time: '10:00 AM',
@@ -147,15 +161,14 @@ class MyOrdersScreen extends StatelessWidget {
                         },
                       ),
                       const Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(0.0),
                         child: Divider(
                           color: AppColor.secondaryGreyColor,
                           thickness: 1,
                         ),
                       ),
-
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(16.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -190,44 +203,64 @@ class MyOrdersScreen extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {},
-                              child: Text("Track Order",style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryBlackColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14,decoration: TextDecoration.underline,)
-                                ,),
+                              child: Text(
+                                "Track Order",
+                                style: GoogleFonts.beVietnamPro(
+                                  color: AppColor.primaryBlackColor,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
                             ),
                           ],
                         ),
                       )
                     ],
                   ),
-
                   ListView(
                     children: [
-                       Padding(
-                        padding: EdgeInsets.all(0.0),
+                      Padding(
+                        padding: EdgeInsets.all(12.0),
                         child: Column(
                           children: [
                             ListTile(
-                              leading:  SvgPicture.asset('assets/icons/box-tick.svg',height: 30,),
+                              leading: Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.secondaryGreyColor,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SvgPicture.asset(
+                                    'assets/icons/box-tick.svg',
+                                    height: 30,
+                                  ),
+                                ),
+                              ),
                               title: Text(
                                 "Delivered",
                                 style: GoogleFonts.beVietnamPro(
-                                    fontWeight: FontWeight.w500,
-                                fontSize: 15),
+                                    fontWeight: FontWeight.w500, fontSize: 15),
                               ),
                               subtitle: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("July 15, 2023", style: GoogleFonts.beVietnamPro(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12),),
+                                  Text(
+                                    "July 15, 2023",
+                                    style: GoogleFonts.beVietnamPro(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12),
+                                  ),
                                   SizedBox(
                                     width: 10,
                                   ),
-                                  Text('10:00 AM', style: GoogleFonts.beVietnamPro(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12),),
+                                  Text(
+                                    '10:00 AM',
+                                    style: GoogleFonts.beVietnamPro(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12),
+                                  ),
                                 ],
                               ),
                             ),
@@ -235,7 +268,7 @@ class MyOrdersScreen extends StatelessWidget {
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(0.0),
                         child: Divider(
                           color: AppColor.secondaryGreyColor,
                           thickness: 1,
@@ -248,36 +281,34 @@ class MyOrdersScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           final product = dummyProducts[index];
                           return Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: GestureDetector(
-                              onTap: (){
-                                Get.to(()=>const OrderSummary());
-                              },
-                              child: _buildOrderCard(
-                                image:  AssetImage(product.imageAssets[0]),
-                                status: 'Delivered',
-                                date: 'July 12, 2023',
-                                time: '9:45 AM',
-                                price: product.price,
-                                productName: product.name,
-                                quantity: product.quantity.toString(),
-                                showReview: true,
-                                buttonText: 'Reorder',
-                              ),
-                            )
-                          );
+                              padding: const EdgeInsets.all(5.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => const OrderSummary());
+                                },
+                                child: _buildOrderCard(
+                                  image: AssetImage(product.imageAssets[0]),
+                                  status: 'Delivered',
+                                  date: 'July 12, 2023',
+                                  time: '9:45 AM',
+                                  price: product.price,
+                                  productName: product.name,
+                                  quantity: product.quantity.toString(),
+                                  showReview: true,
+                                  buttonText: 'Reorder',
+                                ),
+                              ));
                         },
                       ),
                       const Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(0.0),
                         child: Divider(
                           color: AppColor.secondaryGreyColor,
                           thickness: 1,
                         ),
                       ),
-
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(16.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -312,12 +343,15 @@ class MyOrdersScreen extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {},
-                              child: Text("Reorder",style: GoogleFonts.beVietnamPro(
-                                color: AppColor.primaryBlackColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14,
-                                decoration: TextDecoration.underline,
-                              ),),
+                              child: Text(
+                                "Reorder",
+                                style: GoogleFonts.beVietnamPro(
+                                  color: AppColor.primaryBlackColor,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -345,41 +379,48 @@ class MyOrdersScreen extends StatelessWidget {
     String? buttonText,
   }) {
     return Column(
-
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(16.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image(image: image!, width: 60, height: 70,fit: BoxFit.cover,),
+              Image(
+                image: image!,
+                width: 60,
+                height: 70,
+                fit: BoxFit.cover,
+              ),
               const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Price: ${price?.toInt()} QAR',  style:  GoogleFonts.beVietnamPro
-                    (fontWeight: FontWeight.w700,
-                      color: AppColor.primaryBlackColor,
-                      fontSize: 14),),
+                  Text(
+                    'Price: ${price?.toInt()} QAR',
+                    style: GoogleFonts.beVietnamPro(
+                        fontWeight: FontWeight.w700,
+                        color: AppColor.primaryBlackColor,
+                        fontSize: 14),
+                  ),
                   const SizedBox(height: 8),
-
-                  Text(productName!,
-                      style:  GoogleFonts.beVietnamPro
-                        (fontWeight: FontWeight.w400,
-                      color: AppColor.primaryGreyColor,
-                      fontSize: 14),
+                  Text(
+                    productName!,
+                    style: GoogleFonts.beVietnamPro(
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                        fontSize: 14),
                     overflow: TextOverflow.ellipsis,
-                    maxLines: 1,),
+                    maxLines: 1,
+                  ),
                   const SizedBox(height: 8),
-                  Text('Qty: $quantity',   style:  GoogleFonts.beVietnamPro
-                    (fontWeight: FontWeight.w400,
-                      color: AppColor.primaryGreyColor,
-                      fontSize: 14)),
+                  Text('Qty: $quantity',
+                      style: GoogleFonts.beVietnamPro(
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.primaryGreyColor,
+                          fontSize: 14)),
                 ],
               ),
-
-
             ],
           ),
         ),

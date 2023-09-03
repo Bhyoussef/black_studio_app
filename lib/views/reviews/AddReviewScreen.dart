@@ -80,7 +80,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
         title: Text(
           'Whrite Review',
           style: GoogleFonts.beVietnamPro(
-            color: Colors.black,
+            color: AppColor.primaryBlackColor,
             fontSize: 18,
             fontWeight: FontWeight.w600,
           ),

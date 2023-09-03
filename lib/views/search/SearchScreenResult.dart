@@ -52,6 +52,11 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                       child: TextFormField(
                         cursorColor: AppColor.primaryBlackColor,
                         decoration: InputDecoration(
+                          prefixIcon: const Icon(
+                            Icons.search,
+                            color: AppColor.primaryGreyColor,
+                          ),
+
                           hintText: 'Search',
                           filled: true,
                           fillColor: AppColor.secondaryGreyColor,
@@ -262,7 +267,7 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
            product.imageAssets[0],
             height: 180,
             width: 150,
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
           const SizedBox(height: 10),
           Expanded(

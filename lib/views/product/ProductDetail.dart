@@ -117,421 +117,427 @@ class _ProductDetailState extends State<ProductDetail> {
         ],
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Container with the main product image
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: 400, // Adjust the height as needed
-                  width: 500,
-                  child: Image.asset(
-                    widget.product.imageAssets[selectedImageIndex],
-                    fit: BoxFit.fill,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Container with the main product image
+                Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  child: SizedBox(
+                    height: 400, // Adjust the height as needed
+                    width: 500,
+                    child: Image.asset(
+                      widget.product.imageAssets[selectedImageIndex],
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
-              ),
+                SizedBox(height: 10,),
 
-              // Container with the small list of images
-              SizedBox(
-                height: 100, // Adjust the height as needed
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: widget.product.imageAssets.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedImageIndex = index;
-                        });
-                      },
-                      child: Container(
-                        width: 98, // Adjust the width as needed
-                        margin: const EdgeInsets.symmetric(horizontal: 0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: selectedImageIndex == index
-                                ? Colors.transparent
-                                : Colors.transparent,
-                            width: 2,
-                          ),
-                        ),
-                        child: Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Image.asset(
-                                widget.product.imageAssets[index],
-                                fit: BoxFit.fill,
-                                height: 77,
-                                width: 77,
-                              ),
-                            ),
-                            if (selectedImageIndex == index)
-                              Positioned(
-                                bottom: -2,
-                                left: 0,
-                                right: 0,
-                                child: SvgPicture.asset(
-                                  'assets/menu/3.svg',
-                                  height: 20,
-                                  width: 98,
-                                  color: AppColor.primaryBlackColor,
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
 
-              // Category and Product Name
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      widget.product.category.toUpperCase(),
-                      style: GoogleFonts.tenorSans(
-                        color: Colors.grey,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      widget.product.name,
-                      style: GoogleFonts.beVietnamPro(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        Container(
+                // Container with the small list of images
+                SizedBox(
+                  height: 100, // Adjust the height as needed
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: widget.product.imageAssets.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedImageIndex = index;
+                          });
+                        },
+                        child: Container(
+                          width: 98, // Adjust the width as needed
+                          margin: const EdgeInsets.symmetric(horizontal: 0),
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: AppColor.primaryGreyColor,
-                              width: 0.5,
+                              color: selectedImageIndex == index
+                                  ? Colors.transparent
+                                  : Colors.transparent,
+                              width: 2,
                             ),
-                            borderRadius: BorderRadius.circular(5),
                           ),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          child: Row(
+                          child: Stack(
                             children: [
-                              Text(
-                                '5.0',
-                                style: GoogleFonts.beVietnamPro(
-                                  color: Colors.grey,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                              Padding(
+                                padding: const EdgeInsets.all(6.0),
+                                child: Image.asset(
+                                  widget.product.imageAssets[index],
+                                  fit: BoxFit.fill,
+                                  height: 77,
+                                  width: 77,
                                 ),
                               ),
-                              const Icon(
-                                Icons.star,
-                                color: Colors.yellow,
-                                size: 16,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Container(
-                                width: 1,
-                                height: 15,
-                                color: Colors.grey,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                '5 ratings',
-                                style: GoogleFonts.beVietnamPro(
-                                  color: Colors.grey,
-                                  fontSize: 12,
+                              if (selectedImageIndex == index)
+                                Positioned(
+
+                                  bottom: -2,
+                                  left: -10,
+                                  right: 0,
+                                  child: SvgPicture.asset(
+                                    'assets/menu/3.svg',
+                                    height: 20,
+
+                                    color: AppColor.primaryBlackColor,
+                                  ),
                                 ),
-                              ),
                             ],
                           ),
                         ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'QAR ${widget.product.price.toInt()}',
-                      style: GoogleFonts.beVietnamPro(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: AppColor.primaryBlackColor),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      'inclusive of all taxes',
-                      style: GoogleFonts.beVietnamPro(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: AppColor.thirdGreyColor),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-
-              // Add to Cart Button
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 7,
-                      child: Container(
-                        height: 50,
-                        child: ElevatedButton(
-
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white, backgroundColor: Colors.black,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  8), // Set your desired corner radius
-                            ),
-                          ),
-                          onPressed: () {
-                            bagController.addToCart(widget.product);
-                            Get.snackbar('Success', 'Product added to cart',
-                                snackPosition: SnackPosition.BOTTOM,
-                                backgroundColor: Colors.green,
-                                colorText: CupertinoColors.white);
-                          },
-                          child: Text('Add to Cart',
-                              style: GoogleFonts.beVietnamPro(
-                                  color: AppColor.primaryWhiteColor,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400)),
-                        ),
-                      ),
-                    ),
-
-                    Expanded(
-                      flex: 2,
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset(
-                            'assets/drawer/Heart.svg',
-                            height: 28,
-                            width: 28,
-                            color: AppColor.primaryGreyColor,
-                          )),
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              SizedBox(
-                height: 50,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: colorOptions.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: buildColorOption(colorOptions[index], true),
                       );
                     },
                   ),
                 ),
-              ),
-              // Divider
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Divider(
-                  thickness: 1,
-                  height: 1,
-                  color: AppColor.secondaryGreyColor,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('SELECT SIZE',
+
+                // Category and Product Name
+                Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        widget.product.category.toUpperCase(),
                         style: GoogleFonts.tenorSans(
-                            color: AppColor.primaryBlackColor,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400)),
-                    TextButton(
-                        onPressed: () {
-                          _showSizeDialog(context);
-                        },
-                        child: Text(
-                          'Edit Size',
-                          style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryBlackColor,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16),
-                        ))
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Wrap(
-                  spacing: 15,
-                  runSpacing: 15,
-                  direction: Axis.horizontal,
-                  children: List.generate(sizes.length, (index) {
-                    final size = sizes[index];
-                    final price = prices[index];
-                    return Container(
-                      width: 80,
-                      height: 60,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: AppColor.primaryWhiteColor,
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(
-                          color: isSelected
-                              ? AppColor.thirdGreyColor
-                              : AppColor.thirdGreyColor,
+                          color: Colors.grey,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                      const SizedBox(height: 8),
+                      Text(
+                        widget.product.name,
+                        style: GoogleFonts.beVietnamPro(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
                         children: [
-                          Text(
-                            size,
-                            style: GoogleFonts.beVietnamPro(
-                              fontWeight: FontWeight.w800,
-                              fontSize: 16,
-                              color: isSelected
-                                  ? AppColor.primaryBlackColor
-                                  : AppColor.primaryBlackColor,
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: AppColor.primaryGreyColor,
+                                width: 0.5,
+                              ),
+                              borderRadius: BorderRadius.circular(5),
                             ),
-                          ),
-
-                          Text(
-                            '\QAR ${price.toInt()}',
-                            style: GoogleFonts.beVietnamPro(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12,
-                              color: isSelected
-                                  ? AppColor.primaryGreyColor
-                                  : AppColor.primaryGreyColor,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 4,
+                            ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  '5.0',
+                                  style: GoogleFonts.beVietnamPro(
+                                    color: Colors.grey,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                const Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 16,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Container(
+                                  width: 1,
+                                  height: 15,
+                                  color: Colors.grey,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  '5 ratings',
+                                  style: GoogleFonts.beVietnamPro(
+                                    color: Colors.grey,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
-                    );
-                  }),
-                ),
-              ),
-
-
-
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Divider(
-                  thickness: 1,
-                  height: 1,
-                  color: AppColor.secondaryGreyColor,
-                ),
-              ),
-              //DELIVERY OPTIONS
-              const DeleveryOption(),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Divider(
-                  thickness: 1,
-                  height: 1,
-                  color: AppColor.secondaryGreyColor,
-                ),
-              ),
-              //best offers
-              const BestOffesrSection(),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Divider(
-                  thickness: 3,
-                  height: 1,
-                  color: AppColor.secondaryGreyColor,
-                ),
-              ),
-
-              //Product Details
-              const ProductDetailSection(),
-
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Text(
-                      'REVIEWS',
-                      style: GoogleFonts.tenorSans(
-                          fontSize: 14, fontWeight: FontWeight.w400),
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                 SvgPicture.asset('assets/icons/star.svg'),
-                  ],
-                ),
-              ),
-
-              //Reviews
-              const ReviewsSection(),
-
-              Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColor.primaryBlackColor,
-                        width: 1,
+                      const SizedBox(
+                        height: 10,
                       ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: MaterialButton(
-                      onPressed: () {
-                        Get.to(() => const ReviewsScreen());
-                      },
-                      child: Text(
-                        'View All Reviews',
+                      Text(
+                        'QAR ${widget.product.price.toInt()}',
                         style: GoogleFonts.beVietnamPro(
-                          color: AppColor.primaryBlackColor,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: AppColor.primaryBlackColor),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        'inclusive of all taxes',
+                        style: GoogleFonts.beVietnamPro(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.thirdGreyColor),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+
+                // Add to Cart Button
+                Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 7,
+                        child: Container(
+                          height: 50,
+                          child: ElevatedButton(
+
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white, backgroundColor: Colors.black,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    8), // Set your desired corner radius
+                              ),
+                            ),
+                            onPressed: () {
+                              bagController.addToCart(widget.product);
+                              Get.snackbar('Success', 'Product added to cart',
+                                  snackPosition: SnackPosition.BOTTOM,
+                                  backgroundColor: Colors.green,
+                                  colorText: CupertinoColors.white);
+                            },
+                            child: Text('Add to Cart',
+                                style: GoogleFonts.beVietnamPro(
+                                    color: AppColor.primaryWhiteColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400)),
+                          ),
                         ),
                       ),
+
+                      Expanded(
+                        flex: 2,
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: SvgPicture.asset(
+                              'assets/drawer/Heart.svg',
+                              height: 28,
+                              width: 28,
+                              color: AppColor.primaryGreyColor,
+                            )),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                SizedBox(
+                  height: 50,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: colorOptions.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: buildColorOption(colorOptions[index], true),
+                        );
+                      },
                     ),
-                  )),
-            ],
+                  ),
+                ),
+                // Divider
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Divider(
+                    thickness: 1,
+                    height: 1,
+                    color: AppColor.secondaryGreyColor,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('SELECT SIZE',
+                          style: GoogleFonts.tenorSans(
+                              color: AppColor.primaryBlackColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400)),
+                      TextButton(
+                          onPressed: () {
+                            _showSizeDialog(context);
+                          },
+                          child: Text(
+                            'Edit Size',
+                            style: GoogleFonts.beVietnamPro(
+                                color: AppColor.primaryBlackColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16),
+                          ))
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  child: Wrap(
+                    spacing: 15,
+                    runSpacing: 15,
+                    direction: Axis.horizontal,
+                    children: List.generate(sizes.length, (index) {
+                      final size = sizes[index];
+                      final price = prices[index];
+                      return Container(
+                        width: 80,
+                        height: 60,
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: AppColor.primaryWhiteColor,
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(
+                            color: isSelected
+                                ? AppColor.thirdGreyColor
+                                : AppColor.thirdGreyColor,
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              size,
+                              style: GoogleFonts.beVietnamPro(
+                                fontWeight: FontWeight.w800,
+                                fontSize: 16,
+                                color: isSelected
+                                    ? AppColor.primaryBlackColor
+                                    : AppColor.primaryBlackColor,
+                              ),
+                            ),
+
+                            Text(
+                              '\QAR ${price.toInt()}',
+                              style: GoogleFonts.beVietnamPro(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12,
+                                color: isSelected
+                                    ? AppColor.primaryGreyColor
+                                    : AppColor.primaryGreyColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+
+
+
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Divider(
+                    thickness: 1,
+                    height: 1,
+                    color: AppColor.secondaryGreyColor,
+                  ),
+                ),
+                //DELIVERY OPTIONS
+                const DeleveryOption(),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Divider(
+                    thickness: 1,
+                    height: 1,
+                    color: AppColor.secondaryGreyColor,
+                  ),
+                ),
+                //best offers
+                const BestOffesrSection(),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Divider(
+                    thickness: 3,
+                    height: 1,
+                    color: AppColor.secondaryGreyColor,
+                  ),
+                ),
+
+                //Product Details
+                const ProductDetailSection(),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        'REVIEWS',
+                        style: GoogleFonts.tenorSans(
+                            fontSize: 14, fontWeight: FontWeight.w400),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                   SvgPicture.asset('assets/icons/star.svg'),
+                    ],
+                  ),
+                ),
+
+                //Reviews
+                const ReviewsSection(),
+
+                Padding(
+                    padding: const EdgeInsets.all(0.0),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: AppColor.primaryBlackColor,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: MaterialButton(
+                        onPressed: () {
+                          Get.to(() => const ReviewsScreen());
+                        },
+                        child: Text(
+                          'View All Reviews',
+                          style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryBlackColor,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    )),
+              ],
+            ),
           ),
         ),
       ),

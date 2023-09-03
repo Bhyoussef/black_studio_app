@@ -53,8 +53,8 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
           'Edit Profile',
           style: GoogleFonts.beVietnamPro(
             color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
           ),
         ),
         backgroundColor: Colors.white,

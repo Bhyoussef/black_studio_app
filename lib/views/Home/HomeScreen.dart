@@ -80,6 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: TextFormField(
                   cursorColor: AppColor.primaryBlackColor,
                   decoration: InputDecoration(
+                    prefixIcon: const Icon(
+                      Icons.search,
+                      color: AppColor.primaryGreyColor,
+                    ),
                     hintText: 'What can we help you find?',
                     filled: true,
                     fillColor: AppColor.secondaryGreyColor,
@@ -260,10 +264,10 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
-                Get.to(() => const AllProduct(title: 'NEW ARRIVAL'));
+                Get.to(() => const AllProduct(title: 'New Arrival'));
               },
               child: Text(
-                'NEW ARRIVAL',
+                'New Arrival'.toUpperCase(),
                 style: GoogleFonts.tenorSans(
                   color: AppColor.primaryBlackColor,
                   fontSize: 18,
@@ -281,7 +285,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 280,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   GestureDetector(
                     onTap: () {
@@ -291,9 +295,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => ProductDetail(product: dummyProducts[0]));
+                      Get.to(() => ProductDetail(product: dummyProducts[1]));
                     },
-                    child: buildProductCard(dummyProducts[0]),
+                    child: buildProductCard(dummyProducts[1]),
                   )
                 ],
               ),
@@ -321,10 +325,10 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 16),
             GestureDetector(
               onTap: () {
-                Get.to(() => AllProduct(title: 'BEST SELLERS'));
+                Get.to(() => AllProduct(title: 'Best Sellers'));
               },
               child: Text(
-                'BEST SELLERS',
+                'Best Sellers'.toUpperCase(),
                 style: GoogleFonts.tenorSans(
                   color: AppColor.primaryBlackColor,
                   fontSize: 18,
@@ -342,7 +346,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 280,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
 
                 children: [
                   GestureDetector(
@@ -353,9 +357,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => ProductDetail(product: dummyProducts[0]));
+                      Get.to(() => ProductDetail(product: dummyProducts[1]));
                     },
-                    child: buildProductCard(dummyProducts[0]),
+                    child: buildProductCard(dummyProducts[1]),
                   )
                 ],
               ),
@@ -374,7 +378,7 @@ class _HomeScreenState extends State<HomeScreen> {
           product.imageAssets[0], // Use the first image from the list
           height: 200,
           width: 165,
-          fit: BoxFit.contain,
+          fit: BoxFit.fill,
         ),
         const SizedBox(height: 10),
         Expanded(

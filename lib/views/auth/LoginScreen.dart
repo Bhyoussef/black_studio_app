@@ -98,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                   text: 'Continue with Facebook',
                   onPressed: () {
                     // Implement Facebook login functionality here
-                  },
+                  }, svgAssetPath: 'assets/icons/bi_facebook.svg',
                 ),
                 const SizedBox(height: 10),
                 SocialButton(
@@ -108,6 +108,7 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     // Implement Google login functionality here
                   },
+                  svgAssetPath: 'assets/icons/flat-color-icons_google.svg',
                 ),
                 const SizedBox(height: 10),
                 SocialButton(
@@ -116,6 +117,7 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     // Implement Apple login functionality here
                   },
+                  svgAssetPath: 'assets/icons/ant-design_apple-filled.svg',
                   backcolor: Colors.black,
                 ),
                 const SizedBox(height: 10),

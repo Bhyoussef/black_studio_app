@@ -72,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 10),
             ListTile(
               leading: SvgPicture.asset('assets/menu/User.svg',
-                  height: 30, width: 30, color: AppColor.primaryGreyColor),
+                  height: 25, width: 25, color: AppColor.primaryGreyColor),
               title: Text(
                 'Edit Profile',
                 style: GoogleFonts.beVietnamPro(
@@ -90,7 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             ListTile(
               leading: SvgPicture.asset('assets/menu/LockSimple.svg',
-                  height: 30, width: 30, color: AppColor.primaryGreyColor),
+                  height: 25, width: 25, color: AppColor.primaryGreyColor),
               title: Text(
                 'Change Password',
                 style: GoogleFonts.beVietnamPro(
@@ -108,7 +108,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             ListTile(
               leading: SvgPicture.asset('assets/menu/BellSimpleRinging.svg',
-                  height: 30, width: 30, color: AppColor.primaryGreyColor),
+                  height: 25, width: 25, color: AppColor.primaryGreyColor),
               title: Text(
                 'Push Notifications',
                 style: GoogleFonts.beVietnamPro(
@@ -126,7 +126,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             ListTile(
               leading: SvgPicture.asset('assets/menu/MapPin.svg',
-                  height: 30, width: 30, color: AppColor.primaryGreyColor),
+                  height: 25, width: 25, color: AppColor.primaryGreyColor),
               title: Text(
                 'My Address',
                 style: GoogleFonts.beVietnamPro(
@@ -174,7 +174,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               trailing: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SvgPicture.asset('assets/menu/Trash.svg',
-                    height: 30, width: 30, color: Colors.red),
+                    height: 25, width: 25, color: Colors.red),
               ),
               title: Text(
                 'Clear Saved Data',

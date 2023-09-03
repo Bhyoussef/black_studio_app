@@ -43,6 +43,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
             color: AppColor.primaryBlackColor,
             fontSize: 18,
             fontWeight: FontWeight.w600,
+
           ),
         ),
         backgroundColor: Colors.white,

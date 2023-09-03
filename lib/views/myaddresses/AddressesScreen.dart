@@ -35,7 +35,7 @@ class AdressesScreen extends StatelessWidget {
         ),
       ),
       body: const Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(16.0),
         child: Center(
           child: EmptyWidget(),
         ),
