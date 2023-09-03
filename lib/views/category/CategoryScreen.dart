@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
+
+import 'ProductCategoryScreen.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({Key? key}) : super(key: key);
@@ -56,32 +60,37 @@ class _CategoryScreenState extends State<CategoryScreen> {
         itemCount: categories.length,
         itemBuilder: (context, index) {
           final category = categories[index];
-          return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Container(
-              height: 92,
-              decoration: BoxDecoration(
-                color: AppColor.secondaryGreyColor,
-                borderRadius: BorderRadius.circular(10),
+          return GestureDetector(
+            onTap: (){
+              Get.to(()=>ProductCategoryScreen(title:category.name));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Container(
+                height: 92,
+                decoration: BoxDecoration(
+                  color: AppColor.secondaryGreyColor,
+                  borderRadius: BorderRadius.circular(10),
 
-              ),
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(category.name,style: GoogleFonts.beVietnamPro(
-                        fontSize: 16,
-                        fontWeight:FontWeight.normal,
-                        color: AppColor.primaryBlackColor
-                    )),
-                  ),
-                  const SizedBox(width: 16),
-                  Image.asset(
-                    category.imageURL,
-                    height: 60,
-                    width: 60,
-                  ),
-                ],
+                ),
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(category.name,style: GoogleFonts.beVietnamPro(
+                          fontSize: 16,
+                          fontWeight:FontWeight.normal,
+                          color: AppColor.primaryBlackColor
+                      )),
+                    ),
+                    const SizedBox(width: 16),
+                    Image.asset(
+                      category.imageURL,
+                      height: 60,
+                      width: 60,
+                    ),
+                  ],
+                ),
               ),
             ),
           );
