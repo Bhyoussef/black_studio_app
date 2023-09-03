@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,10 +43,11 @@ class PrivacyScreen extends StatelessWidget {
             const SizedBox(height: 50,),
             Text('PRIVACY POLICY', style: GoogleFonts.tenorSans(
                 fontSize: 18, fontWeight: FontWeight.w400)),
-            Image.asset(
-              'assets/imgs/divider.png',
-              width: 150,
-              height: 50,
+            const SizedBox(height: 20,),
+           SvgPicture.asset(
+              'assets/icons/divider.svg',
+
+              height: 10,
               color: AppColor.primaryBlackColor,
             ),
             Padding(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 
@@ -28,7 +29,7 @@ class DeleveryOption extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Image.asset('assets/imgs/delevery.png')
+                SvgPicture.asset('assets/icons/group.svg')
               ],
             ),
             SizedBox(height: 25,),

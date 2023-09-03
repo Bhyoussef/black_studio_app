@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -27,10 +28,9 @@ class LoginScreen extends StatelessWidget {
                     style: GoogleFonts.tenorSans(
                         fontSize: 20, fontWeight: FontWeight.w400)),
                 SizedBox(height: 20),
-                Image.asset(
-                  'assets/imgs/divider.png',
-                  width: 125,
-                  height: 30,
+                SvgPicture.asset(
+                  'assets/icons/divider.svg',
+                  height: 10,
                   color: AppColor.primaryBlackColor,
                 ),
                 Padding(

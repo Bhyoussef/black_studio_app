@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -60,19 +61,32 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 30),
-                Image.asset(
-                  'assets/imgs/forgetpassword.png',
-                  width: 150,
-                  height: 150,
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/Vector.svg',
+                      width: 50,
+                      height: 120,
+                      color: AppColor.primaryGreyColor,
+                    ),
+                    Positioned(
+                      top: 30, // Adjust the position of the inner image as needed
+                      left: 30,
+                      child: SvgPicture.asset(
+                        'assets/icons/unlock.svg', // Replace with your inner image path
+                        width: 50, // Adjust the size of the inner image as needed
+                      ),
+                    ) ],
                 ),
                 const SizedBox(height: 50),
                 Text('CREATE NEW PASSWORD',
                     style: GoogleFonts.tenorSans(
                         fontSize: 26, fontWeight: FontWeight.w400)),
-                Image.asset(
-                  'assets/imgs/divider.png',
-                  width: 150,
-                  height: 50,
+                const SizedBox(height: 30),
+                SvgPicture.asset(
+                  'assets/icons/divider.svg',
+                  height: 10,
                   color: AppColor.primaryBlackColor,
                 ),
                 Padding(

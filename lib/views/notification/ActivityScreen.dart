@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -35,7 +36,7 @@ class ActivityScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Padding(
                       padding: const EdgeInsets.all(0.0),
-                      child: Image.asset('assets/imgs/activity.png'),
+                      child:  SvgPicture.asset('assets/icons/Notification.svg'),
                     ),
                   ),
                   title: Padding(

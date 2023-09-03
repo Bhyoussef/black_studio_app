@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -52,22 +53,37 @@ class EmailConfirmationScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 50),
-                Image.asset(
-                  'assets/imgs/email.png',
-                  width: 150,
-                  height: 150,
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/Vector.svg',
+                      width: 50,
+                      height: 120,
+                      color: AppColor.primaryGreyColor,
+                    ),
+                    Positioned(
+                      top: 30, // Adjust the position of the inner image as needed
+                      left: 30,
+                      child: SvgPicture.asset(
+                        'assets/icons/sms-tracking.svg', // Replace with your inner image path
+                        width: 50, // Adjust the size of the inner image as needed
+                      ),
+                    ) ],
                 ),
+                const SizedBox(height: 20),
 
-                Image.asset(
-                  'assets/imgs/divider.png',
-                  width: 150,
-                  height: 50,
+                SvgPicture.asset(
+                  'assets/icons/divider.svg',
+
+                  height: 10,
                   color: AppColor.primaryBlackColor,
                 ),
+                const SizedBox(height: 10),
                 Text('CHECK YOUR EMAIL',
                     style: GoogleFonts.tenorSans(
                         fontSize: 18, fontWeight: FontWeight.w400)),
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(

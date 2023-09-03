@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 
@@ -24,7 +25,7 @@ class BestOffesrSection extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Image.asset('assets/imgs/Tag.png')
+                SvgPicture.asset('assets/icons/tag.svg')
               ],
             ),
             SizedBox(
@@ -47,7 +48,7 @@ class BestOffesrSection extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Image.asset('assets/imgs/Rectangle 327.png'),
+                  SvgPicture.asset('assets/icons/Rectangle 327.svg'),
                     SizedBox(
                       width: 10,
                     ),
@@ -66,7 +67,7 @@ class BestOffesrSection extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Image.asset('assets/imgs/Rectangle 327.png'),
+                    SvgPicture.asset('assets/icons/Rectangle 327.svg'),
                     SizedBox(
                       width: 10,
                     ),
@@ -89,7 +90,7 @@ class BestOffesrSection extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Image.asset('assets/imgs/Rectangle 327.png'),
+                    SvgPicture.asset('assets/icons/Rectangle 327.svg'),
                     SizedBox(
                       width: 10,
                     ),

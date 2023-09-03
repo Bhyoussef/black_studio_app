@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 
@@ -26,7 +27,7 @@ class ProductDetailSection extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                Image.asset('assets/imgs/document.png')
+               SvgPicture.asset('assets/icons/document-text.svg',height: 20,)
               ],
             ),
           ),
@@ -98,7 +99,7 @@ class ProductDetailSection extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Image.asset('assets/imgs/Rectangle 327.png'),
+                        SvgPicture.asset('assets/icons/Rectangle 327.svg'),
                         SizedBox(
                           width: 10,
                         ),
@@ -116,7 +117,7 @@ class ProductDetailSection extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Image.asset('assets/imgs/Rectangle 327.png'),
+                        SvgPicture.asset('assets/icons/Rectangle 327.svg'),
                         SizedBox(
                           width: 10,
                         ),
@@ -134,7 +135,7 @@ class ProductDetailSection extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Image.asset('assets/imgs/Rectangle 327.png'),
+                        SvgPicture.asset('assets/icons/Rectangle 327.svg'),
                         SizedBox(
                           width: 10,
                         ),
@@ -158,7 +159,7 @@ class ProductDetailSection extends StatelessWidget {
                     SizedBox(height: 15),
                     Row(
                       children: [
-                        Image.asset('assets/imgs/Rectangle 327.png'),
+                        SvgPicture.asset('assets/icons/Rectangle 327.svg'),
                         SizedBox(
                           width: 10,
                         ),
@@ -174,7 +175,7 @@ class ProductDetailSection extends StatelessWidget {
                     SizedBox(height: 10),
                     Row(
                       children: [
-                        Image.asset('assets/imgs/Rectangle 327.png'),
+                        SvgPicture.asset('assets/icons/Rectangle 327.svg'),
                         SizedBox(
                           width: 10,
                         ),

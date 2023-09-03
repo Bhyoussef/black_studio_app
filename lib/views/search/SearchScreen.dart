@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -149,11 +150,12 @@ class _SearchScreenState extends State<SearchScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Image.asset(
-                                'assets/imgs/Camera.png', // Replace with your image asset
+                              SvgPicture.asset(
+                                'assets/icons/Camera.svg', // Replace with your image asset
                                 fit: BoxFit.contain,
                                 height: 30,
                                 width: 58,
+                                color: AppColor.primaryWhiteColor,
                               ),
                               const SizedBox(height: 5,),
                               Text(
@@ -187,11 +189,12 @@ class _SearchScreenState extends State<SearchScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Image.asset(
-                                'assets/imgs/Image.png', // Replace with your image asset
+                              SvgPicture.asset(
+                                'assets/icons/Image.svg', // Replace with your image asset
                                 fit: BoxFit.contain,
                                 height: 30,
                                 width: 58,
+                                color: AppColor.primaryWhiteColor,
                               ),
                               const SizedBox(height: 5,),
                               Text(

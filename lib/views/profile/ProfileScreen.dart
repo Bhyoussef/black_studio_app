@@ -39,8 +39,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           },
         )
             : IconButton(
-          icon: Image.asset(
-            'assets/imgs/List.png',
+          icon:  SvgPicture.asset(
+            'assets/menu/List.svg',
             color: AppColor.primaryBlackColor,
           ),
           onPressed: () {

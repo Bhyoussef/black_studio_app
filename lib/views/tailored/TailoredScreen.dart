@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../colors/Colors.dart';
@@ -39,9 +40,9 @@ class _TailoredScreenState extends State<TailoredScreen> {
         title: Text(
           'Tailored',
           style: GoogleFonts.beVietnamPro(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
+            color: AppColor.primaryBlackColor,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
           ),
         ),
         backgroundColor: Colors.white,
@@ -116,8 +117,10 @@ class _TailoredScreenState extends State<TailoredScreen> {
                 children: [
                   Row(
                     children: [
-                      Image.asset('assets/imgs/Line.png'),
-                      Image.asset('assets/imgs/Length.png'),
+                      SvgPicture.asset('assets/icons/Line 53.svg'),
+                      SvgPicture.asset('assets/icons/Length.svg',
+                        color: AppColor.primaryBlackColor,
+                      ),
                     ],
                   ),
                   Column(
@@ -126,62 +129,53 @@ class _TailoredScreenState extends State<TailoredScreen> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width: 300,
-                              height: 345,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/imgs/dress.png'),
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
+                            child: SvgPicture.asset('assets/icons/Group (1).svg'),
                           ),
+
                           Positioned(
                               top: 180,
-                              right: 100,
+                              right: 72,
                               child: Column(
                                 children: [
-                                  Image.asset('assets/imgs/Line 50.png'),
-                                  Image.asset('assets/imgs/Hip.png'),
+                                  SvgPicture.asset('assets/icons/Line 50.svg'),
+                                  SvgPicture.asset('assets/icons/Hip.svg'),
                                 ],
                               )),
                           Positioned(
-                              top: 120,
-                              right: 125,
+                              top: 60,
+                              right: 96,
                               child: Column(
                                 children: [
-                                  Image.asset('assets/imgs/Line 51.png'),
-                                  Image.asset('assets/imgs/Bust.png'),
+                                  SvgPicture.asset('assets/icons/Line 51.svg'),
+                                  SvgPicture.asset('assets/icons/Bust.svg'),
                                 ],
                               )),
                           Positioned(
                               top: 16,
-                              right: 120,
+                              right: 90,
                               child: Row(
                                 children: [
-                                  Image.asset('assets/imgs/Arm.png'),
+                                  SvgPicture.asset('assets/icons/Arm.svg'),
                                   SizedBox(
                                     width: 6,
                                   ),
-                                  Image.asset('assets/imgs/Vector 1.png'),
+                                  SvgPicture.asset('assets/icons/Vector 1.svg'),
                                 ],
                               )),
                           Positioned(
                               top: 1,
-                              right: 65,
+                              right: 35,
                               child: Row(
                                 children: [
-                                  Image.asset('assets/imgs/Line 52.png'),
+                                  SvgPicture.asset('assets/icons/Line 52.svg'),
                                 ],
                               )),
                           Positioned(
                               top: -1,
-                              right: 45,
+                              right: 5,
                               child: Row(
                                 children: [
-                                  Image.asset('assets/imgs/Sleeve Length.png'),
+                                  SvgPicture.asset('assets/icons/Sleeve Length.svg'),
                                 ],
                               ))
                         ],

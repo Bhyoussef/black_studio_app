@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -454,7 +455,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 child: Stack(
                   children: [
                     Image.asset('assets/imgs/Group 1000002688.png'),
-                    Image.asset('assets/imgs/card-remove.png'),
+                    SvgPicture.asset('assets/icons/card-remove.svg'),
                   ],
                 ),
               ),
@@ -545,8 +546,8 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    Image.asset('assets/imgs/Group 1000002688.png'),
-                    Image.asset('assets/imgs/bag.png'),
+                    SvgPicture.asset('assets/icons/Vector.svg',color: AppColor.primaryGreyColor,),
+                    SvgPicture.asset('assets/icons/bag-tick.svg'),
                   ],
                 ),
               ),
@@ -557,10 +558,10 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                     fontWeight: FontWeight.w400,
                   )),
               SizedBox(height: 8.0),
-              Image.asset(
-                'assets/imgs/divider.png',
-                width: 150,
-                height: 50,
+              SvgPicture.asset(
+                'assets/icons/divider.svg',
+
+                height: 15,
                 color: AppColor.primaryBlackColor,
               ),
               Text(

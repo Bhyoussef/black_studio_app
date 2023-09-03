@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -35,7 +36,7 @@ class NotificationScreen extends StatelessWidget {
               shrinkWrap: true,
               children: [
                 ListTile(
-                  leading: Image.asset('assets/imgs/Tag.png'),
+                  leading: SvgPicture.asset('assets/icons/tag.svg'),
                   title: Text('Offer',style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryBlackColor,
                       fontWeight: FontWeight.w600,
@@ -46,7 +47,7 @@ class NotificationScreen extends StatelessWidget {
                   },
                 ),
                 ListTile(
-                  leading: Image.asset('assets/imgs/Feed.png'),
+                  leading: SvgPicture.asset('assets/icons/List.svg'),
                   title: Text('Feeds',style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryBlackColor,
                       fontWeight: FontWeight.w600,
@@ -57,7 +58,7 @@ class NotificationScreen extends StatelessWidget {
                   },
                 ),
                 ListTile(
-                  leading: Image.asset('assets/imgs/Bell.png'),
+                  leading: SvgPicture.asset('assets/icons/Notification.svg'),
                   title: Text('Activity',style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryBlackColor,
                       fontWeight: FontWeight.w600,

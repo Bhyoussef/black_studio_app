@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -85,10 +86,9 @@ class MyOrdersScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             ListTile(
-                              leading: const Image(
-                                  image: AssetImage('assets/imgs/box-tick.png'),
-                                  width: 60,
-                                  height: 60),
+                              leading:
+                              SvgPicture.asset('assets/icons/box-time.svg',height: 30,),
+
                               title: Text(
                                 "Ongoing",
                                 style: GoogleFonts.beVietnamPro(
@@ -209,10 +209,7 @@ class MyOrdersScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             ListTile(
-                              leading: Image(
-                                  image: AssetImage('assets/imgs/box-tick.png'),
-                                  width: 60,
-                                  height: 60),
+                              leading:  SvgPicture.asset('assets/icons/box-tick.svg',height: 30,),
                               title: Text(
                                 "Delivered",
                                 style: GoogleFonts.beVietnamPro(

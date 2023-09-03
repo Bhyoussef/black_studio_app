@@ -497,7 +497,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     const SizedBox(
                       width: 5,
                     ),
-                    Image.asset('assets/imgs/star.png'),
+                 SvgPicture.asset('assets/icons/star.svg'),
                   ],
                 ),
               ),

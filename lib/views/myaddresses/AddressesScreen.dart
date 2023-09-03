@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -27,7 +28,7 @@ class AdressesScreen extends StatelessWidget {
         title: Text(
           'My Address',
           style: GoogleFonts.beVietnamPro(
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.w600,
             color: AppColor.primaryBlackColor,
           ),
@@ -54,8 +55,8 @@ class EmptyWidget extends StatelessWidget {
         Stack(
           alignment: Alignment.center,
           children: [
-            Image.asset('assets/imgs/Group 1000002688.png'), // Replace with your first image path
-            Image.asset('assets/imgs/document-text.png'), // Replace with your second image path
+            SvgPicture.asset('assets/icons/Vector.svg',color: AppColor.primaryGreyColor,), // Replace with your first image path
+            SvgPicture.asset('assets/icons/document-text.svg',height: 60,), // Replace with your second image path
           ],
         ),// Replace 'assets/empty_address_image.png' with your actual image path
         const SizedBox(height: 20),
@@ -64,10 +65,11 @@ class EmptyWidget extends StatelessWidget {
           style: GoogleFonts.tenorSans(
               fontSize: 26, fontWeight: FontWeight.w400),
         ),
-        Image.asset(
-          'assets/imgs/divider.png',
-          width: 150,
-          height: 50,
+        const SizedBox(height: 20),
+        SvgPicture.asset(
+          'assets/icons/divider.svg',
+
+          height: 15,
           color: AppColor.primaryBlackColor,
         ),
         const SizedBox(height: 8),

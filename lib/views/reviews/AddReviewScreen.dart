@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -159,8 +160,8 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
               const SizedBox(height: 16),
               Row(
                 children: [
-                  Image.asset(
-                    'assets/icons/size.png',
+                  SvgPicture.asset(
+                    'assets/icons/Search results for Measuring tape - Flaticon-2 1.svg',
                     width: 16,
                   ),
                   const SizedBox(width: 8),
@@ -286,8 +287,8 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
               const SizedBox(height: 16),
               Row(
                 children: [
-                  Image.asset(
-                    'assets/icons/comfort.png',
+                  SvgPicture.asset(
+                    'assets/icons/Search results for Leaf - Flaticon-2 1.svg',
                     width: 16,
                   ),
                   const SizedBox(width: 8),
@@ -413,8 +414,8 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
               const SizedBox(height: 10),
               Row(
                 children: [
-                  Image.asset(
-                    'assets/icons/quality.png',
+                  SvgPicture.asset(
+                    'assets/icons/Search results for Diamond - Flaticon-2 (1) 1.svg',
                     width: 16,
                   ),
                   const SizedBox(width: 8),

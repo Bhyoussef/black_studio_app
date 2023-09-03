@@ -271,13 +271,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            Image.asset(
-              'assets/imgs/divider.png',
-              width: 150,
-              height: 50,
+            const SizedBox(height: 10),
+            SvgPicture.asset(
+              'assets/icons/divider.svg',
+              height: 10,
               color: AppColor.primaryBlackColor,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 10),
             SizedBox(
               height: 280,
               child: Row(
@@ -332,13 +332,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            Image.asset(
-              'assets/imgs/divider.png',
-              width: 150,
-              height: 50,
+            SizedBox(height: 16),
+            SvgPicture.asset(
+              'assets/icons/divider.svg',
+              height: 10,
               color: AppColor.primaryBlackColor,
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 16),
             SizedBox(
               height: 280,
               child: Row(

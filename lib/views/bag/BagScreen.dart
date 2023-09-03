@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -42,8 +43,8 @@ class _BagScreenState extends State<BagScreen> {
                 },
               )
             : IconButton(
-                icon: Image.asset(
-                  'assets/imgs/List.png',
+                icon:  SvgPicture.asset(
+                  'assets/menu/List.svg',
                   color: AppColor.primaryBlackColor,
                 ),
                 onPressed: () {
@@ -71,16 +72,29 @@ class _BagScreenState extends State<BagScreen> {
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  Image.asset('assets/imgs/Group 1000002688.png'), // Replace with your first image path
-                  Image.asset('assets/imgs/document-text.png'), // Replace with your second image path
-                ],
+                  SvgPicture.asset(
+                    'assets/icons/Vector.svg',
+                    width: 50,
+                    height: 120,
+                    color: AppColor.primaryGreyColor,
+                  ),
+                  Positioned(
+                    top: 30, // Adjust the position of the inner image as needed
+                    left: 30,
+                    child: SvgPicture.asset(
+                      'assets/menu/Tote.svg', // Replace with your inner image path
+                      width: 50, // Adjust the size of the inner image as needed
+                    ),
+                  ) ],
               ),
-              Image.asset(
-                'assets/imgs/divider.png',
-                width: 150,
-                height: 50,
+              SizedBox(height: 20,),
+              SvgPicture.asset(
+                'assets/icons/divider.svg',
+
+                height: 15,
                 color: AppColor.primaryBlackColor,
               ),
+              SizedBox(height: 20,),
               Text(
                 'Currently, you don\'t have any item in your Bag.',
                 style: GoogleFonts.beVietnamPro(
@@ -103,7 +117,7 @@ class _BagScreenState extends State<BagScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           children: [
-                            Image.asset('assets/imgs/CircleWavyWarning.png'),
+                            SvgPicture.asset('assets/icons/CircleWavyWarning.svg'),
                             const SizedBox(width: 10,),
                             Flexible(
                               child: Text(
@@ -191,9 +205,9 @@ class _BagScreenState extends State<BagScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      Image.asset('assets/imgs/Trash (2).png'),
+                      SvgPicture.asset('assets/icons/Trash (1).svg'),
                       const SizedBox(width: 10,),
-                      Image.asset('assets/imgs/heart-search.png')
+                      SvgPicture.asset('assets/icons/heart-search.svg')
 
                     ],
                   ),

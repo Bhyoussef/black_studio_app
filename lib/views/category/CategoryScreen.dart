@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
@@ -27,8 +28,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
       drawer: const DrawerWidget(),
       appBar: AppBar(
         leading: IconButton(
-          icon:  Image.asset('assets/imgs/List.png',
-            color: AppColor.primaryBlackColor,),
+          icon:   SvgPicture.asset(
+            'assets/menu/List.svg',
+            color: AppColor.primaryBlackColor,
+          ),
           onPressed: () {
             _scaffoldKey.currentState?.openDrawer();
           },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
@@ -253,8 +254,8 @@ class ReviewsScreen extends StatelessWidget {
                   //Size
                   Row(
                     children: [
-                      Image.asset(
-                          'assets/imgs/Search results for Measuring tape - Flaticon-2 1.png'),
+                      SvgPicture.asset(
+                          'assets/icons/Search results for Measuring tape - Flaticon-2 1.svg'),
                       SizedBox(
                         width: 10,
                       ),
@@ -323,8 +324,8 @@ class ReviewsScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Image.asset(
-                              'assets/imgs/Search results for Leaf - Flaticon-2 1.png'),
+                          SvgPicture.asset(
+                              'assets/icons/Search results for Leaf - Flaticon-2 1.svg'),
                           SizedBox(
                             width: 10,
                           ),
@@ -406,8 +407,8 @@ class ReviewsScreen extends StatelessWidget {
                   SizedBox(height: 20),
                   Row(
                     children: [
-                      Image.asset(
-                          'assets/imgs/Search results for Diamond - Flaticon-2 (1) 1.png'),
+                      SvgPicture.asset(
+                          'assets/icons/Search results for Diamond - Flaticon-2 (1) 1.svg'),
                       SizedBox(
                         width: 10,
                       ),

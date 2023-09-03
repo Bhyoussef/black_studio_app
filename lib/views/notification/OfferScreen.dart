@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -36,7 +37,7 @@ class OfferScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Padding(
                       padding: const EdgeInsets.all(0.0),
-                      child: Image.asset('assets/imgs/Tag.png'),
+                      child: SvgPicture.asset('assets/icons/tag.svg'),
                     ),
                   ),
                   title: Padding(

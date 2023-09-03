@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -85,8 +86,8 @@ class _BrandScreenState extends State<BrandScreen> {
             Get.back();
           },
         ): IconButton(
-          icon: Image.asset(
-            'assets/imgs/List.png',
+          icon:  SvgPicture.asset(
+            'assets/menu/List.svg',
             color: AppColor.primaryBlackColor,
           ),
           onPressed: () {
