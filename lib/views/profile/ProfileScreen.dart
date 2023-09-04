@@ -72,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 10),
             ListTile(
               leading: SvgPicture.asset('assets/menu/User.svg',
-                  height: 25, width: 25, color: AppColor.primaryGreyColor),
+                  height: 25, width: 25, color: AppColor.primaryBlackColor),
               title: Text(
                 'Edit Profile',
                 style: GoogleFonts.beVietnamPro(
@@ -90,7 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             ListTile(
               leading: SvgPicture.asset('assets/menu/LockSimple.svg',
-                  height: 25, width: 25, color: AppColor.primaryGreyColor),
+                  height: 25, width: 25, color: AppColor.primaryBlackColor),
               title: Text(
                 'Change Password',
                 style: GoogleFonts.beVietnamPro(
@@ -108,7 +108,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             ListTile(
               leading: SvgPicture.asset('assets/menu/BellSimpleRinging.svg',
-                  height: 25, width: 25, color: AppColor.primaryGreyColor),
+                  height: 25, width: 25, color: AppColor.primaryBlackColor),
               title: Text(
                 'Push Notifications',
                 style: GoogleFonts.beVietnamPro(
@@ -126,7 +126,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             ListTile(
               leading: SvgPicture.asset('assets/menu/MapPin.svg',
-                  height: 25, width: 25, color: AppColor.primaryGreyColor),
+                  height: 25, width: 25, color: AppColor.primaryBlackColor),
               title: Text(
                 'My Address',
                 style: GoogleFonts.beVietnamPro(

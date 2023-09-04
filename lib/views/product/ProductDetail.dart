@@ -152,8 +152,7 @@ class _ProductDetailState extends State<ProductDetail> {
                           });
                         },
                         child: Container(
-                          width: 98, // Adjust the width as needed
-                          margin: const EdgeInsets.symmetric(horizontal: 0),
+                          width:80, // Adjust the width as needed
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
@@ -165,25 +164,20 @@ class _ProductDetailState extends State<ProductDetail> {
                           ),
                           child: Stack(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(6.0),
-                                child: Image.asset(
-                                  widget.product.imageAssets[index],
-                                  fit: BoxFit.fill,
-                                  height: 77,
-                                  width: 77,
-                                ),
+                              Image.asset(
+                                widget.product.imageAssets[index],
+                                fit: BoxFit.fill,
+                                height: 77,
+                                width: 77,
                               ),
                               if (selectedImageIndex == index)
                                 Positioned(
-
-                                  bottom: -2,
-                                  left: -10,
+                                  bottom: 12,
+                                  left: 0,
                                   right: 0,
                                   child: SvgPicture.asset(
-                                    'assets/menu/3.svg',
-                                    height: 20,
-
+                                    'assets/icons/2.svg',
+                                    height: 15,
                                     color: AppColor.primaryBlackColor,
                                   ),
                                 ),

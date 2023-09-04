@@ -53,49 +53,46 @@ class ReviewsScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                 Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.star,
-                        color: AppColor.primaryBlackColor,
-                        size: 30,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: AppColor.primaryBlackColor,
-                        size: 30,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: AppColor.primaryBlackColor,
-                        size: 30,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: AppColor.primaryBlackColor,
-                        size: 30,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: AppColor.primaryBlackColor,
-                        size: 30,
-                      ),
-                      Text('(34 Reviews)',style: GoogleFonts.beVietnamPro(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                          color: AppColor.primaryGreyColor
-                      ))
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                     Icon(
+                       Icons.star,
+                       color: AppColor.primaryBlackColor,
+                       size: 30,
+                     ),
+                     Icon(
+                       Icons.star,
+                       color: AppColor.primaryBlackColor,
+                       size: 30,
+                     ),
+                     Icon(
+                       Icons.star,
+                       color: AppColor.primaryBlackColor,
+                       size: 30,
+                     ),
+                     Icon(
+                       Icons.star,
+                       color: AppColor.primaryBlackColor,
+                       size: 30,
+                     ),
+                     Icon(
+                       Icons.star,
+                       color: AppColor.primaryBlackColor,
+                       size: 30,
+                     ),
+                     Text('(34 Reviews)',style: GoogleFonts.beVietnamPro(
+                         fontWeight: FontWeight.w400,
+                         fontSize: 14,
+                         color: AppColor.primaryGreyColor
+                     ))
 
-                    ],
-                  ),
-                ),
+                   ],
+                 ),
 
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -105,142 +102,157 @@ class ReviewsScreen extends StatelessWidget {
                       color: AppColor.primaryGreyColor
                   ),),
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Divider(
-                    thickness: 1,
-                    height: 2,
-                    color: AppColor.secondaryGreyColor,
-                  ),
+
+                Divider(
+                  thickness: 1,
+                  height: 2,
+                  color: AppColor.secondaryGreyColor,
                 ),
+                SizedBox(height: 20,),
 
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
+                Column(
 
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('5 stars',style: GoogleFonts.beVietnamPro(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          '5 stars',
+                          style: GoogleFonts.beVietnamPro(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.primaryBlackColor,
+                          ),
+                        ),
+                        SizedBox(width: 10), // Add space here
+                        Flexible(
+                          child: Container(
+                            height: 10,
+                            color: AppColor.fourthGreyColor,
+                          ),
+                        ),
+                        SizedBox(width: 10), // Add space here
+                        Text(
+                          '(24)',
+                          style: GoogleFonts.beVietnamPro(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor,
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 20,),
+                    Row(
+                      children: [
+                        Text('4 stars',style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: AppColor.primaryBlackColor
-                          ),),
-                          Container(
-                            width: 300,
+                        )),
+                        SizedBox(width: 10),
+                        Flexible(
+                          child: Container(
+                  
                             height: 10,
                             color: AppColor.fourthGreyColor,
                           ),
-                          Text('(24)',style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor
-                          ))
+                        ),
+                        SizedBox(width: 10),
+                        Text('(10)',style: GoogleFonts.beVietnamPro(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor
+                        ))
 
-                        ],
-                      ),
-                      SizedBox(height: 20,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('4 stars',style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: AppColor.primaryBlackColor
-                          )),
-                          Container(
-                            width: 300,
+                      ],
+                    ),
+                    SizedBox(height: 20,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('3 stars',style: GoogleFonts.beVietnamPro(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.primaryBlackColor
+                        )),
+                        SizedBox(width: 10),
+                        Flexible(
+                          child: Container(
+                 
                             height: 10,
                             color: AppColor.fourthGreyColor,
                           ),
-                          Text('(10)',style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor
-                          ))
+                        ),
+                        SizedBox(width: 10),
+                        Text('(04)',style: GoogleFonts.beVietnamPro(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor
+                        ))
 
-                        ],
-                      ),
-                      SizedBox(height: 20,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('3 stars',style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: AppColor.primaryBlackColor
-                          )),
-                          Container(
-                            width: 300,
+                      ],
+                    ),
+                    SizedBox(height: 20,),Row(
+                 
+                      children: [
+                        Text('2 stars',style: GoogleFonts.beVietnamPro(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.primaryBlackColor
+                        )),
+                        SizedBox(width: 10),
+                        Flexible(
+                          child: Container(
+               
                             height: 10,
                             color: AppColor.fourthGreyColor,
                           ),
-                          Text('(4)',style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor
-                          ))
+                        ),
+                        SizedBox(width: 10),
+                        Text('(02)',style: GoogleFonts.beVietnamPro(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor
+                        ))
 
-                        ],
-                      ),
-                      SizedBox(height: 20,),Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('2 stars',style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: AppColor.primaryBlackColor
-                          )),
-                          Container(
-                            width: 300,
+                      ],
+
+                    ),
+                    SizedBox(height: 20,),Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('1 stars',style: GoogleFonts.beVietnamPro(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.primaryBlackColor
+                        )),
+                        SizedBox(width: 10),
+                        Flexible(
+                          child: Container(
+                 
                             height: 10,
                             color: AppColor.fourthGreyColor,
                           ),
-                          Text('(2)',style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor
-                          ))
+                        ),
+                        SizedBox(width: 10),
+                        Text('(01)',style: GoogleFonts.beVietnamPro(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor
+                        ))
 
-                        ],
-
-                      ),
-                      SizedBox(height: 20,),Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('1 stars',style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: AppColor.primaryBlackColor
-                          )),
-                          Container(
-                            width: 300,
-                            height: 10,
-                            color: AppColor.fourthGreyColor,
-                          ),
-                          Text('(1)',style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor
-                          ))
-
-                        ],
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                  ],
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Divider(
-                    thickness: 1,
-                    height: 2,
-                    color: AppColor.secondaryGreyColor,
-                  ),
+                Divider(
+                  thickness: 1,
+                  height: 2,
+                  color: AppColor.secondaryGreyColor,
                 ),
 
-                Padding(padding: const EdgeInsets.all(8.0),
-                child: Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
 
                   children: [
@@ -487,15 +499,12 @@ class ReviewsScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                   ],
-                ),),
+                ),
 
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Divider(
-                    thickness: 2,
-                    height: 2,
-                    color: AppColor.secondaryGreyColor,
-                  ),
+                Divider(
+                  thickness: 2,
+                  height: 2,
+                  color: AppColor.secondaryGreyColor,
                 ),
                 const SizedBox(
                   height: 20,
@@ -505,7 +514,7 @@ class ReviewsScreen extends StatelessWidget {
                   itemCount: 3, // Number of reviews
                   itemBuilder: (context, index) {
                     return  Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(0.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

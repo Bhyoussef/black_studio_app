@@ -23,7 +23,7 @@ List<Product> dummyProducts = [
     name: 'Women Grey Lace Empire Top',
     category: 'Athena',
     price: 1500,
-    imageAssets: ['assets/demo/demo.jpg','assets/demo/demo.jpg','assets/demo/demo.jpg'], // Replace with actual asset paths
+    imageAssets: ['assets/demo/demo.jpg','assets/demo/Rectangle 1134.png','assets/demo/Rectangle 1135.png'], // Replace with actual asset paths
   ),
   Product(
     id:'2',

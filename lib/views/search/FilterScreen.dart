@@ -89,59 +89,62 @@ class _FilterScreenState extends State<FilterScreen> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        child:          Padding(
+        child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 60,
-                    width: 180,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColor.primaryBlackColor,
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: MaterialButton(
-                      onPressed: () {
-                      },
-                      child: Text(
-                        'Clear All',
-                        style: GoogleFonts.beVietnamPro(
+              Expanded(
+                child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: 60,
+                      decoration: BoxDecoration(
+                        border: Border.all(
                           color: AppColor.primaryBlackColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
+                          width: 1,
                         ),
-                      ),
-                    ),
-                  )),
-
-              Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    height: 60,
-                    width: 180,
-                    child: MaterialButton(
-                      minWidth: MediaQuery.of(context).size.width,
-                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      color: AppColor.primaryBlackColor,
-                      onPressed: () {},
-                      child: Text(
-                        'Apply',
-                        style: GoogleFonts.beVietnamPro(
-                          color: AppColor.primaryWhiteColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
+                      child: MaterialButton(
+                        onPressed: () {
+                        },
+                        child: Text(
+                          'Clear All',
+                          style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryBlackColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
-                    ),
-                  )),
+                    )),
+              ),
+
+              Expanded(
+                child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      height: 60,
+           
+                      child: MaterialButton(
+                        minWidth: MediaQuery.of(context).size.width,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        color: AppColor.primaryBlackColor,
+                        onPressed: () {},
+                        child: Text(
+                          'Apply',
+                          style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryWhiteColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    )),
+              ),
 
             ],
           ),

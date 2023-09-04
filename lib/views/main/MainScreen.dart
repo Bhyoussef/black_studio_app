@@ -45,6 +45,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       drawer: const DrawerWidget(),
       body: Obx(
         () => pages[controller.currentIndex.value],

@@ -56,45 +56,48 @@ class _CategoryScreenState extends State<CategoryScreen> {
           color: AppColor.primaryBlackColor
         ),),
       ),
-      body: ListView.builder(
-        itemCount: categories.length,
-        itemBuilder: (context, index) {
-          final category = categories[index];
-          return GestureDetector(
-            onTap: (){
-              Get.to(()=>ProductCategoryScreen(title:category.name));
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Container(
-                height: 92,
-                decoration: BoxDecoration(
-                  color: AppColor.secondaryGreyColor,
-                  borderRadius: BorderRadius.circular(10),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: categories.length,
+          itemBuilder: (context, index) {
+            final category = categories[index];
+            return GestureDetector(
+              onTap: (){
+                Get.to(()=>ProductCategoryScreen(title:category.name));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 92,
+                  decoration: BoxDecoration(
+                    color: AppColor.secondaryGreyColor,
+                    borderRadius: BorderRadius.circular(10),
 
-                ),
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(category.name,style: GoogleFonts.beVietnamPro(
-                          fontSize: 16,
-                          fontWeight:FontWeight.normal,
-                          color: AppColor.primaryBlackColor
-                      )),
-                    ),
-                    const SizedBox(width: 16),
-                    Image.asset(
-                      category.imageURL,
-                      height: 60,
-                      width: 60,
-                    ),
-                  ],
+                  ),
+                  padding: EdgeInsets.only(left: 8,right: 8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(category.name,style: GoogleFonts.beVietnamPro(
+                            fontSize: 16,
+                            fontWeight:FontWeight.normal,
+                            color: AppColor.primaryBlackColor
+                        )),
+                      ),
+                      const SizedBox(width: 16),
+                      Image.asset(
+                        category.imageURL,
+                        height: 60,
+                        width: 60,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

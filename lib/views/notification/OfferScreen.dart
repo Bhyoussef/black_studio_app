@@ -50,11 +50,98 @@ class OfferScreen extends StatelessWidget {
                   ),
                   subtitle:Padding(
                     padding: const EdgeInsets.all(6.0),
-                    child: Text('Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',style: GoogleFonts.beVietnamPro(
-                        color: AppColor.primaryGreyColor,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 10
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryGreyColor.withOpacity(0.5),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13
+                        )),
+                        SizedBox(height: 10,),
+                        Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryGreyColor.withOpacity(0.9),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12
+                        ))
+                      ],
+                    ),
+                  ),
+                  onTap: (){
+                  },
+                ),
+                ListTile(
+                  leading: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(0.0),
+                      child: SvgPicture.asset('assets/icons/tag.svg'),
+                    ),
+                  ),
+                  title: Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Text('The Best Title',style: GoogleFonts.beVietnamPro(
+                        color: AppColor.primaryBlackColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15
                     )),
+                  ),
+                  subtitle:Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryGreyColor.withOpacity(0.5),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13
+                        )),
+                        SizedBox(height: 10,),
+                        Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryGreyColor.withOpacity(0.9),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12
+                        ))
+                      ],
+                    ),
+                  ),
+                  onTap: (){
+                  },
+                ),
+                ListTile(
+                  leading: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(0.0),
+                      child: SvgPicture.asset('assets/icons/tag.svg'),
+                    ),
+                  ),
+                  title: Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Text('The Best Title',style: GoogleFonts.beVietnamPro(
+                        color: AppColor.primaryBlackColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15
+                    )),
+                  ),
+                  subtitle:Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryGreyColor.withOpacity(0.5),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13
+                        )),
+                        SizedBox(height: 10,),
+                        Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
+                            color: AppColor.primaryGreyColor.withOpacity(0.9),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12
+                        ))
+                      ],
+                    ),
                   ),
                   onTap: (){
                   },

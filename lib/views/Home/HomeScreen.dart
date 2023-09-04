@@ -22,6 +22,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  List<String> brands = [
+    'assets/icons/Boss.svg',
+    'assets/icons/Burberry.svg',
+    'assets/icons/Catier.svg',
+    'assets/icons/Gucci.svg',
+    'assets/icons/Prada.svg',
+    'assets/icons/Tiffany & Co.svg'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -302,6 +310,50 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+            const SizedBox(height: 10),
+            SvgPicture.asset(
+              'assets/icons/divider.svg',
+              height: 10,
+              color: AppColor.primaryBlackColor,
+            ),
+            const SizedBox(height: 10),
+
+            //Brands
+
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Wrap(
+                spacing: 15,
+                runSpacing: 15,
+                direction: Axis.horizontal,
+                children: List.generate(brands.length, (index) {
+                  final brand = brands[index];
+
+                  return Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: SvgPicture.asset(
+                          brand,
+                          width: 70, // Adjust the width of the SVG image
+                          height: 12, // Adjust the height of the SVG image
+                        ),
+                      ),
+                    ],
+                  );
+                }),
+              ),
+            ),
+
+
+
+            const SizedBox(height: 10),
+            SvgPicture.asset(
+              'assets/icons/divider.svg',
+              height: 10,
+              color: AppColor.primaryBlackColor,
+            ),
+            const SizedBox(height: 10),
             const SizedBox(height: 16),
             Container(
               height: 260,

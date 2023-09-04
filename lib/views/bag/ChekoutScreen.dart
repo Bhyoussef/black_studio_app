@@ -57,7 +57,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(10.0),
                 child: ColumnBuilder(
                   itemCount: widget.products.length,
                   itemBuilder: (context, index) {
@@ -100,7 +100,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(left: 16.0,right: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -138,6 +138,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 ),
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Theme(
                     data: ThemeData(
@@ -251,7 +252,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Container(
                   height: 50,
                   width: MediaQuery.of(context).size.width,
@@ -291,7 +292,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
               ),
               const SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Container(
                   padding: EdgeInsets.all(8.0),
                   child: Column(
@@ -367,7 +368,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(0.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,

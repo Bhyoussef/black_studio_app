@@ -45,6 +45,12 @@ class NotificationScreen extends StatelessWidget {
                   onTap: (){
                     Get.to(()=>const OfferScreen());
                   },
+                  trailing: const Badge(
+                    label:
+                         Text("3",
+
+                    ),
+                  ),
                 ),
                 ListTile(
                   leading: SvgPicture.asset('assets/icons/List.svg'),
@@ -56,6 +62,12 @@ class NotificationScreen extends StatelessWidget {
                   onTap: (){
                     Get.to(()=>const FeedScreen());
                   },
+                  trailing: const Badge(
+                    label:
+                    Text("3",
+
+                    ),
+                  ),
                 ),
                 ListTile(
                   leading: SvgPicture.asset('assets/icons/Notification.svg'),
@@ -67,6 +79,12 @@ class NotificationScreen extends StatelessWidget {
                   onTap: (){
                     Get.to(()=>const ActivityScreen());
                   },
+                  trailing: const Badge(
+                    label:
+                    Text("2",
+
+                    ),
+                  ),
                 )
               ],
             )

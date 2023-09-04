@@ -84,145 +84,125 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(0.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColor.primaryWhiteColor,
-                  borderRadius: BorderRadius.circular(0),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: AppColor.primaryWhiteColor,
-                      offset: Offset(0, 2),
-                      blurRadius: 8.0,
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    MaterialButton(
-                      height: 40,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                MaterialButton(
+                  height: 40,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  onPressed: () {
+                    _showProductDialog(context);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Category',
+                        style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryGreyColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                      onPressed: () {
-                        _showProductDialog(context);
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            'Category',
-                            style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryGreyColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Icon(
-                            Icons.arrow_drop_down,
-                            color: AppColor.primaryBlackColor,
-                            size: 15,
-                          )
-                        ],
-                      ),
-                    ),
-                    MaterialButton(
-                      height: 40,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      onPressed: () {
-                        _showSortByDialog(context);
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            'Sort by',
-                            style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryGreyColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Icon(
-                            Icons.arrow_drop_down,
-                            color: AppColor.primaryBlackColor,
-                            size: 15,
-                          )
-                        ],
-                      ),
-                    ),
-                    MaterialButton(
-                      height: 40,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      onPressed: () {
-                        //_showFilterModal(context);
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            'Size',
-                            style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryGreyColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Icon(
-                            Icons.arrow_drop_down,
-                            color: AppColor.primaryBlackColor,
-                            size: 15,
-                          )
-                        ],
-                      ),
-                    ),
-                    MaterialButton(
-                      height: 40,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      onPressed: () {
-                       Get.to(()=>FilterScreen());
 
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            'Filter',
-                            style: GoogleFonts.beVietnamPro(
-                              color: AppColor.primaryGreyColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Icon(
-                            Icons.filter_list,
-                            color: AppColor.primaryBlackColor,
-                            size: 15,
-                          )
-                        ],
-                      ),
-                    ),
-
-                  ],
+                      const Icon(
+                        Icons.arrow_drop_down,
+                        color: AppColor.primaryBlackColor,
+                        size: 15,
+                      )
+                    ],
+                  ),
                 ),
-              ),
+                MaterialButton(
+                  height: 40,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  onPressed: () {
+                    _showSortByDialog(context);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Sort by',
+                        style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryGreyColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+
+                      const Icon(
+                        Icons.arrow_drop_down,
+                        color: AppColor.primaryBlackColor,
+                        size: 15,
+                      )
+                    ],
+                  ),
+                ),
+                MaterialButton(
+                  height: 40,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  onPressed: () {
+                    //_showFilterModal(context);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Size',
+                        style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryGreyColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+
+                      const Icon(
+                        Icons.arrow_drop_down,
+                        color: AppColor.primaryBlackColor,
+                        size: 15,
+                      )
+                    ],
+                  ),
+                ),
+                MaterialButton(
+                  height: 40,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  onPressed: () {
+                    Get.to(() => FilterScreen());
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Filter',
+                        style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryGreyColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+
+                      const Icon(
+                        Icons.filter_list,
+                        color: AppColor.primaryBlackColor,
+                        size: 14,
+                      )
+                    ],
+                  ),
+                ),
+
+              ],
             ),
+
             const SizedBox(
               height: 10,
             ),

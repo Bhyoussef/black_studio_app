@@ -51,8 +51,9 @@ class SizeSection extends StatelessWidget {
                     child: Text(
                       'Size Guide',
                       style: GoogleFonts.beVietnamPro(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.w600,
+                        color: AppColor.primaryBlackColor
                       ),
                     ),
                   ),

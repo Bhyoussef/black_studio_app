@@ -63,7 +63,7 @@ class _BagScreenState extends State<BagScreen> {
         ),
       ),
       body: SafeArea(
-        child:    bagController.items.isEmpty
+        child: bagController.items.isEmpty
             ?  Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,13 +87,13 @@ class _BagScreenState extends State<BagScreen> {
                     ),
                   ) ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               SvgPicture.asset(
                 'assets/icons/divider.svg',
-                height: 14,
+                height: 10,
                 color: AppColor.primaryBlackColor,
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Text(
                 'Currently, you don\'t have any item in your Bag.',
                 style: GoogleFonts.beVietnamPro(
@@ -214,12 +214,7 @@ class _BagScreenState extends State<BagScreen> {
               ],
             ),
           ),
-        ),
-
-
-
-
-          const SizedBox(height: 10),
+        ), const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: GetBuilder<CartController>(
@@ -319,7 +314,7 @@ class _BagScreenState extends State<BagScreen> {
                   ),
 
 
-                 Padding(
+                 const Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
