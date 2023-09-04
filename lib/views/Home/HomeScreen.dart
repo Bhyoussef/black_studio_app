@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.black,
             ),
             onPressed: () {
-              Get.to(()=>FavoriteScreen());
+              Get.to(()=>const FavoriteScreen());
             },
           ),
           IconButton(
@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Container(
               height: 260,
               width: MediaQuery.of(context).size.width,
@@ -192,7 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(() => AllProduct(title: 'READY TO WEAR'));
+                    Get.to(() => const AllProduct(title: 'READY TO WEAR'));
                   },
                   child: Container(
                     alignment: Alignment.center,
@@ -211,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 65,
                           width: 58,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Text(
@@ -250,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 65,
                           width: 58,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Text(
@@ -374,10 +374,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: double.infinity,
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             GestureDetector(
               onTap: () {
-                Get.to(() => AllProduct(title: 'Best Sellers'));
+                Get.to(() => const AllProduct(title: 'Best Sellers'));
               },
               child: Text(
                 'Best Sellers'.toUpperCase(),
@@ -388,13 +388,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SvgPicture.asset(
               'assets/icons/divider.svg',
               height: 10,
               color: AppColor.primaryBlackColor,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SizedBox(
               height: 280,
               child: Row(

@@ -34,10 +34,11 @@ class FeedScreen extends StatelessWidget {
               children: [
                 ListTile(
                   leading: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child:  SvgPicture.asset('assets/icons/List.svg'),
+                    padding:  EdgeInsets.all(0.0),
+                    child:      Image.asset(
+                     "assets/demo/demo.jpg",
+                  width: 50,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   title: Padding(
@@ -56,7 +57,7 @@ class FeedScreen extends StatelessWidget {
                         Text('Nike Air Zoom Pegasus 36 Miami - Special For your Activity',style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.5),
                             fontWeight: FontWeight.w400,
-                            fontSize: 10
+                            fontSize: 13
                         )),
                         SizedBox(height: 10,),
                         Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
@@ -72,15 +73,16 @@ class FeedScreen extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child:  SvgPicture.asset('assets/icons/List.svg'),
+                    padding:  EdgeInsets.all(0.0),
+                    child:      Image.asset(
+                      "assets/demo/demo.jpg",
+                      width: 50,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   title: Padding(
                     padding: const EdgeInsets.all(6.0),
-                    child: Text('New Product',style: GoogleFonts.beVietnamPro(
+                    child: Text('Best Product',style: GoogleFonts.beVietnamPro(
                         color: AppColor.primaryBlackColor,
                         fontWeight: FontWeight.w600,
                         fontSize: 15
@@ -94,7 +96,7 @@ class FeedScreen extends StatelessWidget {
                         Text('Nike Air Zoom Pegasus 36 Miami - Special For your Activity',style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.5),
                             fontWeight: FontWeight.w400,
-                            fontSize: 10
+                            fontSize: 13
                         )),
                         SizedBox(height: 10,),
                         Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
@@ -110,10 +112,11 @@ class FeedScreen extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child:  SvgPicture.asset('assets/icons/List.svg'),
+                    padding:  EdgeInsets.all(0.0),
+                    child:      Image.asset(
+                      "assets/demo/demo.jpg",
+                      width: 50,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   title: Padding(
@@ -132,7 +135,7 @@ class FeedScreen extends StatelessWidget {
                         Text('Nike Air Zoom Pegasus 36 Miami - Special For your Activity',style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.5),
                             fontWeight: FontWeight.w400,
-                            fontSize: 10
+                            fontSize: 13
                         )),
                         SizedBox(height: 10,),
                         Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(

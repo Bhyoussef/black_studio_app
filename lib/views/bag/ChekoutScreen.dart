@@ -384,7 +384,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Price: ${price?.toInt()}',
+                    'Price: ${price?.toInt()} QAR',
                     style: GoogleFonts.beVietnamPro(
                         fontWeight: FontWeight.w700,
                         fontSize: 15,
@@ -403,10 +403,11 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   ),
                   Row(
                     children: [
-                      Text('Qty:',style: GoogleFonts.beVietnamPro(
+                      Text('Qty :',style: GoogleFonts.beVietnamPro(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
                           color: AppColor.primaryGreyColor)),
+                      SizedBox(width: 5,),
                       Text(quantity!,style: GoogleFonts.beVietnamPro(
                           fontWeight: FontWeight.w600,
                           fontSize: 14,

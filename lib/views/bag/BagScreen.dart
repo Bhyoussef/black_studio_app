@@ -256,7 +256,7 @@ class _BagScreenState extends State<BagScreen> {
                   ),
                   const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(14.0),
                     child: Container(
                       height: 50,
                       width: MediaQuery.of(context).size.width,
@@ -268,7 +268,7 @@ class _BagScreenState extends State<BagScreen> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
+                        padding: const EdgeInsets.only(left: 6.0),
                         child: TextFormField(
                           decoration: InputDecoration(
                             border: InputBorder.none,

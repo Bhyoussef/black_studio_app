@@ -55,7 +55,7 @@ class ActivityScreen extends StatelessWidget {
                         Text('Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.5),
                             fontWeight: FontWeight.w400,
-                            fontSize: 10
+                            fontSize: 13
                         )),
                         SizedBox(height: 10,),
                         Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
@@ -92,7 +92,7 @@ class ActivityScreen extends StatelessWidget {
                         Text('Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.5),
                             fontWeight: FontWeight.w400,
-                            fontSize: 10
+                            fontSize: 13
                         )),
                         SizedBox(height: 10,),
                         Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
@@ -129,7 +129,7 @@ class ActivityScreen extends StatelessWidget {
                         Text('Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.5),
                             fontWeight: FontWeight.w400,
-                            fontSize: 10
+                            fontSize: 13
                         )),
                         SizedBox(height: 10,),
                         Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
