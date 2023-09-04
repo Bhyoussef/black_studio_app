@@ -83,7 +83,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     flex: 1,
                     child: TextButton(
                       onPressed: () {
-                        Get.to(() => const MainScreen());
+                        Get.to(() => const MainScreen(initialIndex: 0,));
                       },
                       child: Text(
                         'Cancel',

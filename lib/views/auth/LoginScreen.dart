@@ -82,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                   textcolor: AppColor.primaryWhiteColor,
                   backcolor: AppColor.primaryBlackColor,
                   onPressed: () {
-                    Get.to(()=>MainScreen());
+                    Get.to(()=>MainScreen(initialIndex: 0,));
                   }, text: 'Sign In',
                 ),
                 const SizedBox(height: 10),

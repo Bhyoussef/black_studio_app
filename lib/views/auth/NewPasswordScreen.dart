@@ -140,7 +140,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                   textcolor: AppColor.primaryWhiteColor,
                   backcolor: AppColor.primaryBlackColor,
                   onPressed: () {
-                    Get.to(()=>MainScreen());
+                    Get.to(()=>MainScreen(initialIndex: 0,));
                   }, text: 'Create',
                 ),
 

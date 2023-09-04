@@ -9,14 +9,15 @@ import 'package:linkia_ecommerce/views/Home/HomeScreen.dart';
 import 'package:linkia_ecommerce/views/bag/BagScreen.dart';
 import 'package:linkia_ecommerce/views/brand/BrandScreen.dart';
 import 'package:linkia_ecommerce/views/category/CategoryScreen.dart';
+import 'package:linkia_ecommerce/views/favorite/FavoriteScreen.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
 import 'package:linkia_ecommerce/views/profile/ProfileScreen.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
 
-import 'CustomAppBar.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final int initialIndex;
+  const MainScreen({super.key, required this.initialIndex});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -25,6 +26,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final MainController controller = Get.put(MainController());
+
 
   final List<Widget> pages = [
     const HomeScreen(),
@@ -35,20 +37,81 @@ class _MainScreenState extends State<MainScreen> {
   ];
 
   final List<String> pageTitles = [
-    'Home',
+    'THE BLACK STUDIO',
     'Category',
     'Bag',
     'Brand',
     'Profile',
   ];
 
+  final List<List<Widget>> pageActions = [
+    // Actions for Home page
+    [
+      IconButton(
+        icon: SvgPicture.asset(
+          'assets/drawer/Heart.svg',
+          color: Colors.black,
+        ),
+        onPressed: () {
+          Get.to(() => const FavoriteScreen());
+        },
+      ),
+      IconButton(
+        icon: SvgPicture.asset(
+          'assets/drawer/Bell.svg',
+          color: Colors.black,
+        ),
+        onPressed: () {
+          Get.to(() => const NotificationScreen());
+        },
+      ),
+    ],
+    [], // No actions for Category page
+    [], // No actions for Bag page
+    [], // No actions for Brand page
+    [], // No actions for Profile page
+  ];
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () {
+      controller.changePage(widget.initialIndex);
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: AppColor.primaryWhiteColor,
+        leading: IconButton(
+          icon: SvgPicture.asset(
+            'assets/menu/List.svg',
+            color: AppColor.primaryBlackColor,
+          ),
+          onPressed: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
+        ),
+        automaticallyImplyLeading: false,
+        title: Obx(
+              () => Text(
+            pageTitles[controller.currentIndex.value], // Update title here
+            style: GoogleFonts.beVietnamPro(
+              color: AppColor.primaryBlackColor,
+              fontWeight: FontWeight.w600,
+              fontSize: 18,
+            ),
+          ),
+        ),
+        actions: pageActions[controller.currentIndex.value],
+      ),
       body: Obx(
-        () => pages[controller.currentIndex.value],
+            () => pages[controller.currentIndex.value],
       ),
       bottomNavigationBar: GetBuilder<MainController>(
         builder: (_) => BottomNavigationBar(
@@ -87,7 +150,7 @@ class _MainScreenState extends State<MainScreen> {
             BottomNavigationBarItem(
               icon: Badge(
                 label: Obx(
-                  () => Text(
+                      () => Text(
                     Get.find<CartController>().items.length.toString(),
                   ),
                 ),
@@ -130,3 +193,5 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+

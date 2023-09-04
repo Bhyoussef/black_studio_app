@@ -35,48 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
-      drawer: const DrawerWidget(),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: AppColor.primaryWhiteColor,
-        leading: IconButton(
-          icon: SvgPicture.asset(
-            'assets/menu/List.svg',
-            color: AppColor.primaryBlackColor,
-          ),
-          onPressed: () {
-            _scaffoldKey.currentState?.openDrawer();
-          },
-        ),
-        automaticallyImplyLeading: false,
-        title: Text(
-          'THE BLACK STUDIO',
-          style: GoogleFonts.beVietnamPro(
-              color: AppColor.primaryBlackColor,
-              fontWeight: FontWeight.w600,
-              fontSize: 18),
-        ),
-        actions: [
-          IconButton(
-            icon: SvgPicture.asset(
-              'assets/drawer/Heart.svg',
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Get.to(()=>const FavoriteScreen());
-            },
-          ),
-          IconButton(
-            icon: SvgPicture.asset(
-              'assets/drawer/Bell.svg',
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Get.to(() => const NotificationScreen());
-            },
-          ),
-        ],
-      ),
+     // drawer: const DrawerWidget(),
+
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
@@ -344,9 +304,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 }),
               ),
             ),
-
-
-
             const SizedBox(height: 10),
             SvgPicture.asset(
               'assets/icons/divider.svg',

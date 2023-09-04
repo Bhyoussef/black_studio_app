@@ -57,7 +57,7 @@ class ActivityScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             fontSize: 13
                         )),
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                         Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.9),
                             fontWeight: FontWeight.w500,
@@ -94,7 +94,7 @@ class ActivityScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             fontSize: 13
                         )),
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                         Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.9),
                             fontWeight: FontWeight.w500,
@@ -131,7 +131,7 @@ class ActivityScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             fontSize: 13
                         )),
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                         Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.9),
                             fontWeight: FontWeight.w500,

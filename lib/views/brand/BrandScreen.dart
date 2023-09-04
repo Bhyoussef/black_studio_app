@@ -77,7 +77,7 @@ class _BrandScreenState extends State<BrandScreen> {
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
 
-      appBar: AppBar(
+  /*    appBar: AppBar(
         backgroundColor: AppColor.primaryWhiteColor,
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -107,7 +107,7 @@ class _BrandScreenState extends State<BrandScreen> {
             fontSize: 18
           ),
         ),
-      ),
+      ),*/
       body: Column(
         children: [
           Padding(

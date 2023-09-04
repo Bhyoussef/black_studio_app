@@ -7,6 +7,7 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/controllers/CartController/CartController.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/bag/BagScreen.dart';
+import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/views/reviews/ReviewsScreen.dart';
 import 'package:share/share.dart';
 
@@ -101,7 +102,7 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
           IconButton(
             constraints: const BoxConstraints(),
-            onPressed: () => Get.to(() => const BagScreen(isHome: true)),
+            onPressed: () => Get.to(() =>  MainScreen(initialIndex: 2)),
             icon: Badge(
               label: Obx(
                 () => Text(

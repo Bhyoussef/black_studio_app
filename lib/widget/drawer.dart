@@ -26,8 +26,7 @@ class DrawerWidget extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.topLeft,
-
-              padding: const EdgeInsets.only(left: 10, top: 50),
+              padding: const EdgeInsets.only(left: 10, top: 40),
               child: GestureDetector(
                 onTap: () {
                   Get.back();
@@ -223,12 +222,12 @@ class DrawerListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: SvgPicture.asset(leadingAsset), // Use SvgPicture.asset for SVG images
+      leading: SvgPicture.asset(leadingAsset,height: 24,), // Use SvgPicture.asset for SVG images
       title: Text(
         title,
         style: GoogleFonts.beVietnamPro(
           color: AppColor.primaryBlackColor,
-          fontSize: 16,
+          fontSize: 14,
           fontWeight: FontWeight.w400,
         ),
       ),

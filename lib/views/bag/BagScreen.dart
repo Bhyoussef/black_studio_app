@@ -31,7 +31,7 @@ class _BagScreenState extends State<BagScreen> {
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
-      appBar: AppBar(
+  /*    appBar: AppBar(
         leading: widget.isHome == true
             ? IconButton(
                 icon: const Icon(
@@ -61,7 +61,7 @@ class _BagScreenState extends State<BagScreen> {
             color: AppColor.primaryBlackColor,
           ),
         ),
-      ),
+      ),*/
       body: SafeArea(
         child: bagController.items.isEmpty
             ?  Center(

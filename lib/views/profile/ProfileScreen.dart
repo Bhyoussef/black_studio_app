@@ -27,7 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
-      appBar: AppBar(
+      /*appBar: AppBar(
         leading: widget.isHome == true
             ? IconButton(
           icon: const Icon(
@@ -56,7 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               fontWeight: FontWeight.w600,
               color: AppColor.primaryBlackColor),
         ),
-      ),
+      ),*/
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

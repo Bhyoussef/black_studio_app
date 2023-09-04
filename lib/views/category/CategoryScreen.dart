@@ -38,7 +38,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
       drawer: const DrawerWidget(),
-      appBar: AppBar(
+      /*appBar: AppBar(
         leading: IconButton(
           icon:   SvgPicture.asset(
             'assets/menu/List.svg',
@@ -55,7 +55,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           fontWeight: FontWeight.w600,
           color: AppColor.primaryBlackColor
         ),),
-      ),
+      ),*/
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.builder(
