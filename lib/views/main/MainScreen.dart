@@ -84,7 +84,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: const DrawerWidget(),
+      drawer:  DrawerWidget(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,

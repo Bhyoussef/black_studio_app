@@ -30,7 +30,7 @@ class _BagScreenState extends State<BagScreen> {
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
-      drawer: const DrawerWidget(),
+     // drawer: const DrawerWidget(),
   /*    appBar: AppBar(
         leading: widget.isHome == true
             ? IconButton(

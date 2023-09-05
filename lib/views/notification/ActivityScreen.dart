@@ -36,7 +36,7 @@ class ActivityScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Padding(
                       padding: const EdgeInsets.all(0.0),
-                      child:  SvgPicture.asset('assets/icons/Notification.svg'),
+                      child:  SvgPicture.asset('assets/icons/activity.svg'),
                     ),
                   ),
                   title: Padding(
@@ -73,7 +73,7 @@ class ActivityScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Padding(
                       padding: const EdgeInsets.all(0.0),
-                      child:  SvgPicture.asset('assets/icons/Notification.svg'),
+                      child:  SvgPicture.asset('assets/icons/activity.svg'),
                     ),
                   ),
                   title: Padding(
@@ -110,7 +110,7 @@ class ActivityScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Padding(
                       padding: const EdgeInsets.all(0.0),
-                      child:  SvgPicture.asset('assets/icons/Notification.svg'),
+                      child:  SvgPicture.asset('assets/icons/activity.svg'),
                     ),
                   ),
                   title: Padding(

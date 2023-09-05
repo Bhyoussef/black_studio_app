@@ -281,10 +281,10 @@ class _HomeScreenState extends State<HomeScreen> {
             //Brands
 
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(2.0),
               child: Wrap(
-                spacing: 15,
-                runSpacing: 15,
+                spacing: 30,
+                runSpacing: 30,
                 direction: Axis.horizontal,
                 children: List.generate(brands.length, (index) {
                   final brand = brands[index];
@@ -292,11 +292,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   return Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(5.0),
+                        padding: const EdgeInsets.all(6.0),
                         child: SvgPicture.asset(
                           brand,
                           width: 70, // Adjust the width of the SVG image
-                          height: 12, // Adjust the height of the SVG image
+                          height: 14, // Adjust the height of the SVG image
                         ),
                       ),
                     ],
@@ -383,7 +383,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget buildProductCard(Product product) {
     return Column(
       children: [
-        Image.asset(
+        Image.network(
           product.imageAssets[0], // Use the first image from the list
           height: 200,
           width: 165,
@@ -394,13 +394,16 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                product.name,
-                style: GoogleFonts.beVietnamPro(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
+              Flexible(
+                child: Text(
+                  product.name,
+                  style: GoogleFonts.beVietnamPro(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                 ),
-                overflow: TextOverflow.ellipsis,
               ),
               Text(
                 product.category,

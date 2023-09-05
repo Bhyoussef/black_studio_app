@@ -70,7 +70,7 @@ Widget buildProductCard(Product product) {
     ),
     child: Column(
       children: [
-        Image.asset(
+        Image.network(
           product.imageAssets[0],
           height: 180,
           width: 150,

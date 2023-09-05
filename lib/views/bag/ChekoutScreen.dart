@@ -48,7 +48,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontSize: 18,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -68,7 +68,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                       child: GestureDetector(
                         onTap: () {},
                         child: _buildOrderCard(
-                          image: AssetImage(product.product.imageAssets[0]),
+                          image: NetworkImage(product.product.imageAssets[0]),
                           price: product.product.price,
                           productName: product.product.name,
                           quantity: product.product.quantity.toString(),
@@ -111,7 +111,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                     ),),
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.arrow_forward_ios, size: 20,color: AppColor.primaryGreyColor,),
+                      icon: const Icon(Icons.arrow_forward_ios, size: 20,color: AppColor.primaryGreyColor,),
                     ),
                   ],
                 ),
@@ -154,7 +154,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                     child: CheckboxListTile(
                       checkColor: AppColor.primaryWhiteColor,
                       activeColor: AppColor.primaryBlackColor,
-                      title: Text('PayPal',
+                      title: const Text('PayPal',
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
@@ -181,7 +181,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                     child: CheckboxListTile(
                       checkColor: AppColor.primaryWhiteColor,
                       activeColor: AppColor.primaryBlackColor,
-                      title: Text('Apple Pay',
+                      title: const Text('Apple Pay',
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
@@ -208,7 +208,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                     child: CheckboxListTile(
                       checkColor: AppColor.primaryWhiteColor,
                       activeColor: AppColor.primaryBlackColor,
-                      title: Text('Credit/Debit Card',
+                      title: const Text('Credit/Debit Card',
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w400,
@@ -236,7 +236,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                     child: CheckboxListTile(
                       checkColor: AppColor.primaryWhiteColor,
                       activeColor: AppColor.primaryBlackColor,
-                      title: Text('Bank Transfer',
+                      title: const Text('Bank Transfer',
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w400,
@@ -294,7 +294,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -305,12 +305,12 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       _buildPriceDetailRow('Total', ' 1000 QAR'),
                       _buildPriceDetailRow('Discount', '-100 QAR'),
                       _buildPriceDetailRow('Coupon Discount', '50 QAR'),
                       _buildPriceDetailRow('Tax', '25 QAR'),
-                      Divider(),
+                      const Divider(),
                       _buildPriceDetailRow('Total Payment', '900 QAR'),
                     ],
                   ),
@@ -355,7 +355,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
   }
 
   Widget _buildOrderCard({
-    AssetImage? image,
+    NetworkImage? image,
     String? status,
     String? date,
     String? time,
@@ -379,7 +379,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 height: 150,
                 fit: BoxFit.cover,
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -390,7 +390,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                         fontSize: 15,
                         color: AppColor.primaryBlackColor),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(productName!,
@@ -398,7 +398,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
                           color: AppColor.primaryGreyColor)),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -407,7 +407,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
                           color: AppColor.primaryGreyColor)),
-                      SizedBox(width: 5,),
+                      const SizedBox(width: 5,),
                       Text(quantity!,style: GoogleFonts.beVietnamPro(
                           fontWeight: FontWeight.w600,
                           fontSize: 14,
@@ -451,7 +451,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
@@ -464,20 +464,20 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 16.0),
-              Text(
+              const SizedBox(height: 16.0),
+              const Text(
                 'Payment Failed',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8.0),
-              Text(
+              const SizedBox(height: 8.0),
+              const Text(
                 'We aren’t able to process your payment. Please try again.',
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -541,97 +541,105 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return Container(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Center(
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    SvgPicture.asset('assets/icons/Vector.svg',color: AppColor.primaryGreyColor,),
-                    SvgPicture.asset('assets/icons/bag-tick.svg'),
-                  ],
-                ),
+        return SafeArea(
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),   // Adjust the radius as needed
+                topRight: Radius.circular(20),  // Adjust the radius as needed
               ),
-              SizedBox(height: 16.0),
-              Text('Order Placed Successfully',
-                  style: GoogleFonts.tenorSans(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  )),
-              SizedBox(height: 8.0),
-              SvgPicture.asset(
-                'assets/icons/divider.svg',
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Center(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      SvgPicture.asset('assets/icons/Vector.svg',color: AppColor.primaryGreyColor,),
+                      SvgPicture.asset('assets/icons/bag-tick.svg'),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                Text('Order Placed Successfully',
+                    style: GoogleFonts.tenorSans(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                    )),
+                const SizedBox(height: 8.0),
+                SvgPicture.asset(
+                  'assets/icons/divider.svg',
 
-                height: 15,
-                color: AppColor.primaryBlackColor,
-              ),
-              Text(
-                'Your Order has been successfully placed! For more details, go to My Orders.',
-                style: GoogleFonts.beVietnamPro(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w400,
+                  height: 15,
+                  color: AppColor.primaryBlackColor,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 16.0),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      height: 50,
-                      width: 150,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.white,
-                          onPrimary: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            side: BorderSide(color: Colors.black),
-                            // Set your desired corner radius
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text('Track Order',
-                            style: GoogleFonts.beVietnamPro(
-                                color: AppColor.primaryBlackColor,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400)),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 50,
-                      width: 150,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.black,
-                          onPrimary: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                8), // Set your desired corner radius
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text('Back to Home',
-                            style: GoogleFonts.beVietnamPro(
-                                color: AppColor.primaryWhiteColor,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400)),
-                      ),
-                    ),
-                  ],
+                Text(
+                  'Your Order has been successfully placed! For more details, go to My Orders.',
+                  style: GoogleFonts.beVietnamPro(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
+                const SizedBox(height: 16.0),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        height: 50,
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.white,
+                            onPrimary: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              side: const BorderSide(color: Colors.black),
+                              // Set your desired corner radius
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('Track Order',
+                              style: GoogleFonts.beVietnamPro(
+                                  color: AppColor.primaryBlackColor,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400)),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 50,
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.black,
+                            onPrimary: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  8), // Set your desired corner radius
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('Back to Home',
+                              style: GoogleFonts.beVietnamPro(
+                                  color: AppColor.primaryWhiteColor,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400)),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },

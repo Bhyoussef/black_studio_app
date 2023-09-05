@@ -9,5 +9,6 @@ class AppColor {
   static const Color secondaryWhiteColor = Color(0xffefecec);
   static const Color thirdGreyColor = Color(0xffA3A7A6);
   static const Color fourthGreyColor = Color(0xffeeeeee);
+  static const Color primaryRedColor = Color(0xffFF5454);
 
 }

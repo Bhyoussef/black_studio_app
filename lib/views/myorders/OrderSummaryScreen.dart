@@ -96,7 +96,7 @@ class OrderSummary extends StatelessWidget {
                           Get.to(()=>const OrderSummary());
                         },
                         child: _buildOrderCard(
-                          image:  AssetImage(product.imageAssets[0]),
+                          image:  NetworkImage(product.imageAssets[0]),
                           status: 'Delivered',
                           date: 'July 12, 2023',
                           time: '9:45 AM',
@@ -259,7 +259,7 @@ class OrderSummary extends StatelessWidget {
   }
 
   Widget _buildOrderCard({
-    AssetImage? image,
+    NetworkImage? image,
     String? status,
     String? date,
     String? time,

@@ -146,7 +146,7 @@ class MyOrdersScreen extends StatelessWidget {
                                 Get.to(() => const OrderSummary());
                               },
                               child: _buildOrderCard(
-                                image: AssetImage(product.imageAssets[0]),
+                                image: NetworkImage(product.imageAssets[0]),
                                 status: 'Ongoing',
                                 date: 'July 15, 2023',
                                 time: '10:00 AM',
@@ -287,7 +287,7 @@ class MyOrdersScreen extends StatelessWidget {
                                   Get.to(() => const OrderSummary());
                                 },
                                 child: _buildOrderCard(
-                                  image: AssetImage(product.imageAssets[0]),
+                                  image: NetworkImage(product.imageAssets[0]),
                                   status: 'Delivered',
                                   date: 'July 12, 2023',
                                   time: '9:45 AM',
@@ -368,7 +368,7 @@ class MyOrdersScreen extends StatelessWidget {
   }
 
   Widget _buildOrderCard({
-    AssetImage? image,
+    NetworkImage? image,
     String? status,
     String? date,
     String? time,
@@ -390,7 +390,7 @@ class MyOrdersScreen extends StatelessWidget {
                 image: image!,
                 width: 60,
                 height: 70,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
               const SizedBox(width: 8),
               Column(

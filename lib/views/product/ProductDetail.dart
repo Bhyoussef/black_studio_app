@@ -11,6 +11,7 @@ import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/views/reviews/ReviewsScreen.dart';
 import 'package:share/share.dart';
 
+import 'ImageGallery.dart';
 import 'componement/BestOffersSection.dart';
 import 'componement/DeliveryOption.dart';
 import 'componement/ProductDetailSection.dart';
@@ -67,6 +68,18 @@ class _ProductDetailState extends State<ProductDetail> {
       sharePositionOrigin: Rect.fromLTWH(0, 0, 100, 100),
     );
   }
+  void _showImageGalleryDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return ImageGalleryDialog(
+          imageAssets: widget.product.imageAssets,
+          initialIndex: selectedImageIndex,
+        );
+      },
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -127,18 +140,29 @@ class _ProductDetailState extends State<ProductDetail> {
                 // Container with the main product image
                 Padding(
                   padding: const EdgeInsets.all(0.0),
-                  child: SizedBox(
-                    height: 400, // Adjust the height as needed
-                    width: 500,
-                    child: Image.asset(
-                      widget.product.imageAssets[selectedImageIndex],
-                      fit: BoxFit.fill,
-                    ),
+                  child: Stack(
+                    children: [
+                      SizedBox(
+                        height: 400, // Adjust the height as needed
+                        width: 500,
+                        child: Image.network(
+                          widget.product.imageAssets[selectedImageIndex],
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 10,
+                          right: 5,
+                          child: GestureDetector(
+                              onTap: () {
+                                _showImageGalleryDialog(context);
+                              },
+
+                              child: SvgPicture.asset("assets/icons/Group 204.svg")))
+                    ],
                   ),
                 ),
                 SizedBox(height: 10,),
-
-
                 // Container with the small list of images
                 SizedBox(
                   height: 100, // Adjust the height as needed
@@ -165,7 +189,7 @@ class _ProductDetailState extends State<ProductDetail> {
                           ),
                           child: Stack(
                             children: [
-                              Image.asset(
+                              Image.network(
                                 widget.product.imageAssets[index],
                                 fit: BoxFit.fill,
                                 height: 77,

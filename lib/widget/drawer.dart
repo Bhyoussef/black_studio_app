@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/views/brand/BrandScreen.dart';
 import 'package:linkia_ecommerce/views/favorite/FavoriteScreen.dart';
+import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/views/myorders/MyOrdersScreen.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
 import 'package:linkia_ecommerce/views/privacy/PrivacyScreen.dart';
@@ -116,9 +117,10 @@ class DrawerWidget extends StatelessWidget {
               title: 'Settings',
               onTap: () {
                 Get.back();
-                Get.to(() => ProfileScreen(isHome: true));
+                Get.offAll(() => MainScreen(initialIndex: 4)); // Navigate to MainScreen
               },
             ),
+
             DrawerListItem(
               leadingAsset: 'assets/drawer/CircleWavyQuestion.svg',
               title: 'FAQs',

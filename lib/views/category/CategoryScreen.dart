@@ -37,7 +37,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
-      drawer: const DrawerWidget(),
+      drawer:  DrawerWidget(),
       /*appBar: AppBar(
         leading: IconButton(
           icon:   SvgPicture.asset(

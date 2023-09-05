@@ -75,7 +75,7 @@ class _BrandScreenState extends State<BrandScreen> {
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
-      drawer: const DrawerWidget(),
+      drawer:  DrawerWidget(),
 
   /*    appBar: AppBar(
         backgroundColor: AppColor.primaryWhiteColor,

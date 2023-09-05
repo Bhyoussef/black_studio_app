@@ -45,10 +45,20 @@ class NotificationScreen extends StatelessWidget {
                   onTap: (){
                     Get.to(()=>const OfferScreen());
                   },
-                  trailing: const Badge(
-                    label:
-                         Text("3",
-
+                  trailing: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child:  CircleAvatar(
+                      backgroundColor: AppColor.primaryRedColor,
+                      radius: 10,
+                      child: Center(
+                        child: Text(
+                          '3',style: GoogleFonts.beVietnamPro(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w700,
+                          color: AppColor.primaryWhiteColor
+                        ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -62,10 +72,20 @@ class NotificationScreen extends StatelessWidget {
                   onTap: (){
                     Get.to(()=>const FeedScreen());
                   },
-                  trailing: const Badge(
-                    label:
-                    Text("3",
-
+                  trailing:  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: CircleAvatar(
+                      backgroundColor: AppColor.primaryRedColor,
+                      radius: 10,
+                      child: Center(
+                        child: Text(
+                          '2',style: GoogleFonts.beVietnamPro(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w700,
+                            color: AppColor.primaryWhiteColor
+                        ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -79,10 +99,20 @@ class NotificationScreen extends StatelessWidget {
                   onTap: (){
                     Get.to(()=>const ActivityScreen());
                   },
-                  trailing: const Badge(
-                    label:
-                    Text("2",
-
+                  trailing: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: CircleAvatar(
+                      backgroundColor: AppColor.primaryRedColor,
+                      radius: 10,
+                      child: Center(
+                        child: Text(
+                          '1',style: GoogleFonts.beVietnamPro(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w700,
+                            color: AppColor.primaryWhiteColor
+                        ),
+                        ),
+                      ),
                     ),
                   ),
                 )

@@ -35,7 +35,7 @@ class CartItem extends StatelessWidget {
           children: [
             Column(
               children: [
-                Image.asset(
+                Image.network(
                   imageUrl,
                   width: 105,
                   height: 124,
