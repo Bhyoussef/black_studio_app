@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/views/auth/widget/SocialButton.dart';
-import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
+import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 import 'ForgetPasswordScreen.dart';
 import 'RegisterScreen.dart';
 
@@ -149,7 +149,7 @@ class LoginScreen extends StatelessWidget {
                       textcolor: AppColor.primaryWhiteColor,
                       backcolor: AppColor.primaryBlackColor,
                       onPressed: () {
-                        Get.to(() => MainScreen(initialIndex: 0));
+                        Get.to(() => HiddenDrawer(initialIndex: 0,));
                       },
                       text: 'Sign In',
                     ),

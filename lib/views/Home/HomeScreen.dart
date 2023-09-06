@@ -36,7 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
      // drawer: const DrawerWidget(),
-
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: Column(

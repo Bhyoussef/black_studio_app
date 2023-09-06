@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:image_picker/image_picker.dart'; // Import the image_picker package
 import 'package:linkia_ecommerce/views/main/MainScreen.dart';
+import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 
 import 'SearchScreenResult.dart';
 
@@ -83,7 +84,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     flex: 1,
                     child: TextButton(
                       onPressed: () {
-                        Get.to(() => const MainScreen(initialIndex: 0,));
+                        Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
                       },
                       child: Text(
                         'Cancel',

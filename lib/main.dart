@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Linkia E-commerce',
+      title: 'Black Studio',
       debugShowCheckedModeBanner: false,
       initialBinding: ControllersBinding(),
       home: const SplashScreen(),

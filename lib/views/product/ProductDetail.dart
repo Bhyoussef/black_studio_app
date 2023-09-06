@@ -9,6 +9,7 @@ import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/bag/BagScreen.dart';
 import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/views/reviews/ReviewsScreen.dart';
+import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 import 'package:share/share.dart';
 
 import 'ImageGallery.dart';
@@ -32,10 +33,8 @@ class ProductDetail extends StatefulWidget {
 
 class _ProductDetailState extends State<ProductDetail> {
   List<Color> colorOptions = [
-
     Colors.purple,
     Colors.pink,
-
   ];
   int selectedImageIndex = 0;
   final bagController = Get.find<CartController>();
@@ -58,6 +57,7 @@ class _ProductDetailState extends State<ProductDetail> {
       },
     );
   }
+
   void _shareProduct() {
     final String productName = widget.product.name;
     final String productImageUrl = widget.product.imageAssets[0];
@@ -68,6 +68,7 @@ class _ProductDetailState extends State<ProductDetail> {
       sharePositionOrigin: Rect.fromLTWH(0, 0, 100, 100),
     );
   }
+
   void _showImageGalleryDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -79,7 +80,6 @@ class _ProductDetailState extends State<ProductDetail> {
       },
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +107,7 @@ class _ProductDetailState extends State<ProductDetail> {
         ),
         actions: [
           IconButton(
-            onPressed:_shareProduct,
+            onPressed: _shareProduct,
             icon: SvgPicture.asset(
               'assets/menu/ShareNetwork.svg',
               color: AppColor.primaryGreyColor,
@@ -115,7 +115,14 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
           IconButton(
             constraints: const BoxConstraints(),
-            onPressed: () => Get.to(() =>  MainScreen(initialIndex: 2)),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HiddenDrawer(initialIndex: 2),
+                ),
+              );
+            },
             icon: Badge(
               label: Obx(
                 () => Text(
@@ -151,18 +158,20 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                       ),
                       Positioned(
-                        bottom: 10,
+                          bottom: 10,
                           right: 5,
                           child: GestureDetector(
                               onTap: () {
                                 _showImageGalleryDialog(context);
                               },
-
-                              child: SvgPicture.asset("assets/icons/Group 204.svg")))
+                              child: SvgPicture.asset(
+                                  "assets/icons/Group 204.svg")))
                     ],
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 // Container with the small list of images
                 SizedBox(
                   height: 100, // Adjust the height as needed
@@ -177,7 +186,7 @@ class _ProductDetailState extends State<ProductDetail> {
                           });
                         },
                         child: Container(
-                          width:80, // Adjust the width as needed
+                          width: 80, // Adjust the width as needed
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
@@ -331,9 +340,9 @@ class _ProductDetailState extends State<ProductDetail> {
                         child: Container(
                           height: 50,
                           child: ElevatedButton(
-
                             style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white, backgroundColor: Colors.black,
+                              foregroundColor: Colors.white,
+                              backgroundColor: Colors.black,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
                                     8), // Set your desired corner radius
@@ -354,7 +363,6 @@ class _ProductDetailState extends State<ProductDetail> {
                           ),
                         ),
                       ),
-
                       Expanded(
                         flex: 2,
                         child: IconButton(
@@ -457,7 +465,6 @@ class _ProductDetailState extends State<ProductDetail> {
                                     : AppColor.primaryBlackColor,
                               ),
                             ),
-
                             Text(
                               '\QAR ${price.toInt()}',
                               style: GoogleFonts.beVietnamPro(
@@ -474,8 +481,6 @@ class _ProductDetailState extends State<ProductDetail> {
                     }),
                   ),
                 ),
-
-
 
                 const Padding(
                   padding: EdgeInsets.all(8.0),
@@ -521,7 +526,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       const SizedBox(
                         width: 5,
                       ),
-                   SvgPicture.asset('assets/icons/star.svg'),
+                      SvgPicture.asset('assets/icons/star.svg'),
                     ],
                   ),
                 ),
@@ -570,24 +575,23 @@ Widget buildColorOption(Color color, bool isSelected) {
       // Handle color selection
     },
     child: Container(
-      padding: EdgeInsets.all(2),
-      height: 50,
-      width: 40,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: isSelected ? AppColor.primaryBlackColor : AppColor.primaryBlackColor,
-          width: 1,
-        ),
-        shape: BoxShape.circle,
-      ),
-      child: DecoratedBox(
+        padding: EdgeInsets.all(2),
+        height: 50,
+        width: 40,
         decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
-      ),
-
-      )
-    ),
+          border: Border.all(
+            color: isSelected
+                ? AppColor.primaryBlackColor
+                : AppColor.primaryBlackColor,
+            width: 1,
+          ),
+          shape: BoxShape.circle,
+        ),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: color,
+            shape: BoxShape.circle,
+          ),
+        )),
   );
 }
-

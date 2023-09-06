@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
+import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 import 'OrderSummaryScreen.dart';
 
 class MyOrdersScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class MyOrdersScreen extends StatelessWidget {
         backgroundColor: AppColor.primaryWhiteColor,
         leading: GestureDetector(
           onTap: () {
-            Get.back();
+            Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
           },
           child:
               const Icon(Icons.arrow_back, color: AppColor.primaryBlackColor),

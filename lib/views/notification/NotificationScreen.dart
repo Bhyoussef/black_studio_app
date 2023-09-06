@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/views/notification/FeedsScreen.dart';
 import 'package:linkia_ecommerce/views/notification/OfferScreen.dart';
+import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 
 import 'ActivityScreen.dart';
 
@@ -25,7 +26,7 @@ class NotificationScreen extends StatelessWidget {
         backgroundColor: AppColor.primaryWhiteColor,
         leading:  GestureDetector(
           onTap: (){
-            Get.back();
+            Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
           },
             child:const Icon(Icons.arrow_back,color: AppColor.primaryBlackColor,)),
       ),

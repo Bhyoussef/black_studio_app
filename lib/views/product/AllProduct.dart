@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
+import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 
 class AllProduct extends StatelessWidget {
   final String? title;
@@ -25,7 +26,7 @@ class AllProduct extends StatelessWidget {
           ),),
           leading: IconButton(
             onPressed: () {
-              Get.back();
+              Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
             },
             icon: const Icon(Icons.arrow_back,color: AppColor.primaryBlackColor,),
           ),

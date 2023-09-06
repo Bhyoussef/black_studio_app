@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:linkia_ecommerce/views/main/MainScreen.dart';
+import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 import '../../colors/Colors.dart';
 
 class TailoredScreen extends StatefulWidget {
@@ -26,7 +28,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
         color: Colors.black,
       ),
       onPressed: () {
-        Get.back();
+        Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
       },
     ):IconButton(
           onPressed: () {

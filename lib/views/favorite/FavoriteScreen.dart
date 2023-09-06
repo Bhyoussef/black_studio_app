@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
+import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
@@ -23,7 +24,7 @@ class FavoriteScreen extends StatelessWidget {
         backgroundColor: AppColor.primaryWhiteColor,
         leading:  GestureDetector(
             onTap: (){
-              Get.back();
+              Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
             },
             child:const Icon(Icons.arrow_back,color: AppColor.primaryBlackColor,)),
       ),

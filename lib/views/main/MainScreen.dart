@@ -10,14 +10,20 @@ import 'package:linkia_ecommerce/views/bag/BagScreen.dart';
 import 'package:linkia_ecommerce/views/brand/BrandScreen.dart';
 import 'package:linkia_ecommerce/views/category/CategoryScreen.dart';
 import 'package:linkia_ecommerce/views/favorite/FavoriteScreen.dart';
+import 'package:linkia_ecommerce/views/main/MainScreen.dart';
+import 'package:linkia_ecommerce/views/myorders/MyOrdersScreen.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
+import 'package:linkia_ecommerce/views/privacy/PrivacyScreen.dart';
+import 'package:linkia_ecommerce/views/product/AllProduct.dart';
 import 'package:linkia_ecommerce/views/profile/ProfileScreen.dart';
+import 'package:linkia_ecommerce/views/tailored/TailoredScreen.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
 
-
 class MainScreen extends StatefulWidget {
+
+  final VoidCallback openDrawer;
   final int initialIndex;
-  const MainScreen({super.key, required this.initialIndex});
+  const MainScreen({super.key, required this.initialIndex, required this.openDrawer});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -26,6 +32,9 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final MainController controller = Get.put(MainController());
+
+
+
 
 
   final List<Widget> pages = [
@@ -71,6 +80,7 @@ class _MainScreenState extends State<MainScreen> {
     [], // No actions for Brand page
     [], // No actions for Profile page
   ];
+
   @override
   void initState() {
     super.initState();
@@ -79,12 +89,11 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer:  DrawerWidget(),
+      //drawer: DrawerWidget(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,
@@ -94,13 +103,15 @@ class _MainScreenState extends State<MainScreen> {
             color: AppColor.primaryBlackColor,
           ),
           onPressed: () {
-            _scaffoldKey.currentState?.openDrawer();
+
+            widget.openDrawer();
+
           },
         ),
         automaticallyImplyLeading: false,
         title: Obx(
               () => Text(
-            pageTitles[controller.currentIndex.value], // Update title here
+            pageTitles[controller.currentIndex.value],
             style: GoogleFonts.beVietnamPro(
               color: AppColor.primaryBlackColor,
               fontWeight: FontWeight.w600,
@@ -123,7 +134,7 @@ class _MainScreenState extends State<MainScreen> {
               controller.changePage(index);
             });
           },
-          type: BottomNavigationBarType.fixed, // Set type to fixed
+          type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
@@ -193,5 +204,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-

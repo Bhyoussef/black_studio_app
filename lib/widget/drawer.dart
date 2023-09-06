@@ -13,6 +13,8 @@ import 'package:linkia_ecommerce/views/product/AllProduct.dart';
 import 'package:linkia_ecommerce/views/profile/ProfileScreen.dart';
 import 'package:linkia_ecommerce/views/tailored/TailoredScreen.dart';
 
+import 'HiddenDrawerMenu.dart';
+
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
 
@@ -30,7 +32,7 @@ class DrawerWidget extends StatelessWidget {
               padding: const EdgeInsets.only(left: 10, top: 40),
               child: GestureDetector(
                 onTap: () {
-                  Get.back();
+                  Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
                 },
                 child: Container(
                   width: 40,
@@ -70,14 +72,20 @@ class DrawerWidget extends StatelessWidget {
                 Get.to(()=>AllProduct(title: 'BEST SELLERS',));
               },
             ),
-            DrawerListItem(
+        /*    DrawerListItem(
               leadingAsset: 'assets/drawer/brand.svg',
               title: 'Brands',
               onTap: () {
                 Get.back();
-                Get.to(()=>BrandScreen(isHome: true));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HiddenDrawer(initialIndex: 3),
+                  ),
+                );
               },
-            ), DrawerListItem(
+            ),*/
+            DrawerListItem(
               leadingAsset: 'assets/drawer/tailored.svg',
               title: 'Tailored',
               onTap: () {
@@ -112,15 +120,20 @@ class DrawerWidget extends StatelessWidget {
                 Get.back();
                 Get.to(() => MyOrdersScreen());
               },
-            ),DrawerListItem(
+            ),
+         /*   DrawerListItem(
               leadingAsset: 'assets/drawer/Gear.svg',
               title: 'Settings',
               onTap: () {
                 Get.back();
-                Get.offAll(() => MainScreen(initialIndex: 4)); // Navigate to MainScreen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HiddenDrawer(initialIndex: 4),
+                  ),
+                );
               },
-            ),
-
+            ),*/
             DrawerListItem(
               leadingAsset: 'assets/drawer/CircleWavyQuestion.svg',
               title: 'FAQs',

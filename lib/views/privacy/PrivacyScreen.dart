@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 
 class PrivacyScreen extends StatelessWidget {
   const PrivacyScreen({super.key});
@@ -15,7 +16,7 @@ class PrivacyScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,
         leading: IconButton(onPressed: () {
-          Get.back();
+          Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
         }, icon:const Icon(Icons.close,color: AppColor.primaryBlackColor,size: 30,),
 
         ),

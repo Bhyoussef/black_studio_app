@@ -152,7 +152,7 @@ class _BagScreenState extends State<BagScreen> {
                             ),
                           ),
                           Text(
-                            '\$453.20',
+                            '\QAR 453.20',
                             style: GoogleFonts.beVietnamPro(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
