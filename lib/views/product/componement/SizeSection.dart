@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 
-class SizeSection extends StatelessWidget {
+class SizeSection extends StatefulWidget {
   const SizeSection({super.key});
 
+  @override
+  State<SizeSection> createState() => _SizeSectionState();
+}
+
+class _SizeSectionState extends State<SizeSection> {
+  final _controller04 = AdvancedSwitchController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -16,6 +23,7 @@ class SizeSection extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -55,6 +63,28 @@ class SizeSection extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         color: AppColor.primaryBlackColor
                       ),
+                    ),
+                  ),
+                  Padding(
+                    padding:  EdgeInsets.all(8.0),
+                    child:  AdvancedSwitch(
+                      inactiveColor: AppColor.secondaryGreyColor,
+                      activeColor: AppColor.primaryWhiteColor,
+                      activeChild: Text('In',style: GoogleFonts.beVietnamPro(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        color: AppColor.primaryGreyColor
+
+                      ),),
+                      inactiveChild: Text('Cm',style: GoogleFonts.beVietnamPro(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12,
+                          color: AppColor.primaryGreyColor
+
+                      )),
+                      borderRadius: BorderRadius.circular(5),
+                      width: 76,
+                      controller: _controller04,
                     ),
                   ),
 
