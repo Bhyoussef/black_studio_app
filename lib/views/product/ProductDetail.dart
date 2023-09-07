@@ -119,7 +119,7 @@ class _ProductDetailState extends State<ProductDetail> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HiddenDrawer(initialIndex: 2),
+                  builder: (context) => HiddenDrawer(initialIndex: 2,isNotHome: true,),
                 ),
               );
             },

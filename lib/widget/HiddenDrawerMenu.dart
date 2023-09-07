@@ -7,7 +7,8 @@ import 'package:linkia_ecommerce/widget/drawer.dart';
 
 class HiddenDrawer extends StatefulWidget {
   final int initialIndex;
-  const HiddenDrawer({super.key, required this.initialIndex});
+  final bool? isNotHome;
+  const HiddenDrawer({super.key, required this.initialIndex, this.isNotHome});
 
   @override
   State<HiddenDrawer> createState() => _HiddenDrawerState();
@@ -117,7 +118,7 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
                     borderRadius: BorderRadius.circular(isDrawerOpen ? 50 : 0),
                   ),
                   child: MainScreen(
-                    initialIndex: 0,openDrawer:openDrawer
+                    initialIndex: 0,openDrawer:openDrawer,isNotHome: widget.isNotHome,
                   ),
                 ),
               ),

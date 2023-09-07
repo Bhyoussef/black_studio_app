@@ -23,7 +23,8 @@ class MainScreen extends StatefulWidget {
 
   final VoidCallback openDrawer;
   final int initialIndex;
-  const MainScreen({super.key, required this.initialIndex, required this.openDrawer});
+  final bool? isNotHome;
+  const MainScreen({super.key, required this.initialIndex, required this.openDrawer, this.isNotHome});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -119,7 +120,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ),
         ),
-        actions: pageActions[controller.currentIndex.value],
+        actions: widget.isNotHome == true ?[]:pageActions[controller.currentIndex.value],
       ),
       body: Obx(
             () => pages[controller.currentIndex.value],

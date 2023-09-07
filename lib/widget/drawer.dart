@@ -72,7 +72,7 @@ class DrawerWidget extends StatelessWidget {
                 Get.to(()=>AllProduct(title: 'BEST SELLERS',));
               },
             ),
-        /*    DrawerListItem(
+            DrawerListItem(
               leadingAsset: 'assets/drawer/brand.svg',
               title: 'Brands',
               onTap: () {
@@ -84,7 +84,7 @@ class DrawerWidget extends StatelessWidget {
                   ),
                 );
               },
-            ),*/
+            ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/tailored.svg',
               title: 'Tailored',
@@ -121,7 +121,7 @@ class DrawerWidget extends StatelessWidget {
                 Get.to(() => MyOrdersScreen());
               },
             ),
-         /*   DrawerListItem(
+            DrawerListItem(
               leadingAsset: 'assets/drawer/Gear.svg',
               title: 'Settings',
               onTap: () {
@@ -129,11 +129,11 @@ class DrawerWidget extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HiddenDrawer(initialIndex: 4),
+                    builder: (context) => HiddenDrawer(initialIndex: 4,isNotHome: true,),
                   ),
                 );
               },
-            ),*/
+            ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/CircleWavyQuestion.svg',
               title: 'FAQs',
