@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileScreenEdit extends StatefulWidget {
   const ProfileScreenEdit({Key? key}) : super(key: key);
@@ -50,7 +51,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
           ),
         ),
         title: Text(
-          'Edit Profile',
+          AppLocalizations.of(context)!.editProfile.toUpperCase(),
           style: GoogleFonts.beVietnamPro(
             color: Colors.black,
             fontSize: 18,
@@ -90,7 +91,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
             TextFormField(
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: 'Name',
+                labelText: AppLocalizations.of(context)!.nameLabel,
                 labelStyle: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     color: AppColor.primaryGreyColor,
@@ -101,7 +102,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
             TextFormField(
               controller: _emailController,
               decoration: InputDecoration(
-                labelText: 'Email',
+                labelText: AppLocalizations.of(context)!.emailLabel,
                 labelStyle: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     color: AppColor.primaryGreyColor,
@@ -112,7 +113,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
             TextFormField(
               controller: _phoneController,
               decoration: InputDecoration(
-                labelText: 'Phone Number',
+                labelText: AppLocalizations.of(context)!.phoneNumberLabel,
                 labelStyle: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     color: AppColor.primaryGreyColor,
@@ -126,7 +127,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
               onPressed: () {
                 // TODO: Implement the logic for updating the profile
               },
-              text: 'Update Profile',
+              text: AppLocalizations.of(context)!.updateProfileButton,
 
             ),
 

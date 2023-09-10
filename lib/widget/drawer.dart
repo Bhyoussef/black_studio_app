@@ -3,32 +3,31 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
-import 'package:linkia_ecommerce/views/brand/BrandScreen.dart';
 import 'package:linkia_ecommerce/views/favorite/FavoriteScreen.dart';
-import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/views/myorders/MyOrdersScreen.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
 import 'package:linkia_ecommerce/views/privacy/PrivacyScreen.dart';
 import 'package:linkia_ecommerce/views/product/AllProduct.dart';
-import 'package:linkia_ecommerce/views/profile/ProfileScreen.dart';
 import 'package:linkia_ecommerce/views/tailored/TailoredScreen.dart';
-
 import 'HiddenDrawerMenu.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return Drawer(
-      backgroundColor: AppColor.primaryWhiteColor,
+        shadowColor: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             Container(
-              alignment: Alignment.topLeft,
+              alignment: isArabic?Alignment.topRight:Alignment.topLeft,
               padding: const EdgeInsets.only(left: 10, top: 40),
               child: GestureDetector(
                 onTap: () {
@@ -58,7 +57,7 @@ class DrawerWidget extends StatelessWidget {
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/bag-tick.svg',
-              title: 'New Arrivals',
+              title: AppLocalizations.of(context)!.newArrivals,
               onTap: () {
                 Get.back();
                 Get.to(()=>AllProduct(title: 'NEW ARRIVALS',));
@@ -66,7 +65,7 @@ class DrawerWidget extends StatelessWidget {
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/Tag.svg',
-              title: 'Best Sellers',
+              title: AppLocalizations.of(context)!.bestSellers,
               onTap: () {
                 Get.back();
                 Get.to(()=>AllProduct(title: 'BEST SELLERS',));
@@ -74,7 +73,7 @@ class DrawerWidget extends StatelessWidget {
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/brand.svg',
-              title: 'Brands',
+              title: AppLocalizations.of(context)!.brands,
               onTap: () {
                 Get.back();
                 Navigator.push(
@@ -87,7 +86,7 @@ class DrawerWidget extends StatelessWidget {
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/tailored.svg',
-              title: 'Tailored',
+              title: AppLocalizations.of(context)!.tailored,
               onTap: () {
                 Get.back();
                 Get.to(()=>TailoredScreen(isHome: true));
@@ -95,19 +94,19 @@ class DrawerWidget extends StatelessWidget {
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/receipt-2.svg',
-              title: 'Sale',
+              title: AppLocalizations.of(context)!.sale,
               onTap: () {},
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/Heart.svg',
-              title: 'Favourite',
+              title: AppLocalizations.of(context)!.favorite,
               onTap: () {
                 Get.to(()=>FavoriteScreen());
               },
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/Bell.svg',
-              title: 'Notification',
+              title: AppLocalizations.of(context)!.notification,
               onTap: () {
                 Get.back();
                 Get.to(() => NotificationScreen());
@@ -115,7 +114,7 @@ class DrawerWidget extends StatelessWidget {
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/bag-tick.svg',
-              title: 'My Orders',
+              title: AppLocalizations.of(context)!.myOrders,
               onTap: () {
                 Get.back();
                 Get.to(() => MyOrdersScreen());
@@ -123,7 +122,7 @@ class DrawerWidget extends StatelessWidget {
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/Gear.svg',
-              title: 'Settings',
+              title: AppLocalizations.of(context)!.settings,
               onTap: () {
                 Get.back();
                 Navigator.push(
@@ -136,21 +135,21 @@ class DrawerWidget extends StatelessWidget {
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/CircleWavyQuestion.svg',
-              title: 'FAQs',
+              title: AppLocalizations.of(context)!.faqs,
               onTap: () {},
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/Headset.svg',
-              title: 'Help and Support',
+              title: AppLocalizations.of(context)!.helpAndSupport,
               onTap: () {},
             ), DrawerListItem(
               leadingAsset: 'assets/drawer/UserCirclePlus.svg',
-              title: 'Refer a Friend',
+              title: AppLocalizations.of(context)!.referAFriend,
               onTap: () {},
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/Note.svg',
-              title: 'Privacy Policy',
+              title: AppLocalizations.of(context)!.privacyPolicy,
               onTap: () {
                 Get.back();
                 Get.to(() => PrivacyScreen());
@@ -158,7 +157,7 @@ class DrawerWidget extends StatelessWidget {
             ),
             DrawerListItem(
               leadingAsset: 'assets/drawer/UploadSimple.svg',
-              title: 'Logout',
+              title: AppLocalizations.of(context)!.logout,
               onTap: () {
                 showDialog(
                   context: context,

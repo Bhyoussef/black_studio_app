@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../widget/CustomButton.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
@@ -30,7 +30,7 @@ class ChangePasswordScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          'Change Password',
+          AppLocalizations.of(context)!.changePasswordTitle,
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontSize: 18,
@@ -52,7 +52,7 @@ class ChangePasswordScreen extends StatelessWidget {
               controller: _currentPasswordController,
               obscureText: true,
               decoration: InputDecoration(
-                labelText: 'Current Password',
+                labelText: AppLocalizations.of(context)!.currentPasswordLabel,
                 labelStyle: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     color: AppColor.primaryGreyColor,
@@ -64,7 +64,7 @@ class ChangePasswordScreen extends StatelessWidget {
               controller: _newPasswordController,
               obscureText: true,
               decoration: InputDecoration(
-                labelText: 'New Password',
+                labelText: AppLocalizations.of(context)!.newPasswordLabel,
                 labelStyle: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     color: AppColor.primaryGreyColor,
@@ -76,7 +76,7 @@ class ChangePasswordScreen extends StatelessWidget {
               controller: _confirmPasswordController,
               obscureText: true,
               decoration: InputDecoration(
-                labelText: 'Confirm Password',
+                labelText: AppLocalizations.of(context)!.confirmPasswordLabel,
                 labelStyle: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     color: AppColor.primaryGreyColor,
@@ -90,7 +90,7 @@ class ChangePasswordScreen extends StatelessWidget {
 
               // TODO: Implement the logic for updating the password
 
-            }, text: 'Update Password',
+            }, text: AppLocalizations.of(context)!.updatePasswordButton,
               textcolor: AppColor.primaryBlackColor,
 
             ),

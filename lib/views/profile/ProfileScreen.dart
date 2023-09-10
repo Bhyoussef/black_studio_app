@@ -7,7 +7,7 @@ import 'package:linkia_ecommerce/views/auth/ChangePasswordScreen.dart';
 import 'package:linkia_ecommerce/views/myaddresses/AddressesScreen.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationSettingScreen.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'ProfileEditScreen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -63,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'ACCOUNT',
+              AppLocalizations.of(context)!.accountTitle.toUpperCase(),
               style: GoogleFonts.tenorSans(
                   fontSize: 18,
                   fontWeight: FontWeight.w400,
@@ -74,7 +74,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               leading: SvgPicture.asset('assets/menu/User.svg',
                   height: 25, width: 25, color: AppColor.primaryBlackColor),
               title: Text(
-                'Edit Profile',
+                AppLocalizations.of(context)!.editProfile,
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
@@ -92,7 +92,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               leading: SvgPicture.asset('assets/menu/LockSimple.svg',
                   height: 25, width: 25, color: AppColor.primaryBlackColor),
               title: Text(
-                'Change Password',
+                AppLocalizations.of(context)!.changePassword,
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
@@ -110,7 +110,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               leading: SvgPicture.asset('assets/menu/BellSimpleRinging.svg',
                   height: 25, width: 25, color: AppColor.primaryBlackColor),
               title: Text(
-                'Push Notifications',
+                AppLocalizations.of(context)!.pushNotifications,
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
@@ -128,7 +128,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               leading: SvgPicture.asset('assets/menu/MapPin.svg',
                   height: 25, width: 25, color: AppColor.primaryBlackColor),
               title: Text(
-                'My Address',
+                AppLocalizations.of(context)!.myAddress,
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
@@ -143,7 +143,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
             ),
             const SizedBox(height: 32),
-            Text('PREFERENCES',
+            Text( AppLocalizations.of(context)!.preferencesTitle.toUpperCase(),
                 style: GoogleFonts.tenorSans(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
@@ -159,7 +159,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 },
               ),
               title: Text(
-                'Keep History Saved',
+                AppLocalizations.of(context)!.keepHistorySaved,
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 15,
                   fontWeight: FontWeight.w400,
@@ -177,7 +177,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: 25, width: 25, color: Colors.red),
               ),
               title: Text(
-                'Clear Saved Data',
+                  AppLocalizations.of(context)!.clearSavedData,
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,

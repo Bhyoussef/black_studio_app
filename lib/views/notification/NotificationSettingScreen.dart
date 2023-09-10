@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NotificationSetting extends StatefulWidget {
   const NotificationSetting({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class _NotificationSettingState extends State<NotificationSetting> {
             ),
           ),
           title: Text(
-            'Notification Settings',
+            AppLocalizations.of(context)!.notificationSettingsTitle,
             style: GoogleFonts.beVietnamPro(
               color: AppColor.primaryBlackColor,
               fontSize: 18,
@@ -50,7 +51,7 @@ class _NotificationSettingState extends State<NotificationSetting> {
             children: [
               ListTile(
                 title: Text(
-                  'Allow Push Notifications',
+                  AppLocalizations.of(context)!.allowPushNotifications,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
@@ -75,7 +76,7 @@ class _NotificationSettingState extends State<NotificationSetting> {
               ),
               ListTile(
                 title: Text(
-                  'Offers and Updates',
+                  AppLocalizations.of(context)!.offersAndUpdates,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
@@ -100,7 +101,7 @@ class _NotificationSettingState extends State<NotificationSetting> {
               ),
               ListTile(
                 title: Text(
-                  'Payment',
+                  AppLocalizations.of(context)!.payment,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
@@ -125,7 +126,7 @@ class _NotificationSettingState extends State<NotificationSetting> {
               ),
               ListTile(
                 title: Text(
-                  'Order Update',
+                  AppLocalizations.of(context)!.orderUpdate,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,

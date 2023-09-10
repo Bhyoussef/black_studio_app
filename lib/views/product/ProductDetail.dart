@@ -511,6 +511,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   ),
                 ),
 
+
                 //Product Details
                 const ProductDetailSection(),
 

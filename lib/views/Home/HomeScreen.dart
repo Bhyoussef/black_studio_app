@@ -4,13 +4,11 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
-import 'package:linkia_ecommerce/views/favorite/FavoriteScreen.dart';
-import 'package:linkia_ecommerce/views/notification/NotificationScreen.dart';
 import 'package:linkia_ecommerce/views/product/AllProduct.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
 import 'package:linkia_ecommerce/views/search/SearchScreen.dart';
 import 'package:linkia_ecommerce/views/tailored/TailoredScreen.dart';
-import 'package:linkia_ecommerce/widget/drawer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -51,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Icons.search,
                       color: AppColor.primaryGreyColor,
                     ),
-                    hintText: 'What can we help you find?',
+                    hintText: AppLocalizations.of(context)!.search_hint,
                     filled: true,
                     fillColor: AppColor.secondaryGreyColor,
                     border: OutlineInputBorder(
@@ -82,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Stack(
                 children: [
                   Image.asset(
-                    'assets/demo/Rectangle 1133.png',
+                    'assets/menu/Rectangle 1133 (1).png',
                     fit: BoxFit.cover,
                     height: 260,
                     width: double.infinity,
@@ -131,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             // Handle "Shop Now" button press
                           },
                           child: Text(
-                            'Shop Now',
+                            AppLocalizations.of(context)!.shop_now,
                             style: GoogleFonts.beVietnamPro(
                               color: AppColor.primaryBlackColor,
                               fontSize: 12,
@@ -174,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 20,
                         ),
                         Text(
-                          'Ready to Wear',
+                          AppLocalizations.of(context)!.ready_to_wear,
                           style: GoogleFonts.beVietnamPro(
                             color: Colors.white,
                             fontSize: 15,
@@ -213,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 20,
                         ),
                         Text(
-                          'Tailored',
+                          AppLocalizations.of(context)!.tailored,
                           style: GoogleFonts.beVietnamPro(
                             color: AppColor.secondaryBlackColor,
                             fontSize: 15,
@@ -324,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               child: Image.asset(
-                'assets/demo/Group 761.png',
+                'assets/menu/Group 764.png',
                 fit: BoxFit.cover,
                 height: 260,
                 width: double.infinity,

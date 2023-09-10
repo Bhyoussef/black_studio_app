@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/views/auth/widget/SocialButton.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'LoginScreen.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -86,7 +86,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20,),
                 Text(
-                  'New to the black studio'.toUpperCase(),
+                  AppLocalizations.of(context)!.newinstudio.toUpperCase(),
                   style: GoogleFonts.tenorSans(
                     fontSize: 20,
                     fontWeight: FontWeight.w400,
@@ -101,7 +101,7 @@ class RegisterScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                    'Register to speed up the checkout process and manage your orders',
+                    AppLocalizations.of(context)!.textLogin,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.beVietnamPro(
                       fontSize: 15,
@@ -113,7 +113,7 @@ class RegisterScreen extends StatelessWidget {
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Email',
+                    labelText: AppLocalizations.of(context)!.email,
                     labelStyle: GoogleFonts.beVietnamPro(
                       fontSize: 15,
                       color: AppColor.primaryGreyColor,
@@ -124,7 +124,7 @@ class RegisterScreen extends StatelessWidget {
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    labelText:AppLocalizations.of(context)!.password,
                     labelStyle: GoogleFonts.beVietnamPro(
                       fontSize: 15,
                       color: AppColor.primaryGreyColor,
@@ -135,7 +135,7 @@ class RegisterScreen extends StatelessWidget {
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Confirm Password',
+                    labelText: AppLocalizations.of(context)!.confirmpassword,
                     labelStyle: GoogleFonts.beVietnamPro(
                       fontSize: 15,
                       color: AppColor.primaryGreyColor,
@@ -149,7 +149,7 @@ class RegisterScreen extends StatelessWidget {
                   child: TextButton(
                     onPressed: () {},
                     child: Text(
-                      'Show Password',
+                      AppLocalizations.of(context)!.showpassword,
                       style: GoogleFonts.beVietnamPro(
                         color: AppColor.primaryBlackColor,
                         fontSize: 15,
@@ -162,14 +162,14 @@ class RegisterScreen extends StatelessWidget {
                 CustomButton(
                   textcolor: AppColor.primaryWhiteColor,
                   backcolor: AppColor.primaryBlackColor,
-                  text: 'Sign up',
+                  text: AppLocalizations.of(context)!.signup,
                   onPressed: () {
                     //Get.to(()=>MainScreen(initialIndex: 0,));
                   },
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Or',
+                  AppLocalizations.of(context)!.or,
                   style: GoogleFonts.beVietnamPro(
                     color: AppColor.primaryBlackColor,
                     fontSize: 16,
@@ -180,7 +180,7 @@ class RegisterScreen extends StatelessWidget {
                 SocialButton(
                   backcolor: Colors.blueAccent,
                   icon: Icons.facebook,
-                  text: 'Continue with Facebook',
+                  text: AppLocalizations.of(context)!.signinwithfacebook,
                   onPressed: () {
                     // Implement Facebook login functionality here
                   },
@@ -190,7 +190,7 @@ class RegisterScreen extends StatelessWidget {
                 SocialButton(
                   backcolor: Colors.red,
                   icon: Icons.email,
-                  text: 'Continue with Google',
+                  text: AppLocalizations.of(context)!.signinwithgoogle,
                   onPressed: () {
                     // Implement Google login functionality here
                   },
@@ -200,7 +200,7 @@ class RegisterScreen extends StatelessWidget {
                 SocialButton(
                   backcolor: Colors.black,
                   icon: Icons.apple,
-                  text: 'Continue with Apple',
+                  text: AppLocalizations.of(context)!.signinwithapple,
                   onPressed: () {
                     // Implement Apple login functionality here
                   },
@@ -212,7 +212,7 @@ class RegisterScreen extends StatelessWidget {
                     Get.to(()=>LoginScreen());
                   },
                   child: Text(
-                    'Login Existing Account ?',
+                    AppLocalizations.of(context)!.alreadyhaveanaccount,
                     style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryBlackColor,
                       fontSize: 16,

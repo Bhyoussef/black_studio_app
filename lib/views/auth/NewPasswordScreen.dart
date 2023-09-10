@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
-import 'package:linkia_ecommerce/views/main/MainScreen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
 
 class NewPasswordScreen extends StatelessWidget {
@@ -104,7 +104,7 @@ class NewPasswordScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 50),
-                Text('CREATE NEW PASSWORD',
+                Text(AppLocalizations.of(context)!.newpassword.toUpperCase(),
                     style: GoogleFonts.tenorSans(
                         fontSize: 26, fontWeight: FontWeight.w400)),
                 const SizedBox(height: 30),
@@ -116,7 +116,7 @@ class NewPasswordScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                    'Register to speed up the checkout process and manage your orders',
+                  AppLocalizations.of(context)!.textLogin,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.beVietnamPro(
                         fontSize: 15,
@@ -127,7 +127,7 @@ class NewPasswordScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    labelText: AppLocalizations.of(context)!.password,
                     labelStyle: GoogleFonts.beVietnamPro(
                         fontSize: 15,
                         color: AppColor.primaryGreyColor,
@@ -137,7 +137,7 @@ class NewPasswordScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Confirm Password',
+                    labelText: AppLocalizations.of(context)!.confirmpassword,
                     labelStyle: GoogleFonts.beVietnamPro(
                         fontSize: 15,
                         color: AppColor.primaryGreyColor,
@@ -150,7 +150,7 @@ class NewPasswordScreen extends StatelessWidget {
                   child: TextButton(
                     onPressed: () {},
                     child: Text(
-                      'Show Password',
+                      AppLocalizations.of(context)!.showpassword,
                       style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryBlackColor,
                           fontSize: 15,
@@ -165,7 +165,7 @@ class NewPasswordScreen extends StatelessWidget {
                   onPressed: () {
                     // Get.to(()=>MainScreen(initialIndex: 0,));
                   },
-                  text: 'Create',
+                  text: AppLocalizations.of(context)!.createnewpassword,
                 ),
               ],
             ),

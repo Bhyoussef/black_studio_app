@@ -4,6 +4,7 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/controllers/MainController.dart';
 import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HiddenDrawer extends StatefulWidget {
   final int initialIndex;
@@ -17,6 +18,7 @@ class HiddenDrawer extends StatefulWidget {
 class _HiddenDrawerState extends State<HiddenDrawer> {
 
   late double xOffset = 0;
+  late double xOffsetOpposite = 0;
   late double yOffset = 0;
   late double scaleFactor = 0;
   bool isDraging =false;
@@ -39,6 +41,7 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
 
     xOffset = 0;
     yOffset = 0;
+    xOffsetOpposite = 0;
     scaleFactor = 1;
     isDrawerOpen=false;
 
@@ -46,7 +49,8 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
 
   void openDrawer()=>setState(() {
 
-      xOffset = 304;
+      xOffset = 200;
+      xOffsetOpposite = 200;
       yOffset = 150;
       scaleFactor = 0.7;
       isDrawerOpen=true;
@@ -71,61 +75,79 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
   }
 
   Widget buildPage() {
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
+
     return WillPopScope(
-      onWillPop: () async{
-        if(isDrawerOpen){
+      onWillPop: () async {
+        if (isDrawerOpen) {
           closeDrawer();
           return false;
-        }else{
+        } else {
           return true;
         }
-
       },
       child: GestureDetector(
         onTap: closeDrawer,
-        onHorizontalDragStart: (details)=>isDraging=true,
-        onHorizontalDragUpdate: (details){
-
-          if(!isDraging)return;
-          const delta=1;
-          if(details.delta.dx > delta){
-            openDrawer();
-          }else if(details.delta.dx< -delta){
-            closeDrawer();
+        onHorizontalDragStart: (details) => isDraging = true,
+        onHorizontalDragUpdate: (details) {
+          if (!isDraging) return;
+          const delta = 1;
+          if (details.delta.dx > delta) {
+            if (isArabic) {
+              closeDrawer();
+            } else {
+              openDrawer();
+            }
+          } else if (details.delta.dx < -delta) {
+            if (isArabic) {
+              openDrawer();
+            } else {
+              closeDrawer();
+            }
           }
-          isDraging=false;
+          isDraging = false;
         },
         child: AnimatedContainer(
-            duration: Duration(microseconds: 250),
-            transform: Matrix4.translationValues(xOffset, yOffset, 0)
-              ..scale(scaleFactor),
-            child: AbsorbPointer(
-              absorbing: isDrawerOpen,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(isDrawerOpen ?20:0 ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: isDrawerOpen ? AppColor.primaryWhiteColor : AppColor.primaryWhiteColor,
-                    boxShadow: isDrawerOpen
-                        ? [
-                      BoxShadow(
-                        color: Color(0xff00001A),
-                        offset: Offset(0, 50),
-                        blurRadius: 99,
-                      ),
-                    ]
-                        : [], // Empty boxShadow when the drawer is closed
-                    borderRadius: BorderRadius.circular(isDrawerOpen ? 50 : 0),
-                  ),
+          duration: Duration(milliseconds: 250),
+          transform: Matrix4.translationValues(
+            isArabic ? -xOffsetOpposite : xOffset,
+            yOffset,
+            0,
+          )..scale(scaleFactor),
+          child: AbsorbPointer(
+            absorbing: isDrawerOpen,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(isDrawerOpen ? 20 : 0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: isDrawerOpen ? AppColor.primaryWhiteColor : AppColor.primaryWhiteColor,
+                  boxShadow: isDrawerOpen
+                      ? [
+                    BoxShadow(
+                      color: Color(0xff00001A),
+                      offset: Offset(0, 50),
+                      blurRadius: 99,
+                    ),
+                  ]
+                      : [], // Empty boxShadow when the drawer is closed
+                  borderRadius: BorderRadius.circular(isDrawerOpen ? 50 : 0),
+                ),
+                child: Directionality(
+                  textDirection: isArabic ? TextDirection.rtl : TextDirection.ltr,
                   child: MainScreen(
-                    initialIndex: 0,openDrawer:openDrawer,isNotHome: widget.isNotHome,
+                    initialIndex: 0,
+                    openDrawer: openDrawer,
+                    isNotHome: widget.isNotHome,
                   ),
                 ),
               ),
-            )),
+            ),
+          ),
+        ),
       ),
     );
   }
+
 }
 
 

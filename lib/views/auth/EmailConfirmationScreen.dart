@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'NewPasswordScreen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EmailConfirmationScreen extends StatelessWidget {
   const EmailConfirmationScreen({Key? key}) : super(key: key);
@@ -109,14 +110,14 @@ class EmailConfirmationScreen extends StatelessWidget {
                   color: AppColor.primaryBlackColor,
                 ),
                 const SizedBox(height: 10),
-                Text('CHECK YOUR EMAIL',
+                Text(AppLocalizations.of(context)!.checkyouremail.toUpperCase(),
                     style: GoogleFonts.tenorSans(
                         fontSize: 18, fontWeight: FontWeight.w400)),
                 const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    'We have sent a password recovery instruction to your email',
+                    AppLocalizations.of(context)!.wehavesendtoyouremail,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.beVietnamPro(
                         fontSize: 15,
@@ -131,7 +132,7 @@ class EmailConfirmationScreen extends StatelessWidget {
                     onPressed: () {
                       Get.to(() => const NewPasswordScreen());
                     },
-                    child: Text('Open Email',
+                    child: Text(AppLocalizations.of(context)!.openemail,
                         style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryBlackColor,
                           fontSize: 16,

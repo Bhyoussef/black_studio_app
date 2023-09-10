@@ -17,7 +17,7 @@ import 'package:linkia_ecommerce/views/privacy/PrivacyScreen.dart';
 import 'package:linkia_ecommerce/views/product/AllProduct.dart';
 import 'package:linkia_ecommerce/views/profile/ProfileScreen.dart';
 import 'package:linkia_ecommerce/views/tailored/TailoredScreen.dart';
-import 'package:linkia_ecommerce/widget/drawer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainScreen extends StatefulWidget {
 
@@ -34,6 +34,8 @@ class _MainScreenState extends State<MainScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final MainController controller = Get.put(MainController());
 
+  final List<String> pageTitles = [];
+
 
 
 
@@ -46,13 +48,6 @@ class _MainScreenState extends State<MainScreen> {
     ProfileScreen(),
   ];
 
-  final List<String> pageTitles = [
-    'THE BLACK STUDIO',
-    'Category',
-    'Bag',
-    'Brand',
-    'Profile',
-  ];
 
   final List<List<Widget>> pageActions = [
     // Actions for Home page
@@ -92,6 +87,14 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Initialize pageTitles here after context is available
+    pageTitles.addAll([
+      AppLocalizations.of(context)!.theblackstudio.toUpperCase(),
+      AppLocalizations.of(context)!.category,
+      AppLocalizations.of(context)!.bag,
+      AppLocalizations.of(context)!.brand,
+      AppLocalizations.of(context)!.myprofile,
+    ]);
     return Scaffold(
       key: _scaffoldKey,
       //drawer: DrawerWidget(),
@@ -146,7 +149,7 @@ class _MainScreenState extends State<MainScreen> {
                     ? Colors.black
                     : Colors.grey,
               ),
-              label: 'Home',
+              label: AppLocalizations.of(context)!.home,
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
@@ -157,7 +160,7 @@ class _MainScreenState extends State<MainScreen> {
                     ? Colors.black
                     : Colors.grey,
               ),
-              label: 'Category',
+              label: AppLocalizations.of(context)!.category,
             ),
             BottomNavigationBarItem(
               icon: Badge(
@@ -175,7 +178,7 @@ class _MainScreenState extends State<MainScreen> {
                       : Colors.grey,
                 ),
               ),
-              label: 'Bag',
+              label: AppLocalizations.of(context)!.bag,
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
@@ -186,7 +189,7 @@ class _MainScreenState extends State<MainScreen> {
                     ? Colors.black
                     : Colors.grey,
               ),
-              label: 'Brand',
+              label: AppLocalizations.of(context)!.brand,
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
@@ -197,7 +200,7 @@ class _MainScreenState extends State<MainScreen> {
                     ? Colors.black
                     : Colors.grey,
               ),
-              label: 'Profile',
+              label: AppLocalizations.of(context)!.myprofile,
             ),
           ],
         ),

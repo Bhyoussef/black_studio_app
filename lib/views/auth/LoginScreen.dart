@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/views/auth/widget/SocialButton.dart';
-import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
 import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 import 'ForgetPasswordScreen.dart';
 import 'RegisterScreen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -88,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20,),
                 Text(
-                  'HAVE AN ACCOUNT',
+                  AppLocalizations.of(context)!.haveacoount,
                   style: GoogleFonts.tenorSans(
                     fontSize: 20,
                     fontWeight: FontWeight.w400,
@@ -103,7 +103,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    'Sign in to speed up the checkout process and manage your orders',
+                    AppLocalizations.of(context)!.textLogin,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.beVietnamPro(
                       fontSize: 15,
@@ -115,7 +115,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Email',
+                    labelText: AppLocalizations.of(context)!.email,
                     labelStyle: GoogleFonts.beVietnamPro(
                       fontSize: 15,
                       color: AppColor.primaryGreyColor,
@@ -126,7 +126,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    labelText: AppLocalizations.of(context)!.password,
                     labelStyle: GoogleFonts.beVietnamPro(
                       fontSize: 15,
                       color: AppColor.primaryGreyColor,
@@ -140,7 +140,7 @@ class LoginScreen extends StatelessWidget {
                     Get.to(() => ForgetPasswordScreen());
                   },
                   child: Text(
-                    'Forgot Password ?',
+                    AppLocalizations.of(context)!.forgetpassword,
                     style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryBlackColor,
                       fontSize: 16,
@@ -155,11 +155,11 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     Get.to(() => HiddenDrawer(initialIndex: 0));
                   },
-                  text: 'Sign In',
+                  text: AppLocalizations.of(context)!.signin,
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'OR',
+                  AppLocalizations.of(context)!.or,
                   style: GoogleFonts.beVietnamPro(
                     color: AppColor.primaryBlackColor,
                     fontSize: 16,
@@ -170,7 +170,7 @@ class LoginScreen extends StatelessWidget {
                 SocialButton(
                   backcolor: Colors.blueAccent,
                   icon: Icons.facebook,
-                  text: 'Continue with Facebook',
+                  text: AppLocalizations.of(context)!.signinwithfacebook,
                   onPressed: () {
                     // Implement Facebook login functionality here
                   },
@@ -180,7 +180,7 @@ class LoginScreen extends StatelessWidget {
                 SocialButton(
                   backcolor: Colors.red,
                   icon: Icons.email,
-                  text: 'Continue with Google',
+                  text:  AppLocalizations.of(context)!.signinwithgoogle,
                   onPressed: () {
                     // Implement Google login functionality here
                   },
@@ -189,7 +189,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 10),
                 SocialButton(
                   icon: Icons.apple,
-                  text: 'Continue with Apple',
+                  text: AppLocalizations.of(context)!.signinwithapple,
                   onPressed: () {
                     // Implement Apple login functionality here
                   },
@@ -202,7 +202,7 @@ class LoginScreen extends StatelessWidget {
                     Get.to(() => RegisterScreen());
                   },
                   child: Text(
-                    'Create New Account ?',
+                    AppLocalizations.of(context)!.createaccount,
                     style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryBlackColor,
                       fontSize: 16,

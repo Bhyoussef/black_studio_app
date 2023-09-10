@@ -6,6 +6,7 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/views/auth/LoginScreen.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
 import 'EmailConfirmationScreen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   const ForgetPasswordScreen({Key? key}) : super(key: key);
@@ -104,7 +105,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 50),
-                Text('FORGET YOUR PASSWORD ?',
+                Text(AppLocalizations.of(context)!.forgetpassword,
                     style: GoogleFonts.tenorSans(
                         fontSize: 17, fontWeight: FontWeight.w400)),
                 const SizedBox(height: 10),
@@ -117,7 +118,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    'Enter your registered email below to receive password reset instructions',
+                    AppLocalizations.of(context)!.textFogetPassword,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.beVietnamPro(
                         fontSize: 15,
@@ -128,7 +129,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 const SizedBox(height: 50),
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Email',
+                    labelText: AppLocalizations.of(context)!.email,
                     labelStyle: GoogleFonts.beVietnamPro(
                         fontSize: 15,
                         color: AppColor.primaryGreyColor,
@@ -141,7 +142,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                   onPressed: () {
                     Get.to(()=>EmailConfirmationScreen());
                   },
-                  text: 'Send',
+                  text:AppLocalizations.of(context)!.send,
                   textcolor: AppColor.primaryBlackColor,
                 ),
                 const SizedBox(height: 50),
@@ -152,7 +153,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                       Get.to(() => LoginScreen());
                     },
                     child: Text(
-                      'Back to login',
+                      AppLocalizations.of(context)!.backtologin,
                       style: GoogleFonts.beVietnamPro(
                         color: AppColor.primaryBlackColor,
                         fontSize: 16,
