@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(() => const AllProduct(title: 'READY TO WEAR'));
+                    Get.to(() =>  AllProduct(title: AppLocalizations.of(context)!.ready_to_wear.toUpperCase()));
                   },
                   child: Container(
                     alignment: Alignment.center,
@@ -229,10 +229,10 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
-                Get.to(() => const AllProduct(title: 'New Arrival'));
+                Get.to(() =>  AllProduct(title: AppLocalizations.of(context)!.newArrivals));
               },
               child: Text(
-                'New Arrival'.toUpperCase(),
+                AppLocalizations.of(context)!.newArrivals.toUpperCase(),
                 style: GoogleFonts.tenorSans(
                   color: AppColor.primaryBlackColor,
                   fontSize: 18,
@@ -331,10 +331,10 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 16),
             GestureDetector(
               onTap: () {
-                Get.to(() => const AllProduct(title: 'Best Sellers'));
+                Get.to(() =>  AllProduct(title: AppLocalizations.of(context)!.bestSellers.toUpperCase()));
               },
               child: Text(
-                'Best Sellers'.toUpperCase(),
+                AppLocalizations.of(context)!.best_sellers.toUpperCase(),
                 style: GoogleFonts.tenorSans(
                   color: AppColor.primaryBlackColor,
                   fontSize: 18,

@@ -65,6 +65,7 @@ flutter:
     - assets/drawer/
     - assets/menu/
     - assets/icons/
+    - assets/category/
 
 
   # example:

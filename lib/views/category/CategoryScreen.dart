@@ -18,17 +18,17 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Category> categories = [
-    Category('TOPS', 'assets/demo/pngegg (1) 1.png'),
-    Category('BOTTOMS', 'assets/demo/pngegg (2) 1.png'),
-    Category('DRESSES & SKIRT', 'assets/demo/pngegg (3) 1.png'),
-    Category('CO-ORDS', 'assets/demo/image 25.png'),
-    Category('PLAYSUITS', 'assets/demo/pngegg (4) 1 (1).png'),
-    Category('JACKETS & BLAZER', 'assets/demo/image 26.png'),
-    Category('SPORT', 'assets/demo/pngegg (5) 1.png'),
-    Category('LINGERIE', 'assets/demo/image 28.png'),
-    Category('SLEEPWEAR', 'assets/demo/pngwing 1.png'),
-    Category('SWIMWEAR', 'assets/demo/pngegg (6) 1.png'),
-    Category('SWEATERS & SWEATSHITS', 'assets/demo/image 27.png'),
+    Category('TOPS', 'assets/category/pngegg (1) 1.png'),
+    Category('BOTTOMS', 'assets/category/pngegg (2) 1.png'),
+    Category('DRESSES & SKIRT', 'assets/category/pngegg (3) 1 (1).png'),
+    Category('CO-ORDS', 'assets/category/image 25.png'),
+    Category('PLAYSUITS', 'assets/category/pngegg (4) 1 (1).png'),
+    Category('JACKETS & BLAZER', 'assets/category/image 26.png'),
+    Category('SPORT', 'assets/category/pngegg (5) 1 (1).png'),
+    Category('LINGERIE', 'assets/category/image 28.png'),
+    Category('SLEEPWEAR', 'assets/category/pngwing 1.png'),
+    Category('SWIMWEAR', 'assets/category/pngegg (6) 1.png'),
+    Category('SWEATERS & SWEATSHITS', 'assets/category/image 27.png'),
 
   ];
 

@@ -5,6 +5,7 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
 import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AllProduct extends StatelessWidget {
   final String? title;
@@ -47,8 +48,8 @@ class AllProduct extends StatelessWidget {
               ),
               child: TabBar(
                 tabs: [
-                  Tab(text: 'Ready to Wear'),
-                  Tab(text: 'Tailored'),
+                  Tab(text: AppLocalizations.of(context)!.ready_to_wear),
+                  Tab(text: AppLocalizations.of(context)!.tailored),
                 ],
                 labelStyle: GoogleFonts.beVietnamPro(
                   fontSize: 15,
