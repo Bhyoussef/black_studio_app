@@ -109,7 +109,282 @@
   "shop_now": "Shop Now",
   "new_arrival": "New Arrival",
   "best_sellers": "Best Sellers",
-  "ready_to_wear": "Ready to Wear"
+  "ready_to_wear": "Ready to Wear",
+
+
+
+  "clearAll": "Clear All",
+  "apply": "Apply",
+  "length": "Length",
+  "bust": "Bust",
+  "arm": "Arm",
+  "hip": "Hip",
+  "sleeveLength": "Sleeve Length",
+  "enterLength": "Enter Length",
+  "enterBust": "Enter Bust",
+  "enterArm": "Enter Arm",
+  "enterHip": "Enter Hip",
+  "enterSleeveLength": "Enter Sleeve Length",
+
+
+
+  "searchHint": "What can we help you find?",
+  "cancel": "Cancel",
+  "searchWithImage": "SEARCH WITH AN IMAGE",
+  "useImageToFindItems": "Use an image to find exact or similar items",
+  "camera": "Camera",
+  "image": "Image",
+
+
+
+
+  "search": "Search",
+  "sortByTitle": "Sort By",
+  "priceHighToLow": "Price: High to Low",
+  "priceLowToHigh": "Price: Low to High",
+  "newArrival": "New Arrival",
+  "bestSeller": "Best Seller",
+  "size": "Size",
+  "filter": "Filter",
+  "productTitle": "Product",
+
+
+
+  "findyourdesiredproductthatyouwanttobuyeasily": "Find your desired product that you want to buy easily",
+
+  "collection": "SPRING/SUMMER 2022 collection",
+
+
+  "productDetailTitle": "Product Detail",
+  "addToCartButton": "Add to Cart",
+  "editSizeButton": "Edit Size",
+  "selectSize": "SELECT SIZE",
+  "viewAllReviews": "View All Reviews",
+  "reviewsTitle": "REVIEWS",
+
+
+
+  "viewAllReviewsButton": "View All Reviews",
+  "reviewsText": "REVIEWS",
+  "productAddedToCart": "Product added to cart",
+
+
+  "deliveryOptionsText": "DELIVERY OPTIONS",
+  "enterPinCodeLabel": "Enter Pin Code",
+  "checkButtonLabel": "Check",
+  "deliveryTimeAvailabilityText": "Please enter PIN code to check delivery time & pay on delivery availability",
+  "originalProductText": "100% Original product",
+  "payOnDeliveryText": "Pay on delivery might be available",
+  "returnsExchangesText": "Easy 30 days returns and exchanges",
+  "tryAndBuyText": "Try & buy might be available",
+
+
+
+  "bestOffersText": "BEST OFFERS",
+  "bestPriceText": "Best Price: 420",
+  "couponCodeText": "Coupon code: BLACKSTU125",
+  "couponDiscountText": "Coupon discount: 120 off (check cart for final savings)",
+  "applicableOnText": "Applicable on: Orders above 420 (only on first purchase)",
+  "viewEligibleProductsText": "View Eligible Products.",
+
+
+  "productDetailsText": "PRODUCT DETAILS",
+  "productTitleText": "Grey regular empire top",
+  "productDesignText": "Self design",
+  "productStrapsText": "Shoulder straps, sleeveless",
+  "productLaceText": "Woven lace",
+  "productTieUpsText": "Tie-ups",
+  "sizeFitText": "Size & Fit",
+  "modelInfoText": "Our model is 108cm/5’11” and is wearing a L",
+  "fitsTrueToSizeText": "This item fits true to size",
+  "suggestNormalSizeText": "We suggest taking your normal size",
+  "materialCareText": "Material & Care",
+  "polyesterText": "Polyester",
+  "dryCleanText": "Dry clean",
+  "specificationsText": "Specifications",
+
+
+
+  "reviewsCountText": "(34 Reviews)",
+  "averageRatingText": "4.0",
+  "recommendationText": "94% of customers recommend this product",
+  "customerRatingText": "Customer Rating",
+  "sizeText": "Size:",
+  "runsSmallText": "Runs Small",
+  "runsLargeText": "Runs Large",
+  "comfortText": "Comfort:",
+  "uncomfortableText": "Uncomfortable",
+  "comfortableText": "Comfortable",
+  "qualityText": "Quality",
+  "poorText": "Poor",
+  "greatText": "Great",
+
+
+
+
+  "addReviewText": "Add Review",
+  "starRatingText": "stars",
+  "monthsAgoText": "month ago",
+  "lovelyCropTopText": "LOVELY CROP TOP COME UP SMALL THO",
+  "transparentText": "It looks very beautiful but since its made of lace and the colour is white it is slightly transparent. It should have been padded because its transparent. The fitting is not good at all. It doesnt sit tight on the bust and its too loose on the sides.",
+
+
+
+  "bagTitle": "Bag",
+  "emptyBagMessage": "Currently, you don't have any item in your Bag.",
+  "messageBag": "Spend QAR 165 and get 10% off everything with code: GET 10 some exclusions may apply.",
+  "itemsSelectedText": "ITEMS SELECTED",
+  "promoCodeLabel": "Promo Code",
+  "applyButtonLabel": "Apply",
+  "priceDetailsText": "Price Details (2 items)",
+  "totalMRPLabel": "Total MRP:",
+  "discountOnMRPLabel": "Discount on MRP:",
+  "couponDiscountLabel": "Coupon Discount:",
+  "applyCouponLabel": "Apply Coupon",
+  "taxLabel": "Tax:",
+  "totalAmountLabel": "Total Amount",
+  "checkoutButtonLabel": "Checkout",
+  "promoCode": "Promo Code",
+  "totalItems": "2 Items: Total (excluding delivery)",
+  "totalAmount": "Total Amount",
+  "checkout": "Checkout",
+
+
+
+  "introduction": "Introduction",
+  "whatWeCollect": "What Personal Information We Collect And How We Use It",
+  "receivingAndUnsubscribing": "Receiving And Unsubscribing From The Black Studio Updates",
+  "whoWeShareWith": "Who We Share Your Personal Information With",
+  "yourRights": "Your Rights In Relation To Your Personal Information",
+  "retentionAndDeletion": "Retention And Deletion Of Personal Information",
+  "securityAndLinks": "Security And Third Party Links",
+  "changesToPolicy": "Changes To This Privacy Policy",
+  "contactingBlackStudio": "Contacting The Black Studio",
+  "loremIpsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultrices elit a, magna magna pretium quam ac leo. Dui praesent consectetur vestibulum est. Quis facilisis netus odio ultricies netus urna tortor, venenatis. Tristique quis arcu bibendum gravida sem libero at sit. Adipiscing non est duis mi arcu, eget pharetra, accumsan. Egestas tincidunt ullamcorper arcu.",
+
+
+  "offer": "Offer",
+  "feeds": "Feeds",
+  "activity": "Activity",
+
+
+  "bestTitle": "The Best Title",
+  "description": "Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo",
+  "dateTime": "April 30, 2014 1:01 PM",
+
+
+
+  "newProduct": "New Product",
+  "bestProduct": "Best Product",
+  "productDescription": "Nike Air Zoom Pegasus 36 Miami - Special For your Activity",
+
+
+
+  "transactionTitle": "Transaction Nike Air Zoom Product",
+  "transactionDescription": "Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo",
+
+
+
+
+  "blouses": "Blouses",
+  "tshirts": "Tshirts",
+  "tankTops": "Tank Tops",
+  "red": "Red",
+  "yellow": "Yellow",
+  "green": "Green",
+  "small": "Small",
+  "medium": "Medium",
+  "large": "Large",
+  "pattern1": "Pattern 1",
+  "pattern2": "Pattern 2",
+  "pattern3": "Pattern 3",
+  "style1": "Style 1",
+  "style2": "Style 2",
+  "style3": "Style 3",
+
+
+
+  "color": "Color",
+  "pattern": "Pattern",
+  "style": "Style",
+  "price": "Price",
+
+
+
+
+  "productName": "Product Name",
+  "productNameAr": "Product Name (Arabic)",
+  "imageUrl": "Image URL",
+  "quantity": "Quantity",
+  "remove": "Remove",
+  "saveForLater": "Save for Later",
+
+
+
+  "language": "en",
+  "checkout": "Checkout",
+  "shippingAddress": "SHIPPING ADDRESS",
+  "paymentMethod": "PAYMENT METHOD",
+  "promoCode": "Promo Code",
+  "apply": "Apply",
+  "priceDetails": "PRICE DETAILS",
+  "total": "Total",
+  "discount": "Discount",
+  "couponDiscount": "Coupon Discount",
+  "tax": "Tax",
+  "totalPayment": "Total Payment",
+  "placeOrder": "Place Order",
+  "paymentFailed": "Payment Failed",
+  "tryAgain": "Try Again",
+  "backToHome": "Back to Home",
+  "orderPlacedSuccessfully": "Order Placed Successfully",
+  "trackOrder": "Track Order",
+  "yourOrderPlacedSuccessfully": "Your Order has been successfully placed! For more details, go to My Orders."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

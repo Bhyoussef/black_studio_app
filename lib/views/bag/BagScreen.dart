@@ -7,7 +7,7 @@ import 'package:linkia_ecommerce/controllers/CartController/CartController.dart'
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
 import 'package:linkia_ecommerce/views/bag/widget/CustomCartItem.dart';
 import 'package:linkia_ecommerce/widget/CustomButton.dart';
-import 'package:linkia_ecommerce/widget/drawer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'ChekoutScreen.dart';
 
 class BagScreen extends StatefulWidget {
@@ -26,6 +26,7 @@ class _BagScreenState extends State<BagScreen> {
   @override
   Widget build(BuildContext context) {
     final bagController = Get.find<CartController>();
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
 
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
@@ -95,7 +96,7 @@ class _BagScreenState extends State<BagScreen> {
               ),
               const SizedBox(height: 20,),
               Text(
-                'Currently, you don\'t have any item in your Bag.',
+                AppLocalizations.of(context)!.emptyBagMessage,
                 style: GoogleFonts.beVietnamPro(
                     fontSize: 12, fontWeight: FontWeight.w400,
                     color: AppColor.primaryGreyColor),
@@ -120,7 +121,7 @@ class _BagScreenState extends State<BagScreen> {
                             const SizedBox(width: 10,),
                             Flexible(
                               child: Text(
-                                'Spend QAR 165 and get 10% off everything with code: GET 10 some exclusions may apply.',
+                                AppLocalizations.of(context)!.messageBag,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 style: GoogleFonts.beVietnamPro(
@@ -144,7 +145,7 @@ class _BagScreenState extends State<BagScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '2 Items: Total (excluding delivery)',
+                            AppLocalizations.of(context)!.totalItems,
                             style: GoogleFonts.beVietnamPro(
                               fontSize: 15,
                               fontWeight: FontWeight.w400,
@@ -187,7 +188,7 @@ class _BagScreenState extends State<BagScreen> {
                       },
                     ),
                     Text(
-                      '0/2 ITEMS SELECTED',
+                      '0/2 ${AppLocalizations.of(context)!.itemsSelectedText}',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.beVietnamPro(
@@ -227,6 +228,7 @@ class _BagScreenState extends State<BagScreen> {
 
                             return CartItem(
                               productName: product.product.name,
+
                               price: product.product.price,
                               category: product.product.category,
                               imageUrl: product.product.imageAssets[0],
@@ -239,7 +241,7 @@ class _BagScreenState extends State<BagScreen> {
                               onRemovePressed: () {
                                 //bagController.removeProduct(index);
                               },
-                              quantity: product.quantity.toString(),
+                              quantity: product.quantity.toString(), productNameAr: product.product.nameAr,
                             );
                           },
                         );
@@ -268,11 +270,11 @@ class _BagScreenState extends State<BagScreen> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 6.0),
+                        padding:  isArabic?EdgeInsets.only(right: 6.0):EdgeInsets.only(left: 6.0),
                         child: TextFormField(
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            labelText: 'Promo Code',
+                            labelText: AppLocalizations.of(context)!.promoCode,
                             labelStyle: GoogleFonts.beVietnamPro(
                                 color: AppColor.primaryGreyColor,
                                 fontWeight: FontWeight.w400,
@@ -282,7 +284,7 @@ class _BagScreenState extends State<BagScreen> {
                                 // TODO: Implement the logic for applying the promo code
                               },
                               child: Text(
-                                'Apply',
+                                AppLocalizations.of(context)!.apply,
                                 style: GoogleFonts.beVietnamPro(
                                     color: AppColor.primaryBlackColor,
                                     fontWeight: FontWeight.w600,
@@ -306,7 +308,7 @@ class _BagScreenState extends State<BagScreen> {
                   const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Text('price details(2 items)'.toUpperCase(),style: GoogleFonts.tenorSans(
+                    child: Text(AppLocalizations.of(context)!.priceDetailsText.toUpperCase(),style: GoogleFonts.tenorSans(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
                         color: AppColor.primaryBlackColor
@@ -314,7 +316,7 @@ class _BagScreenState extends State<BagScreen> {
                   ),
 
 
-                 const Padding(
+                  Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -325,7 +327,7 @@ class _BagScreenState extends State<BagScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Total MRP :',
+                          Text(AppLocalizations.of(context)!.totalMRPLabel,
                               style: TextStyle(
                                 color: AppColor.primaryGreyColor,
                                 fontWeight: FontWeight.w400,
@@ -342,7 +344,7 @@ class _BagScreenState extends State<BagScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Discount on MRP:',
+                          Text(AppLocalizations.of(context)!.discountOnMRPLabel,
                               style: TextStyle(
                                 color: AppColor.primaryGreyColor,
                                 fontWeight: FontWeight.w400,
@@ -359,7 +361,7 @@ class _BagScreenState extends State<BagScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Coupon Discount:',
+                          Text(AppLocalizations.of(context)!.couponDiscountLabel,
                               style: TextStyle(
                                 color: AppColor.primaryGreyColor,
                                 fontWeight: FontWeight.w400,
@@ -376,7 +378,7 @@ class _BagScreenState extends State<BagScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Tax:',
+                          Text(AppLocalizations.of(context)!.taxLabel,
                               style: TextStyle(
                                 color: AppColor.primaryGreyColor,
                                 fontWeight: FontWeight.w400,
@@ -407,7 +409,7 @@ class _BagScreenState extends State<BagScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text('Total Amount',
+                         Text(AppLocalizations.of(context)!.totalAmount,
                             style: TextStyle(
                               color: AppColor.primaryGreyColor,
                               fontWeight: FontWeight.w400,
@@ -439,7 +441,7 @@ class _BagScreenState extends State<BagScreen> {
                         onPressed: () {
                           Get.to(() =>  ChekoutScreen(products: bagController.items));
                         },
-                        text: 'Checkout'
+                        text: AppLocalizations.of(context)!.checkout
                     ),
                   ),
                 ],

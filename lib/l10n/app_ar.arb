@@ -109,8 +109,272 @@
   "shop_now": "تسوق الآن",
   "new_arrival": "وصل حديثا",
   "best_sellers": "أفضل البائعين",
-  "ready_to_wear":"الجاهز للارتداء"
+  "ready_to_wear":"الجاهز للارتداء",
+
+
+  "clearAll": "مسح الكل",
+  "apply": "تطبيق",
+  "length": "الطول",
+  "bust": "محيط الصدر",
+  "arm": "الذراع",
+  "hip": "الورك",
+  "sleeveLength": "طول الكم",
+  "enterLength": "أدخل الطول",
+  "enterBust": "أدخل محيط الصدر",
+  "enterArm": "أدخل الذراع",
+  "enterHip": "أدخل الورك",
+  "enterSleeveLength": "أدخل طول الكم",
+
+
+  "searchHint": "ماذا يمكننا مساعدتك في العثور عليه؟",
+  "cancel": "إلغاء",
+  "searchWithImage": "البحث باستخدام الصورة",
+  "useImageToFindItems": "استخدم صورة للعثور على عناصر مماثلة أو مماثلة بالضبط",
+  "camera": "الكاميرا",
+  "image": "صورة",
+
+
+  "search": "بحث",
+  "sortByTitle": "ترتيب حسب",
+  "priceHighToLow": "السعر: من الأعلى إلى الأدنى",
+  "priceLowToHigh": "السعر: من الأدنى إلى الأعلى",
+  "newArrival": "وصل حديثاً",
+  "bestSeller": "الأكثر مبيعاً",
+  "size": "الحجم",
+  "filter": "تصفية",
+  "productTitle": "المنتج",
+
+
+  "findyourdesiredproductthatyouwanttobuyeasily": "ابحث عن المنتج الذي ترغب في شرائه بسهولة",
+
+  "collection": "مجموعة ربيع/صيف 2022",
+
+
+  "productDetailTitle": "تفاصيل المنتج",
+  "addToCartButton": "أضف إلى السلة",
+  "editSizeButton": "تعديل الحجم",
+  "selectSize": "اختر الحجم",
+  "viewAllReviews": "عرض جميع التقييمات",
+  "reviewsTitle": "التقييمات",
+
+  "viewAllReviewsButton": "عرض كل التقييمات",
+  "reviewsText": "التقييمات",
+  "productAddedToCart": "تمت إضافة المنتج إلى السلة",
+
+
+
+  "deliveryOptionsText": "خيارات التوصيل",
+  "enterPinCodeLabel": "أدخل الرمز البريدي",
+  "checkButtonLabel": "تحقق",
+  "deliveryTimeAvailabilityText": "الرجاء إدخال الرمز البريدي للتحقق من وقت التوصيل وإمكانية الدفع عند الاستلام",
+  "originalProductText": "منتج أصلي 100%",
+  "payOnDeliveryText": "قد يكون الدفع عند التسليم متاحًا",
+  "returnsExchangesText": "إرجاع وتبديل سهل خلال 30 يومًا",
+  "tryAndBuyText": "قد يكون التجربة والشراء متاحًا",
+
+
+
+  "bestOffersText": "أفضل العروض",
+  "bestPriceText": "أفضل سعر:   420",
+  "couponCodeText": "كود الخصم: BLACKSTU125",
+  "couponDiscountText": "خصم الكوبون: 120 (تحقق من العربة للتوفير النهائي)",
+  "applicableOnText": "قابل للاستخدام على: الطلبات التي تزيد عن 420 (فقط في الشراء الأول)",
+  "viewEligibleProductsText": "عرض المنتجات المؤهلة.",
+
+
+
+  "productDetailsText": "تفاصيل المنتج",
+  "productTitleText": "قمة إمبراطورية عادية رمادية",
+  "productDesignText": "تصميم ذاتي",
+  "productStrapsText": "أحزمة الكتف ، بلا أكمام",
+  "productLaceText": "دانتيل منسوج",
+  "productTieUpsText": "ربط",
+  "sizeFitText": "الحجم والمقاس",
+  "modelInfoText": "طول عارضتنا 108 سم/5'11'' وترتدي مقاس L",
+  "fitsTrueToSizeText": "هذا العنصر يناسب الحجم الطبيعي",
+  "suggestNormalSizeText": "نقترح أخذ مقاسك العادي",
+  "materialCareText": "المواد والعناية",
+  "polyesterText": "بوليستر",
+  "dryCleanText": "تنظيف جاف",
+  "specificationsText": "المواصفات",
+
+
+  "reviewsCountText": "(34 تقييم)",
+  "averageRatingText": "4.0",
+  "recommendationText": "94% من العملاء يوصون بهذا المنتج",
+  "customerRatingText": "تقييم العملاء",
+  "sizeText": "الحجم:",
+  "runsSmallText": "صغير الحجم",
+  "runsLargeText": "كبير الحجم",
+  "comfortText": "الراحة:",
+  "uncomfortableText": "غير مريح",
+  "comfortableText": "مريح",
+  "qualityText": "الجودة",
+  "poorText": "سيء",
+  "greatText": "رائع",
+
+
+
+  "addReviewText": "إضافة تقييم",
+  "starRatingText": "نجوم",
+  "monthsAgoText": "منذ شهر",
+  "lovelyCropTopText": "قمة محصول جميلة ولكنها تأتي صغيرة",
+  "transparentText": "تبدو جميلة جدًا ولكن نظرًا لأنها مصنوعة من الدانتيل واللون أبيض فهي قليلاً شفافة. كان يجب أن تكون مبطنة لأنها شفافة. التناسب ليس جيدًا على الإطلاق. إنها لا تجلس بإحكام على الصدر وموضعها فضفاض جدًا على الجوانب.",
+
+
+
+  "bagTitle": "الحقيبة",
+  "emptyBagMessage": "حاليًا، ليس لديك أي عنصر في حقيبتك.",
+  "messageBag": "أنفق 165 ريال قطري واحصل على خصم 10% على كل شيء باستخدام الرمز: احصل على 10 قد تنطبق بعض الاستثناءات",
+  "itemsSelectedText": "عناصر تم تحديدها",
+  "promoCodeLabel": "كود العرض",
+  "applyButtonLabel": "تطبيق",
+  "priceDetailsText": "تفاصيل السعر (2 عنصر)",
+  "totalMRPLabel": "السعر الأصلي الإجمالي:",
+  "discountOnMRPLabel": "خصم على السعر الأصلي:",
+  "couponDiscountLabel": "خصم الكوبون:",
+  "applyCouponLabel": "تطبيق الكوبون",
+  "taxLabel": "الضريبة:",
+  "totalAmountLabel": "المبلغ الإجمالي",
+  "checkoutButtonLabel": "الدفع",
+  "itemSelected": "العنصر المحدد",
+  "promoCode": "رمز ترويجي",
+  "totalItems": "2 عناصر: المجموع (باستثناء التسليم)",
+  "totalAmount": "المبلغ الإجمالي",
+  "checkout": "الدفع",
+
+
+
+
+  "introduction": "مقدمة",
+  "whatWeCollect": "المعلومات الشخصية التي نجمعها وكيفية استخدامنا لها",
+  "receivingAndUnsubscribing": "استلام التحديثات من The Black Studio وإلغاء الاشتراك",
+  "whoWeShareWith": "مع من نشارك معلوماتك الشخصية",
+  "yourRights": "حقوقك فيما يتعلق بمعلوماتك الشخصية",
+  "retentionAndDeletion": "الاحتفاظ بالمعلومات الشخصية وحذفها",
+  "securityAndLinks": "الأمان وروابط الأطراف الثالثة",
+  "changesToPolicy": "التغييرات على سياسة الخصوصية هذه",
+  "contactingBlackStudio": "الاتصال بـ The Black Studio",
+  "loremIpsum": "",
+
+
+
+  "offer": "عرض",
+  "feeds": "الأخبار",
+  "activity": "النشاط",
+
+
+  "bestTitle": "أفضل عنوان",
+  "description": "كولبا سيلوم كونسيكتيتور لابوري نولا نولا ماغنا إيرور. إيد فينيام كولبا أوفيسيا أوتي دولور أميت ديسيرونت إكس برويدينت كومودو",
+  "dateTime": "30 أبريل 2014 1:01 م",
+
+
+  "newProduct": "منتج جديد",
+  "bestProduct": "أفضل منتج",
+  "productDescription": "نايك Air Zoom بيغاسوس 36 ميامي - خاص لنشاطك",
+
+
+  "transactionTitle": "عملية نايك Air Zoom المنتج",
+  "transactionDescription": "كولبا سيلوم كونسيكتيور لابوري نولا نولا ماغنا إيرور. إد فينيام كولبا أوفيسيا أوتي دولور آميت ديسيرونت إكس بروئيدنت كومودو",
+
+
+
+  "blouses": "بلوزات",
+  "tshirts": "تي شيرتات",
+  "tankTops": "تانك توب",
+  "red": "أحمر",
+  "yellow": "أصفر",
+  "green": "أخضر",
+  "small": "صغير",
+  "medium": "متوسط",
+  "large": "كبير",
+  "pattern1": "نمط 1",
+  "pattern2": "نمط 2",
+  "pattern3": "نمط 3",
+  "style1": "أسلوب 1",
+  "style2": "أسلوب 2",
+  "style3": "أسلوب 3",
+  "color": "اللون",
+  "pattern": "النمط",
+  "style": "الأسلوب",
+  "price": "السعر",
+
+
+
+  "productName": "اسم المنتج",
+  "productNameAr": "اسم المنتج (بالعربية)",
+  "imageUrl": "رابط الصورة",
+  "quantity": "الكمية",
+  "remove": "إزالة",
+  "saveForLater": "حفظ لاحقًا",
+
+
+
+  "language": "ar",
+  "checkout": "الدفع",
+  "shippingAddress": "عنوان الشحن",
+  "paymentMethod": "وسيلة الدفع",
+  "promoCode": "كود الخصم",
+  "apply": "تطبيق",
+  "priceDetails": "تفاصيل السعر",
+  "total": "الإجمالي",
+  "discount": "خصم",
+  "couponDiscount": "خصم الكوبون",
+  "tax": "الضريبة",
+  "totalPayment": "إجمالي الدفع",
+  "placeOrder": "تأكيد الطلب",
+  "paymentFailed": "فشل الدفع",
+  "tryAgain": "حاول مرة أخرى",
+  "backToHome": "العودة إلى الصفحة الرئيسية",
+  "orderPlacedSuccessfully": "تم تأكيد الطلب بنجاح",
+  "trackOrder": "تتبع الطلب",
+  "yourOrderPlacedSuccessfully": "تم تأكيد طلبك بنجاح! لمزيد من التفاصيل، انتقل إلى طلباتي."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 }
+
+
+
+
+
+
+

@@ -17,13 +17,13 @@ class BrandScreen extends StatefulWidget {
 class _BrandScreenState extends State<BrandScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List<Map<String, String>> brands = [
-    {'name': 'Puma', 'image': 'assets/demo/puma-logo 1.svg'},
-    {'name': 'Zara', 'image': 'assets/demo/zara-logo-1 1.svg'},
-    {'name': 'Cucci', 'image': 'assets/demo/gucci-logo-brandlogos.net_9cd06kvtk 1.svg'},
-    {'name': 'Nike', 'image': 'assets/demo/Group (2).svg'},
-    {'name': 'H & M', 'image': 'assets/demo/h-m 1.svg'},
-    {'name': 'Van heusen', 'image': 'assets/demo/Group (1).svg'},
-    {'name': 'Tommy Hilfiger', 'image': 'assets/demo/Vector (1).svg'},
+    {'name': 'Puma', 'image': 'assets/category/puma-logo 1 (2).png'},
+    {'name': 'Zara', 'image': 'assets/category/zara-logo-1 1 (2).png'},
+    {'name': 'Cucci', 'image': 'assets/category/gucci-logo-brandlogos.net_9cd06kvtk 1 (1).png'},
+    {'name': 'Nike', 'image': 'assets/category/Vector (4).png'},
+    {'name': 'H & M', 'image': 'assets/category/h-m 1 (1).png'},
+    {'name': 'Van heusen', 'image': 'assets/category/Group (5).png'},
+    {'name': 'Tommy Hilfiger', 'image': 'assets/category/Vector (3).png'},
 
     // Add other brands and their images here
   ];
@@ -160,7 +160,7 @@ class _BrandScreenState extends State<BrandScreen> {
                                 width: 65,
                                 height: 28,
                                 child: Center(
-                                  child: SvgPicture.asset(
+                                  child: Image.asset(
                                     brandImage!,
                                   ),
                                 ),

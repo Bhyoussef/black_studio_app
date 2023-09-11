@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
-class DeleveryOption extends StatelessWidget {
-  const DeleveryOption({super.key});
+class DeliveryOption extends StatelessWidget {
+  const DeliveryOption({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +21,23 @@ class DeleveryOption extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'DELIVERY OPTIONS',
+                  AppLocalizations.of(context)!.deliveryOptionsText,
                   style: GoogleFonts.tenorSans(
-                      fontSize: 14, fontWeight: FontWeight.w400
-                  ,color: AppColor.primaryBlackColor),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.primaryBlackColor,
+                  ),
                 ),
                 SizedBox(
                   width: 5,
                 ),
-                SvgPicture.asset('assets/icons/group.svg')
+                SvgPicture.asset('assets/icons/group.svg'),
               ],
             ),
             SizedBox(height: 25,),
             TextFormField(
               decoration: InputDecoration(
-                labelText: 'Enter Pin Code',
+                labelText: AppLocalizations.of(context)!.enterPinCodeLabel,
                 labelStyle: TextStyle(
                   fontSize: 16,
                 ),
@@ -44,7 +46,7 @@ class DeleveryOption extends StatelessWidget {
                     // Handle check button press
                   },
                   child: Text(
-                    'Check',
+                    AppLocalizations.of(context)!.checkButtonLabel,
                     style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryBlackColor,
                       fontSize: 15,
@@ -65,11 +67,12 @@ class DeleveryOption extends StatelessWidget {
               height: 15,
             ),
             Text(
-              'Please enter PIN code to cehck delivery time & pay ondelivery availability',
+              AppLocalizations.of(context)!.deliveryTimeAvailabilityText,
               style: GoogleFonts.beVietnamPro(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  color: AppColor.thirdGreyColor),
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: AppColor.thirdGreyColor,
+              ),
             ),
             SizedBox(
               height: 10,
@@ -79,41 +82,45 @@ class DeleveryOption extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  '100% Original product',
+                  AppLocalizations.of(context)!.originalProductText,
                   style: GoogleFonts.beVietnamPro(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.primaryGreyColor),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.primaryGreyColor,
+                  ),
                 ),
                 SizedBox(
                   height: 5,
                 ),
                 Text(
-                  'Pay on delivery might be available',
+                  AppLocalizations.of(context)!.payOnDeliveryText,
                   style: GoogleFonts.beVietnamPro(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.primaryGreyColor),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.primaryGreyColor,
+                  ),
                 ),
                 SizedBox(
                   height: 5,
                 ),
                 Text(
-                  'Easy 30 days returns and exchanges ',
+                  AppLocalizations.of(context)!.returnsExchangesText,
                   style: GoogleFonts.beVietnamPro(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.primaryGreyColor),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.primaryGreyColor,
+                  ),
                 ),
                 SizedBox(
                   height: 5,
                 ),
                 Text(
-                  'Try & buy might be available',
+                  AppLocalizations.of(context)!.tryAndBuyText,
                   style: GoogleFonts.beVietnamPro(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.primaryGreyColor),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.primaryGreyColor,
+                  ),
                 ),
               ],
             )

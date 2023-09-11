@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            'SPRING/SUMMER 2022 collection',
+                            AppLocalizations.of(context)!.collection,
                             style: GoogleFonts.beVietnamPro(
                               color: Colors.white,
                               fontSize: 24,
@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            'Find your desired product that you want to buy easily',
+                            AppLocalizations.of(context)!.findyourdesiredproductthatyouwanttobuyeasily,
                             style: GoogleFonts.beVietnamPro(
                               color: Colors.white,
                               fontSize: 15,
@@ -378,6 +378,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildProductCard(Product product) {
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return Column(
       children: [
         Image.network(
@@ -392,7 +393,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Flexible(
-                child: Text(
+                child: Text(isArabic?product.nameAr:
                   product.name,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 12,
@@ -403,7 +404,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Text(
-                product.category,
+                isArabic?product.categoryAr:product.category,
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 12,
                   color: AppColor.primaryGreyColor,

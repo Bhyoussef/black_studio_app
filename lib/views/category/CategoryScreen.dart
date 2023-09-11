@@ -5,7 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/widget/drawer.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'ProductCategoryScreen.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -18,22 +18,24 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Category> categories = [
-    Category('TOPS', 'assets/category/pngegg (1) 1.png'),
-    Category('BOTTOMS', 'assets/category/pngegg (2) 1.png'),
-    Category('DRESSES & SKIRT', 'assets/category/pngegg (3) 1 (1).png'),
-    Category('CO-ORDS', 'assets/category/image 25.png'),
-    Category('PLAYSUITS', 'assets/category/pngegg (4) 1 (1).png'),
-    Category('JACKETS & BLAZER', 'assets/category/image 26.png'),
-    Category('SPORT', 'assets/category/pngegg (5) 1 (1).png'),
-    Category('LINGERIE', 'assets/category/image 28.png'),
-    Category('SLEEPWEAR', 'assets/category/pngwing 1.png'),
-    Category('SWIMWEAR', 'assets/category/pngegg (6) 1.png'),
-    Category('SWEATERS & SWEATSHITS', 'assets/category/image 27.png'),
+    Category('Tops', 'assets/category/pngegg (1) 1.png', 'قمصان وبلايز'),
+    Category('Bottoms', 'assets/category/pngegg (2) 1.png', 'السراويل والبنطلونات'),
+    Category('Dresses & Skirts', 'assets/category/pngegg (3) 1 (1).png', 'فساتين وتنانير'),
+    Category('Co-ords', 'assets/category/image 25.png', 'أزياء متجانسة'),
+    Category('Playsuits', 'assets/category/pngegg (4) 1 (1).png', 'أفرولات'),
+    Category('Jackets & Blazers', 'assets/category/image 26.png', 'جواكت وسترات'),
+    Category('Sportswear', 'assets/category/pngegg (5) 1 (1).png', 'ملابس رياضية'),
+    Category('Lingerie', 'assets/category/image 28.png', 'ملابس داخلية'),
+    Category('Sleepwear', 'assets/category/pngwing 1.png', 'ملابس نوم'),
+    Category('Swimwear', 'assets/category/pngegg (6) 1.png', 'ملابس السباحة'),
+    Category('Sweaters & Sweatshirts', 'assets/category/image 27.png', 'كنزات وسترات رياضية'),
+
 
   ];
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
@@ -64,7 +66,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             final category = categories[index];
             return GestureDetector(
               onTap: (){
-                Get.to(()=>ProductCategoryScreen(title:category.name));
+                Get.to(()=>ProductCategoryScreen(title:isArabic?category.nameAr:category.name));
               },
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -79,7 +81,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: Text(category.name,style: GoogleFonts.beVietnamPro(
+                        child: Text(isArabic?category.nameAr:category.name,style: GoogleFonts.beVietnamPro(
                             fontSize: 16,
                             fontWeight:FontWeight.normal,
                             color: AppColor.primaryBlackColor
@@ -106,6 +108,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
 class Category {
   final String name;
   final String imageURL;
+  final String nameAr;
 
-  Category(this.name, this.imageURL);
+  Category(this.name, this.imageURL, this.nameAr);
 }

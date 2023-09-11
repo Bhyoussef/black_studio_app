@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class BestOffesrSection extends StatelessWidget {
-  const BestOffesrSection({super.key});
+class BestOffersSection extends StatelessWidget {
+  const BestOffersSection({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +19,11 @@ class BestOffesrSection extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'BEST OFFERS',
+                  AppLocalizations.of(context)!.bestOffersText,
                   style: GoogleFonts.tenorSans(
-                      fontSize: 14, fontWeight: FontWeight.w400),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
                 SizedBox(
                   width: 5,
@@ -36,7 +39,7 @@ class BestOffesrSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  'Best Price: \$420',
+                  AppLocalizations.of(context)!.bestPriceText,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -48,12 +51,12 @@ class BestOffesrSection extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                  SvgPicture.asset('assets/icons/Rectangle 327.svg'),
+                    SvgPicture.asset('assets/icons/Rectangle 327.svg'),
                     SizedBox(
                       width: 10,
                     ),
                     Text(
-                      'Coupon code: BLACKSTU125',
+                      AppLocalizations.of(context)!.couponCodeText,
                       style: GoogleFonts.tenorSans(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -73,7 +76,7 @@ class BestOffesrSection extends StatelessWidget {
                     ),
                     Flexible(
                       child: Text(
-                        'Coupon discount: \$120 off (check cart for final savings)',
+                        AppLocalizations.of(context)!.couponDiscountText,
                         style: GoogleFonts.beVietnamPro(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -96,7 +99,7 @@ class BestOffesrSection extends StatelessWidget {
                     ),
                     Flexible(
                       child: Text(
-                        'Applicable on: Orders above \$420 (only on first purchase)',
+                        AppLocalizations.of(context)!.applicableOnText,
                         style: GoogleFonts.beVietnamPro(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -118,7 +121,7 @@ class BestOffesrSection extends StatelessWidget {
                     GestureDetector(
                       onTap: () {},
                       child: Text(
-                        'Viwe Eligible Products.',
+                        AppLocalizations.of(context)!.viewEligibleProductsText,
                         style: GoogleFonts.beVietnamPro(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -137,3 +140,4 @@ class BestOffesrSection extends StatelessWidget {
     );
   }
 }
+

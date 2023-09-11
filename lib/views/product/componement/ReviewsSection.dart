@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ReviewsSection extends StatelessWidget {
-  const ReviewsSection({super.key});
+  const ReviewsSection({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class ReviewsSection extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Reviews',
+                AppLocalizations.of(context)!.reviewsText,
                 style: GoogleFonts.tenorSans(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -26,7 +27,7 @@ class ReviewsSection extends StatelessWidget {
                 width: 10,
               ),
               Text(
-                '(34 Reviews)',
+                AppLocalizations.of(context)!.reviewsCountText,
                 style: GoogleFonts.tenorSans(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -39,7 +40,7 @@ class ReviewsSection extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '4.0',
+                    AppLocalizations.of(context)!.averageRatingText,
                     style: GoogleFonts.tenorSans(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -81,7 +82,7 @@ class ReviewsSection extends StatelessWidget {
           SizedBox(height: 15),
 
           Text(
-            '94% of customers recommend this product',
+            AppLocalizations.of(context)!.recommendationText,
             style: GoogleFonts.tenorSans(
               fontSize: 14,
               fontWeight: FontWeight.w400,
@@ -90,7 +91,7 @@ class ReviewsSection extends StatelessWidget {
           ),
           SizedBox(height: 15),
           Text(
-            'Customer Rating',
+            AppLocalizations.of(context)!.customerRatingText,
             style: GoogleFonts.beVietnamPro(
               fontSize: 14,
               fontWeight: FontWeight.w600,
@@ -100,13 +101,13 @@ class ReviewsSection extends StatelessWidget {
           //Size
           Row(
             children: [
-             SvgPicture.asset(
+              SvgPicture.asset(
                   'assets/icons/Search results for Measuring tape - Flaticon-2 1.svg'),
               SizedBox(
                 width: 10,
               ),
               Text(
-                'Size:',
+                AppLocalizations.of(context)!.sizeText,
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
@@ -165,11 +166,11 @@ class ReviewsSection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Runs Small",style: GoogleFonts.beVietnamPro(
+              Text(AppLocalizations.of(context)!.runsSmallText, style: GoogleFonts.beVietnamPro(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
               )),
-              Text("Runs Large",style: GoogleFonts.beVietnamPro(
+              Text(AppLocalizations.of(context)!.runsLargeText, style: GoogleFonts.beVietnamPro(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
               )),
@@ -188,7 +189,7 @@ class ReviewsSection extends StatelessWidget {
                     width: 10,
                   ),
                   Text(
-                    'Comfort:',
+                    AppLocalizations.of(context)!.comfortText,
                     style: GoogleFonts.beVietnamPro(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -250,34 +251,33 @@ class ReviewsSection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Unconfortable",style: GoogleFonts.beVietnamPro(
+              Text(AppLocalizations.of(context)!.uncomfortableText, style: GoogleFonts.beVietnamPro(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
               )),
-              Text("Confortable",style: GoogleFonts.beVietnamPro(
+              Text(AppLocalizations.of(context)!.comfortableText, style: GoogleFonts.beVietnamPro(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
               )),
             ],
           ),
 
-
           SizedBox(height: 20),
+
           Row(
             children: [
-            SvgPicture.asset(
+              SvgPicture.asset(
                   'assets/icons/Search results for Diamond - Flaticon-2 (1) 1.svg'),
               SizedBox(
                 width: 10,
               ),
               Text(
-                'Quality',
+                AppLocalizations.of(context)!.qualityText,
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),
               ),
-
             ],
           ),
           SizedBox(height: 20),
@@ -331,20 +331,20 @@ class ReviewsSection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Poor",style: GoogleFonts.beVietnamPro(
+              Text(AppLocalizations.of(context)!.poorText, style: GoogleFonts.beVietnamPro(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
               )),
-              Text("Great",style: GoogleFonts.beVietnamPro(
+              Text(AppLocalizations.of(context)!.greatText, style: GoogleFonts.beVietnamPro(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
               )),
             ],
           ),
           SizedBox(height: 10),
-
         ],
       ),
     );
   }
 }
+

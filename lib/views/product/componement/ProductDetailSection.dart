@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProductDetailSection extends StatelessWidget {
-  const ProductDetailSection({super.key});
+  const ProductDetailSection({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +21,20 @@ class ProductDetailSection extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  'PRODUCT DETAILS',
+                  AppLocalizations.of(context)!.productDetailsText,
                   style: GoogleFonts.tenorSans(
-                      fontSize: 14, fontWeight: FontWeight.w400),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
                 SizedBox(
                   width: 10,
                 ),
-               SvgPicture.asset('assets/icons/document-text.svg',height: 20,)
+                SvgPicture.asset('assets/icons/document-text.svg', height: 20,)
               ],
             ),
           ),
+          SizedBox(height: 10,),
           Padding(
             padding: const EdgeInsets.all(0.0),
             child: Column(
@@ -40,55 +44,60 @@ class ProductDetailSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Grey regular empire top',
+                      AppLocalizations.of(context)!.productTitleText,
                       style: GoogleFonts.beVietnamPro(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: AppColor.primaryGreyColor),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      ),
                     ),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
-                      'Self design',
+                      AppLocalizations.of(context)!.productDesignText,
                       style: GoogleFonts.beVietnamPro(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: AppColor.primaryGreyColor),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      ),
                     ),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
-                      'Shoulder straps, sleeveless',
+                      AppLocalizations.of(context)!.productStrapsText,
                       style: GoogleFonts.beVietnamPro(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: AppColor.primaryGreyColor),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      ),
                     ),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
-                      'Woven lace',
+                      AppLocalizations.of(context)!.productLaceText,
                       style: GoogleFonts.beVietnamPro(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: AppColor.primaryGreyColor),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      ),
                     ),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
-                      'Tie-ups',
+                      AppLocalizations.of(context)!.productTieUpsText,
                       style: GoogleFonts.beVietnamPro(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: AppColor.primaryGreyColor),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryGreyColor,
+                      ),
                     ),
                     SizedBox(height: 20),
                     Text(
-                      'Size & Fit',
+                      AppLocalizations.of(context)!.sizeFitText,
                       style: GoogleFonts.beVietnamPro(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -104,11 +113,12 @@ class ProductDetailSection extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          'Our model is 108cm/5’11” and is wearing a L',
+                          AppLocalizations.of(context)!.modelInfoText,
                           style: GoogleFonts.tenorSans(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor,
+                          ),
                         ),
                       ],
                     ),
@@ -122,11 +132,12 @@ class ProductDetailSection extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          'This item fits true to size',
+                          AppLocalizations.of(context)!.fitsTrueToSizeText,
                           style: GoogleFonts.tenorSans(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor,
+                          ),
                         ),
                       ],
                     ),
@@ -140,21 +151,23 @@ class ProductDetailSection extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          'We suggest taking your normal size',
+                          AppLocalizations.of(context)!.suggestNormalSizeText,
                           style: GoogleFonts.tenorSans(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor,
+                          ),
                         ),
                       ],
                     ),
                     SizedBox(height: 20),
                     Text(
-                      'Material & Care',
+                      AppLocalizations.of(context)!.materialCareText,
                       style: GoogleFonts.beVietnamPro(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: AppColor.primaryBlackColor),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.primaryBlackColor,
+                      ),
                     ),
                     SizedBox(height: 15),
                     Row(
@@ -164,11 +177,12 @@ class ProductDetailSection extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          'Polyester',
+                          AppLocalizations.of(context)!.polyesterText,
                           style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor,
+                          ),
                         ),
                       ],
                     ),
@@ -180,21 +194,23 @@ class ProductDetailSection extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          'Dry clean',
+                          AppLocalizations.of(context)!.dryCleanText,
                           style: GoogleFonts.beVietnamPro(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.primaryGreyColor,
+                          ),
                         ),
                       ],
                     ),
                     SizedBox(height: 20),
                     Text(
-                      'Specifications',
+                      AppLocalizations.of(context)!.specificationsText,
                       style: GoogleFonts.beVietnamPro(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: AppColor.primaryBlackColor),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.primaryBlackColor,
+                      ),
                     ),
                     SizedBox(height: 15),
                   ],
@@ -202,7 +218,6 @@ class ProductDetailSection extends StatelessWidget {
                 Container(
                   color: AppColor.primaryWhiteColor,
                   child: Table(
-
                     columnWidths: {
                       0: FixedColumnWidth(200), // Adjust column widths as needed
                       1: FlexColumnWidth(),
@@ -244,10 +259,8 @@ class ProductDetailSection extends StatelessWidget {
 // Function to build a table row with two texts
 TableRow buildTableRow(String leftText, String rightText) {
   return TableRow(
-
     children: [
       TableCell(
-
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
@@ -276,3 +289,4 @@ TableRow buildTableRow(String leftText, String rightText) {
     ],
   );
 }
+

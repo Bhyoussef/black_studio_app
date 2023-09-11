@@ -4,29 +4,34 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OfferScreen extends StatelessWidget {
-  const OfferScreen({super.key});
+  const OfferScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       appBar: AppBar(
-        title: Text('Offer',style: GoogleFonts.beVietnamPro(
+        title: Text(
+          AppLocalizations.of(context)!.offer,
+          style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontWeight: FontWeight.w600,
-            fontSize: 20
-        ),),
+            fontSize: 20,
+          ),
+        ),
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,
-        leading:  GestureDetector(
-            onTap: (){
-              Get.back();
-            },
-            child:const Icon(Icons.arrow_back,color: AppColor.primaryBlackColor,)),
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: const Icon(Icons.arrow_back, color: AppColor.primaryBlackColor),
+        ),
       ),
-      body:  SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             ListView(
@@ -42,33 +47,41 @@ class OfferScreen extends StatelessWidget {
                   ),
                   title: Padding(
                     padding: const EdgeInsets.all(6.0),
-                    child: Text('The Best Title',style: GoogleFonts.beVietnamPro(
+                    child: Text(
+                      AppLocalizations.of(context)!.bestTitle,
+                      style: GoogleFonts.beVietnamPro(
                         color: AppColor.primaryBlackColor,
                         fontWeight: FontWeight.w600,
-                        fontSize: 15
-                    )),
+                        fontSize: 15,
+                      ),
+                    ),
                   ),
-                  subtitle:Padding(
+                  subtitle: Padding(
                     padding: const EdgeInsets.all(6.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',style: GoogleFonts.beVietnamPro(
+                        Text(
+                          AppLocalizations.of(context)!.description,
+                          style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.5),
                             fontWeight: FontWeight.w400,
-                            fontSize: 13
-                        )),
-                        SizedBox(height: 10,),
-                        Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
+                            fontSize: 13,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          AppLocalizations.of(context)!.dateTime,
+                          style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.9),
                             fontWeight: FontWeight.w500,
-                            fontSize: 12
-                        ))
+                            fontSize: 12,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  onTap: (){
-                  },
+                  onTap: () {},
                 ),
                 ListTile(
                   leading: Padding(
@@ -80,33 +93,41 @@ class OfferScreen extends StatelessWidget {
                   ),
                   title: Padding(
                     padding: const EdgeInsets.all(6.0),
-                    child: Text('The Best Title',style: GoogleFonts.beVietnamPro(
+                    child: Text(
+                      AppLocalizations.of(context)!.bestTitle,
+                      style: GoogleFonts.beVietnamPro(
                         color: AppColor.primaryBlackColor,
                         fontWeight: FontWeight.w600,
-                        fontSize: 15
-                    )),
+                        fontSize: 15,
+                      ),
+                    ),
                   ),
-                  subtitle:Padding(
+                  subtitle: Padding(
                     padding: const EdgeInsets.all(6.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',style: GoogleFonts.beVietnamPro(
+                        Text(
+                          AppLocalizations.of(context)!.description,
+                          style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.5),
                             fontWeight: FontWeight.w400,
-                            fontSize: 13
-                        )),
-                        SizedBox(height: 10,),
-                        Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
+                            fontSize: 13,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          AppLocalizations.of(context)!.dateTime,
+                          style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.9),
                             fontWeight: FontWeight.w500,
-                            fontSize: 12
-                        ))
+                            fontSize: 12,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  onTap: (){
-                  },
+                  onTap: () {},
                 ),
                 ListTile(
                   leading: Padding(
@@ -118,42 +139,48 @@ class OfferScreen extends StatelessWidget {
                   ),
                   title: Padding(
                     padding: const EdgeInsets.all(6.0),
-                    child: Text('The Best Title',style: GoogleFonts.beVietnamPro(
+                    child: Text(
+                      AppLocalizations.of(context)!.bestTitle,
+                      style: GoogleFonts.beVietnamPro(
                         color: AppColor.primaryBlackColor,
                         fontWeight: FontWeight.w600,
-                        fontSize: 15
-                    )),
+                        fontSize: 15,
+                      ),
+                    ),
                   ),
-                  subtitle:Padding(
+                  subtitle: Padding(
                     padding: const EdgeInsets.all(6.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo',style: GoogleFonts.beVietnamPro(
+                        Text(
+                          AppLocalizations.of(context)!.description,
+                          style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.5),
                             fontWeight: FontWeight.w400,
-                            fontSize: 13
-                        )),
-                        SizedBox(height: 10,),
-                        Text('April 30, 2014 1:01 PM',style: GoogleFonts.beVietnamPro(
+                            fontSize: 13,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          AppLocalizations.of(context)!.dateTime,
+                          style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor.withOpacity(0.9),
                             fontWeight: FontWeight.w500,
-                            fontSize: 12
-                        ))
+                            fontSize: 12,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  onTap: (){
-                  },
+                  onTap: () {},
                 ),
-
               ],
-            )
-
-
+            ),
           ],
         ),
-      ) ,
+      ),
     );
   }
 }
+

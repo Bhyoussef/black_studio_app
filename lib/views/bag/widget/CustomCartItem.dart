@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CartItem extends StatelessWidget {
   final String productName;
+  final String productNameAr;
   final double price;
   final String category;
   final String imageUrl;
@@ -14,8 +16,9 @@ class CartItem extends StatelessWidget {
   final VoidCallback? onRemovePressed;
 
   const CartItem({
-    super.key,
+    Key? key,
     required this.productName,
+    required this.productNameAr,
     required this.price,
     required this.category,
     required this.imageUrl,
@@ -27,6 +30,7 @@ class CartItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return Column(
       children: [
         Row(
@@ -63,7 +67,7 @@ class CartItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  productName,
+                  isArabic ? productNameAr : productName,
                   style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryGreyColor,
                       fontWeight: FontWeight.w400,
@@ -75,14 +79,16 @@ class CartItem extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Color : ',
+                      AppLocalizations.of(context)!.color + ' : ',
                       style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryGreyColor,
                           fontWeight: FontWeight.w400,
                           fontSize: 14),
                     ),
                     Text(
-                      'Red',
+                      isArabic
+                          ? AppLocalizations.of(context)!.red
+                          : 'Red',
                       style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryBlackColor,
                           fontWeight: FontWeight.w400,
@@ -94,14 +100,14 @@ class CartItem extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Size : ',
+                      AppLocalizations.of(context)!.size + ' : ',
                       style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryGreyColor,
                           fontWeight: FontWeight.w400,
                           fontSize: 14),
                     ),
                     Text(
-                      'L',
+                      isArabic ? AppLocalizations.of(context)!.large : 'L',
                       style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryBlackColor,
                           fontWeight: FontWeight.w400,
@@ -154,11 +160,9 @@ class CartItem extends StatelessWidget {
             Row(
               children: [
                 TextButton(
-                  onPressed: () {
-                    // Handle "Remove" button click
-                  },
+                  onPressed: onRemovePressed,
                   child: Text(
-                    'Remove',
+                    AppLocalizations.of(context)!.remove,
                     style: GoogleFonts.beVietnamPro(
                       fontSize: 13,
                       fontWeight: FontWeight.w400,
@@ -172,7 +176,7 @@ class CartItem extends StatelessWidget {
                     // Handle "Save for Later" button click
                   },
                   child: Text(
-                    'Save for Later',
+                    AppLocalizations.of(context)!.saveForLater,
                     style: GoogleFonts.beVietnamPro(
                       fontSize: 13,
                       fontWeight: FontWeight.w400,

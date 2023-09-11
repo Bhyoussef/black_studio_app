@@ -7,6 +7,7 @@ import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
 import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 import 'OrderSummaryScreen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyOrdersScreen extends StatelessWidget {
   const MyOrdersScreen({super.key});

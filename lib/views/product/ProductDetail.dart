@@ -11,7 +11,7 @@ import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/views/reviews/ReviewsScreen.dart';
 import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 import 'package:share/share.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'ImageGallery.dart';
 import 'componement/BestOffersSection.dart';
 import 'componement/DeliveryOption.dart';
@@ -83,6 +83,7 @@ class _ProductDetailState extends State<ProductDetail> {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       appBar: AppBar(
@@ -98,7 +99,7 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
         ),
         title: Text(
-          'Product Detail',
+          AppLocalizations.of(context)!.productDetailTitle,
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontSize: 18,
@@ -119,13 +120,13 @@ class _ProductDetailState extends State<ProductDetail> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HiddenDrawer(initialIndex: 2,isNotHome: true,),
+                  builder: (context) => HiddenDrawer(initialIndex: 2, isNotHome: true,),
                 ),
               );
             },
             icon: Badge(
               label: Obx(
-                () => Text(
+                    () => Text(
                   Get.find<CartController>().items.length.toString(),
                 ),
               ),
@@ -144,13 +145,12 @@ class _ProductDetailState extends State<ProductDetail> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Container with the main product image
                 Padding(
                   padding: const EdgeInsets.all(0.0),
                   child: Stack(
                     children: [
                       SizedBox(
-                        height: 400, // Adjust the height as needed
+                        height: 400,
                         width: 500,
                         child: Image.network(
                           widget.product.imageAssets[selectedImageIndex],
@@ -158,23 +158,23 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                       ),
                       Positioned(
-                          bottom: 10,
-                          right: 5,
-                          child: GestureDetector(
-                              onTap: () {
-                                _showImageGalleryDialog(context);
-                              },
-                              child: SvgPicture.asset(
-                                  "assets/icons/Group 204.svg")))
+                        bottom: 10,
+                        right: 5,
+                        child: GestureDetector(
+                          onTap: () {
+                            _showImageGalleryDialog(context);
+                          },
+                          child: SvgPicture.asset("assets/icons/Group 204.svg"),
+                        ),
+                      ),
                     ],
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                // Container with the small list of images
                 SizedBox(
-                  height: 100, // Adjust the height as needed
+                  height: 100,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: widget.product.imageAssets.length,
@@ -186,7 +186,7 @@ class _ProductDetailState extends State<ProductDetail> {
                           });
                         },
                         child: Container(
-                          width: 80, // Adjust the width as needed
+                          width: 80,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
@@ -222,8 +222,6 @@ class _ProductDetailState extends State<ProductDetail> {
                     },
                   ),
                 ),
-
-                // Category and Product Name
                 Padding(
                   padding: const EdgeInsets.all(0.0),
                   child: Column(
@@ -233,7 +231,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         height: 8,
                       ),
                       Text(
-                        widget.product.category.toUpperCase(),
+                        isArabic?widget.product.categoryAr:widget.product.category.toUpperCase(),
                         style: GoogleFonts.tenorSans(
                           color: Colors.grey,
                           fontSize: 14,
@@ -242,7 +240,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        widget.product.name,
+                        isArabic?widget.product.nameAr:widget.product.name,
                         style: GoogleFonts.beVietnamPro(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -329,8 +327,6 @@ class _ProductDetailState extends State<ProductDetail> {
                 const SizedBox(
                   height: 20,
                 ),
-
-                // Add to Cart Button
                 Padding(
                   padding: const EdgeInsets.all(0.0),
                   child: Row(
@@ -344,22 +340,27 @@ class _ProductDetailState extends State<ProductDetail> {
                               foregroundColor: Colors.white,
                               backgroundColor: Colors.black,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                    8), // Set your desired corner radius
+                                borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                             onPressed: () {
                               bagController.addToCart(widget.product);
-                              Get.snackbar('Success', 'Product added to cart',
-                                  snackPosition: SnackPosition.BOTTOM,
-                                  backgroundColor: Colors.green,
-                                  colorText: CupertinoColors.white);
+                              Get.snackbar(
+                                AppLocalizations.of(context)!.addToCartButton,
+                                AppLocalizations.of(context)!.productAddedToCart,
+                                snackPosition: SnackPosition.BOTTOM,
+                                backgroundColor: Colors.green,
+                                colorText: CupertinoColors.white,
+                              );
                             },
-                            child: Text('Add to Cart',
-                                style: GoogleFonts.beVietnamPro(
-                                    color: AppColor.primaryWhiteColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400)),
+                            child: Text(
+                              AppLocalizations.of(context)!.addToCartButton,
+                              style: GoogleFonts.beVietnamPro(
+                                color: AppColor.primaryWhiteColor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -373,7 +374,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               width: 28,
                               color: AppColor.primaryGreyColor,
                             )),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -396,7 +397,6 @@ class _ProductDetailState extends State<ProductDetail> {
                     ),
                   ),
                 ),
-                // Divider
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Divider(
@@ -410,17 +410,19 @@ class _ProductDetailState extends State<ProductDetail> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('SELECT SIZE',
-                          style: GoogleFonts.tenorSans(
-                              color: AppColor.primaryBlackColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400)),
+                      Text(
+                        AppLocalizations.of(context)!.selectSize,
+                        style: GoogleFonts.tenorSans(
+                            color: AppColor.primaryBlackColor,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400),
+                      ),
                       TextButton(
                           onPressed: () {
                             _showSizeDialog(context);
                           },
                           child: Text(
-                            'Edit Size',
+                            AppLocalizations.of(context)!.editSizeButton,
                             style: GoogleFonts.beVietnamPro(
                                 color: AppColor.primaryBlackColor,
                                 fontWeight: FontWeight.w500,
@@ -481,7 +483,6 @@ class _ProductDetailState extends State<ProductDetail> {
                     }),
                   ),
                 ),
-
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Divider(
@@ -490,8 +491,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     color: AppColor.secondaryGreyColor,
                   ),
                 ),
-                //DELIVERY OPTIONS
-                const DeleveryOption(),
+                const DeliveryOption(),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Divider(
@@ -500,8 +500,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     color: AppColor.secondaryGreyColor,
                   ),
                 ),
-                //best offers
-                const BestOffesrSection(),
+                const BestOffersSection(),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Divider(
@@ -510,17 +509,13 @@ class _ProductDetailState extends State<ProductDetail> {
                     color: AppColor.secondaryGreyColor,
                   ),
                 ),
-
-
-                //Product Details
                 const ProductDetailSection(),
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
                       Text(
-                        'REVIEWS',
+                        AppLocalizations.of(context)!.reviewsText,
                         style: GoogleFonts.tenorSans(
                             fontSize: 14, fontWeight: FontWeight.w400),
                       ),
@@ -531,36 +526,34 @@ class _ProductDetailState extends State<ProductDetail> {
                     ],
                   ),
                 ),
-
-                //Reviews
                 const ReviewsSection(),
-
                 Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Container(
-                      height: 50,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        border: Border.all(
+                  padding: const EdgeInsets.all(0.0),
+                  child: Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: AppColor.primaryBlackColor,
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: MaterialButton(
+                      onPressed: () {
+                        Get.to(() => const ReviewsScreen());
+                      },
+                      child: Text(
+                        AppLocalizations.of(context)!.viewAllReviewsButton,
+                        style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryBlackColor,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: MaterialButton(
-                        onPressed: () {
-                          Get.to(() => const ReviewsScreen());
-                        },
-                        child: Text(
-                          'View All Reviews',
-                          style: GoogleFonts.beVietnamPro(
-                            color: AppColor.primaryBlackColor,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

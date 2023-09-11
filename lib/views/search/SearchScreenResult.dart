@@ -5,6 +5,7 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
 import 'package:linkia_ecommerce/views/search/FilterScreen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchScreenResult extends StatefulWidget {
   const SearchScreenResult({Key? key}) : super(key: key);
@@ -14,9 +15,6 @@ class SearchScreenResult extends StatefulWidget {
 }
 
 class _SearchScreenResultState extends State<SearchScreenResult> {
-
-
-
   void _showFilter(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -29,6 +27,7 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       body: SafeArea(
@@ -56,8 +55,7 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                             Icons.search,
                             color: AppColor.primaryGreyColor,
                           ),
-
-                          hintText: 'Search',
+                          hintText: AppLocalizations.of(context)!.searchHint,
                           filled: true,
                           fillColor: AppColor.secondaryGreyColor,
                           border: OutlineInputBorder(
@@ -74,11 +72,12 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                       Get.to(() => const SearchScreenResult());
                     },
                     child: Text(
-                      'Search',
+                      AppLocalizations.of(context)!.search,
                       style: GoogleFonts.beVietnamPro(
-                          fontSize: 12,
-                          color: AppColor.primaryBlackColor,
-                          fontWeight: FontWeight.w400),
+                        fontSize: 12,
+                        color: AppColor.primaryBlackColor,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ],
@@ -99,14 +98,14 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Category',
+                        AppLocalizations.of(context)!.category,
                         style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryGreyColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-
+                      SizedBox(width: 5,),
                       const Icon(
                         Icons.arrow_drop_down,
                         color: AppColor.primaryBlackColor,
@@ -127,14 +126,14 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Sort by',
+                        AppLocalizations.of(context)!.sortByTitle,
                         style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryGreyColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-
+                      SizedBox(width: 5,),
                       const Icon(
                         Icons.arrow_drop_down,
                         color: AppColor.primaryBlackColor,
@@ -155,14 +154,14 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Size',
+                        AppLocalizations.of(context)!.size,
                         style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryGreyColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-
+                      SizedBox(width: 5,),
                       const Icon(
                         Icons.arrow_drop_down,
                         color: AppColor.primaryBlackColor,
@@ -183,14 +182,14 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Filter',
+                        AppLocalizations.of(context)!.filter,
                         style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryGreyColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-
+                      SizedBox(width: 5,),
                       const Icon(
                         Icons.filter_list,
                         color: AppColor.primaryBlackColor,
@@ -199,10 +198,8 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                     ],
                   ),
                 ),
-
               ],
             ),
-
             const SizedBox(
               height: 10,
             ),
@@ -215,12 +212,12 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                 ),
                 itemCount: dummyProducts.length,
                 itemBuilder: (context, index) {
-                 Product product=dummyProducts[index];
+                  Product product = dummyProducts[index];
                   return Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(() =>  ProductDetail(product: product,));
+                        Get.to(() => ProductDetail(product: product));
                       },
                       child: buildProductCard(product),
                     ),
@@ -235,6 +232,7 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
   }
 
   Widget buildProductCard(Product product) {
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return Container(
       height: 150,
       width: 180,
@@ -244,7 +242,7 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
       child: Column(
         children: [
           Image.network(
-           product.imageAssets[0],
+            product.imageAssets[0],
             height: 180,
             width: 150,
             fit: BoxFit.fill,
@@ -255,16 +253,15 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                 product.name,
+                 isArabic?product.nameAr: product.name,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
-
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                 product.category,
+                  isArabic?product.categoryAr:product.category,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 14,
                     color: AppColor.primaryGreyColor,
@@ -287,15 +284,13 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
     );
   }
 
-
-
   void _showSortByDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            'Sort By',
+            AppLocalizations.of(context)!.sortByTitle,
             style: GoogleFonts.beVietnamPro(
               fontWeight: FontWeight.bold,
             ),
@@ -304,28 +299,36 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                title: const Text('Price: High to Low'),
+                title: Text(
+                  AppLocalizations.of(context)!.priceHighToLow,
+                ),
                 onTap: () {
                   // Handle sort by price: high to low
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: const Text('Price: Low to High'),
+                title: Text(
+                  AppLocalizations.of(context)!.priceLowToHigh,
+                ),
                 onTap: () {
                   // Handle sort by price: low to high
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: const Text('New Arrival'),
+                title: Text(
+                  AppLocalizations.of(context)!.newArrival,
+                ),
                 onTap: () {
                   // Handle sort by new arrival
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: const Text('Best Seller'),
+                title: Text(
+                  AppLocalizations.of(context)!.bestSeller,
+                ),
                 onTap: () {
                   // Handle sort by best seller
                   Navigator.pop(context);
@@ -344,7 +347,7 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            'Product',
+            AppLocalizations.of(context)!.productTitle,
             style: GoogleFonts.beVietnamPro(
               fontWeight: FontWeight.bold,
             ),
@@ -353,14 +356,18 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                title: const Text('Best Seller'),
+                title: Text(
+                  AppLocalizations.of(context)!.bestSeller,
+                ),
                 onTap: () {
                   // Handle sort by best seller
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: const Text('New Arrival'),
+                title: Text(
+                  AppLocalizations.of(context)!.newArrival,
+                ),
                 onTap: () {
                   // Handle sort by new arrival
                   Navigator.pop(context);
@@ -373,8 +380,3 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
     );
   }
 }
-
-
-
-
-

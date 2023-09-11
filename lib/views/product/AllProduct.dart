@@ -13,6 +13,7 @@ class AllProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -135,6 +136,7 @@ class AllProduct extends StatelessWidget {
     );
   }
   Widget buildGridView(BuildContext context,int tabNumber) {
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return GridView.builder(
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -150,14 +152,15 @@ class AllProduct extends StatelessWidget {
             onTap: () {
               Get.to(() => ProductDetail(product: product));
             },
-            child: buildProductCard(product),
+            child: buildProductCard(product,isArabic:isArabic),
           ),
         );
       },
     );
   }
 
-  Widget buildProductCard(Product product) {
+  Widget buildProductCard(Product product, { bool? isArabic}) {
+
     return Container(
       height: 150,
       width: 180,
@@ -178,7 +181,7 @@ class AllProduct extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  product.name,
+                 isArabic ==true ?product.nameAr: product.name,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
@@ -187,7 +190,7 @@ class AllProduct extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  product.category,
+                  isArabic ==true ?product.categoryAr:product.category,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 14,
                     color: AppColor.primaryGreyColor,

@@ -8,14 +8,9 @@ class CustomButton extends StatelessWidget {
   final String text;
   final Color backcolor;
   final Color textcolor;
-
-
   const CustomButton({super.key, required this.onPressed, required this.text, required this.backcolor, required this.textcolor});
-
-
   @override
   Widget build(BuildContext context) {
-
     return SizedBox(
       height: 50,
       width: MediaQuery.of(context).size.width,

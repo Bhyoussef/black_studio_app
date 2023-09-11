@@ -5,27 +5,35 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PrivacyScreen extends StatelessWidget {
-  const PrivacyScreen({super.key});
+  const PrivacyScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,
-        leading: IconButton(onPressed: () {
-          Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
-        }, icon:const Icon(Icons.close,color: AppColor.primaryBlackColor,size: 30,),
-
+        leading: IconButton(
+          onPressed: () {
+            Get.offAll(() => HiddenDrawer(initialIndex: 0));
+          },
+          icon: const Icon(
+            Icons.close,
+            color: AppColor.primaryBlackColor,
+            size: 30,
+          ),
         ),
-        title: Text('Privacy Policy',style: GoogleFonts.beVietnamPro(
+        title: Text(
+          AppLocalizations.of(context)!.privacyPolicy,
+          style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontWeight: FontWeight.w600,
-          fontSize: 18
-        )),
-
+            fontSize: 18,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -34,37 +42,75 @@ class PrivacyScreen extends StatelessWidget {
               height: 40,
               width: MediaQuery.of(context).size.width,
               color: AppColor.primaryBlackColor,
-              child: Center(child: Text('FREE SHIPPING AND RETURNS',style:
-              GoogleFonts.beVietnamPro(
-                color: AppColor.primaryWhiteColor,fontWeight: FontWeight.w400,
-                fontSize: 12
+              child: Center(
+                child: Text(
+                  'FREE SHIPPING AND RETURNS',
+                  style: GoogleFonts.beVietnamPro(
+                    color: AppColor.primaryWhiteColor,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12,
+                  ),
+                ),
               ),
-              )),
             ),
-            const SizedBox(height: 50,),
-            Text('PRIVACY POLICY', style: GoogleFonts.tenorSans(
-                fontSize: 18, fontWeight: FontWeight.w400)),
-            const SizedBox(height: 20,),
-           SvgPicture.asset(
+            const SizedBox(height: 50),
+            Text(
+              AppLocalizations.of(context)!.privacyPolicy,
+              style: GoogleFonts.tenorSans(
+                fontSize: 18,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            const SizedBox(height: 20),
+            SvgPicture.asset(
               'assets/icons/divider.svg',
-
               height: 10,
               color: AppColor.primaryBlackColor,
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child:  Text(style: GoogleFonts.beVietnamPro(
-                  fontSize: 14, fontWeight: FontWeight.w400,color: AppColor.primaryBlackColor,height: 2, ),"Introduction What Personal Information We Collect And How We Use It Receiving And Unsubscribing From The Black Studio Updates Who We Share Your Personal Information With Your Rights In Relation To Your Personal Information Retention And Deletion Of Personal Information Security And Third Party Links In-Application Virtual Activation Changes To This Privacy Policy Contacting The Black Studio"),
+              child: Text(
+                AppLocalizations.of(context)!.introduction +
+                    " " +
+                    AppLocalizations.of(context)!.whatWeCollect +
+                    " " +
+                    AppLocalizations.of(context)!.receivingAndUnsubscribing +
+                    " " +
+                    AppLocalizations.of(context)!.whoWeShareWith +
+                    " " +
+                    AppLocalizations.of(context)!.yourRights +
+                    " " +
+                    AppLocalizations.of(context)!.retentionAndDeletion +
+                    " " +
+                    AppLocalizations.of(context)!.securityAndLinks +
+                    " " +
+                    AppLocalizations.of(context)!.changesToPolicy +
+                    " " +
+                    AppLocalizations.of(context)!.contactingBlackStudio,
+                style: GoogleFonts.beVietnamPro(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColor.primaryBlackColor,
+                  height: 2,
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(style: GoogleFonts.beVietnamPro(
-                  fontSize: 14, fontWeight: FontWeight.w400,color: AppColor.primaryBlackColor,height: 2),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultrices elit a, magna magna pretium quam ac leo. Dui praesent consectetur vestibulum est. Quis facilisis netus odio ultricies netus urna tortor, venenatis. Tristique quis arcu bibendum gravida sem libero at sit. Adipiscing non est duis mi arcu, eget pharetra, accumsan. Egestas tincidunt ullamcorper arcu.'),
-            )
-
+              child: Text(
+                AppLocalizations.of(context)!.loremIpsum,
+                style: GoogleFonts.beVietnamPro(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColor.primaryBlackColor,
+                  height: 2,
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+

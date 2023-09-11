@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProductCategoryScreen extends StatelessWidget {
   final String title;
@@ -40,6 +41,7 @@ class ProductCategoryScreen extends StatelessWidget {
   }
 }
 Widget buildGridView(BuildContext context,int tabNumber) {
+  final isArabic = AppLocalizations.of(context)!.language == "العربية";
   return GridView.builder(
     shrinkWrap: true,
     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -55,13 +57,13 @@ Widget buildGridView(BuildContext context,int tabNumber) {
           onTap: () {
             Get.to(() => ProductDetail(product: product));
           },
-          child: buildProductCard(product),
+          child: buildProductCard(product,isArabic:isArabic),
         ),
       );
     },
   );
 }
-Widget buildProductCard(Product product) {
+Widget buildProductCard(Product product, { bool? isArabic}) {
   return Container(
     height: 150,
     width: 180,
@@ -82,7 +84,7 @@ Widget buildProductCard(Product product) {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                product.name,
+               isArabic == true ?product.nameAr: product.name,
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
@@ -91,7 +93,7 @@ Widget buildProductCard(Product product) {
                 overflow: TextOverflow.ellipsis,
               ),
               Text(
-                product.category,
+                isArabic == true ?product.categoryAr:product.category,
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 14,
                   color: AppColor.primaryGreyColor,

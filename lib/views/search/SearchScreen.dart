@@ -3,10 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
-import 'package:image_picker/image_picker.dart'; // Import the image_picker package
+import 'package:image_picker/image_picker.dart';
 import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'SearchScreenResult.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -26,7 +26,6 @@ class _SearchScreenState extends State<SearchScreen> {
       // Handle the selected image from the camera
     }
   }
-
 
   void _pickImage() async {
     final ImagePicker picker = ImagePicker();
@@ -66,7 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             Icons.search,
                             color: AppColor.primaryGreyColor,
                           ),
-                          hintText: 'What can we help you find ?',
+                          hintText: AppLocalizations.of(context)!.searchHint,
                           filled: true,
                           fillColor: AppColor.secondaryGreyColor,
                           border: OutlineInputBorder(
@@ -84,10 +83,10 @@ class _SearchScreenState extends State<SearchScreen> {
                     flex: 1,
                     child: TextButton(
                       onPressed: () {
-                        Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
+                        Get.offAll(() => HiddenDrawer(initialIndex: 0,));
                       },
                       child: Text(
-                        'Cancel',
+                        AppLocalizations.of(context)!.cancel,
                         style: GoogleFonts.beVietnamPro(
                           fontSize: 12,
                           color: AppColor.primaryBlackColor,
@@ -111,13 +110,13 @@ class _SearchScreenState extends State<SearchScreen> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'SEARCH WITH AN IMAGE',
+                      AppLocalizations.of(context)!.searchWithImage,
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -125,7 +124,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                     SizedBox(height: 10,),
                     Text(
-                      'Use an image to find exact or similar items',
+                      AppLocalizations.of(context)!.useImageToFindItems,
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
@@ -147,7 +146,6 @@ class _SearchScreenState extends State<SearchScreen> {
                         child: Container(
                           alignment: Alignment.center,
                           height: 100,
-
                           decoration: BoxDecoration(
                             color: AppColor.primaryBlackColor,
                             borderRadius: BorderRadius.circular(0),
@@ -156,7 +154,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(
-                                'assets/icons/Camera.svg', // Replace with your image asset
+                                'assets/icons/Camera.svg',
                                 fit: BoxFit.contain,
                                 height: 30,
                                 width: 58,
@@ -164,7 +162,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               ),
                               const SizedBox(height: 5,),
                               Text(
-                                'Camera',
+                                AppLocalizations.of(context)!.camera,
                                 style: GoogleFonts.beVietnamPro(
                                   color: Colors.white,
                                   fontSize: 13,
@@ -186,7 +184,6 @@ class _SearchScreenState extends State<SearchScreen> {
                         child: Container(
                           alignment: Alignment.center,
                           height: 100,
-
                           decoration: BoxDecoration(
                             color: AppColor.primaryBlackColor,
                             borderRadius: BorderRadius.circular(0),
@@ -195,7 +192,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(
-                                'assets/icons/Image.svg', // Replace with your image asset
+                                'assets/icons/Image.svg',
                                 fit: BoxFit.contain,
                                 height: 30,
                                 width: 58,
@@ -203,7 +200,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               ),
                               const SizedBox(height: 5,),
                               Text(
-                                'Image',
+                                AppLocalizations.of(context)!.image,
                                 style: GoogleFonts.beVietnamPro(
                                   color: Colors.white,
                                   fontSize: 13,

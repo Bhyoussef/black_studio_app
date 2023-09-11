@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
@@ -11,7 +12,6 @@ class FilterScreen extends StatefulWidget {
 }
 
 class _FilterScreenState extends State<FilterScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,7 @@ class _FilterScreenState extends State<FilterScreen> {
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: AppColor.primaryWhiteColor,
-        leading:Padding(
+        leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GestureDetector(
             onTap: () {
@@ -54,36 +54,58 @@ class _FilterScreenState extends State<FilterScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const ListTileWithOptions(
-                title: 'Category',
-                options: ['Blouses', 'Tshirts', 'Tank Tops'],
+              ListTileWithOptions(
+                title: AppLocalizations.of(context)!.category,
+                options: [
+                  AppLocalizations.of(context)!.blouses,
+                  AppLocalizations.of(context)!.tshirts,
+                  AppLocalizations.of(context)!.tankTops,
+                ],
               ),
-              const ListTileWithOptions(
-                title: 'Color',
-                options: ['Red', 'Yellow', 'Green'],
+              ListTileWithOptions(
+                title: AppLocalizations.of(context)!.color,
+                options: [
+                  AppLocalizations.of(context)!.red,
+                  AppLocalizations.of(context)!.yellow,
+                  AppLocalizations.of(context)!.green,
+                ],
               ),
-              const ListTileWithOptions(
-                title: 'Size',
-                options: ['Small', 'Moyen', 'Large'],
+              ListTileWithOptions(
+                title: AppLocalizations.of(context)!.size,
+                options: [
+                  AppLocalizations.of(context)!.small,
+                  AppLocalizations.of(context)!.medium,
+                  AppLocalizations.of(context)!.large,
+                ],
               ),
-              const ListTileWithOptions(
-                title: 'Length',
-                options: ['34', '36', '38'],
+              ListTileWithOptions(
+                title: AppLocalizations.of(context)!.length,
+                options: [
+                  '34',
+                  '36',
+                  '38',
+                ],
               ),
-              const ListTileWithOptions(
-                title: 'Pattern',
-                options: ['Pattern 1', 'Pattern 2', 'Pattern 3'],
+              ListTileWithOptions(
+                title: AppLocalizations.of(context)!.pattern,
+                options: [
+                  AppLocalizations.of(context)!.pattern1,
+                  AppLocalizations.of(context)!.pattern2,
+                  AppLocalizations.of(context)!.pattern3,
+                ],
               ),
-              const ListTileWithOptions(
-                title: 'Style',
-                options: ['Style 1', 'Style 2', 'Style 3'],
+              ListTileWithOptions(
+                title: AppLocalizations.of(context)!.style,
+                options: [
+                  AppLocalizations.of(context)!.style1,
+                  AppLocalizations.of(context)!.style2,
+                  AppLocalizations.of(context)!.style3,
+                ],
               ),
-              // Add more ListTileWithOptions widgets for other parameters
-              const ListTileWithOptions(
-                title: 'Price',
+              ListTileWithOptions(
+                title: AppLocalizations.of(context)!.price,
                 isPriceSlider: true,
               ),
-
             ],
           ),
         ),
@@ -96,65 +118,61 @@ class _FilterScreenState extends State<FilterScreen> {
             children: [
               Expanded(
                 child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 60,
-                      decoration: BoxDecoration(
-                        border: Border.all(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 60,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: AppColor.primaryBlackColor,
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: MaterialButton(
+                      onPressed: () {},
+                      child: Text(
+                        AppLocalizations.of(context)!.clearAll,
+                        style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryBlackColor,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: MaterialButton(
-                        onPressed: () {
-                        },
-                        child: Text(
-                          'Clear All',
-                          style: GoogleFonts.beVietnamPro(
-                            color: AppColor.primaryBlackColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ),
-
               Expanded(
                 child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      height: 60,
-           
-                      child: MaterialButton(
-                        minWidth: MediaQuery.of(context).size.width,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        color: AppColor.primaryBlackColor,
-                        onPressed: () {},
-                        child: Text(
-                          'Apply',
-                          style: GoogleFonts.beVietnamPro(
-                            color: AppColor.primaryWhiteColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    height: 60,
+                    child: MaterialButton(
+                      minWidth: MediaQuery.of(context).size.width,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      color: AppColor.primaryBlackColor,
+                      onPressed: () {},
+                      child: Text(
+                        AppLocalizations.of(context)!.apply,
+                        style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryWhiteColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ),
-
             ],
           ),
         ),
-
-      )
+      ),
     );
   }
 }
-
 
 class ListTileWithOptions extends StatefulWidget {
   final String title;
@@ -185,9 +203,10 @@ class _ListTileWithOptionsState extends State<ListTileWithOptions> {
           title: Text(
             widget.title,
             style: GoogleFonts.beVietnamPro(
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
-                color: AppColor.primaryBlackColor),
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
+              color: AppColor.primaryBlackColor,
+            ),
           ),
           trailing: _isExpanded
               ? const Icon(Icons.arrow_drop_up)
@@ -261,10 +280,6 @@ class _ListTileWithOptionsState extends State<ListTileWithOptions> {
                 ),
             ],
           ),
-
-
-
-
       ],
     );
   }

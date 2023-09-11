@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
 import 'AddReviewScreen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ReviewsScreen extends StatelessWidget {
   const ReviewsScreen({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class ReviewsScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          'Reviews',
+          AppLocalizations.of(context)!.reviewsTitle,
           style: GoogleFonts.beVietnamPro(
             color: Colors.black,
             fontSize: 20,
@@ -37,12 +38,12 @@ class ReviewsScreen extends StatelessWidget {
           color: Colors.black,
         ),
         actions: [
-        /*  TextButton(
+          /*TextButton(
             onPressed: () {
               Get.to(() => const AddReviewScreen());
             },
-            child: const Text(
-              'Add Review',
+            child: Text(
+              AppLocalizations.of(context)!.addReviewText,
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -57,80 +58,81 @@ class ReviewsScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.center,
-                   children: [
-                     Icon(
-                       Icons.star,
-                       color: AppColor.primaryBlackColor,
-                       size: 30,
-                     ),
-                     Icon(
-                       Icons.star,
-                       color: AppColor.primaryBlackColor,
-                       size: 30,
-                     ),
-                     Icon(
-                       Icons.star,
-                       color: AppColor.primaryBlackColor,
-                       size: 30,
-                     ),
-                     Icon(
-                       Icons.star,
-                       color: AppColor.primaryBlackColor,
-                       size: 30,
-                     ),
-                     Icon(
-                       Icons.star,
-                       color: AppColor.primaryBlackColor,
-                       size: 30,
-                     ),
-                     Text('(34 Reviews)',style: GoogleFonts.beVietnamPro(
-                         fontWeight: FontWeight.w400,
-                         fontSize: 14,
-                         color: AppColor.primaryGreyColor
-                     ))
-
-                   ],
-                 ),
-
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.star,
+                      color: AppColor.primaryBlackColor,
+                      size: 30,
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: AppColor.primaryBlackColor,
+                      size: 30,
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: AppColor.primaryBlackColor,
+                      size: 30,
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: AppColor.primaryBlackColor,
+                      size: 30,
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: AppColor.primaryBlackColor,
+                      size: 30,
+                    ),
+                    Text(
+                      AppLocalizations.of(context)!.reviewsTitle,
+                      style: GoogleFonts.beVietnamPro(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: AppColor.primaryGreyColor,
+                      ),
+                    )
+                  ],
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('94% of customers recommend this product',style: GoogleFonts.beVietnamPro(
+                  child: Text(
+                    AppLocalizations.of(context)!.recommendationText,
+                    style: GoogleFonts.beVietnamPro(
                       fontWeight: FontWeight.w400,
                       fontSize: 13,
-                      color: AppColor.primaryGreyColor
-                  ),),
+                      color: AppColor.primaryGreyColor,
+                    ),
+                  ),
                 ),
-
                 Divider(
                   thickness: 1,
                   height: 2,
                   color: AppColor.secondaryGreyColor,
                 ),
                 SizedBox(height: 20,),
-
                 Column(
-
                   children: [
                     Row(
                       children: [
                         Text(
-                          '5 stars',
+                          '5 ${AppLocalizations.of(context)!.starRatingText}',
                           style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: AppColor.primaryBlackColor,
                           ),
                         ),
-                        SizedBox(width: 10), // Add space here
+                        SizedBox(width: 10),
                         Flexible(
                           child: Container(
                             height: 10,
                             color: AppColor.fourthGreyColor,
                           ),
                         ),
-                        SizedBox(width: 10), // Add space here
+                        SizedBox(width: 10),
                         Text(
                           '(24)',
                           style: GoogleFonts.beVietnamPro(
@@ -141,11 +143,10 @@ class ReviewsScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-
                     SizedBox(height: 20,),
                     Row(
                       children: [
-                        Text('4 stars',style: GoogleFonts.beVietnamPro(
+                        Text('4 ${AppLocalizations.of(context)!.starRatingText}',style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: AppColor.primaryBlackColor
@@ -153,7 +154,6 @@ class ReviewsScreen extends StatelessWidget {
                         SizedBox(width: 10),
                         Flexible(
                           child: Container(
-                  
                             height: 10,
                             color: AppColor.fourthGreyColor,
                           ),
@@ -164,14 +164,13 @@ class ReviewsScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             color: AppColor.primaryGreyColor
                         ))
-
                       ],
                     ),
                     SizedBox(height: 20,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('3 stars',style: GoogleFonts.beVietnamPro(
+                        Text('3 ${AppLocalizations.of(context)!.starRatingText}',style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: AppColor.primaryBlackColor
@@ -179,7 +178,6 @@ class ReviewsScreen extends StatelessWidget {
                         SizedBox(width: 10),
                         Flexible(
                           child: Container(
-                 
                             height: 10,
                             color: AppColor.fourthGreyColor,
                           ),
@@ -190,13 +188,12 @@ class ReviewsScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             color: AppColor.primaryGreyColor
                         ))
-
                       ],
                     ),
-                    SizedBox(height: 20,),Row(
-                 
+                    SizedBox(height: 20,),
+                    Row(
                       children: [
-                        Text('2 stars',style: GoogleFonts.beVietnamPro(
+                        Text('2 ${AppLocalizations.of(context)!.starRatingText}',style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: AppColor.primaryBlackColor
@@ -204,7 +201,6 @@ class ReviewsScreen extends StatelessWidget {
                         SizedBox(width: 10),
                         Flexible(
                           child: Container(
-               
                             height: 10,
                             color: AppColor.fourthGreyColor,
                           ),
@@ -215,14 +211,13 @@ class ReviewsScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             color: AppColor.primaryGreyColor
                         ))
-
                       ],
-
                     ),
-                    SizedBox(height: 20,),Row(
+                    SizedBox(height: 20,),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('1 stars',style: GoogleFonts.beVietnamPro(
+                        Text('1 ${AppLocalizations.of(context)!.starRatingText}',style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: AppColor.primaryBlackColor
@@ -230,7 +225,6 @@ class ReviewsScreen extends StatelessWidget {
                         SizedBox(width: 10),
                         Flexible(
                           child: Container(
-                 
                             height: 10,
                             color: AppColor.fourthGreyColor,
                           ),
@@ -241,7 +235,6 @@ class ReviewsScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             color: AppColor.primaryGreyColor
                         ))
-
                       ],
                     ),
                   ],
@@ -251,21 +244,19 @@ class ReviewsScreen extends StatelessWidget {
                   height: 2,
                   color: AppColor.secondaryGreyColor,
                 ),
-
+                SizedBox(height: 10,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-
                   children: [
                     Text(
-                      'Customer Rating',
+                      AppLocalizations.of(context)!.customerRatingText,
                       style: GoogleFonts.beVietnamPro(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: AppColor.primaryBlackColor
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: AppColor.primaryBlackColor
                       ),
                     ),
                     SizedBox(height: 15),
-                    //Size
                     Row(
                       children: [
                         SvgPicture.asset(
@@ -274,7 +265,7 @@ class ReviewsScreen extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          'Size:',
+                          AppLocalizations.of(context)!.sizeText,
                           style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
@@ -283,7 +274,6 @@ class ReviewsScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 20),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -321,19 +311,17 @@ class ReviewsScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Runs Small",style: GoogleFonts.beVietnamPro(
+                        Text(AppLocalizations.of(context)!.runsSmallText,style: GoogleFonts.beVietnamPro(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         )),
-                        Text("Runs Large",style: GoogleFonts.beVietnamPro(
+                        Text(AppLocalizations.of(context)!.runsLargeText,style: GoogleFonts.beVietnamPro(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         )),
                       ],
                     ),
-
                     SizedBox(height: 10),
-
                     Row(
                       children: [
                         Row(
@@ -344,7 +332,7 @@ class ReviewsScreen extends StatelessWidget {
                               width: 10,
                             ),
                             Text(
-                              'Comfort:',
+                              AppLocalizations.of(context)!.comfortText,
                               style: GoogleFonts.beVietnamPro(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
@@ -355,7 +343,6 @@ class ReviewsScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 20),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -401,23 +388,20 @@ class ReviewsScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-
                     SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Runs Small",style: GoogleFonts.beVietnamPro(
+                        Text(AppLocalizations.of(context)!.runsSmallText,style: GoogleFonts.beVietnamPro(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         )),
-                        Text("Runs Large",style: GoogleFonts.beVietnamPro(
+                        Text(AppLocalizations.of(context)!.runsLargeText,style: GoogleFonts.beVietnamPro(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         )),
                       ],
                     ),
-
-
                     SizedBox(height: 20),
                     Row(
                       children: [
@@ -427,17 +411,15 @@ class ReviewsScreen extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          'Quality',
+                          AppLocalizations.of(context)!.qualityText,
                           style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-
                       ],
                     ),
                     SizedBox(height: 20),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -487,11 +469,11 @@ class ReviewsScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Runs Small",style: GoogleFonts.beVietnamPro(
+                        Text(AppLocalizations.of(context)!.runsSmallText,style: GoogleFonts.beVietnamPro(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         )),
-                        Text("Runs Large",style: GoogleFonts.beVietnamPro(
+                        Text(AppLocalizations.of(context)!.runsLargeText,style: GoogleFonts.beVietnamPro(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         )),
@@ -500,7 +482,6 @@ class ReviewsScreen extends StatelessWidget {
                     SizedBox(height: 10),
                   ],
                 ),
-
                 Divider(
                   thickness: 2,
                   height: 2,
@@ -551,7 +532,7 @@ class ReviewsScreen extends StatelessWidget {
                                 ],
                               ),
                               Text(
-                                '6 month ago',
+                                '6 ${AppLocalizations.of(context)!.monthsAgoText}',
                                 style: TextStyle(
                                   color: Colors.grey,
                                 ),
@@ -560,7 +541,7 @@ class ReviewsScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 10),
                           Text(
-                            'LOVELY CROP TOP COME UP SMALL THO',
+                            AppLocalizations.of(context)!.reviewsTitle,
                             style: GoogleFonts.beVietnamPro(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 13,
@@ -569,11 +550,11 @@ class ReviewsScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 8),
                           Text(
-                            'It looks very beautiful but since its made of lace andthe colour is white it is slightly transparent. It shouldhave been padded bcuz its transparent The fittingis not good at all. It doesnt sit tight on the bust andits too loose on the sides.',
+                            AppLocalizations.of(context)!.transparentText,
                             style: GoogleFonts.beVietnamPro(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 13,
-                              color: AppColor.primaryGreyColor
+                                fontWeight: FontWeight.w400,
+                                fontSize: 13,
+                                color: AppColor.primaryGreyColor
                             ),
                           ),
                           SizedBox(height: 8),

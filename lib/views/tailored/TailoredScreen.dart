@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 import '../../colors/Colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TailoredScreen extends StatefulWidget {
   final bool? isHome;
@@ -16,21 +17,23 @@ class TailoredScreen extends StatefulWidget {
 
 class _TailoredScreenState extends State<TailoredScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       appBar: AppBar(
-         leading: widget.isHome == true
-      ? IconButton(
-      icon: const Icon(
-        Icons.arrow_back,
-        color: Colors.black,
-      ),
-      onPressed: () {
-        Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
-      },
-    ):IconButton(
+        leading: widget.isHome == true
+            ? IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Get.offAll(() => HiddenDrawer(initialIndex: 0,));
+          },
+        )
+            : IconButton(
           onPressed: () {
             Get.back();
           },
@@ -40,12 +43,11 @@ class _TailoredScreenState extends State<TailoredScreen> {
           ),
         ),
         title: Text(
-          'Tailored',
+          AppLocalizations.of(context)!.tailored, // Translated 'Tailored'
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontSize: 18,
             fontWeight: FontWeight.w600,
-
           ),
         ),
         backgroundColor: Colors.white,
@@ -75,7 +77,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                       formKey.currentState!.reset();
                     },
                     child: Text(
-                      'Clear All',
+                      AppLocalizations.of(context)!.clearAll, // Translated 'Clear All'
                       style: GoogleFonts.beVietnamPro(
                         color: AppColor.primaryBlackColor,
                         fontSize: 16,
@@ -98,7 +100,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                   minWidth: MediaQuery.of(context).size.width,
                   onPressed: () {},
                   child: Text(
-                    'Apply',
+                    AppLocalizations.of(context)!.apply, // Translated 'Apply'
                     style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryWhiteColor,
                       fontSize: 16,
@@ -121,7 +123,8 @@ class _TailoredScreenState extends State<TailoredScreen> {
                   Row(
                     children: [
                       SvgPicture.asset('assets/icons/Line 53.svg'),
-                      SvgPicture.asset('assets/icons/Length.svg',
+                      SvgPicture.asset(
+                        'assets/icons/Length.svg',
                         color: AppColor.primaryBlackColor,
                       ),
                     ],
@@ -134,7 +137,6 @@ class _TailoredScreenState extends State<TailoredScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: SvgPicture.asset('assets/icons/Group (1).svg'),
                           ),
-
                           Positioned(
                               top: 180,
                               right: 72,
@@ -191,7 +193,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                 height: 20,
               ),
               ListTileWithOptions(
-                title: 'Length',
+                title: AppLocalizations.of(context)!.length, // Translated 'Length'
                 options: [
                   'Option 1',
                   'Option 2',
@@ -200,7 +202,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                 ],
               ),
               ListTileWithOptions(
-                title: 'Bust',
+                title: AppLocalizations.of(context)!.bust, // Translated 'Bust'
                 options: [
                   'Option 1',
                   'Option 2',
@@ -209,7 +211,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                 ],
               ),
               ListTileWithOptions(
-                title: 'Arm',
+                title: AppLocalizations.of(context)!.arm, // Translated 'Arm'
                 options: [
                   'Option 1',
                   'Option 2',
@@ -218,7 +220,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                 ],
               ),
               ListTileWithOptions(
-                title: 'Hip',
+                title: AppLocalizations.of(context)!.hip, // Translated 'Hip'
                 options: [
                   'Option 1',
                   'Option 2',
@@ -227,7 +229,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                 ],
               ),
               ListTileWithOptions(
-                title: 'Sleeve Length',
+                title: AppLocalizations.of(context)!.sleeveLength, // Translated 'Sleeve Length'
                 options: [
                   'Option 1',
                   'Option 2',
@@ -243,7 +245,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                       padding: const EdgeInsets.all(16.0),
                       child: TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Enter Length',
+                          labelText: AppLocalizations.of(context)!.enterLength, // Translated 'Enter Length'
                           labelStyle: GoogleFonts.beVietnamPro(
                             fontSize: 15,
                             color: AppColor.primaryGreyColor,
@@ -256,7 +258,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                       padding: const EdgeInsets.all(16.0),
                       child: TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Enter Bust',
+                          labelText: AppLocalizations.of(context)!.enterBust, // Translated 'Enter Bust'
                           labelStyle: GoogleFonts.beVietnamPro(
                             fontSize: 15,
                             color: AppColor.primaryGreyColor,
@@ -269,7 +271,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                       padding: const EdgeInsets.all(16.0),
                       child: TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Enter Arm',
+                          labelText: AppLocalizations.of(context)!.enterArm, // Translated 'Enter Arm'
                           labelStyle: GoogleFonts.beVietnamPro(
                             fontSize: 15,
                             color: AppColor.primaryGreyColor,
@@ -282,7 +284,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                       padding: const EdgeInsets.all(16.0),
                       child: TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Enter Hip',
+                          labelText: AppLocalizations.of(context)!.enterHip, // Translated 'Enter Hip'
                           labelStyle: GoogleFonts.beVietnamPro(
                             fontSize: 15,
                             color: AppColor.primaryGreyColor,
@@ -295,7 +297,7 @@ class _TailoredScreenState extends State<TailoredScreen> {
                       padding: const EdgeInsets.all(16.0),
                       child: TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Enter Sleeve Length',
+                          labelText: AppLocalizations.of(context)!.enterSleeveLength, // Translated 'Enter Sleeve Length'
                           labelStyle: GoogleFonts.beVietnamPro(
                             fontSize: 15,
                             color: AppColor.primaryGreyColor,
@@ -304,11 +306,9 @@ class _TailoredScreenState extends State<TailoredScreen> {
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
-
             ],
           ),
         ),
