@@ -152,14 +152,16 @@ class AllProduct extends StatelessWidget {
             onTap: () {
               Get.to(() => ProductDetail(product: product));
             },
-            child: buildProductCard(product,isArabic:isArabic),
+            child: buildProductCard(product,context,isArabic:isArabic),
           ),
         );
       },
     );
   }
 
-  Widget buildProductCard(Product product, { bool? isArabic}) {
+  Widget buildProductCard(Product product, BuildContext context,{ bool? isArabic}  ) {
+
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
 
     return Container(
       height: 150,
@@ -198,6 +200,10 @@ class AllProduct extends StatelessWidget {
                   ),
                 ),
                 Text(
+
+                  isArabic  ? '${product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
+                      :'${AppLocalizations.of(context)!.qr} ${product.price.toInt()}'
+
                   '${product.price.toString()} QAR',
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 15,

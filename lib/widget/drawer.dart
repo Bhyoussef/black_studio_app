@@ -60,7 +60,7 @@ class DrawerWidget extends StatelessWidget {
               title: AppLocalizations.of(context)!.newArrivals,
               onTap: () {
                 Get.back();
-                Get.to(()=>AllProduct(title: 'NEW ARRIVALS',));
+                Get.to(()=>AllProduct(title: AppLocalizations.of(context)!.newArrivals.toUpperCase(),));
               },
             ),
             DrawerListItem(
@@ -68,7 +68,7 @@ class DrawerWidget extends StatelessWidget {
               title: AppLocalizations.of(context)!.bestSellers,
               onTap: () {
                 Get.back();
-                Get.to(()=>AllProduct(title: 'BEST SELLERS',));
+                Get.to(()=>AllProduct(title: AppLocalizations.of(context)!.bestSellers.toUpperCase(),));
               },
             ),
             DrawerListItem(
@@ -164,7 +164,7 @@ class DrawerWidget extends StatelessWidget {
                   builder: (BuildContext context) {
                     return AlertDialog(
                       title: Text(
-                        'Logout',
+                        AppLocalizations.of(context)!.logout, // Localized "Logout"
                         style: GoogleFonts.beVietnamPro(
                           color: AppColor.primaryBlackColor,
                           fontSize: 18,
@@ -172,7 +172,7 @@ class DrawerWidget extends StatelessWidget {
                         ),
                       ),
                       content: Text(
-                        'Are you sure you want to logout?',
+                        AppLocalizations.of(context)!.confirmLogout, // Localized confirmation message
                         style: GoogleFonts.tenorSans(
                           color: AppColor.primaryBlackColor,
                           fontSize: 16,
@@ -187,7 +187,7 @@ class DrawerWidget extends StatelessWidget {
                             Navigator.of(context).pop(); // Close the dialog
                           },
                           child: Text(
-                            'Yes',
+                            AppLocalizations.of(context)!.yes, // Localized "Yes"
                             style: GoogleFonts.tenorSans(
                               color: AppColor.primaryBlackColor,
                               fontSize: 12,
@@ -200,7 +200,7 @@ class DrawerWidget extends StatelessWidget {
                             Navigator.of(context).pop(); // Close the dialog
                           },
                           child: Text(
-                            'No',
+                            AppLocalizations.of(context)!.no, // Localized "No"
                             style: GoogleFonts.tenorSans(
                               color: AppColor.primaryBlackColor,
                               fontSize: 12,
@@ -213,7 +213,8 @@ class DrawerWidget extends StatelessWidget {
                   },
                 );
               },
-            ),
+            )
+
             // Add more list tiles here
           ],
         ),

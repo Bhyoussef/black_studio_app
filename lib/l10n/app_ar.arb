@@ -44,7 +44,6 @@
   "favorite": "المفضلة",
   "notification": "الإشعارات",
   "myOrders": "طلباتي",
-  "settings": "الإعدادات",
   "faqs": "الأسئلة الشائعة",
   "helpAndSupport": "المساعدة والدعم",
   "referAFriend": "قم بإحالة صديق",
@@ -309,13 +308,8 @@
   "saveForLater": "حفظ لاحقًا",
 
 
-
-  "language": "ar",
-  "checkout": "الدفع",
   "shippingAddress": "عنوان الشحن",
   "paymentMethod": "وسيلة الدفع",
-  "promoCode": "كود الخصم",
-  "apply": "تطبيق",
   "priceDetails": "تفاصيل السعر",
   "total": "الإجمالي",
   "discount": "خصم",
@@ -325,10 +319,55 @@
   "placeOrder": "تأكيد الطلب",
   "paymentFailed": "فشل الدفع",
   "tryAgain": "حاول مرة أخرى",
-  "backToHome": "العودة إلى الصفحة الرئيسية",
+  "backToHome": "الصفحة الرئيسية",
   "orderPlacedSuccessfully": "تم تأكيد الطلب بنجاح",
   "trackOrder": "تتبع الطلب",
-  "yourOrderPlacedSuccessfully": "تم تأكيد طلبك بنجاح! لمزيد من التفاصيل، انتقل إلى طلباتي."
+  "yourOrderPlacedSuccessfully": "تم تأكيد طلبك بنجاح! لمزيد من التفاصيل، انتقل إلى طلباتي.",
+
+
+  "qr":"رق",
+
+
+  "ongoing": "جاري",
+  "completed": "مكتمل",
+  "delivered": "تم التوصيل",
+  "reorder": "إعادة الطلب",
+
+  "orderSummary": "ملخص الطلب",
+  "orderNumber": "رقم الطلب: 1947034",
+  "orderDate": "15 يوليو 2023",
+  "orderStatus": "تم التوصيل",
+  "deliveryMethod": "طريقة التوصيل",
+  "leaveFeedback": "ترك تقييم",
+
+  "title": "كتابة مراجعة",
+  "customer_rating": "تقييم العميل",
+  "runs_small": "صغير الحجم",
+  "runs_large": "كبير الحجم",
+  "comfort": "الراحة",
+  "uncomfortable": "غير مريح",
+  "comfortable": "مريح",
+  "quality": "الجودة",
+  "poor": "سيئة",
+  "great": "رائعة",
+  "upload_images": "تحميل الصور",
+  "upload_description": "تحميل PNG، JPG (الحد الأقصى 15 ميجابايت)",
+  "write_review": "كتابة مراجعة",
+  "submit": "إرسال",
+
+
+  "confirmLogout": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+  "yes": "نعم",
+  "no": "لا",
+
+  "inclusiveOfAllTaxes": "شامل الضرائب",
+  "fiveRatings": "5 تقييمات"
+
+
+
+
+
+
 
 
 

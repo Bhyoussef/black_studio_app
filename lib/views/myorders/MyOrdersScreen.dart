@@ -14,11 +14,12 @@ class MyOrdersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       appBar: AppBar(
         title: Text(
-          'My Orders',
+          AppLocalizations.of(context)!.myOrders,
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontWeight: FontWeight.w600,
@@ -29,10 +30,9 @@ class MyOrdersScreen extends StatelessWidget {
         backgroundColor: AppColor.primaryWhiteColor,
         leading: GestureDetector(
           onTap: () {
-            Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
+            Get.offAll(() => HiddenDrawer(initialIndex: 0,));
           },
-          child:
-              const Icon(Icons.arrow_back, color: AppColor.primaryBlackColor),
+          child: const Icon(Icons.arrow_back, color: AppColor.primaryBlackColor),
         ),
       ),
       body: DefaultTabController(
@@ -68,13 +68,13 @@ class MyOrdersScreen extends StatelessWidget {
                   fontSize: 15,
                 ),
                 unselectedLabelColor:
-                    AppColor.primaryBlackColor.withOpacity(0.5),
-                tabs: const [
+                AppColor.primaryBlackColor.withOpacity(0.5),
+                tabs:  [
                   Tab(
-                    text: 'Ongoing ',
+                    text: AppLocalizations.of(context)!.ongoing,
                   ),
                   Tab(
-                    text: 'Completed ',
+                    text: AppLocalizations.of(context)!.completed,
                   ),
                 ],
               ),
@@ -102,7 +102,7 @@ class MyOrdersScreen extends StatelessWidget {
                                     ),
                                   )),
                               title: Text(
-                                "Ongoing",
+                                AppLocalizations.of(context)!.ongoing, // Updated label with translation
                                 style: GoogleFonts.beVietnamPro(
                                     fontWeight: FontWeight.w500, fontSize: 15),
                               ),
@@ -110,7 +110,7 @@ class MyOrdersScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "July 15, 2023",
+                                    AppLocalizations.of(context)!.dateTime,
                                     style: GoogleFonts.beVietnamPro(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 12),
@@ -118,12 +118,12 @@ class MyOrdersScreen extends StatelessWidget {
                                   const SizedBox(
                                     width: 10,
                                   ),
-                                  Text(
+                               /*   Text(
                                     '10:00 AM',
                                     style: GoogleFonts.beVietnamPro(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 12),
-                                  ),
+                                  ),*/
                                 ],
                               ),
                             ),
@@ -148,15 +148,17 @@ class MyOrdersScreen extends StatelessWidget {
                                 Get.to(() => const OrderSummary());
                               },
                               child: _buildOrderCard(
+                                isArabic:isArabic,
                                 image: NetworkImage(product.imageAssets[0]),
-                                status: 'Ongoing',
-                                date: 'July 15, 2023',
+                                status: AppLocalizations.of(context)!.ongoing, // Updated label with translation
+                                date: AppLocalizations.of(context)!.dateTime,
                                 time: '10:00 AM',
                                 price: product.price,
                                 productName: product.name,
+                                productNameAr: product.nameAr,
                                 quantity: product.quantity.toString(),
                                 showReview: false,
-                                buttonText: 'Track Order',
+                                buttonText: AppLocalizations.of(context)!.trackOrder, // Updated label with translation
                               ),
                             ),
                           );
@@ -206,7 +208,7 @@ class MyOrdersScreen extends StatelessWidget {
                             TextButton(
                               onPressed: () {},
                               child: Text(
-                                "Track Order",
+                                AppLocalizations.of(context)!.trackOrder, // Updated label with translation
                                 style: GoogleFonts.beVietnamPro(
                                   color: AppColor.primaryBlackColor,
                                   fontWeight: FontWeight.w500,
@@ -241,7 +243,7 @@ class MyOrdersScreen extends StatelessWidget {
                                 ),
                               ),
                               title: Text(
-                                "Delivered",
+                                AppLocalizations.of(context)!.delivered, // Updated label with translation
                                 style: GoogleFonts.beVietnamPro(
                                     fontWeight: FontWeight.w500, fontSize: 15),
                               ),
@@ -249,7 +251,7 @@ class MyOrdersScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "July 15, 2023",
+                                    AppLocalizations.of(context)!.dateTime,
                                     style: GoogleFonts.beVietnamPro(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 12),
@@ -257,12 +259,12 @@ class MyOrdersScreen extends StatelessWidget {
                                   SizedBox(
                                     width: 10,
                                   ),
-                                  Text(
+                                /*  Text(
                                     '10:00 AM',
                                     style: GoogleFonts.beVietnamPro(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 12),
-                                  ),
+                                  ),*/
                                 ],
                               ),
                             ),
@@ -289,15 +291,17 @@ class MyOrdersScreen extends StatelessWidget {
                                   Get.to(() => const OrderSummary());
                                 },
                                 child: _buildOrderCard(
+                                  isArabic:isArabic,
                                   image: NetworkImage(product.imageAssets[0]),
-                                  status: 'Delivered',
+                                  status: AppLocalizations.of(context)!.delivered, // Updated label with translation
                                   date: 'July 12, 2023',
                                   time: '9:45 AM',
                                   price: product.price,
                                   productName: product.name,
+                                  productNameAr:product.nameAr,
                                   quantity: product.quantity.toString(),
                                   showReview: true,
-                                  buttonText: 'Reorder',
+                                  buttonText: AppLocalizations.of(context)!.reorder, // Updated label with translation
                                 ),
                               ));
                         },
@@ -346,7 +350,7 @@ class MyOrdersScreen extends StatelessWidget {
                             TextButton(
                               onPressed: () {},
                               child: Text(
-                                "Reorder",
+                                AppLocalizations.of(context)!.reorder, // Updated label with translation
                                 style: GoogleFonts.beVietnamPro(
                                   color: AppColor.primaryBlackColor,
                                   fontWeight: FontWeight.w500,
@@ -379,6 +383,8 @@ class MyOrdersScreen extends StatelessWidget {
     String? quantity,
     bool? showReview,
     String? buttonText,
+    String? productNameAr,
+    bool? isArabic,
   }) {
     return Column(
       children: [
@@ -407,7 +413,7 @@ class MyOrdersScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    productName!,
+                   isArabic == true ? productNameAr!: productName!,
                     style: GoogleFonts.beVietnamPro(
                         fontWeight: FontWeight.w400,
                         color: AppColor.primaryGreyColor,

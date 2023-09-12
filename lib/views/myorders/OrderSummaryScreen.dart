@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../reviews/AddReviewScreen.dart';
 
 class OrderSummary extends StatelessWidget {
@@ -16,7 +16,7 @@ class OrderSummary extends StatelessWidget {
       backgroundColor: AppColor.primaryWhiteColor,
       appBar: AppBar(
         title: Text(
-          'Order Summary',
+          AppLocalizations.of(context)!.orderSummary,
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontWeight: FontWeight.w600,
@@ -46,13 +46,13 @@ class OrderSummary extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Order № : 1947034",
+                            AppLocalizations.of(context)!.orderNumber,
                             style: GoogleFonts.beVietnamPro(
                                 fontWeight: FontWeight.w600,
                             color: AppColor.primaryBlackColor,
                             fontSize: 16),
                           ),
-                          Text("July 15, 2023", style: GoogleFonts.beVietnamPro(
+                          Text(AppLocalizations.of(context)!.orderDate, style: GoogleFonts.beVietnamPro(
                               fontWeight: FontWeight.w400,
                               color: AppColor.primaryGreyColor,
                               fontSize: 14),),
@@ -70,7 +70,7 @@ class OrderSummary extends StatelessWidget {
                                 fontSize: 14),
                           ),
                           Text(
-                            "Delivered",
+                            AppLocalizations.of(context)!.delivered,
                             style: GoogleFonts.beVietnamPro(
                               color: Colors.green,
                               fontWeight: FontWeight.w500,
@@ -133,7 +133,7 @@ class OrderSummary extends StatelessWidget {
                 ),
               ),
               ListTile(
-                title: Text('Shipping Address',  style: GoogleFonts.beVietnamPro(
+                title: Text(AppLocalizations.of(context)!.shippingAddress,  style: GoogleFonts.beVietnamPro(
                   color: AppColor.primaryGreyColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 14,
@@ -145,7 +145,7 @@ class OrderSummary extends StatelessWidget {
                 )),
               ),
               ListTile(
-                title: Text('Payment Method',  style: GoogleFonts.beVietnamPro(
+                title: Text(AppLocalizations.of(context)!.paymentMethod,  style: GoogleFonts.beVietnamPro(
                   color: AppColor.primaryGreyColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 14,
@@ -157,7 +157,7 @@ class OrderSummary extends StatelessWidget {
                 )),
               ),
               ListTile(
-                title: Text('Delivery Method',  style: GoogleFonts.beVietnamPro(
+                title: Text(AppLocalizations.of(context)!.deliveryMethod,  style: GoogleFonts.beVietnamPro(
                   color: AppColor.primaryGreyColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 14,
@@ -169,7 +169,7 @@ class OrderSummary extends StatelessWidget {
                 )),
               ),
               ListTile(
-                title: Text('Discount',  style: GoogleFonts.beVietnamPro(
+                title: Text(AppLocalizations.of(context)!.discount,  style: GoogleFonts.beVietnamPro(
                   color: AppColor.primaryGreyColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 14,
@@ -182,7 +182,7 @@ class OrderSummary extends StatelessWidget {
               ),
               ListTile(
                 title: Text(
-                  'Total Payment',  style: GoogleFonts.beVietnamPro(
+                    AppLocalizations.of(context)!.totalPayment,  style: GoogleFonts.beVietnamPro(
                   color: AppColor.primaryGreyColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 14,
@@ -214,7 +214,7 @@ class OrderSummary extends StatelessWidget {
                           // Handle reorder button press
                         },
                         child: Text(
-                          'Reorder',
+                          AppLocalizations.of(context)!.reorder,
                           style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryBlackColor,
                             fontSize: 16,
@@ -236,7 +236,7 @@ class OrderSummary extends StatelessWidget {
                           Get.to(() => const AddReviewScreen());
                         },
                         child: Text(
-                          'Leave Feedback',
+                          AppLocalizations.of(context)!.leaveFeedback,
                           style: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryWhiteColor,
                             fontSize: 16,

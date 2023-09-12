@@ -334,7 +334,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Get.to(() =>  AllProduct(title: AppLocalizations.of(context)!.bestSellers.toUpperCase()));
               },
               child: Text(
-                AppLocalizations.of(context)!.best_sellers.toUpperCase(),
+                AppLocalizations.of(context)!.bestSellers.toUpperCase(),
                 style: GoogleFonts.tenorSans(
                   color: AppColor.primaryBlackColor,
                   fontSize: 18,
@@ -415,7 +415,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 5,
               ),
               Text(
-                '${product.price.toInt()} QAR',
+
+                isArabic? '${product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
+                    :'${AppLocalizations.of(context)!.qr} ${product.price.toInt()}',
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,

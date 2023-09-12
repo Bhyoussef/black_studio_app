@@ -12,7 +12,6 @@
   "email": "Email",
   "createaccount": "Create Account ?",
   "textFogetPassword": "Enter your registered email below to receive password reset instructions",
-  "settings": "Settings",
   "myprofile": "My Profile",
   "changepassword": "Change Password",
   "signinwithfacebook": "sign in with facebook",
@@ -321,12 +320,8 @@
 
 
 
-  "language": "en",
-  "checkout": "Checkout",
   "shippingAddress": "SHIPPING ADDRESS",
   "paymentMethod": "PAYMENT METHOD",
-  "promoCode": "Promo Code",
-  "apply": "Apply",
   "priceDetails": "PRICE DETAILS",
   "total": "Total",
   "discount": "Discount",
@@ -339,7 +334,62 @@
   "backToHome": "Back to Home",
   "orderPlacedSuccessfully": "Order Placed Successfully",
   "trackOrder": "Track Order",
-  "yourOrderPlacedSuccessfully": "Your Order has been successfully placed! For more details, go to My Orders."
+  "yourOrderPlacedSuccessfully": "Your Order has been successfully placed! For more details, go to My Orders.",
+
+
+  "qr":"QAR",
+
+
+
+
+  "ongoing": "Ongoing",
+  "completed": "Completed",
+  "delivered": "Delivered",
+  "reorder": "Reorder",
+
+
+  "orderSummary": "Order Summary",
+  "orderNumber": "Order #: 1947034",
+  "orderDate": "July 15, 2023",
+  "orderStatus": "Delivered",
+  "deliveryMethod": "Delivery Method",
+  "leaveFeedback": "Leave Feedback",
+
+
+  "title": "Write Review",
+  "customer_rating": "Customer Rating",
+  "runs_small": "Runs Small",
+  "runs_large": "Runs Large",
+  "comfort": "Comfort",
+  "uncomfortable": "Uncomfortable",
+  "comfortable": "Comfortable",
+  "quality": "Quality",
+  "poor": "Poor",
+  "great": "Great",
+  "upload_images": "Upload Images",
+  "upload_description": "Upload PNG, JPG (max 15MB)",
+  "write_review": "Write a Review",
+  "submit": "Submit",
+
+
+
+  "confirmLogout": "Are you sure you want to logout?",
+  "yes": "Yes",
+  "no": "No",
+
+  "inclusiveOfAllTaxes": "inclusive of all taxes",
+  "fiveRatings": "5 ratings"
+
+
+
+
+
+
+
+
+
+
+
 
 
 

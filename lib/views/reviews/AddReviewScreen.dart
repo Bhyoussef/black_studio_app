@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -78,7 +78,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
           ),
         ),
         title: Text(
-          'Whrite Review',
+          AppLocalizations.of(context)!.title,
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontSize: 18,
@@ -152,7 +152,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              Text("Customer Rating",
+              Text( AppLocalizations.of(context)!.customer_rating,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -165,7 +165,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                     width: 16,
                   ),
                   const SizedBox(width: 8),
-                  Text("Size:",
+                  Text( AppLocalizations.of(context)!.size,
                       style: GoogleFonts.beVietnamPro(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
@@ -272,12 +272,12 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Runs Small",
+                  Text( AppLocalizations.of(context)!.runs_small,
                       style: GoogleFonts.beVietnamPro(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                       )),
-                  Text("Runs Large",
+                  Text( AppLocalizations.of(context)!.runs_large,
                       style: GoogleFonts.beVietnamPro(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -292,7 +292,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                     width: 16,
                   ),
                   const SizedBox(width: 8),
-                  Text("Comfort:",
+                  Text( AppLocalizations.of(context)!.comfort,
                       style: GoogleFonts.beVietnamPro(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
@@ -399,12 +399,12 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Uncomfortable",
+                  Text( AppLocalizations.of(context)!.uncomfortable,
                       style: GoogleFonts.beVietnamPro(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                       )),
-                  Text("Comfortable",
+                  Text( AppLocalizations.of(context)!.comfortable,
                       style: GoogleFonts.beVietnamPro(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -419,7 +419,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                     width: 16,
                   ),
                   const SizedBox(width: 8),
-                  Text("Quality:",
+                  Text( AppLocalizations.of(context)!.quality,
                       style: GoogleFonts.beVietnamPro(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
@@ -527,13 +527,13 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Poor",
+                    AppLocalizations.of(context)!.poor,
                     style: GoogleFonts.beVietnamPro(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  Text("Great",
+                  Text( AppLocalizations.of(context)!.great,
                       style: GoogleFonts.beVietnamPro(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -574,13 +574,13 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Upload Images",
+                              Text( AppLocalizations.of(context)!.upload_images,
                                   style: GoogleFonts.beVietnamPro(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w400,
                                       color: AppColor.primaryBlackColor)),
                               SizedBox(height: 10),
-                              Text("Upload Png,jpg(max 15mb)",
+                              Text( AppLocalizations.of(context)!.upload_description,
                                   style: GoogleFonts.beVietnamPro(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w400,
@@ -629,15 +629,15 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
               const SizedBox(height: 8),
               TextFormField(
                 maxLines: 2,
-                decoration: const InputDecoration(
-                  labelText: 'Write a review',
+                decoration:  InputDecoration(
+                  labelText:  AppLocalizations.of(context)!.write_review,
                 ),
               ),
               const SizedBox(height: 16),
               CustomButton(
                 textcolor: AppColor.primaryWhiteColor,
                 onPressed: () {},
-                text: 'Submit',
+                text:  AppLocalizations.of(context)!.submit,
                 backcolor: AppColor.primaryBlackColor,
               ),
             ],

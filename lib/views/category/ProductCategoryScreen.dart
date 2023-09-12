@@ -57,13 +57,13 @@ Widget buildGridView(BuildContext context,int tabNumber) {
           onTap: () {
             Get.to(() => ProductDetail(product: product));
           },
-          child: buildProductCard(product,isArabic:isArabic),
+          child: buildProductCard(product,context,isArabic:isArabic),
         ),
       );
     },
   );
 }
-Widget buildProductCard(Product product, { bool? isArabic}) {
+Widget buildProductCard(Product product,BuildContext context, { bool? isArabic}) {
   return Container(
     height: 150,
     width: 180,
@@ -101,7 +101,11 @@ Widget buildProductCard(Product product, { bool? isArabic}) {
                 ),
               ),
               Text(
-                '${product.price.toString()} QAR',
+
+                isArabic ==true ? '${product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
+                    :'${AppLocalizations.of(context)!.qr} ${product.price.toInt()}',
+
+
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,

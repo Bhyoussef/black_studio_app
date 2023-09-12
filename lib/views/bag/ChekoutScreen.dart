@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/utiles/ColumnBuilder.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChekoutScreen extends StatefulWidget {
   final List<CartItem> products;
@@ -29,6 +30,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       appBar: AppBar(
@@ -44,7 +46,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
           ),
         ),
         title: Text(
-          'Chekout',
+          AppLocalizations.of(context)!.checkout,
           style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontSize: 18,
@@ -72,6 +74,8 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                           price: product.product.price,
                           productName: product.product.name,
                           quantity: product.product.quantity.toString(),
+                          productNameAr:product.product.nameAr,
+                            isArabic:isArabic
                         ),
                       ),
                     );
@@ -86,9 +90,9 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 16),
+                      padding: isArabic?EdgeInsets.only(right: 16.0):EdgeInsets.only(left: 16.0),
                       child: Text(
-                        'SHIPPING ADDRESS',
+                        AppLocalizations.of(context)!.shippingAddress.toUpperCase(),
                         style: GoogleFonts.tenorSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -100,7 +104,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 16.0,right: 16.0),
+                padding:  EdgeInsets.only(left: 16.0,right: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -124,9 +128,9 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 16),
+                      padding: isArabic?EdgeInsets.only(right: 16.0):EdgeInsets.only(left: 16.0),
                       child: Text(
-                        'PAYMENT METHOD',
+                        AppLocalizations.of(context)!.paymentMethod.toUpperCase(),
                         style: GoogleFonts.tenorSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -264,11 +268,11 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: isArabic?EdgeInsets.only(right: 8.0): EdgeInsets.only(left: 8.0),
                     child: TextFormField(
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        labelText: 'Promo Code',
+                        labelText: AppLocalizations.of(context)!.promoCode,
                         labelStyle: GoogleFonts.beVietnamPro(
                             color: AppColor.primaryGreyColor,
                             fontWeight: FontWeight.w600,
@@ -278,7 +282,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                             // TODO: Implement the logic for applying the promo code
                           },
                           child: Text(
-                            'Apply',
+                            AppLocalizations.of(context)!.apply,
                             style: GoogleFonts.beVietnamPro(
                                 color: AppColor.primaryBlackColor,
                                 fontWeight: FontWeight.w600,
@@ -299,19 +303,19 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'PRICE DETAILS',
+                        AppLocalizations.of(context)!.priceDetails.toUpperCase(),
                         style: GoogleFonts.tenorSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                       const SizedBox(height: 20),
-                      _buildPriceDetailRow('Total', ' 1000 QAR'),
-                      _buildPriceDetailRow('Discount', '-100 QAR'),
-                      _buildPriceDetailRow('Coupon Discount', '50 QAR'),
-                      _buildPriceDetailRow('Tax', '25 QAR'),
+                      _buildPriceDetailRow(AppLocalizations.of(context)!.total, ' 1000 QAR'),
+                      _buildPriceDetailRow(AppLocalizations.of(context)!.discount, '-100 QAR'),
+                      _buildPriceDetailRow(AppLocalizations.of(context)!.couponDiscountLabel, '50 QAR'),
+                      _buildPriceDetailRow(AppLocalizations.of(context)!.taxLabel, '25 QAR'),
                       const Divider(),
-                      _buildPriceDetailRow('Total Payment', '900 QAR'),
+                      _buildPriceDetailRow(AppLocalizations.of(context)!.totalAmount, '900 QAR'),
                     ],
                   ),
                 ),
@@ -337,7 +341,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                       _showOrderPlacementSuccessBottomSheet(context);
                     },
                     child: Text(
-                      'Place Order',
+                      AppLocalizations.of(context)!.placeOrder,
                       style: GoogleFonts.beVietnamPro(
                         color: AppColor.primaryWhiteColor,
                         fontSize: 15,
@@ -364,6 +368,8 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
     String? quantity,
     bool? showReview,
     String? buttonText,
+    String? productNameAr,
+    bool? isArabic,
   }) {
     return Column(
       children: [
@@ -393,7 +399,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(productName!,
+                  Text(  isArabic == true ?productNameAr!:productName!,
                       style: GoogleFonts.beVietnamPro(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
@@ -564,7 +570,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   ),
                 ),
                 const SizedBox(height: 16.0),
-                Text('Order Placed Successfully',
+                Text(AppLocalizations.of(context)!.orderPlacedSuccessfully,
                     style: GoogleFonts.tenorSans(
                       fontSize: 20,
                       fontWeight: FontWeight.w400,
@@ -577,7 +583,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                   color: AppColor.primaryBlackColor,
                 ),
                 Text(
-                  'Your Order has been successfully placed! For more details, go to My Orders.',
+                  AppLocalizations.of(context)!.yourOrderPlacedSuccessfully,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
@@ -606,7 +612,7 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('Track Order',
+                          child: Text(AppLocalizations.of(context)!.trackOrder,
                               style: GoogleFonts.beVietnamPro(
                                   color: AppColor.primaryBlackColor,
                                   fontSize: 15,
@@ -628,11 +634,13 @@ class _ChekoutScreenState extends State<ChekoutScreen> {
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('Back to Home',
+                          child: Text(
+                              AppLocalizations.of(context)!.backToHome,
                               style: GoogleFonts.beVietnamPro(
                                   color: AppColor.primaryWhiteColor,
                                   fontSize: 15,
-                                  fontWeight: FontWeight.w400)),
+                                  fontWeight: FontWeight.w400
+                              )),
                         ),
                       ),
                     ],

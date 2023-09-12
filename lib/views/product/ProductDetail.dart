@@ -6,8 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/controllers/CartController/CartController.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
-import 'package:linkia_ecommerce/views/bag/BagScreen.dart';
-import 'package:linkia_ecommerce/views/main/MainScreen.dart';
 import 'package:linkia_ecommerce/views/reviews/ReviewsScreen.dart';
 import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
 import 'package:share/share.dart';
@@ -290,7 +288,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                   width: 5,
                                 ),
                                 Text(
-                                  '5 ratings',
+                                  AppLocalizations.of(context)!.fiveRatings,
                                   style: GoogleFonts.beVietnamPro(
                                     color: Colors.grey,
                                     fontSize: 12,
@@ -305,7 +303,8 @@ class _ProductDetailState extends State<ProductDetail> {
                         height: 10,
                       ),
                       Text(
-                        'QAR ${widget.product.price.toInt()}',
+                        isArabic? '${widget.product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
+                        :'${AppLocalizations.of(context)!.qr} ${widget.product.price.toInt()}',
                         style: GoogleFonts.beVietnamPro(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
@@ -315,7 +314,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         height: 5,
                       ),
                       Text(
-                        'inclusive of all taxes',
+                  AppLocalizations.of(context)!.inclusiveOfAllTaxes,
                         style: GoogleFonts.beVietnamPro(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
