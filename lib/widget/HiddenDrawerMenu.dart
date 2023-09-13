@@ -7,71 +7,66 @@ import 'package:linkia_ecommerce/widget/drawer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HiddenDrawer extends StatefulWidget {
-  final int initialIndex;
+  final int? initialIndex;
   final bool? isNotHome;
-  const HiddenDrawer({super.key, required this.initialIndex, this.isNotHome});
+  final int? currentIndex;
+  const HiddenDrawer({super.key, this.initialIndex, this.isNotHome, this.currentIndex});
 
   @override
   State<HiddenDrawer> createState() => _HiddenDrawerState();
 }
 
 class _HiddenDrawerState extends State<HiddenDrawer> {
-
   late double xOffset = 0;
   late double xOffsetOpposite = 0;
   late double yOffset = 0;
   late double scaleFactor = 0;
-  bool isDraging =false;
-  late bool isDrawerOpen ;
+  bool isDraging = false;
+  late bool isDrawerOpen;
 
   final MainController controller = Get.put(MainController());
-
 
   @override
   void initState() {
     super.initState();
     closeDrawer();
     Future.delayed(Duration(milliseconds: 200), () {
-      controller.changePage(widget.initialIndex);
+      controller.changePage(widget.initialIndex!.toInt());
     });
   }
 
-
-  void closeDrawer()=>setState(() {
-
+  void closeDrawer() => setState(() {
     xOffset = 0;
     yOffset = 0;
     xOffsetOpposite = 0;
     scaleFactor = 1;
-    isDrawerOpen=false;
-
+    isDrawerOpen = false;
   });
 
-  void openDrawer()=>setState(() {
-
-      xOffset = 200;
-      xOffsetOpposite = 200;
-      yOffset = 150;
-      scaleFactor = 0.7;
-      isDrawerOpen=true;
-
+  void openDrawer() => setState(() {
+    xOffset = 200;
+    xOffsetOpposite = 200;
+    yOffset = 150;
+    scaleFactor = 0.7;
+    isDrawerOpen = true;
   });
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          builDrawer(),
-          buildPage()
+          buildDrawer(),
+          buildPage(),
         ],
       ),
     );
   }
 
-  Widget builDrawer() {
-    return DrawerWidget();
+  Widget buildDrawer() {
+    return DrawerWidget(
+      closeDrawer: closeDrawer, // Pass the closeDrawer function to DrawerWidget
+    );
   }
 
   Widget buildPage() {
@@ -147,7 +142,5 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
       ),
     );
   }
-
 }
-
 

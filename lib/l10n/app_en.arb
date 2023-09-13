@@ -378,64 +378,23 @@
   "no": "No",
 
   "inclusiveOfAllTaxes": "inclusive of all taxes",
-  "fiveRatings": "5 ratings"
+  "fiveRatings": "5 ratings",
 
 
 
+  "sleeveLengthTextKey": "Sleeve Length",
+  "neckTextKey": "Neck",
+  "typeTextKey": "Type",
+  "printPatternTypeTextKey": "Print or Pattern Type",
+  "sleeveStylingTextKey": "Sleeve Styling",
+  "transparencyTextKey": "Transparency",
+  "liningTextKey": "Lining",
+  "closureTextKey": "Closure",
+  "lengthTextKey": "Length",
+  "fabricTypeTextKey": "Fabric Type",
+  "occasionTextKey": "Occasion",
+  "weaveTypeTextKey": "Weave Type",
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  "items": "1254 Items"
 }

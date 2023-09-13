@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:linkia_ecommerce/views/main/MainScreen.dart';
+import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
-import '../../colors/Colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TailoredScreen extends StatefulWidget {
@@ -198,7 +197,6 @@ class _TailoredScreenState extends State<TailoredScreen> {
                   'Option 1',
                   'Option 2',
                   'Option 3',
-                  // Add more options as needed
                 ],
               ),
               ListTileWithOptions(
@@ -207,7 +205,6 @@ class _TailoredScreenState extends State<TailoredScreen> {
                   'Option 1',
                   'Option 2',
                   'Option 3',
-                  // Add more options as needed
                 ],
               ),
               ListTileWithOptions(
@@ -216,7 +213,6 @@ class _TailoredScreenState extends State<TailoredScreen> {
                   'Option 1',
                   'Option 2',
                   'Option 3',
-                  // Add more options as needed
                 ],
               ),
               ListTileWithOptions(

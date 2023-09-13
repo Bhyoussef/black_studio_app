@@ -13,25 +13,29 @@ import 'HiddenDrawerMenu.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({Key? key}) : super(key: key);
+  final VoidCallback closeDrawer; // Add this line
+
+  const DrawerWidget({
+    Key? key,
+    required this.closeDrawer, // Add this parameter
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return Drawer(
-        shadowColor: Colors.transparent,
+      shadowColor: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             Container(
-              alignment: isArabic?Alignment.topRight:Alignment.topLeft,
+              alignment: isArabic ? Alignment.topRight : Alignment.topLeft,
               padding: const EdgeInsets.only(left: 10, top: 40),
               child: GestureDetector(
                 onTap: () {
-                  Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
+                 closeDrawer();
                 },
                 child: Container(
                   width: 40,
@@ -60,7 +64,7 @@ class DrawerWidget extends StatelessWidget {
               title: AppLocalizations.of(context)!.newArrivals,
               onTap: () {
                 Get.back();
-                Get.to(()=>AllProduct(title: AppLocalizations.of(context)!.newArrivals.toUpperCase(),));
+                Get.to(() => AllProduct(title: AppLocalizations.of(context)!.newArrivals.toUpperCase(),));
               },
             ),
             DrawerListItem(
@@ -68,7 +72,7 @@ class DrawerWidget extends StatelessWidget {
               title: AppLocalizations.of(context)!.bestSellers,
               onTap: () {
                 Get.back();
-                Get.to(()=>AllProduct(title: AppLocalizations.of(context)!.bestSellers.toUpperCase(),));
+                Get.to(() => AllProduct(title: AppLocalizations.of(context)!.bestSellers.toUpperCase(),));
               },
             ),
             DrawerListItem(
@@ -79,7 +83,7 @@ class DrawerWidget extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HiddenDrawer(initialIndex: 3),
+                    builder: (context) => HiddenDrawer(initialIndex: 3, currentIndex: 3,),
                   ),
                 );
               },
@@ -89,7 +93,7 @@ class DrawerWidget extends StatelessWidget {
               title: AppLocalizations.of(context)!.tailored,
               onTap: () {
                 Get.back();
-                Get.to(()=>TailoredScreen(isHome: true));
+                Get.to(() => TailoredScreen(isHome: true));
               },
             ),
             DrawerListItem(
@@ -101,7 +105,7 @@ class DrawerWidget extends StatelessWidget {
               leadingAsset: 'assets/drawer/Heart.svg',
               title: AppLocalizations.of(context)!.favorite,
               onTap: () {
-                Get.to(()=>FavoriteScreen());
+                Get.to(() => FavoriteScreen());
               },
             ),
             DrawerListItem(
@@ -128,7 +132,7 @@ class DrawerWidget extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HiddenDrawer(initialIndex: 4,isNotHome: true,),
+                    builder: (context) => HiddenDrawer(initialIndex: 4, isNotHome: true, currentIndex: 4,),
                   ),
                 );
               },
@@ -142,7 +146,8 @@ class DrawerWidget extends StatelessWidget {
               leadingAsset: 'assets/drawer/Headset.svg',
               title: AppLocalizations.of(context)!.helpAndSupport,
               onTap: () {},
-            ), DrawerListItem(
+            ),
+            DrawerListItem(
               leadingAsset: 'assets/drawer/UserCirclePlus.svg',
               title: AppLocalizations.of(context)!.referAFriend,
               onTap: () {},
@@ -213,9 +218,7 @@ class DrawerWidget extends StatelessWidget {
                   },
                 );
               },
-            )
-
-            // Add more list tiles here
+            ),
           ],
         ),
       ),
@@ -237,7 +240,7 @@ class DrawerListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: SvgPicture.asset(leadingAsset,height: 24,), // Use SvgPicture.asset for SVG images
+      leading: SvgPicture.asset(leadingAsset, height: 24,), // Use SvgPicture.asset for SVG images
       title: Text(
         title,
         style: GoogleFonts.beVietnamPro(
@@ -250,4 +253,3 @@ class DrawerListItem extends StatelessWidget {
     );
   }
 }
-

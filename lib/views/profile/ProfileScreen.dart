@@ -26,7 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
-      drawer:  DrawerWidget(),
+      //drawer:  DrawerWidget(),
       /*appBar: AppBar(
         leading: widget.isHome == true
             ? IconButton(

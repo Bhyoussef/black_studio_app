@@ -361,54 +361,27 @@
   "no": "لا",
 
   "inclusiveOfAllTaxes": "شامل الضرائب",
-  "fiveRatings": "5 تقييمات"
+  "fiveRatings": "5 تقييمات",
 
 
 
 
+  "sleeveLengthTextKey": "طول الأكمام",
+  "neckTextKey": "العنق",
+  "typeTextKey": "النوع",
+  "printPatternTypeTextKey": "نوع الطباعة أو الزخرفة",
+  "sleeveStylingTextKey": "أسلوب الأكمام",
+  "transparencyTextKey": "الشفافية",
+  "liningTextKey": "البطانة",
+  "closureTextKey": "الإغلاق",
+  "lengthTextKey": "الطول",
+  "fabricTypeTextKey": "نوع القماش",
+  "occasionTextKey": "المناسبة",
+  "weaveTypeTextKey": "نوع النسيج",
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  "items": "1245 منتج"
 }
 
 

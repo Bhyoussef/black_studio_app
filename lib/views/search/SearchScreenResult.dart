@@ -92,7 +92,7 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                   onPressed: () {
-                    _showProductDialog(context);
+                    //_showProductDialog(context);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,7 +120,7 @@ class _SearchScreenResultState extends State<SearchScreenResult> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                   onPressed: () {
-                    _showSortByDialog(context);
+                   // _showSortByDialog(context);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

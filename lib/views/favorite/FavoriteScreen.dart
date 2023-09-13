@@ -5,6 +5,7 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/model/ProductModel.dart';
 import 'package:linkia_ecommerce/views/product/ProductDetail.dart';
 import 'package:linkia_ecommerce/widget/HiddenDrawerMenu.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
@@ -15,7 +16,7 @@ class FavoriteScreen extends StatelessWidget {
       backgroundColor: AppColor.primaryWhiteColor,
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: Text('Favorite',style: GoogleFonts.beVietnamPro(
+        title: Text(AppLocalizations.of(context)!.favorite,style: GoogleFonts.beVietnamPro(
             color: AppColor.primaryBlackColor,
             fontWeight: FontWeight.w600,
             fontSize: 18
@@ -40,6 +41,7 @@ class FavoriteScreen extends StatelessWidget {
   }
 }
 Widget buildGridView(BuildContext context,int tabNumber) {
+  final isArabic = AppLocalizations.of(context)!.language == "العربية";
   return GridView.builder(
     shrinkWrap: true,
     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -53,15 +55,16 @@ Widget buildGridView(BuildContext context,int tabNumber) {
         padding: const EdgeInsets.all(5.0),
         child: GestureDetector(
           onTap: () {
-            Get.to(() => ProductDetail(product: product));
+            Get.to(() => ProductDetail(product: product,));
           },
-          child: buildProductCard(product),
+          child: buildProductCard(product,context,isArabic:isArabic),
         ),
       );
     },
   );
 }
-Widget buildProductCard(Product product) {
+Widget buildProductCard(Product product, BuildContext context,{ bool? isArabic} ) {
+
   return Container(
     height: 150,
     width: 180,
@@ -82,7 +85,7 @@ Widget buildProductCard(Product product) {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                product.name,
+                isArabic ==true ?product.nameAr:product.name,
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
@@ -91,7 +94,7 @@ Widget buildProductCard(Product product) {
                 overflow: TextOverflow.ellipsis,
               ),
               Text(
-                product.category,
+                isArabic ==true ?product.categoryAr:product.category,
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 14,
                   color: AppColor.primaryGreyColor,
@@ -99,7 +102,9 @@ Widget buildProductCard(Product product) {
                 ),
               ),
               Text(
-                '${product.price.toString()} QAR',
+
+                isArabic ==true ? '${product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
+                    :'${AppLocalizations.of(context)!.qr} ${product.price.toInt()}',
                 style: GoogleFonts.beVietnamPro(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,

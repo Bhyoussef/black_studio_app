@@ -102,7 +102,7 @@ Widget buildProductCard(Product product,BuildContext context, { bool? isArabic})
               ),
               Text(
 
-                isArabic ==true ? '${product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
+                isArabic ==true? '${product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
                     :'${AppLocalizations.of(context)!.qr} ${product.price.toInt()}',
 
 

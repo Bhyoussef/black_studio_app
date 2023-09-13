@@ -12,6 +12,7 @@ class OrderSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       appBar: AppBar(
@@ -29,7 +30,8 @@ class OrderSummary extends StatelessWidget {
           onTap: () {
             Get.back();
           },
-          child: const Icon(Icons.arrow_back, color: AppColor.primaryBlackColor),
+          child:
+              const Icon(Icons.arrow_back, color: AppColor.primaryBlackColor),
         ),
       ),
       body: SafeArea(
@@ -42,27 +44,32 @@ class OrderSummary extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                       Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             AppLocalizations.of(context)!.orderNumber,
                             style: GoogleFonts.beVietnamPro(
                                 fontWeight: FontWeight.w600,
-                            color: AppColor.primaryBlackColor,
-                            fontSize: 16),
+                                color: AppColor.primaryBlackColor,
+                                fontSize: 16),
                           ),
-                          Text(AppLocalizations.of(context)!.orderDate, style: GoogleFonts.beVietnamPro(
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor,
-                              fontSize: 14),),
+                          Text(
+                            AppLocalizations.of(context)!.orderDate,
+                            style: GoogleFonts.beVietnamPro(
+                                fontWeight: FontWeight.w400,
+                                color: AppColor.primaryGreyColor,
+                                fontSize: 14),
+                          ),
                         ],
                       ),
-                      const SizedBox(height: 25,),
+                      const SizedBox(
+                        height: 25,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                           Text(
+                          Text(
                             "IW3475453455",
                             style: GoogleFonts.beVietnamPro(
                                 fontWeight: FontWeight.w600,
@@ -92,22 +99,23 @@ class OrderSummary extends StatelessWidget {
                   return Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: GestureDetector(
-                        onTap: (){
-                          Get.to(()=>const OrderSummary());
+                        onTap: () {
+                          Get.to(() => const OrderSummary());
                         },
                         child: _buildOrderCard(
-                          image:  NetworkImage(product.imageAssets[0]),
-                          status: 'Delivered',
-                          date: 'July 12, 2023',
-                          time: '9:45 AM',
-                          price: product.price,
-                          productName: product.name,
-                          quantity: product.quantity.toString(),
-                          showReview: true,
-                          buttonText: 'Reorder',
-                        ),
-                      )
-                  );
+                            image: NetworkImage(product.imageAssets[0]),
+                            status: 'Delivered',
+                            date: 'July 12, 2023',
+                            time: '9:45 AM',
+                            price: product.price,
+                            productName: product.name,
+                            productNameAr: product.nameAr,
+                            quantity: product.quantity.toString(),
+                            showReview: true,
+                            buttonText: 'Reorder',
+                            isArabic: isArabic,
+                            context),
+                      ));
                 },
               ),
               const Padding(
@@ -133,69 +141,74 @@ class OrderSummary extends StatelessWidget {
                 ),
               ),
               ListTile(
-                title: Text(AppLocalizations.of(context)!.shippingAddress,  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                )),
-                trailing: Text('1234 Main St, City, Country',  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryBlackColor,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 13,
-                )),
-              ),
-              ListTile(
-                title: Text(AppLocalizations.of(context)!.paymentMethod,  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                )),
-                trailing: Text('Credit Card',  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryBlackColor,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 13,
-                )),
-              ),
-              ListTile(
-                title: Text(AppLocalizations.of(context)!.deliveryMethod,  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                )),
-                trailing: Text('Standard Delivery',  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryBlackColor,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 13,
-                )),
-              ),
-              ListTile(
-                title: Text(AppLocalizations.of(context)!.discount,  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                )),
-                trailing: Text('QAR 10.00',  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryBlackColor,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 13,
-                )),
-              ),
-              ListTile(
-                title: Text(
-                    AppLocalizations.of(context)!.totalPayment,  style: GoogleFonts.beVietnamPro(
-                  color: AppColor.primaryGreyColor,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                )
-                ),
-                trailing: Text(
-                  'QAR 40.00',
+                title: Text(AppLocalizations.of(context)!.shippingAddress,
+                    style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryGreyColor,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                    )),
+                trailing: Text('1234 Main St, City, Country',
                     style: GoogleFonts.beVietnamPro(
                       color: AppColor.primaryBlackColor,
                       fontWeight: FontWeight.w500,
                       fontSize: 13,
-                    )
-                ),
+                    )),
+              ),
+              ListTile(
+                title: Text(AppLocalizations.of(context)!.paymentMethod,
+                    style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryGreyColor,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                    )),
+                trailing: Text('Credit Card',
+                    style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryBlackColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 13,
+                    )),
+              ),
+              ListTile(
+                title: Text(AppLocalizations.of(context)!.deliveryMethod,
+                    style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryGreyColor,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                    )),
+                trailing: Text('Standard Delivery',
+                    style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryBlackColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 13,
+                    )),
+              ),
+              ListTile(
+                title: Text(AppLocalizations.of(context)!.discount,
+                    style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryGreyColor,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                    )),
+                trailing: Text('QAR 10.00',
+                    style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryBlackColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 13,
+                    )),
+              ),
+              ListTile(
+                title: Text(AppLocalizations.of(context)!.totalPayment,
+                    style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryGreyColor,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                    )),
+                trailing: Text('QAR 40.00',
+                    style: GoogleFonts.beVietnamPro(
+                      color: AppColor.primaryBlackColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 13,
+                    )),
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -208,7 +221,8 @@ class OrderSummary extends StatelessWidget {
                         minWidth: 180,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
-                          side: BorderSide(color: AppColor.primaryBlackColor, width: 1),
+                          side: BorderSide(
+                              color: AppColor.primaryBlackColor, width: 1),
                         ),
                         onPressed: () {
                           // Handle reorder button press
@@ -223,7 +237,9 @@ class OrderSummary extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: 5,),
+                    SizedBox(
+                      width: 5,
+                    ),
                     Expanded(
                       child: MaterialButton(
                         height: 50,
@@ -248,9 +264,6 @@ class OrderSummary extends StatelessWidget {
                   ],
                 ),
               ),
-
-
-
             ],
           ),
         ),
@@ -258,7 +271,8 @@ class OrderSummary extends StatelessWidget {
     );
   }
 
-  Widget _buildOrderCard({
+  Widget _buildOrderCard(
+    BuildContext context, {
     NetworkImage? image,
     String? status,
     String? date,
@@ -268,6 +282,8 @@ class OrderSummary extends StatelessWidget {
     String? quantity,
     bool? showReview,
     String? buttonText,
+    String? productNameAr,
+    bool? isArabic,
   }) {
     return Column(
       children: [
@@ -287,38 +303,51 @@ class OrderSummary extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('${price?.toInt()} QAR',  style:  GoogleFonts.beVietnamPro
-                    (fontWeight: FontWeight.w700,
-                      color: AppColor.primaryBlackColor,
-                      fontSize: 14),),
+                  Text(
+                    isArabic == true
+                        ? '${price?.toInt()} ${AppLocalizations.of(context)!.qr}'
+                        : '${AppLocalizations.of(context)!.qr} ${price?.toInt()}',
+                    style: GoogleFonts.beVietnamPro(
+                        fontWeight: FontWeight.w700,
+                        color: AppColor.primaryBlackColor,
+                        fontSize: 14),
+                  ),
                   const SizedBox(height: 8),
-                  Text(productName!,
-                    style:  GoogleFonts.beVietnamPro
-                      (fontWeight: FontWeight.w400,
+                  Text(
+                    isArabic == true ? productNameAr! : productName!,
+                    style: GoogleFonts.beVietnamPro(
+                        fontWeight: FontWeight.w400,
                         color: AppColor.primaryGreyColor,
                         fontSize: 14),
                     overflow: TextOverflow.ellipsis,
-                    maxLines: 1,),
+                    maxLines: 1,
+                  ),
                   const SizedBox(height: 20),
                   Row(
                     children: [
-                      Text('Qty:',   style:  GoogleFonts.beVietnamPro
-                        (fontWeight: FontWeight.w400,
-                          color: AppColor.primaryGreyColor,
-                          fontSize: 14)) ,Text(quantity!,   style:  GoogleFonts.beVietnamPro
-                        (fontWeight: FontWeight.w600,
-                          color: AppColor.primaryBlackColor,
-                          fontSize: 14)),
+                      Text(AppLocalizations.of(context)!.quantity,
+                          style: GoogleFonts.beVietnamPro(
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.primaryGreyColor,
+                              fontSize: 14)),
+                      Text(quantity!,
+                          style: GoogleFonts.beVietnamPro(
+                              fontWeight: FontWeight.w600,
+                              color: AppColor.primaryBlackColor,
+                              fontSize: 14)),
                       const SizedBox(width: 40),
                       Row(
                         children: [
-                          Text('Color:',   style:  GoogleFonts.beVietnamPro
-                            (fontWeight: FontWeight.w400,
-                              color: AppColor.primaryGreyColor,
-                              fontSize: 14)),Text('Yellow',   style:  GoogleFonts.beVietnamPro
-                            (fontWeight: FontWeight.w600,
-                              color: AppColor.primaryBlackColor,
-                              fontSize: 14)),
+                          Text(AppLocalizations.of(context)!.color,
+                              style: GoogleFonts.beVietnamPro(
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.primaryGreyColor,
+                                  fontSize: 14)),
+                          Text('Yellow',
+                              style: GoogleFonts.beVietnamPro(
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColor.primaryBlackColor,
+                                  fontSize: 14)),
                         ],
                       ),
                     ],
@@ -326,13 +355,16 @@ class OrderSummary extends StatelessWidget {
                   const SizedBox(height: 8),
                   Row(
                     children: [
-                      Text('Size:',   style:  GoogleFonts.beVietnamPro
-                        (fontWeight: FontWeight.w400,
-                          color: AppColor.primaryGreyColor,
-                          fontSize: 14))  , Text('L',   style:  GoogleFonts.beVietnamPro
-                        (fontWeight: FontWeight.w600,
-                          color: AppColor.primaryBlackColor,
-                          fontSize: 14)),
+                      Text(AppLocalizations.of(context)!.size,
+                          style: GoogleFonts.beVietnamPro(
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.primaryGreyColor,
+                              fontSize: 14)),
+                      Text('L',
+                          style: GoogleFonts.beVietnamPro(
+                              fontWeight: FontWeight.w600,
+                              color: AppColor.primaryBlackColor,
+                              fontSize: 14)),
                     ],
                   ),
                 ],

@@ -9,11 +9,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AllProduct extends StatelessWidget {
   final String? title;
-  const AllProduct({super.key,  this.title});
+  const AllProduct({super.key, this.title});
 
   @override
   Widget build(BuildContext context) {
-
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -21,16 +20,24 @@ class AllProduct extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: AppColor.primaryWhiteColor,
-          title: Text(title!,style:  GoogleFonts.beVietnamPro(
-            color: AppColor.primaryBlackColor,
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-          ),),
+          title: Text(
+            title!,
+            style: GoogleFonts.beVietnamPro(
+              color: AppColor.primaryBlackColor,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
           leading: IconButton(
             onPressed: () {
-              Get.offAll(()=>HiddenDrawer(initialIndex: 0,));
+              Get.offAll(() => HiddenDrawer(
+                    initialIndex: 0,
+                  ));
             },
-            icon: const Icon(Icons.arrow_back,color: AppColor.primaryBlackColor,),
+            icon: const Icon(
+              Icons.arrow_back,
+              color: AppColor.primaryBlackColor,
+            ),
           ),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(48), // Height of the TabBar
@@ -38,11 +45,13 @@ class AllProduct extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                    color: AppColor.secondaryGreyColor, // Customize the border color
+                    color: AppColor
+                        .secondaryGreyColor, // Customize the border color
                     width: 1.0, // Customize the border width
                   ),
                   top: BorderSide(
-                    color: AppColor.secondaryGreyColor, // Customize the border color
+                    color: AppColor
+                        .secondaryGreyColor, // Customize the border color
                     width: 1.0, // Customize the border width
                   ),
                 ),
@@ -67,9 +76,6 @@ class AllProduct extends StatelessWidget {
               ),
             ),
           ),
-
-
-
         ),
         body: SafeArea(
           child: Padding(
@@ -78,27 +84,30 @@ class AllProduct extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(10.0, 0, 0.0, 0),
+                  padding: const EdgeInsets.fromLTRB(0.0, 0, 0.0, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('1254 Items',  style: GoogleFonts.beVietnamPro(
-                        color: AppColor.primaryBlackColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                      ),),
+                      Text(
+                        AppLocalizations.of(context)!.items,
+                        style: GoogleFonts.beVietnamPro(
+                          color: AppColor.primaryBlackColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
                       MaterialButton(
                         height: 40,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),
                         onPressed: () {
-                          _showSortByDialog(context);
+                         // _showSortByDialog(context);
                         },
                         child: Row(
                           children: [
                             Text(
-                              'Sort by',
+                              AppLocalizations.of(context)!.sortByTitle,
                               style: GoogleFonts.beVietnamPro(
                                 color: AppColor.primaryBlackColor,
                                 fontSize: 12,
@@ -122,12 +131,10 @@ class AllProduct extends StatelessWidget {
                 Expanded(
                     child: TabBarView(
                   children: [
-                    buildGridView(context,1),
-                    buildGridView(context,2)
+                    buildGridView(context, 1),
+                    buildGridView(context, 2)
                   ],
-
                 )),
-
               ],
             ),
           ),
@@ -135,7 +142,8 @@ class AllProduct extends StatelessWidget {
       ),
     );
   }
-  Widget buildGridView(BuildContext context,int tabNumber) {
+
+  Widget buildGridView(BuildContext context, int tabNumber) {
     final isArabic = AppLocalizations.of(context)!.language == "العربية";
     return GridView.builder(
       shrinkWrap: true,
@@ -152,15 +160,15 @@ class AllProduct extends StatelessWidget {
             onTap: () {
               Get.to(() => ProductDetail(product: product));
             },
-            child: buildProductCard(product,context,isArabic:isArabic),
+            child: buildProductCard(product, context, isArabic: isArabic),
           ),
         );
       },
     );
   }
 
-  Widget buildProductCard(Product product, BuildContext context,{ bool? isArabic}  ) {
-
+  Widget buildProductCard(Product product, BuildContext context,
+      {bool? isArabic}) {
     final isArabic = AppLocalizations.of(context)!.language == "العربية";
 
     return Container(
@@ -183,16 +191,15 @@ class AllProduct extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                 isArabic ==true ?product.nameAr: product.name,
+                  isArabic == true ? product.nameAr : product.name,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
-
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  isArabic ==true ?product.categoryAr:product.category,
+                  isArabic == true ? product.categoryAr : product.category,
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 14,
                     color: AppColor.primaryGreyColor,
@@ -200,11 +207,10 @@ class AllProduct extends StatelessWidget {
                   ),
                 ),
                 Text(
-
-                  isArabic  ? '${product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
-                      :'${AppLocalizations.of(context)!.qr} ${product.price.toInt()}'
-
-                  '${product.price.toString()} QAR',
+                  isArabic
+                      ? '${product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
+                      : '${AppLocalizations.of(context)!.qr} ${product.price.toInt()}'
+                          '${product.price.toString()} QAR',
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
@@ -218,43 +224,53 @@ class AllProduct extends StatelessWidget {
       ),
     );
   }
+
   void _showSortByDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            'Sort By',
+            AppLocalizations.of(context)!.sortByTitle,
             style: GoogleFonts.beVietnamPro(
               fontWeight: FontWeight.bold,
             ),
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
+
             children: [
               ListTile(
-                title: const Text('Price: High to Low'),
+                title: Text(
+                  AppLocalizations.of(context)!.priceHighToLow,
+                ),
                 onTap: () {
                   // Handle sort by price: high to low
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: const Text('Price: Low to High'),
+                title: Text(
+                  AppLocalizations.of(context)!.priceLowToHigh,
+                ),
                 onTap: () {
                   // Handle sort by price: low to high
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: const Text('New Arrival'),
+                title: Text(
+                  AppLocalizations.of(context)!.newArrival,
+                ),
                 onTap: () {
                   // Handle sort by new arrival
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: const Text('Best Seller'),
+                title: Text(
+                  AppLocalizations.of(context)!.bestSeller,
+                ),
                 onTap: () {
                   // Handle sort by best seller
                   Navigator.pop(context);

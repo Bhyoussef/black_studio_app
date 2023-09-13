@@ -467,7 +467,9 @@ class _ProductDetailState extends State<ProductDetail> {
                               ),
                             ),
                             Text(
-                              '\QAR ${price.toInt()}',
+                              isArabic == true
+                                  ? '${price?.toInt()} ${AppLocalizations.of(context)!.qr}'
+                                  : '${AppLocalizations.of(context)!.qr} ${price?.toInt()}',
                               style: GoogleFonts.beVietnamPro(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 12,

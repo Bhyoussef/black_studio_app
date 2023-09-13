@@ -148,6 +148,7 @@ class MyOrdersScreen extends StatelessWidget {
                                 Get.to(() => const OrderSummary());
                               },
                               child: _buildOrderCard(
+                                context,
                                 isArabic:isArabic,
                                 image: NetworkImage(product.imageAssets[0]),
                                 status: AppLocalizations.of(context)!.ongoing, // Updated label with translation
@@ -291,6 +292,7 @@ class MyOrdersScreen extends StatelessWidget {
                                   Get.to(() => const OrderSummary());
                                 },
                                 child: _buildOrderCard(
+                                  context,
                                   isArabic:isArabic,
                                   image: NetworkImage(product.imageAssets[0]),
                                   status: AppLocalizations.of(context)!.delivered, // Updated label with translation
@@ -373,7 +375,7 @@ class MyOrdersScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildOrderCard({
+  Widget _buildOrderCard(BuildContext context,{
     NetworkImage? image,
     String? status,
     String? date,
@@ -405,7 +407,8 @@ class MyOrdersScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Price: ${price?.toInt()} QAR',
+                    isArabic == true? '${price!.toInt()} ${AppLocalizations.of(context)!.qr}'
+                        :'${AppLocalizations.of(context)!.qr} ${price!.toInt()}',
                     style: GoogleFonts.beVietnamPro(
                         fontWeight: FontWeight.w700,
                         color: AppColor.primaryBlackColor,
@@ -422,7 +425,7 @@ class MyOrdersScreen extends StatelessWidget {
                     maxLines: 1,
                   ),
                   const SizedBox(height: 8),
-                  Text('Qty: $quantity',
+                  Text('${AppLocalizations.of(context)!.quantity} $quantity',
                       style: GoogleFonts.beVietnamPro(
                           fontWeight: FontWeight.w400,
                           color: AppColor.primaryGreyColor,

@@ -24,7 +24,8 @@ class MainScreen extends StatefulWidget {
   final VoidCallback openDrawer;
   final int initialIndex;
   final bool? isNotHome;
-  const MainScreen({super.key, required this.initialIndex, required this.openDrawer, this.isNotHome});
+  final int? currentIndex;
+  const MainScreen({super.key, required this.initialIndex, required this.openDrawer, this.isNotHome, this.currentIndex});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
