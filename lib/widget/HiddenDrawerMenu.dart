@@ -112,10 +112,12 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
           child: AbsorbPointer(
             absorbing: isDrawerOpen,
             child: ClipRRect(
+
               borderRadius: BorderRadius.circular(isDrawerOpen ? 20 : 0),
               child: Container(
                 decoration: BoxDecoration(
-                  color: isDrawerOpen ? AppColor.primaryWhiteColor : AppColor.primaryWhiteColor,
+                  color: isDrawerOpen ? AppColor.primaryWhiteColor :
+                  AppColor.primaryWhiteColor,
                   boxShadow: isDrawerOpen
                       ? [
                     BoxShadow(
