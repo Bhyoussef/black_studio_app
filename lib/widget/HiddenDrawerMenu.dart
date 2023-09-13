@@ -113,21 +113,20 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
             absorbing: isDrawerOpen,
             child: ClipRRect(
 
-              borderRadius: BorderRadius.circular(isDrawerOpen ? 20 : 0),
+              borderRadius: BorderRadius.circular(isDrawerOpen ? 30 : 0),
               child: Container(
                 decoration: BoxDecoration(
                   color: isDrawerOpen ? AppColor.primaryWhiteColor :
                   AppColor.primaryWhiteColor,
-                  boxShadow: isDrawerOpen
-                      ? [
+                  boxShadow:
+                       [
                     BoxShadow(
                       color: Color(0xff00001A),
                       offset: Offset(0, 50),
                       blurRadius: 99,
                     ),
-                  ]
-                      : [], // Empty boxShadow when the drawer is closed
-                  borderRadius: BorderRadius.circular(isDrawerOpen ? 50 : 0),
+                  ] ,// Empty boxShadow when the drawer is closed
+                  borderRadius: BorderRadius.circular(isDrawerOpen ? 30 : 0),
                 ),
                 child: Directionality(
                   textDirection: isArabic ? TextDirection.rtl : TextDirection.ltr,
