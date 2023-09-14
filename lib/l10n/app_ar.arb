@@ -381,7 +381,15 @@
 
 
 
-  "items": "1245 منتج"
+  "items": "1245 منتج",
+
+
+  "selectLanguage": "اختر اللغة",
+  "selectYourLanguage": "اختر لغتك",
+  "arabic": "العربية",
+  "english": "الإنجليزية"
+
+
 }
 
 

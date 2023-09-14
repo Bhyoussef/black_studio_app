@@ -396,5 +396,14 @@
   "weaveTypeTextKey": "Weave Type",
 
 
-  "items": "1254 Items"
+  "items": "1254 Items",
+
+
+
+  "selectLanguage": "Select Language",
+  "selectYourLanguage": "Select your language",
+  "arabic": "العربية",
+  "english": "English"
+
+
 }
