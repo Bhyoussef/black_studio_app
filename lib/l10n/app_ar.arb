@@ -387,7 +387,18 @@
   "selectLanguage": "اختر اللغة",
   "selectYourLanguage": "اختر لغتك",
   "arabic": "العربية",
-  "english": "الإنجليزية"
+  "english": "الإنجليزية",
+
+
+  "switchLanguage": "اللغة",
+
+
+
+  "oRDERINFORMATION": "معلومات الطلب"
+
+
+
+
 
 
 }

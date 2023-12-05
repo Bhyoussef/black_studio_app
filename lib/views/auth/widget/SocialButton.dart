@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,14 +8,14 @@ class SocialButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final Color backcolor;
-  final String svgAssetPath; // Change this to a String for the SVG asset path
+  final String svgAssetPath;
 
   const SocialButton({
     required this.icon,
     required this.text,
     required this.onPressed,
     required this.backcolor,
-    required this.svgAssetPath, // Update the parameter type
+    required this.svgAssetPath,
   });
 
   @override
@@ -32,7 +31,7 @@ class SocialButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(svgAssetPath), // Use svgAssetPath here
+            SvgPicture.asset(svgAssetPath),
             const SizedBox(width: 8),
             Text(
               text,

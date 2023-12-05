@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:linkia_ecommerce/colors/Colors.dart';
-import 'package:linkia_ecommerce/views/auth/LoginScreen.dart';
+import 'package:linkia_ecommerce/views/language/LanguageScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 5), () {
-      Get.off(() => const LoginScreen());
+      Get.off(() => const LanguageSelectionScreen());
     });
   }
 

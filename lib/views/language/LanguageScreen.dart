@@ -5,8 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/utiles/SharedPreferences.dart';
 import 'package:linkia_ecommerce/views/auth/LoginScreen.dart';
-import 'package:linkia_ecommerce/widget/CustomButton.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LanguageSelectionScreen extends StatelessWidget {
   const LanguageSelectionScreen({Key? key}) : super(key: key);
@@ -14,6 +12,7 @@ class LanguageSelectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.primaryWhiteColor,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -26,14 +25,14 @@ class LanguageSelectionScreen extends StatelessWidget {
               Text(
                 'Choose your preferred language',
                 style: GoogleFonts.tenorSans(
-                    fontSize: 18, fontWeight: FontWeight.w400),
+                    fontSize: 18, fontWeight: FontWeight.w400,color: AppColor.primaryBlackColor),
               ),
 
               const SizedBox(height: 20),
               Text(
                'اختر لغتك المفضلة',
                 style: GoogleFonts.tenorSans(
-                    fontSize: 18, fontWeight: FontWeight.w400),
+                    fontSize: 18, fontWeight: FontWeight.w400,color: AppColor.primaryBlackColor),
               ),
               const SizedBox(height: 20),
               SvgPicture.asset(

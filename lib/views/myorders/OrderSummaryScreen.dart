@@ -130,7 +130,7 @@ class OrderSummary extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      'ORDER INFORMATION',
+                      AppLocalizations.of(context)!.oRDERINFORMATION.toUpperCase(),
                       style: GoogleFonts.tenorSans(
                         color: AppColor.primaryBlackColor,
                         fontWeight: FontWeight.w400,

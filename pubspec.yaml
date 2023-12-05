@@ -66,7 +66,17 @@ flutter:
     - assets/menu/
     - assets/icons/
     - assets/category/
+    - assets/fonts/
 
+fonts:
+  - family: Avenir
+    fonts:
+      - asset: assets/fonts/Avenir-Light.ttf
+        weight: 100
+      - asset: assets/fonts/Avenir-Regular.ttf
+        weight: 400
+      - asset: assets/fonts/Avenir-Heavy.ttf
+        weight: 700
 
   # example:
   # fonts:

@@ -403,7 +403,15 @@
   "selectLanguage": "Select Language",
   "selectYourLanguage": "Select your language",
   "arabic": "العربية",
-  "english": "English"
+  "english": "English",
+
+  "switchLanguage": "Language",
+
+
+  "oRDERINFORMATION": "ORDER INFORMATION"
+
+
+
 
 
 }

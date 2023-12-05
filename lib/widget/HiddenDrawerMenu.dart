@@ -30,7 +30,7 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
   void initState() {
     super.initState();
     closeDrawer();
-    Future.delayed(Duration(milliseconds: 200), () {
+    Future.delayed(Duration(milliseconds: 100), () {
       controller.changePage(widget.initialIndex!.toInt());
     });
   }
@@ -44,8 +44,8 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
   });
 
   void openDrawer() => setState(() {
-    xOffset = 200;
-    xOffsetOpposite = 200;
+    xOffset = 250;
+    xOffsetOpposite = 150;
     yOffset = 150;
     scaleFactor = 0.7;
     isDrawerOpen = true;
@@ -134,6 +134,7 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
                     initialIndex: 0,
                     openDrawer: openDrawer,
                     isNotHome: widget.isNotHome,
+                    onTitleChanged: (String value) {  },
                   ),
                 ),
               ),

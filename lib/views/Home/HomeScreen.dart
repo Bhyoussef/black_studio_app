@@ -415,7 +415,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 5,
               ),
               Text(
-
                 isArabic? '${product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
                     :'${AppLocalizations.of(context)!.qr} ${product.price.toInt()}',
                 style: GoogleFonts.beVietnamPro(

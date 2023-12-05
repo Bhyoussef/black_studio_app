@@ -209,8 +209,7 @@ class AllProduct extends StatelessWidget {
                 Text(
                   isArabic
                       ? '${product.price.toInt()} ${AppLocalizations.of(context)!.qr}'
-                      : '${AppLocalizations.of(context)!.qr} ${product.price.toInt()}'
-                          '${product.price.toString()} QAR',
+                      : '${AppLocalizations.of(context)!.qr} ${product.price.toInt()}',
                   style: GoogleFonts.beVietnamPro(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,

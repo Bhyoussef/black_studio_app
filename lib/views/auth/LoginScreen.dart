@@ -89,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 20,),
                 Text(
                   AppLocalizations.of(context)!.haveacoount,
-                  style: GoogleFonts.tenorSans(
+                  style: GoogleFonts.inter(
                     fontSize: 20,
                     fontWeight: FontWeight.w400,
                   ),

@@ -2,9 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:linkia_ecommerce/utiles/SharedPreferences.dart';
-import 'package:linkia_ecommerce/views/language/LanguageScreen.dart';
+import 'package:linkia_ecommerce/views/splash/SpalshScreen.dart';
 import 'WidgetBuinding.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,14 +24,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final ThemeData englishTheme = ThemeData(fontFamily: '');
+    final ThemeData arabicTheme = ThemeData(fontFamily: 'Avenir');
+
+
+    final theme = language == 'ar' ? arabicTheme : englishTheme;
     return GetMaterialApp(
       title: 'Black Studio',
+      theme: theme,
       debugShowCheckedModeBanner: false,
       initialBinding: ControllersBinding(),
       locale: language != null ? Locale(language!) : const Locale('en'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const LanguageSelectionScreen(),
+      home: const SplashScreen(),
     );
   }
 }

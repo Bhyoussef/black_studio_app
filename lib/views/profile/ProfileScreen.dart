@@ -6,8 +6,8 @@ import 'package:linkia_ecommerce/colors/Colors.dart';
 import 'package:linkia_ecommerce/views/auth/ChangePasswordScreen.dart';
 import 'package:linkia_ecommerce/views/myaddresses/AddressesScreen.dart';
 import 'package:linkia_ecommerce/views/notification/NotificationSettingScreen.dart';
-import 'package:linkia_ecommerce/widget/drawer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'LanguageScreen.dart';
 import 'ProfileEditScreen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -20,43 +20,12 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
+  bool isArabicLanguage = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.primaryWhiteColor,
       key: _scaffoldKey,
-      //drawer:  DrawerWidget(),
-      /*appBar: AppBar(
-        leading: widget.isHome == true
-            ? IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            Get.back();
-          },
-        )
-            : IconButton(
-          icon:  SvgPicture.asset(
-            'assets/menu/List.svg',
-            color: AppColor.primaryBlackColor,
-          ),
-          onPressed: () {
-            _scaffoldKey.currentState?.openDrawer();
-          },
-        ),
-        elevation: 0,
-        backgroundColor: AppColor.primaryWhiteColor,
-        title: Text(
-          'Profile',
-          style: GoogleFonts.beVietnamPro(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: AppColor.primaryBlackColor),
-        ),
-      ),*/
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -142,6 +111,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Get.to(() => AdressesScreen());
               },
             ),
+            ListTile(
+              leading: Icon(Icons.language_rounded,
+                 size: 25,color: Colors.black45,),
+              title: Text(
+                AppLocalizations.of(context)!.switchLanguage,
+                style: GoogleFonts.beVietnamPro(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.primaryBlackColor),
+              ),
+              trailing: const Icon(
+                Icons.arrow_forward_ios,
+                size: 20,
+              ),
+              onTap: () {
+                Get.to(() => LanguageScreen());
+              },
+            ),
             const SizedBox(height: 32),
             Text( AppLocalizations.of(context)!.preferencesTitle.toUpperCase(),
                 style: GoogleFonts.tenorSans(
@@ -187,9 +174,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 // TODO: Implement the logic for clearing saved data
               },
             ),
+
+          /*  ListTile(
+              title: Text(
+                AppLocalizations.of(context)!.switchLanguage,
+                style: GoogleFonts.beVietnamPro(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
+                  color: AppColor.primaryBlackColor,
+                ),
+              ),
+              trailing: Switch(
+                value: isArabicLanguage,
+                onChanged: (value) {
+                  setState(() {
+                    isArabicLanguage = value;
+                    // Add logic to change the language here
+                    final newLanguage = isArabicLanguage ? 'ar' : 'en';
+                    // Save newLanguage to SharedPreferences or wherever you store the language preference.
+                    // Then, update the app's language and restart the app.
+                  });
+                },
+              ),
+            ),*/
           ],
         ),
       ),
     );
   }
 }
+
+
+
